@@ -1,10 +1,12 @@
 import {createWrapper} from "next-redux-wrapper";
 import { configureStore} from "@reduxjs/toolkit";
 
+import productListReducer from '@/store/productList/slice'
+
 export const makeStore = () =>
     configureStore({
         reducer: {
-
+            productList: productListReducer
         },
     });
 

@@ -5,7 +5,7 @@ import {EPagesRoutes} from "@/constants/router";
 const {Meta} = Card
 
 interface IProps {
-    productId: string;
+    productId: number;
 }
 
 const ProductCard = ({productId}:IProps)=>{

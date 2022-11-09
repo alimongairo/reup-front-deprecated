@@ -1,13 +1,16 @@
 import ProductCard from "@/components/Main/Products/ProductCard";
 
 import cx from './index.module.scss'
+import {useAppSelector} from "@/hooks/store";
+import {getProductListDataSource} from "@/store/productList/selectors";
 
 const ProductsList = ()=>{
+    const dataSource = useAppSelector(getProductListDataSource)
+
     return <div className={cx.wrapper}>
-        <ProductCard productId='1'/>
-        <ProductCard productId='2'/>
-        <ProductCard productId='3'/>
-        <ProductCard productId='4'/>
+        {dataSource.map(product=>{
+            return <ProductCard productId={product.id}/>
+        })}
     </div>
 }
 

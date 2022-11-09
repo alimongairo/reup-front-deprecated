@@ -1,28 +1,13 @@
-import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '@/hooks/store';
-import { getIniDataLoading, getInitData } from '@/store/initData/selectors';
-import { authAction } from '@/store/initData/thunk';
+import { useAppDispatch } from '@/hooks/store';
+
+import MainLayout from "@/components/Main";
 
 import cx from './index.module.scss';
 
-const Home = () => {
+const MainPage = () => {
   const dispatch = useAppDispatch();
-  const dataSource = useAppSelector(getInitData);
-  const loading = useAppSelector(getIniDataLoading);
 
-  useEffect(() => {
-    dispatch(authAction({ name: 'kasdjfksajdfj' }));
-  }, []);
-
-  if (loading) {
-    return <h1>Loading...</h1>;
-  }
-
-  return (
-    <div className={`${cx.wrapper} container`}>
-      <h1>{JSON.stringify(dataSource)}</h1>
-    </div>
-  );
+  return <MainLayout/>
 };
 
-export default Home;
+export default MainPage;

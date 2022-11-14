@@ -9,7 +9,7 @@ const ProductsList = ()=>{
 
     return <div className={cx.wrapper}>
         {dataSource.map(product=>{
-            return <ProductCard productId={product.id} key={product.id}/>
+            return <ProductCard productTitle={product.title} productId={product.id} key={product.id}/>
         })}
     </div>
 }

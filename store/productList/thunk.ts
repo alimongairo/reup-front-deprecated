@@ -7,10 +7,13 @@ const mockData:TProductItem[] = []
 
 for(let i = 0;i<10;i++){
     mockData.push({
-        title: '123',
+        title: 'Свитшот',
         id: i,
-        description: 'desc',
-        img: 'strr'
+        description: 'Тёплая одежда',
+        price: 1000,
+        img: 'str',
+        like: false,
+        cartActive: false
     })
 }
 

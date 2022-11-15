@@ -2,7 +2,7 @@ import Header from "@/components/Main/Header";
 import ProductsList from "@/components/Main/Products";
 import {useAppDispatch} from "@/hooks/store";
 import {useEffect} from "react";
-import {getProductListAction} from "@/store/productList/thunk";
+import {getProductListAction} from "@/store/productList/productListNew/thunk";
 
 const MainLayout = ()=>{
     const dispatch = useAppDispatch()
@@ -14,6 +14,7 @@ const MainLayout = ()=>{
     return <div className="w100">
             <Header/>
             <ProductsList/>
+            
     </div>
 }
 

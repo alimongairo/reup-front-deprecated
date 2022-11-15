@@ -9,9 +9,9 @@ export type TProductListStore = {
 export type TProductItem = {
     title: string;
     id: number;
-    description?: string;
+    description: string;
     price: number;
-    img?: string;
+    img: string;
     like: boolean;
     cartActive: boolean;
 }

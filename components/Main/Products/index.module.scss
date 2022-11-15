@@ -3,4 +3,16 @@
   flex-wrap: wrap;
   gap: 3rem;
   justify-content: center;
+  height: 40em;
+
+  .stocks {
+    height: 368px;
+    width: 70%;
+    background-color: blueviolet;
+    text-align: center;
+    align-self: right;
+    margin: 0 auto;
+    padding: 0;
+    font-size: 35px;
+  }
 }

@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {PRODUCT_LIST_ALIAS, TProductListStore} from "@/store/productList/type";
-import {getProductListAction} from "@/store/productList/thunk";
+import {PRODUCT_LIST_ALIAS, TProductListStore} from "@/store/productList/productListNew/type";
+import {getProductListAction} from "@/store/productList/productListNew/thunk";
 
 const initialState:TProductListStore = {
     loading: false,

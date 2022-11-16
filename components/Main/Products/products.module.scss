@@ -1,0 +1,41 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .new {
+    text-align: center;
+    font-family: 'Cabin', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 56px;
+  }
+
+  .dataSourceNew {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: center;
+  }
+
+  .dataSourceHit {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: center;
+  }
+
+  .stocks {
+    height: 368px;
+    width: 100%;
+    background-color: blueviolet;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 2.375em;
+    padding: 0;
+    font-size: 2.188em;
+  }
+}

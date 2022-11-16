@@ -3,6 +3,7 @@ import ProductsList from "@/components/Main/Products";
 import {useAppDispatch} from "@/hooks/store";
 import {useEffect} from "react";
 import {getProductListAction} from "@/store/productList/productListNew/thunk";
+import style from "./main.module.scss"
 
 const MainLayout = ()=>{
     const dispatch = useAppDispatch()
@@ -11,10 +12,9 @@ const MainLayout = ()=>{
         dispatch(getProductListAction())
     },[])
 
-    return <div className="w100">
+    return <div className={style.main}>
             <Header/>
-            <ProductsList/>
-            
+            <ProductsList/>       
     </div>
 }
 

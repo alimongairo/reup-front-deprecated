@@ -1,4 +1,4 @@
-import cx from './index.module.scss'
+import cx from './products.module.scss'
 import {useAppSelector} from "@/hooks/store";
 import {getProductListDataSource} from "@/store/productList/productListNew/selectors";
 import ProductCardNew from "@/components/Main/Products/ProductCardNew";
@@ -8,21 +8,43 @@ const ProductsList = ()=>{
 
     return (
       <div className={cx.wrapper}>
-        <h2>Новинки</h2>
-        {dataSource.map((productNew) => {
-          return (
-            <ProductCardNew
-              productImg={productNew.img}
-              productPrice={productNew.price}
-              productDescription={productNew.description}
-              productTitle={productNew.title}
-              productId={productNew.id}
-              key={productNew.id}
-            />
-          );
-        })}
+
+        <div className={cx.new}>
+            <h3>Новинки</h3>
+        </div>
+
+        <div className={cx.dataSourceNew}>
+          {dataSource.map((productNew) => {
+            return (
+              <ProductCardNew
+                productImg={productNew.img}
+                productPrice={productNew.price}
+                productDescription={productNew.description}
+                productTitle={productNew.title}
+                productId={productNew.id}
+                key={productNew.id}
+              />
+            );
+          })}
+        </div>
+        
         <div className={cx.stocks}>
-                <h3>Акции</h3>
+            <h3>Акции</h3>
+        </div>
+
+        <div className={cx.dataSourceHit}>
+          {/* {dataSourceHit.map((productNew) => {
+            return (
+              <ProductCardHit
+                productImg={productNew.img}
+                productPrice={productNew.price}
+                productDescription={productNew.description}
+                productTitle={productNew.title}
+                productId={productNew.id}
+                key={productNew.id}
+              />
+            );
+          })} */}
         </div>
       </div>
 

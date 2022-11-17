@@ -1,9 +1,12 @@
+import { useEffect } from 'react';
+
+import { getBasketAction } from '@/store/basket/thunk';
+
+import { useAppDispatch } from '@/hooks/store';
+
 import BasketPageHeader from '@/components/Basket/Header';
 import BasketProductList from '@/components/Basket/BasketItems';
 import BasketBuyButton from '@/components/Basket/BasketItems/BasketBuyButton';
-import { useAppDispatch } from '@/hooks/store';
-import { useEffect } from 'react';
-import { getBasketAction } from '@/store/basket/thunk';
 
 const BasketLayout = () => {
   const dispatch = useAppDispatch();

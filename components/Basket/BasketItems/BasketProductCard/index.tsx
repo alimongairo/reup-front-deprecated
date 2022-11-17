@@ -1,10 +1,11 @@
 import Link from 'next/link';
-import { EPagesRoutes } from '@/constants/router';
 
-import { sizeToRem } from '@/helpers/sizeToRem';
+import { basketProductCard } from '@/constants/componentsSizes';
+import { EPagesRoutes } from '@/constants/router';
+import { multiplyRem } from '@/helpers/multiplyRem';
+
 import { DeleteOutlined, PlusOutlined, MinusOutlined } from '@ant-design/icons';
 import { Button, Image, Card, Tooltip } from 'antd';
-
 import cx from './index.module.scss';
 
 interface IProps {
@@ -13,44 +14,40 @@ interface IProps {
 }
 
 const BasketProductCard = ({ productId, amount }: IProps) => {
-  const cardHeight: number = 18; // rem
-  const cardHeightInRem: string = sizeToRem(cardHeight);
-
   return (
     <div className={cx.basketProductCard}>
-      {/* Card Image */}
       <Link href={`${EPagesRoutes.ProductDetail}/${productId}`}>
         <Image
-          width={cardHeightInRem}
-          height={cardHeightInRem}
+          width={basketProductCard.height}
+          height={basketProductCard.height}
           preview={false}
           src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
           alt="product image"
         />
       </Link>
 
-      {/* Card title, description, price and amount */}
       <Card
         title="Product Title"
-        style={{ width: cardHeightInRem, height: cardHeightInRem }}
+        style={{
+          width: basketProductCard.height,
+          height: basketProductCard.height,
+        }}
         extra={<a href={`${EPagesRoutes.ProductDetail}/${productId}`}>More</a>}
         headStyle={{
-          height: sizeToRem(cardHeight / 5),
+          height: multiplyRem(basketProductCard.height, 0.2),
         }}
         bodyStyle={{
-          height: sizeToRem(cardHeight * 0.8),
+          height: multiplyRem(basketProductCard.height, 0.8),
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
         }}
       >
-        {/* description */}
         <p>
           Product Description Product Description Product Description Product
           Description
         </p>
 
-        {/* price and amount */}
         <div className={cx.priceAndAmount}>
           <div>100$</div>
           <div className={cx.amount}>
@@ -61,7 +58,6 @@ const BasketProductCard = ({ productId, amount }: IProps) => {
         </div>
       </Card>
 
-      {/* delete button */}
       <div className={cx.deleteButton}>
         <Tooltip title="delete">
           <Button

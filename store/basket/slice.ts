@@ -23,6 +23,7 @@ const basketSlice = createSlice({
     builder.addCase(getBasketAction.rejected, (state, { payload }) => {
       state.dataSource = [];
       state.loading = false;
+      state.error = new Error('error');
     });
   },
 });

@@ -1,8 +1,9 @@
-import BasketProductCard from '@/components/Basket/BasketItems/BasketProductCard';
-import cx from './index.module.scss';
+import { getBasketDataSource } from '@/store/basket/selectors';
 
 import { useAppSelector } from '@/hooks/store';
-import { getBasketDataSource } from '@/store/basket/selectors';
+
+import BasketProductCard from '@/components/Basket/BasketItems/BasketProductCard';
+import cx from './index.module.scss';
 
 const BasketProductList = () => {
   const dataSource = useAppSelector(getBasketDataSource);

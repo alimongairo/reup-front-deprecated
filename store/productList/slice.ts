@@ -1,11 +1,11 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {PRODUCT_LIST_ALIAS, TProductListStoreHit} from "@/store/productList/productListHit/type";
-import {getProductListAction} from "@/store/productList/productListHit/thunk";
+import {PRODUCT_LIST_ALIAS, TProductListStore} from "@/store/productList/type";
+import {getProductListAction} from "@/store/productList/thunk";
 
-const initialState:TProductListStoreHit = {
+const initialState:TProductListStore = {
     loading: false,
     error: null,
-    dataSourceHit: []
+    dataSource: []
 }
 
 const productListSlice = createSlice(
@@ -18,11 +18,11 @@ const productListSlice = createSlice(
                 state.loading = true
             });
             builder.addCase(getProductListAction.fulfilled, (state, {payload})=>{
-                state.dataSourceHit = payload || []
+                state.dataSource = payload || []
                 state.loading = false
             })
             builder.addCase(getProductListAction.rejected, (state, {payload})=>{
-                state.dataSourceHit = []
+                state.dataSource = []
                 state.loading = false
             })
         }

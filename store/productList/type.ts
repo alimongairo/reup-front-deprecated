@@ -14,4 +14,5 @@ export type TProductItem = {
     img: string;
     like: boolean;
     cartActive: boolean;
+    idChapter: string;
 }

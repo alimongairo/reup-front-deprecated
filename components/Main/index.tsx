@@ -2,7 +2,7 @@ import Header from "@/components/Main/Header";
 import ProductsList from "@/components/Main/Products";
 import {useAppDispatch} from "@/hooks/store";
 import {useEffect} from "react";
-import {getProductListAction} from "@/store/productList/productListNew/thunk";
+import {getProductListAction} from "@/store/productList/thunk";
 import style from "./main.module.scss"
 
 const MainLayout = ()=>{

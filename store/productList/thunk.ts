@@ -1,28 +1,30 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {PRODUCT_LIST_ALIAS, TProductItem} from "@/store/productList/productListNew/type";
+import {PRODUCT_LIST_ALIAS, TProductItem} from "@/store/productList/type";
 import {getProductListRequest} from "@/network/rest/productsList";
 import {notification} from "antd";
 
-const mockDataHit:TProductItem[] = []
+const mockData:TProductItem[] = []
 
-for(let i = 0; i<4; i++){
-    mockDataHit.push({
+for (let i = 0; i < 4; i++) {
+    mockData.push({
         title: 'Свитшот',
         id: i,
-        description: 'Хитовая одежда',
+        description: 'Тёплая одежда',
         price: 1000,
         img: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
         like: false,
-        cartActive: false
+        cartActive: false,
+        idChapter: 'productNew',
     })
-}
+}  
 
-export const getProductListActionHit = createAsyncThunk(
+export const getProductListAction = createAsyncThunk(
     `${PRODUCT_LIST_ALIAS}/fetch`,
     async ()=>{
         try {
             // const data = await getProductListRequest();
-            return mockDataHit
+            console.log(mockData)
+            return mockData
         }catch(error){
             notification.error({message: 'error'})
         }

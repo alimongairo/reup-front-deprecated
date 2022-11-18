@@ -18,10 +18,28 @@
     height: 30em;
     text-align: right;
     color: black;
-    img {
-        max-width: 20em;
-        max-height: 23.5em;
-    }
+
+    .like_image {
+        position: relative;
+        img {
+            max-width: 20em;
+            max-height: 23.5em;
+        }
+        .img_like {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            right: 0.625em;
+            top: 0.625em;
+            & :hover {
+                cursor: pointer;
+                fill: red;
+                width: 25px;
+                height: 25px;
+                transition: 1s;
+            }
+        }
+    }          
 
     .text {
         .title {

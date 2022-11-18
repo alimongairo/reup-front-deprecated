@@ -14,7 +14,11 @@ const ProductCardNew = ({productId, productImg, productTitle, productPrice, prod
     return <div>
         <Link href={`${EPagesRoutes.ProductDetail}/${productId}`}>
             <div className={style.wrapper}>
-                <img src={productImg} alt="photo" />
+                <div className={style.like_image}>
+                    <img className={style.img_like} src="../../../../build/icons/like.svg" alt="" />
+                    <img src={productImg} alt="photo" />
+                </div>
+                
                 <div className={style.text}>
                     <h3 className={style.title}>{productTitle}</h3>
                     <p className={style.desc}>{productDescription}</p>

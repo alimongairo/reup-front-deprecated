@@ -15,15 +15,17 @@ const basketSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getBasketAction.pending, (state) => {
       state.loading = true;
+      state.error = null;
     });
     builder.addCase(getBasketAction.fulfilled, (state, { payload }) => {
-      state.dataSource = payload || [];
+      state.dataSource = payload;
       state.loading = false;
+      state.error = null;
     });
     builder.addCase(getBasketAction.rejected, (state, { payload }) => {
       state.dataSource = [];
       state.loading = false;
-      state.error = new Error('error');
+      state.error = payload || Error('unknown error');
     });
   },
 });

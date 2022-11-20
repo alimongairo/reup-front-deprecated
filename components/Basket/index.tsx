@@ -6,7 +6,6 @@ import { useAppDispatch } from '@/hooks/store';
 
 import BasketPageHeader from '@/components/Basket/Header';
 import BasketProductList from '@/components/Basket/BasketItems';
-import BasketBuyButton from '@/components/Basket/BasketItems/BasketBuyButton';
 
 const BasketLayout = () => {
   const dispatch = useAppDispatch();
@@ -19,7 +18,6 @@ const BasketLayout = () => {
     <div className="w100">
       <BasketPageHeader />
       <BasketProductList />
-      <BasketBuyButton total={800} />
     </div>
   );
 };

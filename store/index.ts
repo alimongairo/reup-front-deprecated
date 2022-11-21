@@ -1,14 +1,16 @@
-import {createWrapper} from "next-redux-wrapper";
-import { configureStore} from "@reduxjs/toolkit";
+import { createWrapper } from 'next-redux-wrapper';
+import { configureStore } from '@reduxjs/toolkit';
 
-import productListReducer from '@/store/productList/slice'
+import productListReducer from '@/store/productList/slice';
+import basketReducer from '@/store/basket/slice';
 
 export const makeStore = () =>
-    configureStore({
-        reducer: {
-            productList: productListReducer
-        },
-    });
+  configureStore({
+    reducer: {
+      productList: productListReducer,
+      basket: basketReducer,
+    },
+  });
 
 type Store = ReturnType<typeof makeStore>;
 

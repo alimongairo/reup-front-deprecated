@@ -1,0 +1,8 @@
+.wrapper{
+  width: 100%;
+  overflow: hidden;
+  .slider {
+    display: flex;
+    gap: calc(var(--reup-unit) * 8);
+  }
+}

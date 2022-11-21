@@ -1,0 +1,46 @@
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: calc(var(--reup-unit) * 4) calc(var(--reup-unit) * 4);
+    grid-auto-flow: row;
+    grid-template-areas:
+    "product product1 brand1 brand1"
+    "product2 product3 sale sale"
+    "brand2 brand2 sale sale";
+  }
+
+  .brand1 {
+    grid-area: brand1;
+    border-radius: calc(var(--reup-radius));
+    background: linear-gradient(45deg, rgba(240,241,54,1) 0%, rgba(132,214,53,1) 30%, rgba(42,247,228,1) 66%, rgba(0,212,255,1) 100%);
+  }
+
+  .brand2 {
+    grid-area: brand2;
+    background: linear-gradient(45deg, rgba(240,241,54,1) 0%, rgba(132,214,53,1) 30%, rgba(42,247,228,1) 66%, rgba(0,212,255,1) 100%);
+    border-radius: calc(var(--reup-radius));
+  }
+
+  .sale {
+    grid-area: sale;
+    background: radial-gradient(circle, rgba(54,241,229,1) 0%, rgba(53,86,214,1) 30%, rgba(196,42,247,1) 66%, rgba(255,0,18,1) 100%);
+    border-radius: calc(var(--reup-radius));
+  }
+
+  .product,
+  .product1,
+  .product2,
+  .product3 {
+    text-align: center;
+    border-radius: calc(var(--reup-radius));
+  }
+
+  .product { grid-area: product; }
+
+  .product1 { grid-area: product1; }
+
+  .product2 { grid-area: product2; }
+
+  .product3 { grid-area: product3; }
+

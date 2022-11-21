@@ -1,3 +1,23 @@
 .w100{
     width: 100%;
 }
+
+.iconBnt {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.greyBtn {
+    background: #F0F0F0;
+    border-radius: var(--reup-radius);
+    border: 1px solid transparent;
+    padding: var(--reup-unit) calc(var(--reup-unit) * 2);
+    cursor: pointer;
+    transition: .3s;
+}
+.greyBtn:hover{
+    background: #89a8f3;
+    border: 1px solid #6489ff;
+}

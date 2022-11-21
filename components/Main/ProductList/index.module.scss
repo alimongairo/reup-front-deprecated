@@ -1,0 +1,6 @@
+ .list{
+    display: flex;
+    gap: calc(var(--reup-unit) * 8);
+    justify-content: center;
+    flex-wrap: wrap;
+  }

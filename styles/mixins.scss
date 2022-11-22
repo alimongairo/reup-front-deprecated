@@ -1,0 +1,18 @@
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1600px;
+
+@mixin minMaxScreen($min, $max){
+  @media screen and (min-width: $min) and (max-width: $max) {
+    min-width: $min;
+  }
+}
+
+@mixin container {
+  @include minMaxScreen($sm, $md);
+  @include minMaxScreen($md, $lg);
+  @include minMaxScreen($lg, $xl);
+  @include minMaxScreen($xl, $xxl);
+}

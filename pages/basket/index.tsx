@@ -1,5 +1,7 @@
-const BasketPage = ()=>{
-    return <div>BasketPage</div>
-}
+import BasketLayout from '@/components/Basket';
 
-export default BasketPage
+const BasketPage = () => {
+  return <BasketLayout />;
+};
+
+export default BasketPage;

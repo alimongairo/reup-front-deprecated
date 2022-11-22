@@ -1,0 +1,40 @@
+@import '../../../styles/var';
+
+.wrapper {
+  width: 21vw;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--reup-unit));
+  position: relative;
+  border-radius: calc(var(--reup-radius) * 2);
+  transition: .3s;
+  padding: calc(var(--reup-unit) * 2);
+  cursor: pointer;
+
+  &:hover{
+    box-shadow: 5px 5px 10px 5px #adadad;
+  }
+  .productImg{
+    width: 100%;
+    height: auto;
+  }
+  .likeIcon{
+    position: absolute;
+    right: calc(var(--reup-unit)  * 3);
+    top: calc(var(--reup-unit)  * 3);
+  }
+  .text,
+  .actions{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .text {
+    flex-direction: column;
+    align-items: end;
+    h2 {
+      font-weight: bold;
+    }
+  }
+}

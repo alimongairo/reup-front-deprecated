@@ -1,10 +1,12 @@
 import {createWrapper} from "next-redux-wrapper";
 import { configureStore} from "@reduxjs/toolkit";
 
+import productDetailReduser from "@/store/ProductDetail/slice";
+
 export const makeStore = () =>
     configureStore({
         reducer: {
-
+            productDetail: productDetailReduser
         },
     });
 

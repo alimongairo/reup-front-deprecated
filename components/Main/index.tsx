@@ -1,16 +1,16 @@
 import { useEffect } from 'react';
 
+import Footer from '@/components/Main/Footer';
 import Header from '@/components/Main/Header';
 import ProductsList from '@/components/Main/ProductList';
-import SaleSector from '@/components/Main/SaleSector';
 import ReupChoosen from '@/components/Main/ReupChoosen';
-import Footer from '@/components/Main/Footer';
-import FullScreenBanner from '@/components/Main/FullScreenBanner';
+import SaleSector from '@/components/Main/SaleSector';
 
-import { getProductListAction } from '@/store/productList/thunk';
-import { getProductListDataSource } from '@/store/productList/selectors';
 import { useAppDispatch, useAppSelector } from '@/hooks/store';
+import { getProductListDataSource } from '@/store/productList/selectors';
+import { getProductListAction } from '@/store/productList/thunk';
 
+import Slider from '@/components/Main/Slider';
 import cx from './index.module.scss';
 
 const MainLayout = () => {
@@ -24,7 +24,7 @@ const MainLayout = () => {
   return (
     <div className={cx.main}>
       <Header />
-      <FullScreenBanner />
+      <Slider />
       <ProductsList title="Новинки" productList={newProducts} />
       <SaleSector />
       <ProductsList productList={newProducts} />

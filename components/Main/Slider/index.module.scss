@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&family=Dela+Gothic+One&display=swap');
+
+.wrapper {
+  height: 54.438em;
+  width: 90em;
+  // background-color: aqua;
+  // width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  position: relative;
+
+  .leftBlock img{
+    height: 54.438em;
+    width: 46.875em;
+  }
+
+  .rightBlock {
+    height: 54.438em;
+    display: flex;
+    flex-direction: column;
+    .upRight {
+      height: 26.188em;
+    }
+    .downRight {
+      background-color: #FF8742;
+      height: 28.25em;
+      div {
+        margin-top: 1.5em;
+        margin-left: 2.5em;
+        display: flex;
+        flex-direction: column;
+        h1 {
+          font-family: 'Dela Gothic One';
+          font-style: normal;
+          font-weight: bolder;
+          font-size: 64px;
+          line-height: 110%;
+          text-transform: lowercase;
+        }
+        h2 {
+          font-family: 'Dela Gothic One';
+          font-style: normal;
+          font-weight: bolder;
+          font-size: 32px;
+          line-height: 110%;
+          text-transform: lowercase;
+        }
+        p {
+          font-family: 'Dela Gothic One';
+          font-style: normal;
+          font-weight: 500;
+          font-size: 24px;
+          line-height: 110%;
+        }
+        img{
+          align-self: flex-end;
+          margin-right: 3.125em;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+      
+    }
+  }
+
+  .arrow-left {
+    position: absolute;
+    img {
+      align-self: center;
+      // position: absolute;
+      left: 0;
+      top: 50px;
+    }
+    
+  }
+}

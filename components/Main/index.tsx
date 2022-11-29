@@ -25,11 +25,12 @@ const MainLayout = () => {
     <div className={cx.main}>
       <Header />
       <FullScreenBanner />
-      <ProductsList title="Новинки" productList={newProducts} />
+      <h1>picked for you</h1>
+      <ProductsList productList={newProducts} />
       <SaleSector />
+      <h1>мне нравится</h1>
       <ProductsList productList={newProducts} />
       <ReupChoosen />
-      <ProductsList title="Товары для тебя" productList={newProducts} />
       <ProductsList productList={newProducts} />
       <Footer />
     </div>

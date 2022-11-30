@@ -1,0 +1,18 @@
+.wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 2px;
+  > button{
+    text-align: right;
+  }
+
+  > button:nth-child(4n){
+    text-align: center;
+  }
+
+  > button:nth-child(2n){
+    text-align: left
+  }
+}

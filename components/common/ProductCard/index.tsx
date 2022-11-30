@@ -34,12 +34,12 @@ const ProductCard = ({
 
   return (
     <div className={cx.wrapper}>
-      <button
+      <span
         className={classNames(cx.likeIcon, 'iconBnt')}
         onClick={() => onLike(id)}
       >
         <Image src={Like} alt="like" width={20} />
-      </button>
+      </span>
       <Image
         src={imgSource}
         alt={title}
@@ -51,9 +51,7 @@ const ProductCard = ({
         <p>{description}</p>
       </div>
       <div className={cx.actions}>
-        <button className="greyBtn" onClick={() => onAddToBasket(id)}>
-          В корзину
-        </button>
+        <button onClick={() => onAddToBasket(id)}>В корзину</button>
         <h2>{price} ₽</h2>
       </div>
     </div>

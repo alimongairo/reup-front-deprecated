@@ -1,4 +1,3 @@
-
 @font-face {
     font-family: "Gilroy";
     src: url('../static/fonts/gilroy/Gilroy-ExtraBold.otf');
@@ -24,7 +23,7 @@
     cursor: pointer;
 }
 
-.greyBtn {
+button {
     outline: 2px solid black;
     border: none;
     cursor: pointer;
@@ -37,6 +36,7 @@
     letter-spacing: 0.07em;
     padding: calc(var(--reup-unit ) * 2 ) calc(var(--reup-unit ) * 6);
 }
-.greyBtn:hover{
-    background: #e0a6fd;
+button:hover{
+    background: #8B30F2;
+    color: white
 }

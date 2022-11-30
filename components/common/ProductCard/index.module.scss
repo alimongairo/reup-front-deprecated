@@ -1,5 +1,3 @@
-@import '../../../styles/var';
-
 .wrapper {
   width: 21vw;
   min-width: 300px;
@@ -7,7 +5,7 @@
   flex-direction: column;
   gap: calc(var(--reup-unit));
   position: relative;
-  transition: .3s;
+  transition:.3s;
 
   .productImg{
     width: 100%;
@@ -18,7 +16,7 @@
     position: absolute;
     right: calc(var(--reup-unit)  * 3);
     top: calc(var(--reup-unit)  * 3);
-    transition: .3s;
+    transition:.3s;
     &:hover {
       transform: scale(1.2);
     }

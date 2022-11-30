@@ -1,0 +1,6 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 400px);
+  gap: 0px;
+  justify-content: center;
+}

@@ -4,12 +4,35 @@
   @include container;
   display: flex;
   flex-direction: column;
-  >h1 {
+  >h1,
+  .pink >h1{
     font-family: 'Dela Gothic One', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 64px;
     line-height: 110%;
     letter-spacing: 0.04em;
+    margin-top: 5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+  .pink {
+    background: #EF67F1;
+    padding-bottom: 8rem;
+    > h1 {
+      color: white
+    }
+  }
+  .marquee{
+    font-size: 64px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: bold;
+    line-height: 70px;
+    letter-spacing: 0.185em;
+    text-align: left;
+    overflow: hidden;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    padding-right: .3em;
   }
 }

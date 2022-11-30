@@ -1,46 +1,31 @@
-  .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: calc(var(--reup-unit) * 4) calc(var(--reup-unit) * 4);
-    grid-auto-flow: row;
-    grid-template-areas:
-    "product product1 brand1 brand1"
-    "product2 product3 sale sale"
-    "brand2 brand2 sale sale";
+.wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  border-bottom: 2px solid black;
+  .info {
+    width: 40%;
+    margin-top: 4rem;
+    padding: 2rem 3rem;
+    border-top: 2px solid black;
+    > h2 {
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+      line-height: 35px;
+      letter-spacing: 0.2em;
+      text-align: left;
+    }
+    > p {
+      font-family: 'Gilroy', sans-serif;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 25px;
+      letter-spacing: 0.07em;
+      text-align: left;
+    }
   }
-
-  .brand1 {
-    grid-area: brand1;
-    border-radius: calc(var(--reup-radius));
-    background: linear-gradient(45deg, rgba(240,241,54,1) 0%, rgba(132,214,53,1) 30%, rgba(42,247,228,1) 66%, rgba(0,212,255,1) 100%);
+  .imgWrapper {
+    margin-top: -100px;
   }
-
-  .brand2 {
-    grid-area: brand2;
-    background: linear-gradient(45deg, rgba(240,241,54,1) 0%, rgba(132,214,53,1) 30%, rgba(42,247,228,1) 66%, rgba(0,212,255,1) 100%);
-    border-radius: calc(var(--reup-radius));
-  }
-
-  .sale {
-    grid-area: sale;
-    background: radial-gradient(circle, rgba(54,241,229,1) 0%, rgba(53,86,214,1) 30%, rgba(196,42,247,1) 66%, rgba(255,0,18,1) 100%);
-    border-radius: calc(var(--reup-radius));
-  }
-
-  .product,
-  .product1,
-  .product2,
-  .product3 {
-    text-align: center;
-    border-radius: calc(var(--reup-radius));
-  }
-
-  .product { grid-area: product; }
-
-  .product1 { grid-area: product1; }
-
-  .product2 { grid-area: product2; }
-
-  .product3 { grid-area: product3; }
-
+}

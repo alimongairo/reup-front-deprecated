@@ -25,6 +25,7 @@ const MainLayout = () => {
   return (
     <div className={cx.main}>
       <Header />
+      <Slider/>
       <ProductsList title="Новинки" productList={newProducts} />
       <SaleSector />
       <ProductsList productList={newProducts} />

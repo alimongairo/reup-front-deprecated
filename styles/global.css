@@ -1,3 +1,17 @@
+@font-face {
+    font-family: "Gilroy";
+    src: url('../static/fonts/gilroy/Gilroy-ExtraBold.otf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url('../static/fonts/gilroy/Gilroy-Light.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .w100{
     width: 100%;
 }
@@ -9,15 +23,20 @@
     cursor: pointer;
 }
 
-.greyBtn {
-    background: #F0F0F0;
-    border-radius: var(--reup-radius);
-    border: 1px solid transparent;
-    padding: var(--reup-unit) calc(var(--reup-unit) * 2);
+button {
+    outline: 2px solid black;
+    border: none;
     cursor: pointer;
     transition: .3s;
+    background: transparent;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21px;
+    letter-spacing: 0.07em;
+    padding: calc(var(--reup-unit ) * 2 ) calc(var(--reup-unit ) * 6);
 }
-.greyBtn:hover{
-    background: #89a8f3;
-    border: 1px solid #6489ff;
+button:hover{
+    background: #8B30F2;
+    color: white
 }

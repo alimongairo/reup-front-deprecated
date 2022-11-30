@@ -8,4 +8,5 @@ export enum EPagesRoutes {
   CreateProduct = '/createProduct',
   Order = '/order',
   UnauthorizedOrder = '/unauthorizedOrder',
+  Collection = '/collection',
 }

@@ -1,4 +1,5 @@
-import { useCallback } from 'react';
+import { useCallback, useRef } from 'react';
+import Image from 'next/image';
 
 import ProductCard from '@/components/common/ProductCard';
 
@@ -6,12 +7,16 @@ import { TProductItem } from '@/store/productList/type';
 
 import cx from './index.module.scss';
 
+import leftArrow from '@/static/icons/leftArrow.svg';
+
 interface IProps {
+  title?:string,
   productList: TProductItem[];
-  title?: string;
 }
 
-const ProductsList = ({ productList, title }: IProps) => {
+const ProductsList = ({ title, productList }: IProps) => {
+  const listRef = useRef<HTMLDivElement | null>(null);
+
   const onLikeHandler = useCallback((id: number) => {
     console.log('like');
   }, []);
@@ -20,11 +25,33 @@ const ProductsList = ({ productList, title }: IProps) => {
     console.log('add to basket');
   }, []);
 
+  const scrollList = (isNext: boolean) => {
+    if (listRef.current) {
+      const currentPositionScrollPosition = listRef.current.scrollLeft;
+      const scrollSize = document.body.clientWidth - 50;
+      listRef.current.scrollTo({
+        left:
+          currentPositionScrollPosition + (isNext ? scrollSize : -scrollSize),
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  const scrollListToNext = () => {
+    scrollList(true);
+  };
+
+  const scrollListToPrev = () => {
+    scrollList(false);
+  };
+
   return (
     <div className={cx.wrapper}>
-      {title && <h1>{title}</h1>}
-      <div className={cx.list}>
-        {productList.map((product) => {
+      <div onClick={scrollListToPrev} className={cx.prevBtn}>
+        <Image src={leftArrow} alt="arrow" height={30} />
+      </div>
+      <div ref={listRef} className={cx.list}>
+        {[...productList, ...productList].map((product) => {
           return (
             <ProductCard
               onLike={onLikeHandler}
@@ -38,6 +65,9 @@ const ProductsList = ({ productList, title }: IProps) => {
             />
           );
         })}
+      </div>
+      <div onClick={scrollListToNext} className={cx.nextBtn}>
+        <Image src={leftArrow} alt="arrow" height={30} />
       </div>
     </div>
   );

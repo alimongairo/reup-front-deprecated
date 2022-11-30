@@ -5,5 +5,6 @@ export enum EPagesRoutes {
     Basket = '/basket',
     ProductDetail = '/productDetail',
     Profile = '/profile',
+    Brand ='/brand',
     CreateProduct = '/createProduct',
 }

@@ -2,7 +2,7 @@ import { EPagesRoutes } from '@/constants/router';
 import Link from 'next/link';
 import cx from './index.module.scss';
 
-const Slider = () => {
+const BlockOne = () => {
   return (
     <div className={cx.wrapper}>
       
@@ -42,4 +42,4 @@ const Slider = () => {
   ) 
 };
 
-export default Slider;
+export default BlockOne;

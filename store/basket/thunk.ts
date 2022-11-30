@@ -6,7 +6,7 @@ import { mockFetch } from '@/helpers/mockFetch';
 
 const mockData: TBasketItem[] = [];
 
-for (let i = 0; i < randomInteger(1, 4); i++) {
+for (let i = 0; i < randomInteger(0, 4); i++) {
   mockData.push({
     productId: i,
     amount: randomInteger(1, 3),

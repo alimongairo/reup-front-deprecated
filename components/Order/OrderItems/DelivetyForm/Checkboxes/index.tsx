@@ -1,3 +1,4 @@
+import React from 'react';
 import Link from 'next/link';
 import { Checkbox, Form } from 'antd';
 import { EPagesRoutes } from '@/constants/router';
@@ -45,4 +46,4 @@ const Checkboxes = () => {
   );
 };
 
-export default Checkboxes;
+export default React.memo(Checkboxes);

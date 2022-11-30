@@ -30,7 +30,7 @@ const BasketProductList = () => {
 
   return error || loading ? (
     <div>{error?.message || 'loading..'}</div>
-  ) : !basketItems || basketItems.length === 0 ? (
+  ) : !basketItems || !basketItems.length ? (
     <EmptyBasket />
   ) : (
     <>

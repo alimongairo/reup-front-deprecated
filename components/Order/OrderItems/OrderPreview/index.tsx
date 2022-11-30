@@ -19,7 +19,7 @@ const OrderPreview = ({ products, basket }: IProps) => {
   return (
     <Affix offsetTop={32}>
       <div className={cx.wrapper}>
-        {!basket || basket.length === 0 ? (
+        {!basket || !basket.length ? (
           <EmptyBasket />
         ) : (
           <>

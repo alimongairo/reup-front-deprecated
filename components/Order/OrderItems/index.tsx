@@ -75,10 +75,10 @@ const OrderForm = ({ user, basket }: IProps) => {
         <button
           className={classNames(
             cx.submitButton,
-            basket && basket.length !== 0 && cx.active,
+            basket && basket.length && cx.active,
           )}
           type="submit"
-          disabled={!basket || basket.length === 0}
+          disabled={!basket || !basket.length}
         >
           оформить заказ
         </button>

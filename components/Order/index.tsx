@@ -34,15 +34,9 @@ const OrderLayout = ({ isLogined }: IProps) => {
 
   useEffect(() => {
     dispatch(getProductListAction());
-  }, []);
-  useEffect(() => {
     dispatch(getBasketAction());
+    isLogined && dispatch(getUserAction());
   }, []);
-
-  isLogined &&
-    useEffect(() => {
-      dispatch(getUserAction());
-    }, []);
 
   return (
     <div className="w100">
@@ -50,7 +44,7 @@ const OrderLayout = ({ isLogined }: IProps) => {
       {error || loading ? (
         <div>{error?.message || 'loading..'}</div>
       ) : (
-        products.length !== 0 && (
+        products.length && (
           <div className={cx.wrapper}>
             <OrderForm user={user} basket={basket} />
             <OrderPreview products={products} basket={basket} />

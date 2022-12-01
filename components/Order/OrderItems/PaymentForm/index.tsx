@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import Image from 'next/image';
 
 import Button from '@/components/common/Button';
@@ -11,8 +12,10 @@ import cx from './index.module.scss';
 
 interface IProps {
   selectedPayment: EPaymentType;
-  paymentSwither: (...args: any[]) => any;
+  paymentSwither: (type: any) => void;
 }
+
+const btnLabel = ['наличными при получении', 'банковской картой'];
 
 const PaymentForm = ({ selectedPayment, paymentSwither }: IProps) => {
   return (
@@ -20,7 +23,7 @@ const PaymentForm = ({ selectedPayment, paymentSwither }: IProps) => {
       <TypesSwitcher
         swithedTypes={[EPaymentType.Cash, EPaymentType.CreditCard]}
         selectedType={selectedPayment}
-        buttonInnerText={['наличными при получении', 'банковской картой']}
+        buttonInnerText={btnLabel}
         switcherFunc={paymentSwither}
       />
 
@@ -42,4 +45,4 @@ const PaymentForm = ({ selectedPayment, paymentSwither }: IProps) => {
   );
 };
 
-export default PaymentForm;
+export default memo(PaymentForm);

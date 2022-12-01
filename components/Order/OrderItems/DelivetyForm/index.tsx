@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import FormCard from '@/components/Order/OrderItems/FormCard';
 import TypesSwitcher from '@/components/Order/OrderItems/TypesSwitcher';
 import Checkboxes from '@/components/Order/OrderItems/DelivetyForm/Checkboxes';
@@ -39,4 +40,4 @@ const DeliveryForm = ({ selectedDelivery, user, deliverySwither }: IProps) => {
   );
 };
 
-export default DeliveryForm;
+export default memo(DeliveryForm);

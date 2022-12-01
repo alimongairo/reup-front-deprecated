@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import classNames from 'classnames';
 import { Form, notification } from 'antd';
 
@@ -24,10 +24,17 @@ const OrderForm = ({ user, basket }: IProps) => {
     EPaymentType.CreditCard,
   );
 
-  const switchDeliveryType = async (deliveryType: EDeliveryType) => {
-    setSelectedDelivery(deliveryType);
-    await form.validateFields(['patronymic']);
-  };
+  const setSelectedPaymentHandler = useCallback((paymentType: EPaymentType) => {
+    setSelectedPayment(paymentType);
+  }, []);
+
+  const switchDeliveryType = useCallback(
+    async (deliveryType: EDeliveryType) => {
+      setSelectedDelivery(deliveryType);
+      await form.validateFields(['patronymic']);
+    },
+    [],
+  );
 
   const submitForm = async (values: any) => {
     notification.info({
@@ -69,7 +76,7 @@ const OrderForm = ({ user, basket }: IProps) => {
 
         <PaymentForm
           selectedPayment={selectedPayment}
-          paymentSwither={setSelectedPayment}
+          paymentSwither={setSelectedPaymentHandler}
         />
 
         <button

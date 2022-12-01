@@ -1,12 +1,13 @@
 import React from 'react';
 import Button from '@/components/common/Button';
 import cx from './index.module.scss';
+import { EDeliveryType, EPaymentType } from '@/store/user/type';
 
 interface IProps {
-  swithedTypes: any[];
-  selectedType: any;
+  swithedTypes: Array<EPaymentType | EDeliveryType>;
+  selectedType: EPaymentType | EDeliveryType;
   buttonInnerText: string[];
-  switcherFunc: (...args: any[]) => any;
+  switcherFunc: (type: EPaymentType | EDeliveryType) => void;
 }
 
 const TypesSwitcher = ({
@@ -20,8 +21,7 @@ const TypesSwitcher = ({
       {swithedTypes.map((type, index) => {
         return (
           <Button
-            onClickFunc={switcherFunc}
-            funcArgs={type}
+            onClickFunc={() => switcherFunc(type)}
             isSelected={selectedType === type}
             key={type + index}
           >

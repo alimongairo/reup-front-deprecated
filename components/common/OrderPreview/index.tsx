@@ -1,9 +1,9 @@
 import { Affix } from 'antd';
 
 import EmptyBasket from '@/components/common/EmptyBasket';
-import ProductImages from '@/components/Order/OrderItems/OrderPreview/ProductImages';
-import PriceInfo from '@/components/Order/OrderItems/OrderPreview/PriceInfo';
-import FirstRow from '@/components/Order/OrderItems/OrderPreview/FirstRow';
+import ProductImages from '@/components/common/OrderPreview/ProductImages';
+import PriceInfo from '@/components/common/OrderPreview/PriceInfo';
+import FirstRow from '@/components/common/OrderPreview/FirstRow';
 
 import { TProductItem } from '@/store/productList/type';
 import { TBasketStore } from '@/store/basket/type';
@@ -27,7 +27,6 @@ const OrderPreview = ({ products, basket }: IProps) => {
 
             <div className={cx.content}>
               <ProductImages basket={basket} products={products} />
-
               <PriceInfo basket={basket} products={products} />
             </div>
           </>

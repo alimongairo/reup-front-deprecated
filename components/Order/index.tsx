@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import OrderPageHeader from '@/components/Order/Header';
-import OrderPreview from '@/components/Order/OrderItems/OrderPreview';
+import OrderPreview from '@/components/common/OrderPreview';
 import OrderForm from '@/components/Order/OrderItems';
 
 import { getProductListAction } from '@/store/productList/thunk';

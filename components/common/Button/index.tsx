@@ -9,7 +9,6 @@ interface IProps {
   children?: ReactNode;
   isSelected?: boolean;
   className?: string;
-  funcArgs?: any;
   onClickFunc?: (...args: any[]) => any;
 }
 
@@ -19,7 +18,6 @@ const Button = ({
   children,
   isSelected,
   className,
-  funcArgs,
   onClickFunc,
 }: IProps) => {
   return (
@@ -31,11 +29,11 @@ const Button = ({
         small && cx.small,
         className,
       )}
-      onClick={() => onClickFunc && onClickFunc(funcArgs)}
+      onClick={onClickFunc}
     >
       {children}
     </button>
   );
 };
 
-export default React.memo(Button);
+export default Button;

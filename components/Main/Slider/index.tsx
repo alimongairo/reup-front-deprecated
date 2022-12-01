@@ -1,41 +1,41 @@
-import { EPagesRoutes } from '@/constants/router';
-import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import BlockOne from './BlockOne';
+import BlockTwo from './BlockTwo';
 import cx from './index.module.scss';
 
 const Slider = () => {
+  const [oneSlide, setOneSlide] = useState(true);
+  const [depression, setDepression] = useState(false);
+
+  const clickArrow = () => {
+    setOneSlide(!oneSlide);
+    setDepression(true);
+  }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setOneSlide(!oneSlide);
+      setDepression(true);
+    }, 2000);
+    setDepression(false);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [oneSlide]);
+
   return (
     <div className={cx.wrapper}>
       
-      <div className={cx.arrowLeft}>
+      <div onClick={() => clickArrow()} className={cx.arrowLeft}>
         <img src="../../../static/Slider/icons/Arrow-left.svg" alt="Arrow left" />
       </div>
 
-      <div className={cx.leftBlock}>
-        <img src="../../../static/Slider/img/SliderOne_one.png" alt="" />
-      </div>
+      <BlockOne onClickDepression={depression}/>
 
-      <div className={cx.rightBlock}>
-        <div className={cx.upRight}>
-          <img src="../../../static/Slider/img/SliderOne_two.png" alt="" />
-        </div>
-       
-        <div className={cx.downRight}>
-          <div>
-            <h1>Новый бренд</h1>
-            <div className={cx.borderTop}>
-              <h2>название бренда</h2>
-              <p>Наше дело не так однозначно, как может показаться: существующая теория напрямую зависит от стандартных подходов. Идейные соображения высшего порядка, а также разбавленное изрядной долей </p>
-            </div> 
-            <Link href={`${EPagesRoutes.Brand}/`}>
-              <button className={cx.btn}>
-                <img src="../../../static/Slider/icons/Arrow-big.svg" alt="Arrow big" />
-              </button>
-            </Link>                   
-          </div>       
-        </div>
-      </div>
+      {/* {oneSlide ? <BlockOne /> : <BlockTwo />} */}
 
-      <div className={cx.arrowRight}>
+      <div onClick={() => clickArrow()} className={cx.arrowRight}>
         <img src="../../../static/Slider/icons/Arrow-right.svg" alt="Arrow right" />
       </div>    
     </div>

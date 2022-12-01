@@ -6,6 +6,7 @@
   flex-direction: row;
   margin: 0 auto;
   position: relative;
+  // display: none;
 
   .leftBlock img {
     height: 54.438em;
@@ -17,14 +18,13 @@
     display: flex;
     flex-direction: column;
 
-    .upRight {
-      
-      height: 26.188em;
-      width: 100%;
+    .upRight img{
+      width: 690px;
+      height: 369px;
     }
 
     .downRight {
-      background-color: #FF8742;
+      background-color: #c04600;
       height: 28.25em;
 
       div {
@@ -87,6 +87,7 @@
               }
             }
           }
+
         }
       }
     }

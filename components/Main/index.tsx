@@ -8,11 +8,11 @@ import { useAppDispatch, useAppSelector } from '@/hooks/store';
 import { getProductListDataSource } from '@/store/productList/selectors';
 import { getProductListAction } from '@/store/productList/thunk';
 
-import Slider from '@/components/Main/Slider';
 import cx from './index.module.scss';
 import SaleSector from './SaleSector';
 import Collections from './Collections';
 import Footer from './Footer';
+import Slider from './Slider';
 
 const MainLayout = () => {
   const dispatch = useAppDispatch();

@@ -2,17 +2,17 @@ import { EPagesRoutes } from '@/constants/router';
 import Link from 'next/link';
 import cx from './index.module.scss';
 
-const BlockOne = () => {
+const BlockTwo = () => {
   return (
     <div className={cx.wrapper}>
 
       <div className={cx.leftBlock}>
-        <img src="../../../static/Slider/img/SliderOne_one.png" alt="" />
+        <img src="../../../static/Slider/img/SliderTwo_one.png" alt="" />
       </div>
 
       <div className={cx.rightBlock}>
         <div className={cx.upRight}>
-          <img src="../../../static/Slider/img/SliderOne_two.png" alt="" />
+          <img src="../../../static/Slider/img/SliderTwo_two.png" alt="" />
         </div>
        
         <div className={cx.downRight}>
@@ -35,4 +35,4 @@ const BlockOne = () => {
   ) 
 };
 
-export default BlockOne;
+export default BlockTwo;

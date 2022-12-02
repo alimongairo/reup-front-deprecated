@@ -9,7 +9,7 @@ interface IProps {
   children?: ReactNode;
   isSelected?: boolean;
   className?: string;
-  onClickFunc?: (...args: any[]) => any;
+  onClickFunc?: () => void;
 }
 
 const Button = ({

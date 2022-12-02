@@ -1,41 +1,48 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import BlockOne from './BlockOne';
 import BlockTwo from './BlockTwo';
 import cx from './index.module.scss';
 
 const Slider = () => {
   const [oneSlide, setOneSlide] = useState(true);
-  const [depression, setDepression] = useState(false);
+  const [depressionLeft, setDepressionLeft] = useState(false);
+  const [depressionRight, setDepressionRight] = useState(false);
 
-  const clickArrow = () => {
+  const clickArrowLeft = () => {
     setOneSlide(!oneSlide);
-    setDepression(true);
+    setDepressionLeft(true);
+    console.log(depressionLeft);
   }
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setOneSlide(!oneSlide);
-      setDepression(true);
-    }, 2000);
-    setDepression(false);
+  const clickArrowRight = () => {
+    setOneSlide(!oneSlide);
+    setDepressionRight(true);
+  }
 
-    return () => {
-      clearInterval(interval);
-    };
-  }, [oneSlide]);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setOneSlide(!oneSlide);
+  //     setDepression(true);
+  //   }, 5000);
+  //   setDepression(false);
+
+  //   return () => {
+  //     clearInterval(interval);
+  //   };
+  // }, [oneSlide]);
 
   return (
     <div className={cx.wrapper}>
       
-      <div onClick={() => clickArrow()} className={cx.arrowLeft}>
+      <div onClick={() => clickArrowLeft()} className={cx.arrowLeft}>
         <img src="../../../static/Slider/icons/Arrow-left.svg" alt="Arrow left" />
       </div>
 
-      <BlockOne onClickDepression={depression}/>
+      {/* <BlockOne depressionLeft={depressionLeft} depressionRight={depressionRight}/> */}
 
-      {/* {oneSlide ? <BlockOne /> : <BlockTwo />} */}
+      {oneSlide ? <BlockOne depressionLeft={depressionLeft} depressionRight={depressionRight}/> : <BlockTwo />}
 
-      <div onClick={() => clickArrow()} className={cx.arrowRight}>
+      <div onClick={() => clickArrowRight()} className={cx.arrowRight}>
         <img src="../../../static/Slider/icons/Arrow-right.svg" alt="Arrow right" />
       </div>    
     </div>

@@ -1,5 +1,58 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&family=Dela+Gothic+One&display=swap');
 
+@keyframes animationLeft {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(-20%);
+    opacity: 0.2;
+  }
+  40% {
+    transform: translateX(-40%);
+    opacity: 0.6;
+  }
+  60% {
+    transform: translateX(-60%);
+    opacity: 0.4;
+  }
+  80% {
+    transform: translateX(-80%);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes animationRight {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(20%);
+    opacity: 0.2;
+  }
+  40% {
+    transform: translateX(40%);
+    opacity: 0.6;
+  }
+  60% {
+    transform: translateX(60%);
+    opacity: 0.4;
+  }
+  80% {
+    transform: translateX(80%);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
 .wrapper {
   height: 54.438em;
   display: flex;
@@ -14,6 +67,7 @@
 
   .rightBlock {
     height: 54.438em;
+    width: 49.185em;
     display: flex;
     flex-direction: column;
 
@@ -92,3 +146,17 @@
     }
   }
 }
+
+.left {
+  animation: animationLeft 0.5s ease-in-out;
+}
+.right {
+  animation: animationRight 0.3s ease-in-out;
+}
+.hidden {
+  display: none;
+}
+
+
+
+  

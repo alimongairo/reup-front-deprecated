@@ -2,9 +2,16 @@ import { EPagesRoutes } from '@/constants/router';
 import Link from 'next/link';
 import cx from './index.module.scss';
 
-const BlockOne = () => {
+interface IProps {
+  depressionLeft: Boolean,
+  depressionRight: Boolean
+}
+
+const BlockOne = ({depressionLeft, depressionRight}:IProps) => {
+  console.log(depressionLeft)
   return (
-    <div className={cx.wrapper}>
+    
+    <div className={depressionLeft ? `${cx.wrapper} ${cx.left}`: `${cx.wrapper}`}>
 
       <div className={cx.leftBlock}>
         <img src="../../../static/Slider/img/SliderOne_one.png" alt="" />

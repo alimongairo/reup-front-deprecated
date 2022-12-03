@@ -1,29 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&family=Dela+Gothic+One&display=swap');
-
 .wrapper {
-  height: 54.438em;
-  width: 90em;
-  display: flex;
-  flex-direction: row;
-  margin: 0 auto;
   position: relative;
-
-  .arrowLeft,
-  .arrowRight {
-    height: 100%;
-    padding: 1.875em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-self: center;
-    opacity: 0.5;
-    img {
-      height: 3.75em;
-    }
-    &:hover {
-      opacity: 1;
-      transition: 0.3s;
-  }
-  }
-
+  height: 200vh;
 }

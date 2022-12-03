@@ -42,7 +42,7 @@ const OrderForm = ({ user, basket }: IProps) => {
       description: (
         <div>
           {Object.entries(values).map((value) => (
-            <div>{value[0] + ': ' + value[1]}</div>
+            <div key={value[0]}>{value[0] + ': ' + value[1]}</div>
           ))}
         </div>
       ),

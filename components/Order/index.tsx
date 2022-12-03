@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Skeleton } from 'antd';
 
 import OrderPageHeader from '@/components/Order/Header';
 import OrderPreview from '@/components/common/OrderPreview';
@@ -11,7 +12,7 @@ import { getUserAction } from '@/store/user/thunk';
 import { getProductListDataSource } from '@/store/productList/selectors';
 import {
   getBasketDataSource,
-  getBasketErrLoading,
+  getBasketLoading,
 } from '@/store/basket/selectors';
 import { getUserDataSource } from '@/store/user/selectors';
 
@@ -26,7 +27,7 @@ interface IProps {
 const OrderLayout = ({ isLogined }: IProps) => {
   const dispatch = useAppDispatch();
 
-  const { error, loading } = useAppSelector(getBasketErrLoading); //TODO: check errors fetch products and user
+  const loading = useAppSelector(getBasketLoading); //TODO: check errors fetch products and user
 
   const products = useAppSelector(getProductListDataSource); //TODO: fetch by ids
   const basket = useAppSelector(getBasketDataSource);
@@ -38,18 +39,18 @@ const OrderLayout = ({ isLogined }: IProps) => {
     isLogined && dispatch(getUserAction());
   }, []);
 
+  if (loading) {
+    return <Skeleton active />;
+  }
+
   return (
     <div className="w100">
       <OrderPageHeader />
-      {error || loading ? (
-        <div>{error?.message || 'loading..'}</div>
-      ) : (
-        products.length && (
-          <div className={cx.wrapper}>
-            <OrderForm user={user} basket={basket} />
-            <OrderPreview products={products} basket={basket} />
-          </div>
-        )
+      {products.length && (
+        <div className={cx.wrapper}>
+          <OrderForm user={user} basket={basket} />
+          <OrderPreview products={products} basket={basket} />
+        </div>
       )}
     </div>
   );

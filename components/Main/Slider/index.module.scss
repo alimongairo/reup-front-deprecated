@@ -1,4 +1,15 @@
 .wrapper {
   position: relative;
+  width: 100%;
   height: 200vh;
+
+  .arrowLeft {
+    position: absolute;
+    height: 100px;
+  }
+
+  .arrowRight {
+    position: absolute;
+    transform: rotate(180deg);
+  }
 }

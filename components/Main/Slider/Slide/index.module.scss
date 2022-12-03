@@ -1,8 +1,11 @@
 
 .slide {
-  position: absolute;
+  position: relative;
   opacity: 0;
   transition: .3s;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
   &.activeSlide {
     opacity: 1 !important;
   }

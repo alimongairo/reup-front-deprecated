@@ -24,7 +24,7 @@ const slideArray: ISlide[] = [
     id: 1,
     active: false,
     brandDescription:
-      'Наше дело не так однозначно, как может показаться: существующая теория напрямую зависит от стандартных подходов. Идейные соображения высшего порядка, а также разбавленное изрядной долей',
+      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam libero non eveniet, laudantium odit rem ea provident cumque sunt odio ducimus, at doloribus quis quod natus voluptas, quo quae dicta!',
     smallImg: slide2,
     bigImg: slide1,
     brandName: 'Имя бренда 2',
@@ -71,7 +71,7 @@ const Slider = () => {
         );
       })}
       <div onClick={onNextSlide} className={cx.arrowRight}>
-        <Image src={leftArrow} alt="Arrow left" />
+        <Image src={leftArrow} alt="Arrow right" />
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Skeleton } from 'antd';
 
 import EmptyBasket from '@/components/common/EmptyBasket';
 import BasketProductCard from '@/components/Basket/BasketItems/BasketProductCard';
@@ -6,7 +7,7 @@ import BasketBuyButton from '@/components/Basket/BasketItems/BasketBuyButton';
 
 import {
   getBasketDataSource,
-  getBasketErrLoading,
+  getBasketLoading,
 } from '@/store/basket/selectors';
 import { getProductListAction } from '@/store/productList/thunk';
 import { getProductListDataSource } from '@/store/productList/selectors';
@@ -22,17 +23,21 @@ const BasketProductList = () => {
   const allProducts = useAppSelector(getProductListDataSource); //TODO: fetch by ids
   const basketItems = useAppSelector(getBasketDataSource);
 
-  const { error, loading } = useAppSelector(getBasketErrLoading); //TODO: check errors fetch products
+  const loading = useAppSelector(getBasketLoading); //TODO: check errors fetch products
 
   useEffect(() => {
     dispatch(getProductListAction());
   }, []);
 
-  return error || loading ? (
-    <div>{error?.message || 'loading..'}</div>
-  ) : !basketItems || !basketItems.length ? (
-    <EmptyBasket />
-  ) : (
+  if (loading) {
+    return <Skeleton active />;
+  }
+
+  if (!basketItems?.length) {
+    return <EmptyBasket />;
+  }
+
+  return (
     <>
       <div className={cx.basketProductList}>
         {basketItems.map((product) => {

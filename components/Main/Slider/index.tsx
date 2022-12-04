@@ -18,16 +18,16 @@ const slideArray: ISlide[] = [
       'Наше дело не так однозначно, как может показаться: существующая теория напрямую зависит от стандартных подходов. Идейные соображения высшего порядка, а также разбавленное изрядной долей',
     smallImg: slide2,
     bigImg: slide1,
-    brandName: 'Имя бренда 1',
+    brandName: 'Название бренда',
   },
   {
     id: 1,
     active: false,
     brandDescription:
-      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam libero non eveniet, laudantium odit rem ea provident cumque sunt odio ducimus, at doloribus quis quod natus voluptas, quo quae dicta!',
+      'Наше дело не так однозначно, как может показаться: существующая теория напрямую зависит от стандартных подходов. Идейные соображения высшего порядка, а также разбавленное изрядной долей',
     smallImg: slide2,
     bigImg: slide1,
-    brandName: 'Имя бренда 2',
+    brandName: 'Имя бренда',
   },
 ];
 
@@ -51,14 +51,14 @@ const Slider = () => {
     });
   };
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     onNextSlide();
-  //   }, 3000);
-  //   return () => {
-  //     clearInterval(interval);
-  //   };
-  // }, []);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      onNextSlide();
+    }, 5000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [slideNumber]);
 
   return (
     <div className={cx.wrapper}>

@@ -1,10 +1,8 @@
-import Image from 'next/image';
-import slide1 from '@/static/img/slide1.png';
-import slide2 from '@/static/img/SliderOne_two.png';
-import Link from 'next/link';
 import { EPagesRoutes } from '@/constants/router';
 import moreArrow from '@/static/icons/moreArrow.svg';
 import classNames from 'classnames';
+import Image from 'next/image';
+import Link from 'next/link';
 
 import cx from './index.module.scss';
 
@@ -44,7 +42,7 @@ const Slide = ({
 
           <Link href={`${EPagesRoutes.Brand}/`}>
             <button className={cx.btn}>
-              <span>Больше</span>
+              <span>больше</span>
               <Image src={moreArrow} alt="moreArrow" />
             </button>
           </Link>

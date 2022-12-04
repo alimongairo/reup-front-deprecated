@@ -1,10 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&family=Dela+Gothic+One&display=swap');
+$ff: 576px;
+$fw: 768px;
+$fs: 992px;
+$fsz: 1200px;
+$lh: 1600px;
+
+@mixin minMaxScreen($ff, $fw, $fs, $fsz, $lh) {
+  min-width: $min;
+  font-family: 'Dela Gothic One';
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 64px;
+  line-height: 110%;
+}
+
 .slide {
   position: absolute;
   opacity: 0;
   transition: .3s;
-  height: calc(120vh + 1px);
   width: 100%;
+  height: calc(116vh + 2px);
   justify-content: center;
   display: flex;
   flex-direction: row;
@@ -34,9 +49,72 @@
         display: flex;
         flex-direction: column;
         background-color: #FF8742;
+        h1 {
+          font-family: 'Dela Gothic One';
+          font-style: normal;
+          font-weight: bolder;
+          font-size: 64px;
+          line-height: 110%;
+          text-transform: lowercase;
+          padding: 40px;
+          padding-top: 20px;
+          padding-bottom: 0;
+        }
         .borderTop {
           display: flex;
           flex-direction: column;
+          width: 100%;
+          height: 100%;
+          border-top: 4px solid #000;
+          
+          h2 {
+            font-family: 'Dela Gothic One';
+            font-style: normal;
+            font-weight: bolder;
+            font-size: 32px;
+            line-height: 110%;
+            text-transform: lowercase;
+            padding: 40px;
+            padding-bottom: 0;
+          }
+          p {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 110%;
+            margin-left: 1.5em;
+          }    
+        }
+        a {
+          border: 0;
+          background: none;
+          align-self: flex-end;
+
+          button {
+            border: 0;
+            background: none;
+            outline: none;
+            align-self: flex-end;
+            user-select: none;
+            color: #000;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 84.8%;
+            letter-spacing: 0.07em;
+            display: flex;
+            flex-direction: column;
+            span {
+              align-self: flex-end;
+              padding: 5px;
+            }
+            img {
+              &:hover {
+                cursor: pointer;
+                user-select: none;
+              }
+            }
+          }
         }
       }
     }

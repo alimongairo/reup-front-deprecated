@@ -1,10 +1,10 @@
 import cx from './index.module.scss';
 import Image from 'next/image';
+import classNames from 'classnames';
 
 import model2 from '@/static/img/model2.png';
 import model3 from '@/static/img/model3.png';
 import model4 from '@/static/img/model4.png';
-import classNames from 'classnames';
 
 const SaleSector = () => {
   return (

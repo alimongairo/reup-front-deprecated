@@ -59,6 +59,7 @@ const Slide = ({
           
         </div>
       </div>
+      
     </div>
   );
 };

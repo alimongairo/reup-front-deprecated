@@ -1,9 +1,11 @@
-import {useRouter} from "next/router";
+import { useRouter } from 'next/router';
 
-const ProductDetail = ()=>{
-    const router = useRouter()
-    const {id} = router.query
-    return <ProductDetail/>
-}
+import ProductDetail from '@/components/ProductDetail';
 
-export default ProductDetail
+const ProductDetailPage = () => {
+  const router = useRouter();
+  const { id } = router.query;
+  return <ProductDetail />;
+};
+
+export default ProductDetailPage;

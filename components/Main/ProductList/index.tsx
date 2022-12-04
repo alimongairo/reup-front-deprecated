@@ -10,7 +10,7 @@ import cx from './index.module.scss';
 import leftArrow from '@/static/icons/leftArrow.svg';
 
 interface IProps {
-  title?:string,
+  title?: string;
   productList: TProductItem[];
 }
 
@@ -44,6 +44,10 @@ const ProductsList = ({ title, productList }: IProps) => {
   const scrollListToPrev = () => {
     scrollList(false);
   };
+
+  if (!productList.length) {
+    return <div>Пустo...</div>;
+  }
 
   return (
     <div className={cx.wrapper}>

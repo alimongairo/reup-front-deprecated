@@ -3,12 +3,14 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import productListReducer from '@/store/productList/slice';
 import basketReducer from '@/store/basket/slice';
+import productDetailReducer from '@/store/productDetail/slice';
 
 export const makeStore = () =>
   configureStore({
     reducer: {
       productList: productListReducer,
       basket: basketReducer,
+      productDetail: productDetailReducer,
     },
   });
 

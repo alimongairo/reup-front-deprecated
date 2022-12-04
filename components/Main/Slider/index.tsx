@@ -51,26 +51,31 @@ const Slider = () => {
     });
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      onNextSlide();
-    }, 3000);
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     onNextSlide();
+  //   }, 3000);
+  //   return () => {
+  //     clearInterval(interval);
+  //   };
+  // }, []);
 
   return (
     <div className={cx.wrapper}>
       <div onClick={onPrevSlide} className={cx.arrowLeft}>
         <Image src={leftArrow} alt="Arrow left" />
       </div>
-
-      {slideArray.map((slide) => {
-        return (
-          <Slide key={slide.id} {...slide} active={slide.id === slideNumber} />
-        );
-      })}
+      <div className={cx.slides}>
+        {slideArray.map((slide) => {
+          return (
+            <Slide
+              key={slide.id}
+              {...slide}
+              active={slide.id === slideNumber}
+            />
+          );
+        })}
+      </div>
 
       <div onClick={onNextSlide} className={cx.arrowRight}>
         <Image src={leftArrow} alt="Arrow right" />

@@ -1,15 +1,24 @@
 .wrapper {
   position: relative;
   width: 100%;
-  height: 200vh;
+  height: 210vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
   .arrowLeft {
     position: absolute;
-    height: 100px;
+    align-self: center;
+    top: 15px;
+    left: 15px;
+    z-index: 999;
   }
 
   .arrowRight {
     position: absolute;
+    right: 15px;
+    top: 15px;
     transform: rotate(180deg);
+    align-self: center;
   }
 }

@@ -1,73 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&family=Dela+Gothic+One&display=swap');
 
-@keyframes animationLeft {
-  0% {
-    opacity: 1;
-  }
-  20% {
-    transform: translateX(-20%);
-    opacity: 0.2;
-  }
-  40% {
-    transform: translateX(-40%);
-    opacity: 0.6;
-  }
-  60% {
-    transform: translateX(-60%);
-    opacity: 0.4;
-  }
-  80% {
-    transform: translateX(-80%);
-    opacity: 0.2;
-  }
-  100% {
-    transform: translateX(-100%);
-    opacity: 0;
-    display: none;
-  }
-}
-
-@keyframes animationRight {
-  0% {
-    opacity: 1;
-  }
-  20% {
-    transform: translateX(20%);
-    opacity: 0.2;
-  }
-  40% {
-    transform: translateX(40%);
-    opacity: 0.6;
-  }
-  60% {
-    transform: translateX(60%);
-    opacity: 0.4;
-  }
-  80% {
-    transform: translateX(80%);
-    opacity: 0.2;
-  }
-  100% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-}
-
 .wrapper {
   height: 54.438em;
   display: flex;
   flex-direction: row;
+  // justify-content: space-around;
+  opacity: 0;
+  transition: .3s;
   margin: 0 auto;
   position: relative;
+  &.activeSlide {
+    opacity: 1 !important;
+  }
 
   .leftBlock img {
     height: 54.438em;
-    width: 46.875em;
   }
 
   .rightBlock {
     height: 54.438em;
-    width: 49.185em;
     display: flex;
     flex-direction: column;
 
@@ -80,6 +31,7 @@
     .downRight {
       background-color: #FF8742;
       height: 28.25em;
+      width: 100%;
 
       div {
         margin-top: 1.1em;
@@ -147,15 +99,6 @@
   }
 }
 
-.left {
-  animation: animationLeft 0.5s ease-in-out;
-}
-.right {
-  animation: animationRight 0.3s ease-in-out;
-}
-.hidden {
-  display: none;
-}
 
 
 

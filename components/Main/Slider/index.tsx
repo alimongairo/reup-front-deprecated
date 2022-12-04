@@ -54,7 +54,7 @@ const Slider = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       onNextSlide();
-    }, 5000);
+    }, 3000);
     return () => {
       clearInterval(interval);
     };
@@ -65,11 +65,13 @@ const Slider = () => {
       <div onClick={onPrevSlide} className={cx.arrowLeft}>
         <Image src={leftArrow} alt="Arrow left" />
       </div>
+
       {slideArray.map((slide) => {
         return (
           <Slide key={slide.id} {...slide} active={slide.id === slideNumber} />
         );
       })}
+
       <div onClick={onNextSlide} className={cx.arrowRight}>
         <Image src={leftArrow} alt="Arrow right" />
       </div>

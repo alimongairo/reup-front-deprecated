@@ -1,4 +1,4 @@
-import { Button, Space } from 'antd';
+import { Button } from 'antd';
 import Link from 'next/link';
 import { LoginOutlined } from '@ant-design/icons';
 

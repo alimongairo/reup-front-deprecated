@@ -1,38 +1,39 @@
 import Link from 'next/link';
+import { Button, Image, Card, Tooltip } from 'antd';
+import { DeleteOutlined, PlusOutlined, MinusOutlined } from '@ant-design/icons';
 
+import { TProductItem } from '@/store/productList/type';
 import { basketProductCard } from '@/constants/componentsSizes';
 import { EPagesRoutes } from '@/constants/router';
 import { multiplyRem } from '@/helpers/multiplyRem';
 
-import { DeleteOutlined, PlusOutlined, MinusOutlined } from '@ant-design/icons';
-import { Button, Image, Card, Tooltip } from 'antd';
 import cx from './index.module.scss';
 
 interface IProps {
-  productId: number;
+  product: TProductItem;
   amount: number;
 }
 
-const BasketProductCard = ({ productId, amount }: IProps) => {
+const BasketProductCard = ({ product, amount }: IProps) => {
   return (
     <div className={cx.basketProductCard}>
-      <Link href={`${EPagesRoutes.ProductDetail}/${productId}`}>
+      <Link href={`${EPagesRoutes.ProductDetail}/${product.id}`}>
         <Image
           width={basketProductCard.height}
           height={basketProductCard.height}
           preview={false}
-          src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+          src={product.imgSource.src}
           alt="product image"
         />
       </Link>
 
       <Card
-        title="Product Title"
+        title={product.title}
         style={{
           width: basketProductCard.height,
           height: basketProductCard.height,
         }}
-        extra={<a href={`${EPagesRoutes.ProductDetail}/${productId}`}>More</a>}
+        extra={<a href={`${EPagesRoutes.ProductDetail}/${product.id}`}>More</a>}
         headStyle={{
           height: multiplyRem(basketProductCard.height, 0.2),
         }}
@@ -43,13 +44,10 @@ const BasketProductCard = ({ productId, amount }: IProps) => {
           justifyContent: 'space-between',
         }}
       >
-        <p>
-          Product Description Product Description Product Description Product
-          Description
-        </p>
+        <p>{product.description}</p>
 
         <div className={cx.priceAndAmount}>
-          <div>100$</div>
+          <div>{product.price} ₽</div>
           <div className={cx.amount}>
             <Button type="text" size="small" icon={<MinusOutlined />} />
             <div>{amount}</div>

@@ -1,10 +1,12 @@
-@import '~antd/dist/antd.css';
-
 :root {
     --reup-unit: .25rem;
     --reup-radius: 5px;
 }
 
+body {
+    margin: 0;
+}
+
 * {
-    font-family: 'Cabin', sans-serif;
+    font-family: 'Gilroy' , sans-serif;
 }

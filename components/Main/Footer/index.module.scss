@@ -1,0 +1,36 @@
+.wrapper{
+  padding: 4rem;
+  h1 {
+    font-family: 'Dela Gothic One', sans-serif;
+    font-size: 64px;
+    font-weight: bold;
+    line-height: 70px;
+    letter-spacing: 0.04em;
+    text-align: center;
+  }
+  >div{
+    display: flex;
+    justify-content: center;
+    gap: 8rem;
+    >div{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+  ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    li {
+      margin-top: 1em;
+    }
+  }
+  .media{
+    display: flex;
+    gap: 1rem;
+    img{
+      cursor: pointer;
+    }
+  }
+}

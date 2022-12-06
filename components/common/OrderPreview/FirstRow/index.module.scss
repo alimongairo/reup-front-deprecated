@@ -1,0 +1,22 @@
+.firstRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+  .title {
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 700;
+    text-transform: lowercase;
+  }
+
+  .editButton {
+    font-size: 14px;
+    line-height: 17px;
+    color: #8a8a8a;
+    text-transform: lowercase;
+  }
+  .editButton:hover {
+    opacity: 0.8;
+  }
+}

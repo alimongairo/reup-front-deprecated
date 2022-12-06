@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import cx from './index.module.scss';
 
 const MainPageNavigation = ()=>{

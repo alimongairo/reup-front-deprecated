@@ -1,11 +1,14 @@
-import {Input} from "antd";
+// import {Input} from "antd";
 
-const {Search} = Input;
+import cx from './index.module.scss';
+
+// const {Search} = Input;
 
 const MainPageSearch = ()=>{
-    return <div>
-        <Search/>
+    return (
+    <div className={cx.search__panel}>
+        <input className={cx.search__panel__input} type="search" placeholder='А что мы тут ищем?' />
     </div>
-}
+)}
 
 export default MainPageSearch

@@ -13,7 +13,6 @@ const MainPageHeader = () => {
   return (
     <div className={cx.wrapper}>
       <div className={cx.firstRow}>
-        <h1>Logo</h1>
         <Search />
         <div>
           <BasketLinkButton />

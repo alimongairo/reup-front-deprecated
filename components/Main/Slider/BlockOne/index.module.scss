@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&family=Dela+Gothic+One&display=swap');
+
+.wrapper {
+  height: 54.438em;
+  display: flex;
+  flex-direction: row;
+  // justify-content: space-around;
+  opacity: 0;
+  transition: .3s;
+  margin: 0 auto;
+  position: relative;
+  &.activeSlide {
+    opacity: 1 !important;
+  }
+
+  .leftBlock img {
+    height: 54.438em;
+  }
+
+  .rightBlock {
+    height: 54.438em;
+    display: flex;
+    flex-direction: column;
+
+    .upRight {
+      
+      height: 26.188em;
+      width: 100%;
+    }
+
+    .downRight {
+      background-color: #FF8742;
+      height: 28.25em;
+      width: 100%;
+
+      div {
+        margin-top: 1.1em;
+        margin-left: 2.5em;
+        display: flex;
+        flex-direction: column;
+
+        h1 {
+          font-family: 'Dela Gothic One';
+          font-style: normal;
+          font-weight: bolder;
+          font-size: 64px;
+          line-height: 110%;
+          text-transform: lowercase;
+        }
+
+        .borderTop {
+          padding: 0 auto;
+          margin-left: -2.5em;
+          border-top: 4px solid #000;
+
+          h2 {
+            font-family: 'Dela Gothic One';
+            font-style: normal;
+            font-weight: bolder;
+            font-size: 32px;
+            line-height: 110%;
+            text-transform: lowercase;
+            margin-left: 1.2em;
+          }
+
+          p {
+            font-family: 'Dela Gothic One';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 110%;
+            margin-left: 1.5em;
+          }
+        }
+
+        a {
+          border: 0;
+          background: none;
+          width: 50%;
+          align-self: flex-end;
+
+          button {
+            border: 0;
+            background: none;
+            outline: none;
+            width: 50%;
+            align-self: flex-end;
+            user-select: none;
+            img {
+              &:hover {
+                cursor: pointer;
+                user-select: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+  

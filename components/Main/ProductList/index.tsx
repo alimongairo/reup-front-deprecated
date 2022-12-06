@@ -10,10 +10,11 @@ import cx from './index.module.scss';
 import leftArrow from '@/static/icons/leftArrow.svg';
 
 interface IProps {
+  title?:string,
   productList: TProductItem[];
 }
 
-const ProductsList = ({ productList }: IProps) => {
+const ProductsList = ({ title, productList }: IProps) => {
   const listRef = useRef<HTMLDivElement | null>(null);
 
   const onLikeHandler = useCallback((id: number) => {

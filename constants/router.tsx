@@ -9,4 +9,5 @@ export enum EPagesRoutes {
   Order = '/order',
   UnauthorizedOrder = '/unauthorizedOrder',
   Collection = '/collection',
+  Brand = '/brand',
 }

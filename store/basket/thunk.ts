@@ -1,28 +1,28 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import { BASKET_ALIAS, TBasketItem, TBasketStore } from './type';
 import { notification } from 'antd';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { BASKET_ALIAS, TBasketItem, TBasketStore } from '@/store/basket/type';
+import { randomInteger } from '@/helpers/utils';
+import { mockFetch } from '@/helpers/mockFetch';
 
 const mockData: TBasketItem[] = [];
 
-for (let i = 1; i <= 5; i++) {
+for (let i = 0; i < randomInteger(0, 4); i++) {
   mockData.push({
     productId: i,
-    amount: 1 + (i % 2),
+    amount: randomInteger(1, 3),
   });
 }
 
 export const getBasketAction = createAsyncThunk<
-  TBasketItem[],
+  TBasketStore['dataSource'],
   undefined,
   {
     rejectValue: TBasketStore['error'];
   }
 >(`${BASKET_ALIAS}/fetch`, async (_, { rejectWithValue }) => {
   try {
-    if (Math.floor(Math.random() * 10) < 1) {
-      throw new Error('fetch error');
-    }
-    return mockData;
+    const data = await mockFetch(mockData);
+    return data;
   } catch (error) {
     notification.error({ message: String(error) });
     return rejectWithValue(error as Error);

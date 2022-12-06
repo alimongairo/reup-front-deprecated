@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { BASKET_ALIAS, TBasketStore } from './type';
+import { BASKET_ALIAS, TBasketStore } from '@/store/basket/type';
 import { getBasketAction } from '@/store/basket/thunk';
 
 const initialState: TBasketStore = {

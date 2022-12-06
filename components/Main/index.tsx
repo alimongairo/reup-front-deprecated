@@ -14,7 +14,7 @@ import cx from './index.module.scss';
 import SaleSector from './SaleSector';
 import Slider from './Slider';
 import Category from '@/components/Main/Category';
-// import Marquee from 'react-fast-marquee';
+import Marquee from 'react-fast-marquee';
 
 const MainLayout = () => {
   const dispatch = useAppDispatch();
@@ -39,11 +39,11 @@ const MainLayout = () => {
         <h1 style={{ textAlign: 'right' }}>i like</h1>
         <ProductsList productList={newProducts} />
       </div>
-      {/* <Marquee gradient={false} speed={60}>
+      <Marquee gradient={false} speed={60}>
         <span className={cx.marquee}>
           акции скидки акции скидки акции скидки акции скидки
-        </span> */}
-      {/* </Marquee> */}
+        </span>
+      </Marquee>
       <ProductsList productList={newProducts} />
       <SaleSector />
       <Footer />

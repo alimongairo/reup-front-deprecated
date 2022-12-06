@@ -1,35 +1,21 @@
-.wrapper {
-  position: relative;
-  height: 120vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+@import 'styles/mixins.scss';
 
-  .slides{
-    height: 120vh;
+.wrapper {
+  display: flex;
+  @include container;
+  height: auto;
+  .slides {
     width: 100%;
-    overflow: hidden;
   }
-  .arrowLeft {
+  .arrow {
     position: absolute;
     top: 50%;
     left: 15px;
-    z-index: 999;
-    opacity: .5;
-    transition: .3s;
-  }
-
-  .arrowRight {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: rotate(180deg);
-    align-self: center;
-    opacity: .5;
-    transition: .3s;
-  }
-  .arrowLeft:hover,
-  .arrowRight:hover {
-    opacity: 1;
+    z-index: 10;
+    &.rotate {
+      transform: rotate(180deg);
+      right: 15px;
+      left: auto;
+    }
   }
 }

@@ -7,6 +7,7 @@ import slide1 from '@/static/img/slide1.png';
 import slide2 from '@/static/img/SliderOne_two.png';
 
 import Slide, { ISlide } from '@/components/Main/Slider/Slide';
+import classNames from 'classnames';
 
 const slideCount = 1;
 
@@ -62,9 +63,10 @@ const Slider = () => {
 
   return (
     <div className={cx.wrapper}>
-      <div onClick={onPrevSlide} className={cx.arrowLeft}>
+      <div onClick={onPrevSlide} className={cx.arrow}>
         <Image src={leftArrow} alt="Arrow left" />
       </div>
+
       <div className={cx.slides}>
         {slideArray.map((slide) => {
           return (
@@ -77,7 +79,7 @@ const Slider = () => {
         })}
       </div>
 
-      <div onClick={onNextSlide} className={cx.arrowRight}>
+      <div onClick={onNextSlide} className={classNames(cx.arrow, cx.rotate)}>
         <Image src={leftArrow} alt="Arrow right" />
       </div>
     </div>

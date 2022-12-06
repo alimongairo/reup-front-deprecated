@@ -1,13 +1,13 @@
-import { Button } from 'antd';
-import { ShoppingCartOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 import { EPagesRoutes } from '@/constants/router';
+import basketIcon from '@/static/icons/basket.svg'
+import Image from 'next/image';
 
 const BasketLinkButton = () => {
   return (
     <div>
       <Link href={EPagesRoutes.Basket}>
-        <Button type="primary" size="large" icon={<ShoppingCartOutlined />} />
+        <Image src={basketIcon} alt='basketIcon'/>
       </Link>
     </div>
   );

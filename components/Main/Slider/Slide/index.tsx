@@ -1,12 +1,11 @@
-import Image from 'next/image';
-import slide1 from '@/static/img/slide1.png';
-import slide2 from '@/static/img/SliderOne_two.png';
-import Link from 'next/link';
 import { EPagesRoutes } from '@/constants/router';
 import moreArrow from '@/static/icons/moreArrow.svg';
 import classNames from 'classnames';
+import Image from 'next/image';
+import Link from 'next/link';
 
 import cx from './index.module.scss';
+import { useRouter } from 'next/router';
 
 export interface ISlide {
   id: number;
@@ -25,29 +24,32 @@ const Slide = ({
   bigImg,
   smallImg,
 }: ISlide) => {
+  const router = useRouter();
+
+  const moreHandler = () => {
+    router.push(`${EPagesRoutes.Brand}/${id}`);
+  };
+
   return (
-    <div className={classNames(cx.slide, active && cx.activeSlide)}>
-      <div className={cx.leftBlock}>
+    <div
+      className={classNames(cx.slide, cx.fade)}
+      style={{ display: active ? 'flex' : 'none' }}
+    >
+      <div className={cx.side}>
         <Image src={bigImg} alt="slide1" />
       </div>
-
-      <div className={cx.rightBlock}>
+      <div className={cx.side}>
         <Image src={smallImg} alt="slide2" />
-
         <div className={cx.text}>
           <h1>Новый бренд</h1>
-
-          <div className={cx.borderTop}>
+          <div>
             <h2>{brandName}</h2>
             <p>{brandDescription}</p>
-          </div>
-
-          <Link href={`${EPagesRoutes.Brand}/`}>
-            <button className={cx.btn}>
-              <span>Больше</span>
+            <button className={cx.btn} onClick={moreHandler}>
+              <span>больше</span>
               <Image src={moreArrow} alt="moreArrow" />
             </button>
-          </Link>
+          </div>
         </div>
       </div>
     </div>

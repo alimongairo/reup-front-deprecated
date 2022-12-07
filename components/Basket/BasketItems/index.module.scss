@@ -1,3 +1,27 @@
+.emptyBasket {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  height: 30rem;
+
+  div {
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 700;
+    text-transform: lowercase;
+  }
+
+  .goHomeButton {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+    color: #8a8a8a;
+    text-transform: lowercase;
+  }
+}
+
 .basketProductList {
   display: flex;
   flex-direction: column;

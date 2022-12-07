@@ -7,6 +7,7 @@ import slide1 from '@/static/img/slide1.png';
 import slide2 from '@/static/img/SliderOne_two.png';
 
 import Slide, { ISlide } from '@/components/Main/Slider/Slide';
+import classNames from 'classnames';
 
 const slideCount = 1;
 
@@ -18,16 +19,16 @@ const slideArray: ISlide[] = [
       'Наше дело не так однозначно, как может показаться: существующая теория напрямую зависит от стандартных подходов. Идейные соображения высшего порядка, а также разбавленное изрядной долей',
     smallImg: slide2,
     bigImg: slide1,
-    brandName: 'Имя бренда 1',
+    brandName: 'Название бренда',
   },
   {
     id: 1,
     active: false,
     brandDescription:
-      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam libero non eveniet, laudantium odit rem ea provident cumque sunt odio ducimus, at doloribus quis quod natus voluptas, quo quae dicta!',
+      'Наше дело не так однозначно, как может показаться: существующая теория напрямую зависит от стандартных подходов. Идейные соображения высшего порядка, а также разбавленное изрядной долей',
     smallImg: slide2,
     bigImg: slide1,
-    brandName: 'Имя бренда 2',
+    brandName: 'Имя бренда',
   },
 ];
 
@@ -51,20 +52,21 @@ const Slider = () => {
     });
   };
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     onNextSlide();
-  //   }, 3000);
-  //   return () => {
-  //     clearInterval(interval);
-  //   };
-  // }, []);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      onNextSlide();
+    }, 5000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [slideNumber]);
 
   return (
     <div className={cx.wrapper}>
-      <div onClick={onPrevSlide} className={cx.arrowLeft}>
+      <div onClick={onPrevSlide} className={cx.arrow}>
         <Image src={leftArrow} alt="Arrow left" />
       </div>
+
       <div className={cx.slides}>
         {slideArray.map((slide) => {
           return (
@@ -77,7 +79,7 @@ const Slider = () => {
         })}
       </div>
 
-      <div onClick={onNextSlide} className={cx.arrowRight}>
+      <div onClick={onNextSlide} className={classNames(cx.arrow, cx.rotate)}>
         <Image src={leftArrow} alt="Arrow right" />
       </div>
     </div>

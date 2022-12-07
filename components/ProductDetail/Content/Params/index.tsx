@@ -1,78 +1,55 @@
-import { useAppSelector } from '@/hooks/store';
+import { useMemo } from 'react';
 import { Skeleton } from 'antd';
 import Image from 'next/image';
 
-import { getProductDetailDataSource } from '@/store/productDetail/selectors';
-import bigHard from '@/static/icons/bigHard.svg';
-import downArrow from '@/static/icons/downArrow.svg';
+import Select from '@/components/common/Select';
 
+import { getProductDetailDataSource } from '@/store/productDetail/selectors';
+import { useAppSelector } from '@/hooks/store';
+
+import arrowDown from '@/static/icons/downArrow.svg';
 import cx from './index.module.scss';
-import { useState } from 'react';
-import classNames from 'classnames';
 
 const Params = () => {
   const data = useAppSelector(getProductDetailDataSource);
-  const [selectedSize, setSelectedSize] = useState<number | null>(null);
+
+  const sizes = useMemo(() => {
+    return (
+      data?.sizes.map((i) => ({
+        id: i,
+        value: i,
+        label: String(i),
+      })) || []
+    );
+  }, []);
 
   if (!data) {
     return <Skeleton active />;
   }
 
   return (
-    <div>
-      <div className={cx.header}>
+    <div className={cx.wrapper}>
+      <div>
         <div>
-          <h1>{data.title}</h1>
-          <h2>{data.brandTitle}</h2>
-        </div>
-        <div>
-          <Image src={bigHard} alt="bigHard" />
-        </div>
-      </div>
-      <div className={cx.row}>
-        <div className={cx.rowHead}>
-          <h1>Размер</h1>
-          <div>
-            <Image src={downArrow} alt="downArrow" />
-          </div>
-        </div>
-        <div className={cx.rowContent}>
-          {data.sizes.map((size) => {
-            return (
-              <span
-                className={classNames(
-                  cx.sizeBox,
-                  size === selectedSize && cx.selectedSize,
-                )}
-                onClick={() => setSelectedSize(size)}
-              >
-                {size}
-              </span>
-            );
-          })}
-        </div>
-      </div>
-      <div className={cx.row}>
-        <div className={cx.rowHead}>
-          <h1>Описание</h1>
-          <div>
-            <Image src={downArrow} alt="downArrow" />
-          </div>
-        </div>
-        <div className={cx.rowContent}>
+          <h1>О ТОВАРЕ</h1>
           <p>{data.description}</p>
         </div>
-      </div>
-      <div className={cx.row}>
-        <div className={cx.rowHead}>
-          <h1>Характеристики</h1>
-          <div>
-            <Image src={downArrow} alt="downArrow" />
+        <div>
+          <div className={cx.headRow}>
+            <h1>ХАРАКТЕРИСТИКИ</h1>
+            <Image src={arrowDown} alt={'arrowDown'} />
           </div>
+          <Select title="выбрать размер" options={sizes} />
         </div>
-        <div className={cx.rowContent}>
-          <p>{data.params}</p>
-          <p>03289</p>
+      </div>
+
+      <div className={cx.footer}>
+        <button>добавить в корзину</button>
+        <div className={cx.priceWrapper}>
+          {data.oldPrice && (
+            <span className={cx.oldPrice}>{data.oldPrice}</span>
+          )}
+          <span className={cx.price}>{data.price}</span>
         </div>
       </div>
     </div>

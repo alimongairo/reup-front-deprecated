@@ -1,20 +1,20 @@
 import { useEffect } from 'react';
+import Marquee from 'react-fast-marquee';
 
 import Header from '@/components/Main/Header';
 import ProductsList from '@/components/Main/ProductList';
 import ReupChoosen from '@/components/Main/ReupChoosen';
+import SaleSector from '@/components/Main/SaleSector';
+import Slider from '@/components/Main/Slider';
+import Category from '@/components/Main/Category';
+import Collections from '@/components/Main/Collections';
+import Footer from '@/components/common/Footer';
 
 import { useAppDispatch, useAppSelector } from '@/hooks/store';
 import { getProductListDataSource } from '@/store/productList/selectors';
 import { getProductListAction } from '@/store/productList/thunk';
 
-import Collections from './Collections';
-import Footer from './Footer';
 import cx from './index.module.scss';
-import SaleSector from './SaleSector';
-import Slider from './Slider';
-import Category from '@/components/Main/Category';
-import Marquee from 'react-fast-marquee';
 
 const MainLayout = () => {
   const dispatch = useAppDispatch();

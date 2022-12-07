@@ -1,69 +1,70 @@
-.header{
+
+@mixin h1  {
+  font-family: 'Gilroy', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 110%;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  h1{
-    font-family:'Dela Gothic One', sans-serif;
-    font-size: 32px;
-    font-weight: bold;
-    line-height: 35px;
-    letter-spacing: 0.04em;
-    text-align: left;
+  gap: 1rem;
+  h1 {
+    @include h1;
   }
-  h2 {
+  p {
     font-family: 'Gilroy', sans-serif;
+    font-style: normal;
+    font-weight: 400;
     font-size: 24px;
-    font-weight: bold;
-    line-height: 26px;
+    line-height: 110%;
     letter-spacing: 0.07em;
-    text-align: left;
+    color: #000000;
   }
 }
 
-.row{
+.headRow {
   display: flex;
-  flex-direction: column;
-  margin-top: 2rem;
-  width: 70%;
+  justify-content: space-between;
+  margin: 0;
+  align-items: baseline;
+  width: fit-content;
+  gap: 3rem;
+};
 
-  .rowHead{
+.footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  .priceWrapper {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    h1, h2 {
-      font-weight: bold;
+    gap: .5rem;
+    align-items: baseline;
+    .oldPrice {
+      text-decoration: line-through;
+      font-family: 'Gilroy', sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 110%;
+      letter-spacing: 0.07em;
+      color: rgba(0, 0, 0, 0.5);
     }
-    img {
-      width: 40px;
+    .price {
+      font-family: 'Dela Gothic One', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 110%;
+      letter-spacing: 0.04em;
+      color: #000000;
     }
-  }
-
-  .rowContent {
-    font-family: 'Gilroy', sans-serif;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 26px;
-    letter-spacing: 0.07em;
-    text-align: left;
-  }
-
-  .sizeBox {
-    padding: 1rem;
-    border: 2px solid black;
-    display: inline-block;
-    margin-right: 1rem;
-    transition: .3s;
-
-    &:hover {
-      transform: scale(1.1);
-      background: rgba(139, 48, 242, 0.71);
-      color: white
-    }
-
-    &.selectedSize{
-      transform: scale(1.1);
-      background: #8B30F2;
-      color: white
-    }
-
   }
 }

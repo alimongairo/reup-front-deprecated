@@ -25,6 +25,7 @@ const ProductsList = ({ productList }: IProps) => {
   const cardList = [...productList, ...productList].map((product) => {
     return (
       <ProductCard
+        key={product.id}
         onLike={onLikeHandler}
         onAddToBasket={onAddToBasketHandler}
         title={product.title}

@@ -18,6 +18,7 @@ const ReviewStars = ({ grade }: IReviewStars) => {
         .fill('')
         .map((_, i) => (
           <Image
+            key={i}
             src={i >= Number.parseInt(String(grade)) ? star : fillStar}
             alt={'star'}
           />

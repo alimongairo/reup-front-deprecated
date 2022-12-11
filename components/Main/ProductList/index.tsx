@@ -1,10 +1,9 @@
 import { useCallback } from 'react';
 
 import ProductCard from '@/components/common/ProductCard';
+import ScrollSlider from '@/components/common/ScrollSlider';
 
 import { TProductItem } from '@/store/productList/type';
-
-import ScrollSlider from '@/components/common/ScrollSlider';
 
 interface IProps {
   productList: TProductItem[];
@@ -28,7 +27,6 @@ const ProductsList = ({ productList }: IProps) => {
       <ProductCard
         onLike={onLikeHandler}
         onAddToBasket={onAddToBasketHandler}
-        key={product.id}
         title={product.title}
         id={product.id}
         description={product.description}

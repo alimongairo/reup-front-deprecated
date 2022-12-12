@@ -6,6 +6,20 @@
   gap: calc(var(--reup-unit));
   position: relative;
   transition:.3s;
+  margin-top: 30px;
+  &:hover {
+    .modalBtn {
+      opacity: 1;
+      transform: translateY(-40px);
+      transition: transform 0.5s;
+    }   
+  }
+
+  .modalBtn {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+  }
 
   .productImg{
     width: 100%;

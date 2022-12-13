@@ -8,10 +8,15 @@
   transition:.3s;
   margin-top: 30px;
   &:hover {
+    .productImg {
+      opacity: 0.5;
+      z-index: 2;
+    }
     .modalBtn {
       opacity: 1;
-      transform: translateY(-40px);
-      transition: transform 0.5s;
+      transform: translateY(8em);
+      transition: transform 0.3s;
+      z-index: 3;
     }   
   }
 
@@ -31,6 +36,7 @@
     right: calc(var(--reup-unit)  * 3);
     top: calc(var(--reup-unit)  * 3);
     transition:.3s;
+    z-index: 5;
     &:hover {
       transform: scale(1.2);
     }

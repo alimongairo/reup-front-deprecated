@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useMemo } from 'react';
 import Image from 'next/image';
 import Close from '@/static/icons/popupClose.svg';
 import Like from '@/static/icons/like.svg';
@@ -8,13 +8,36 @@ import ModelLeft from '@/static/img/ModelPopupOne.png';
 import ModelRight from '@/static/img/ModelPopupTwo.png';
 import cx from './index.module.scss';
 import { randomInteger } from '@/helpers/utils';
+import Select from '../../Select';
+import { useAppSelector } from '@/hooks/store';
+import { getProductDetailDataSource } from '@/store/productDetail/selectors';
+import { TProductItem } from '@/store/productList/type';
 
-const Modal = ({ setModal }: any) => {
+type IProps = {
+  onLike: (id: number) => void;
+  onAddToBasket: (id: number) => void;
+  setModal: any;
+} & TProductItem;
+  
+const Modal = ({onLike, id, onAddToBasket, setModal }:IProps) => {
+
   const article = randomInteger(1000, 9999);
+
+  const data = useAppSelector(getProductDetailDataSource);
 
   const closePopup = () => {
     setModal(false);
   };
+
+  const sizesOption = useMemo(() => {
+    return (
+      data?.sizes.map((i) => ({
+        id: i,
+        value: i,
+        label: String(i),
+      })) || []
+    );
+  }, []);
 
   return (
     <div className={cx.wrapper}>
@@ -25,7 +48,7 @@ const Modal = ({ setModal }: any) => {
 
         <div className={cx.upBlock}>
           <div className={cx.leftUpBlock}>
-            <Image className={cx.like} src={Like} alt="Like" />
+            <Image onClick={() => onLike(id)} className={cx.like} src={Like} alt="Like" />
             <Image className={cx.modelLeft} src={ModelLeft} alt="Model one" />
             <Image className={cx.modelRight} src={ModelRight} alt="Model two" />
           </div>
@@ -33,7 +56,7 @@ const Modal = ({ setModal }: any) => {
           <div className={cx.descriptionBlock}>
             <h2>название товара</h2>
             <h4>название бренда</h4>
-            <span>0{article}</span>
+            <span className={cx.article}>0{article}</span>
             <p>О ТОВАРЕ</p>
             <div className={cx.descriptionOverflow}>
               <p>
@@ -49,12 +72,17 @@ const Modal = ({ setModal }: any) => {
                 Modi provident itaque hic quae. Ratione temporibus fugiat ex!
               </p>
             </div>
-            <div>
-              <span>3990 </span>
-              <span>1990</span>
+            <div className={cx.btnPrice}>
+              <div className={cx.price}>
+                <span className={cx.throughPrice}>3990 </span>
+                <span className={cx.activePrice}>1990</span>
+              </div>
+              <div className={cx.chooseSize}><Select title="выбрать размер" options={sizesOption}/></div>
+              <div className={cx.appCart}>
+                <button onClick={() => onAddToBasket(id)} >добавить в корзину</button>
+              </div>      
             </div>
-            <button>выбрать размер</button>
-            <button>добавить в корзину</button>
+            
           </div>
         </div>
 

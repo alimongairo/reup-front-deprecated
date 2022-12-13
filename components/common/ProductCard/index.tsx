@@ -48,7 +48,7 @@ const ProductCard = ({
 
       {modal ? 
       <>
-        <Modal setModal={setModal}/>
+        <Modal id={id} onLike={onLike} onAddToBasket={onAddToBasket} setModal={setModal}/>
         <span
           className={classNames(cx.likeIcon, 'iconBnt')}
           onClick={() => onLike(id)}

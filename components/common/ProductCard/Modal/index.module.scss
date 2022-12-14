@@ -58,7 +58,7 @@
                 width: 50%;
                 .modelLeft, .modelRight {
                     height: 100%;
-                    width: 65%;
+                    width: 50%;
                 }
                 .like {
                     position: absolute;
@@ -122,7 +122,6 @@
                     }
                 }
                 .btnPrice {
-                    // margin-top: 50px;
                     align-self: flex-start;
                     display: flex;
                     flex-direction: column;
@@ -149,7 +148,8 @@
                         letter-spacing: 0.1em;
                     }
                     .chooseSize {
-                        margin-top: 10px; 
+                        margin-top: 10px;
+                        position: relative; 
                         div {
                             box-sizing: border-box;
                             width: 100%;
@@ -158,6 +158,13 @@
                             font-weight: 700;
                             line-height: 26.4px;
                             letter-spacing: 0.1em;
+                        }
+                        .arrowDown {
+                            position: absolute;
+                            width: 16px;
+                            height: 8px;
+                            right: 15px;
+                            top: 20px;
                         }
                     }
                     .appCart {
@@ -184,26 +191,8 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            .leftArrow {
-                position: absolute;
-                left: 20px;
-                opacity: 0.5;
-                &:hover {
-                    cursor: pointer;
-                    opacity: 1;
-                    transition: 0.3s;
-                }
-            }
-            .rightArrow {
-                position: absolute;
-                transform: rotate(180deg);
-                right: 20px;
-                opacity: 0.5;
-                &:hover {
-                    cursor: pointer;
-                    opacity: 1;
-                    transition: 0.3s;
-                }
+            img {
+                cursor: pointer;
             }
         }
     }

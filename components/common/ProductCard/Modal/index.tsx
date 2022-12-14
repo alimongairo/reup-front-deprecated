@@ -1,25 +1,27 @@
-import React, { useCallback, useMemo } from 'react';
-import Image from 'next/image';
-import Close from '@/static/icons/popupClose.svg';
-import Like from '@/static/icons/like.svg';
-import LeftArrow from '@/static/icons/leftArrow.svg';
-import Jeans from '@/static/img/Jeans.png';
-import ModelLeft from '@/static/img/ModelPopupOne.png';
-import ModelRight from '@/static/img/ModelPopupTwo.png';
-import cx from './index.module.scss';
+import ScrollSlider from '@/components/common/ScrollSlider';
 import { randomInteger } from '@/helpers/utils';
-import Select from '../../Select';
 import { useAppSelector } from '@/hooks/store';
+import ArrowDown from '@/static/icons/arrow-down.svg';
+import Like from '@/static/icons/like.svg';
+import Close from '@/static/icons/popupClose.svg';
+import Jeans from '@/static/img/Jeans.png';
 import { getProductDetailDataSource } from '@/store/productDetail/selectors';
 import { TProductItem } from '@/store/productList/type';
+import Image from 'next/image';
+import { useMemo } from 'react';
+import Select from '../../Select';
+import cx from './index.module.scss';
 
 type IProps = {
   onLike: (id: number) => void;
   onAddToBasket: (id: number) => void;
+  goToProductDetail: () => void;
   setModal: any;
+  productList: TProductItem[]
 } & TProductItem;
   
-const Modal = ({onLike, id, onAddToBasket, setModal }:IProps) => {
+const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, imgSource, title, price, description, productList }:IProps) => {
+  console.log(productList)
 
   const article = randomInteger(1000, 9999);
 
@@ -39,6 +41,12 @@ const Modal = ({onLike, id, onAddToBasket, setModal }:IProps) => {
     );
   }, []);
 
+  const modalList = [...productList, ...productList].map((product) => {
+    return (
+      <Image key={product.id} onClick={goToProductDetail} className={cx.Jeans} src={Jeans} alt="Jeans" />
+    );
+  });
+
   return (
     <div className={cx.wrapper}>
       <div className={cx.popup}>
@@ -49,16 +57,19 @@ const Modal = ({onLike, id, onAddToBasket, setModal }:IProps) => {
         <div className={cx.upBlock}>
           <div className={cx.leftUpBlock}>
             <Image onClick={() => onLike(id)} className={cx.like} src={Like} alt="Like" />
-            <Image className={cx.modelLeft} src={ModelLeft} alt="Model one" />
-            <Image className={cx.modelRight} src={ModelRight} alt="Model two" />
+            <Image className={cx.modelLeft} src={imgSource} alt="Model one" />
+            <Image className={cx.modelRight} src={imgSource} alt="Model two" />
           </div>
 
           <div className={cx.descriptionBlock}>
-            <h2>название товара</h2>
+            <h2>{title}</h2>
             <h4>название бренда</h4>
             <span className={cx.article}>0{article}</span>
             <p>О ТОВАРЕ</p>
-            <div className={cx.descriptionOverflow}>
+
+            {/* productList.description */}
+
+            <div className={cx.descriptionOverflow}> 
               <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 Aspernatur reiciendis, accusantium eius rerum dolores,
@@ -74,10 +85,14 @@ const Modal = ({onLike, id, onAddToBasket, setModal }:IProps) => {
             </div>
             <div className={cx.btnPrice}>
               <div className={cx.price}>
-                <span className={cx.throughPrice}>3990 </span>
-                <span className={cx.activePrice}>1990</span>
+                <span className={cx.throughPrice}>9900 </span>
+                <span className={cx.activePrice}>{price}</span>
               </div>
-              <div className={cx.chooseSize}><Select title="выбрать размер" options={sizesOption}/></div>
+              <div className={cx.chooseSize}>
+                <Select title="выбрать размер" options={sizesOption}/>
+                <Image className={cx.arrowDown} src={ArrowDown} alt='sizes'/>
+                <span>{}</span>
+              </div>
               <div className={cx.appCart}>
                 <button onClick={() => onAddToBasket(id)} >добавить в корзину</button>
               </div>      
@@ -89,13 +104,10 @@ const Modal = ({onLike, id, onAddToBasket, setModal }:IProps) => {
         <h2>возможно, вам понравится</h2>
 
         <div className={cx.slideBlock}>
-          <Image className={cx.leftArrow} src={LeftArrow} alt="Left Arrow" />
-          
-          <div>
-            <Image className={cx.Jeans} src={Jeans} alt="Jeans" />
-          </div>
-          <Image className={cx.rightArrow} src={LeftArrow} alt="Right Arrow" />
+          <ScrollSlider cardList={modalList}/>
         </div>
+
+        
       </div>
     </div>
   );

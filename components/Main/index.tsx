@@ -20,6 +20,7 @@ import Modal from '../common/ProductCard/Modal';
 const MainLayout = () => {
   const dispatch = useAppDispatch();
   const newProducts = useAppSelector(getProductListDataSource);
+  
 
   useEffect(() => {
     dispatch(getProductListAction());
@@ -29,9 +30,6 @@ const MainLayout = () => {
     <div className={cx.main}>
       <Header />
       <Slider />
-
-      {/* <Modal /> */}
-      
       <Category />
       <h1>picked for you</h1>
       <ProductsList productList={newProducts} />

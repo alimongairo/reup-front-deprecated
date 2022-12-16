@@ -17,6 +17,7 @@ for (let i = 0; i < 4; i++) {
     description: 'Тёплая одежда',
     price: randomInteger(499, 10000),
     imgSource: imgs[randomInteger(0, imgs.length - 1)],
+    like: false
   });
 }
 

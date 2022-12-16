@@ -1,6 +1,7 @@
 export enum EPagesRoutes {
   Main = '/',
   Auth = '/auth',
+  Liked = '/liked',
   Registration = '/registration',
   Basket = '/basket',
   ProductDetail = '/productDetail',

@@ -12,6 +12,7 @@ interface IProps {
 const ProductsList = ({ productList }: IProps) => {
   const onLikeHandler = useCallback((id: number) => {
     console.log('like');
+    console.log(productList)
   }, []);
 
   const onAddToBasketHandler = useCallback((id: number) => {
@@ -23,6 +24,7 @@ const ProductsList = ({ productList }: IProps) => {
   }
 
   const cardList = [...productList, ...productList].map((product) => {
+    console.log(product)
     return (
       <ProductCard
         productList={productList}

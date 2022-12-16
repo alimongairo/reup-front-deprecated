@@ -15,7 +15,6 @@ import { getProductListDataSource } from '@/store/productList/selectors';
 import { getProductListAction } from '@/store/productList/thunk';
 
 import cx from './index.module.scss';
-import Modal from '../common/ProductCard/Modal';
 
 const MainLayout = () => {
   const dispatch = useAppDispatch();

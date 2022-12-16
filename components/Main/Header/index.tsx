@@ -4,6 +4,7 @@ import { LoginOutlined } from '@ant-design/icons';
 
 import Search from '@/components/Main/Header/Search';
 import BasketLinkButton from '@/components/Basket/BasketLinkButton';
+import Like from '@/static/icons/like.svg';
 import Navigation from '@/components/Main/Header/Navigation';
 
 import cx from './index.module.scss';
@@ -18,6 +19,11 @@ const MainPageHeader = () => {
         <Image className={cx.logo} src={logo} alt='Logo'/>
         <Search/>
         <div className={cx.buttons}>
+
+          <Link href={EPagesRoutes.Liked}>
+            <Image src={Like} alt='liked'/>
+          </Link>
+          
           <BasketLinkButton/>
             <Link href={EPagesRoutes.Auth}>
               <Button type="dashed" icon={<LoginOutlined/>} />

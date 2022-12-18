@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
+
 import BasketPageHeader from '@/components/Basket/Header';
 import BasketProductList from '@/components/Basket/BasketItems';
+
 import { getBasketAction } from '@/store/basket/thunk';
 import { useAppDispatch } from '@/hooks/store';
 

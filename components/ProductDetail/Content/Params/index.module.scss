@@ -1,0 +1,70 @@
+
+@mixin h1  {
+  font-family: 'Gilroy', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 110%;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  h1 {
+    @include h1;
+  }
+  p {
+    font-family: 'Gilroy', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 110%;
+    letter-spacing: 0.07em;
+    color: #000000;
+  }
+}
+
+.headRow {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  align-items: baseline;
+  width: fit-content;
+  gap: 3rem;
+};
+
+.footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  .priceWrapper {
+    display: flex;
+    gap: .5rem;
+    align-items: baseline;
+    .oldPrice {
+      text-decoration: line-through;
+      font-family: 'Gilroy', sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 110%;
+      letter-spacing: 0.07em;
+      color: rgba(0, 0, 0, 0.5);
+    }
+    .price {
+      font-family: 'Dela Gothic One', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 110%;
+      letter-spacing: 0.04em;
+      color: #000000;
+    }
+  }
+}

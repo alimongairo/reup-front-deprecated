@@ -1,11 +1,14 @@
-import { EPagesRoutes } from '@/constants/router';
-import moreArrow from '@/static/icons/moreArrow.svg';
 import classNames from 'classnames';
 import Image from 'next/image';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
+
+import Heading from '@/components/common/Heading';
+import Text from '@/components/common/Text';
+import { EPagesRoutes } from '@/constants/router';
+
+import moreArrow from '@/static/icons/moreArrow.svg';
 
 import cx from './index.module.scss';
-import { useRouter } from 'next/router';
 
 export interface ISlide {
   id: number;
@@ -41,10 +44,10 @@ const Slide = ({
       <div className={cx.side}>
         <Image src={smallImg} alt="slide2" />
         <div className={cx.text}>
-          <h1>Новый бренд</h1>
+          <Heading>новый бренд</Heading>
           <div>
-            <h2>{brandName}</h2>
-            <p>{brandDescription}</p>
+            <Heading size="medium">{brandName}</Heading>
+            <Text>{brandDescription}</Text>
             <button className={cx.btn} onClick={moreHandler}>
               <span>больше</span>
               <Image src={moreArrow} alt="moreArrow" />

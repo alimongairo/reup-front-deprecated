@@ -9,6 +9,7 @@ import { getProductDetailDataSource } from '@/store/productDetail/selectors';
 import { TProductItem } from '@/store/productList/type';
 import Image from 'next/image';
 import { useMemo } from 'react';
+import ProductCard from '..';
 import Select from '../../Select';
 import cx from './index.module.scss';
 
@@ -46,6 +47,11 @@ const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, imgSourc
       <Image key={product.id} onClick={goToProductDetail} className={cx.Jeans} src={Jeans} alt="Jeans" />
     );
   });
+  const cardList = [...productList, ...productList].map((product) => {
+    return (
+      <Image key={product.id} src={product.imgSource} alt="slider"/>
+    );
+  });
 
   return (
     <div className={cx.wrapper}>
@@ -55,10 +61,13 @@ const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, imgSourc
         </div>
 
         <div className={cx.upBlock}>
+
+
           <div className={cx.leftUpBlock}>
+
             <Image onClick={() => onLike(id)} className={cx.like} src={Like} alt="Like" />
             <Image className={cx.modelLeft} src={imgSource} alt="Model one" />
-            <Image className={cx.modelRight} src={imgSource} alt="Model two" />
+            {/* <Image className={cx.modelRight} src={imgSource} alt="Model two" /> */}
           </div>
 
           <div className={cx.descriptionBlock}>

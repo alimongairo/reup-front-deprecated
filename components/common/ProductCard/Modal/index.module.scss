@@ -29,9 +29,11 @@
         background: #fff;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-around;
         padding: 22px;
         box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.5);
+        height: 80%;
+        padding: 40px;
 
         .popupClose {
 			position: absolute;
@@ -47,29 +49,33 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            height: 45vh;
+            height: 60%;
 
             .leftUpBlock {
                 position: relative;
                 display: flex;
                 flex-direction: row;
-                justify-content: flex-start;
+                justify-content: center;
                 padding-right: 20px;
                 width: 50%;
-                .modelLeft, .modelRight {
-                    height: 100%;
-                    // width: 100%;
-                }
-                .like {
-                    position: absolute;
-                    right: 40px;
-                    top: 20px;
-                    &:hover {
-                        cursor: pointer;
-                        transform: scale(1.2);
-                        transition: 0.3s;
+                .leftUpBlockLike {
+                    position: relative;
+                    .modelLeft, .modelRight {
+                        height: 100%;
+                        width: 100%;
+                    }
+                    .like {
+                        position: absolute;
+                        right: 20px;
+                        top: 20px;
+                        &:hover {
+                            cursor: pointer;
+                            transform: scale(1.2);
+                            transition: 0.3s;
+                        }
                     }
                 }
+                
             }
 
             .descriptionBlock {
@@ -189,12 +195,13 @@
 
         .slideBlock {
             display: flex;
-            height: 30vh;
             flex-direction: row;
             justify-content: center;
             align-items: center;
+            height: 40%;
             img {
                 cursor: pointer;
+                height: 10em;
             }
         }
     }

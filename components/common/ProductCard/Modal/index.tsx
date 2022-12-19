@@ -64,10 +64,10 @@ const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, imgSourc
 
 
           <div className={cx.leftUpBlock}>
-
-            <Image onClick={() => onLike(id)} className={cx.like} src={Like} alt="Like" />
-            <Image className={cx.modelLeft} src={imgSource} alt="Model one" />
-            {/* <Image className={cx.modelRight} src={imgSource} alt="Model two" /> */}
+            <div className={cx.leftUpBlockLike}>
+              <Image onClick={() => onLike(id)} className={cx.like} src={Like} alt="Like" />
+              <Image className={cx.modelLeft} src={imgSource} alt="Model one" />
+            </div>
           </div>
 
           <div className={cx.descriptionBlock}>

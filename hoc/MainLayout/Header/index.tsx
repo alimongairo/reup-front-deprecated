@@ -2,22 +2,24 @@ import { Button } from 'antd';
 import Link from 'next/link';
 import { LoginOutlined } from '@ant-design/icons';
 
-import Search from '@/components/Main/Header/Search';
+import Search from '@/hoc/MainLayout/Header/Search';
 import BasketLinkButton from '@/components/Basket/BasketLinkButton';
+
 import Like from '@/static/icons/like.svg';
-import Navigation from '@/components/Main/Header/Navigation';
+
+import Navigation from '@/hoc/MainLayout/Header/Navigation';
 
 import cx from './index.module.scss';
 import { EPagesRoutes } from '@/constants/router';
-import logo from '@/static/icons/Logo.svg'
+import logo from '@/static/icons/Logo.svg';
 import Image from 'next/image';
 
 const MainPageHeader = () => {
   return (
     <div className={cx.wrapper}>
       <div className={cx.firstRow}>
-        <Image className={cx.logo} src={logo} alt='Logo'/>
-        <Search/>
+        <Image className={cx.logo} src={logo} alt="Logo" />
+        <Search />
         <div className={cx.buttons}>
 
           <Link href={EPagesRoutes.Liked}>

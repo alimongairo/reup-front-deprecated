@@ -1,7 +1,6 @@
 import { Skeleton } from 'antd';
 
 import ProductDetailContent from '@/components/ProductDetail/Content';
-import Footer from '@/components/common/Footer';
 import ProductsList from '@/components/Main/ProductList';
 
 import { useAppSelector } from '@/hooks/store';
@@ -25,7 +24,6 @@ const ProductDetail = () => {
       <ProductsList productList={productList} />
       <h1>возможно вам понравится</h1>
       <ProductsList productList={productList} />
-      <Footer />
     </div>
   );
 };

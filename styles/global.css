@@ -1,15 +1,19 @@
-@font-face {
-    font-family: "Gilroy";
-    src: url('../static/fonts/gilroy/Gilroy-ExtraBold.otf');
-    font-weight: bold;
-    font-style: normal;
+:root {
+    --reup-unit: .25rem;
+    --reup-radius: 5px;
+}
+
+body {
+    margin: 0;
+}
+
+* {
+    font-family: 'Gilroy' , sans-serif;
 }
 
 @font-face {
-    font-family: "Gilroy";
-    src: url('../static/fonts/gilroy/Gilroy-Light.otf');
-    font-weight: normal;
-    font-style: normal;
+    font-family: 'Gilroy', sans-serif;
+    src: url("../static/fonts/gilroy/Gilroy-Black.ttf");
 }
 
 .w100{

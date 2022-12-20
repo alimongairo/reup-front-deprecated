@@ -1,7 +1,12 @@
 import LikedLayout from '@/components/Liked';
+import MainLayout from '@/hoc/MainLayout';
 
 const LikedPage = () => {
-  return <LikedLayout />;
+  return (
+    <MainLayout>
+      <LikedLayout />
+    </MainLayout>
+  );
 };
 
 export default LikedPage;

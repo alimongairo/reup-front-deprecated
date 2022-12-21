@@ -1,7 +1,12 @@
 import OrderLayout from '@/components/Order';
+import MainLayout from '@/hoc/MainLayout';
 
 const OrderPage = () => {
-  return <OrderLayout isLogined />;
+  return (
+    <MainLayout>
+      <OrderLayout isLogined />;
+    </MainLayout>
+  );
 };
 
 export default OrderPage;

@@ -1,6 +1,8 @@
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import ProductDetail from '@/components/ProductDetail';
-import { useEffect } from 'react';
+import MainLayout from '@/hoc/MainLayout';
+
 import { useAppDispatch } from '@/hooks/store';
 import { getProductDetailAction } from '@/store/productDetail/thunk';
 import { getProductListAction } from '@/store/productList/thunk';
@@ -17,7 +19,11 @@ const ProductDetailPage = () => {
     dispatch(getProductListAction());
   }, [id]);
 
-  return <ProductDetail />;
+  return (
+    <MainLayout>
+      <ProductDetail />
+    </MainLayout>
+  );
 };
 
 export default ProductDetailPage;

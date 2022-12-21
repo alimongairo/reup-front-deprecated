@@ -5,7 +5,6 @@ import { Provider } from 'react-redux';
 
 import ErrorBoundary from '@/components/ErrorBoundary';
 
-import './app.css';
 import '@/styles/global.css';
 
 const App: FC<AppProps> = ({ Component, ...rest }) => {

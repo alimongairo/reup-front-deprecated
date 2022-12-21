@@ -7,10 +7,12 @@ import Close from '@/static/icons/popupClose.svg';
 import Jeans from '@/static/img/Jeans.png';
 import { getProductDetailDataSource } from '@/store/productDetail/selectors';
 import { TProductItem } from '@/store/productList/type';
+import { Skeleton } from 'antd';
 import Image from 'next/image';
 import { useMemo } from 'react';
 import Select from '../../Select';
 import cx from './index.module.scss';
+import Slider from './Slider';
 
 type IProps = {
   onLike: (id: number) => void;
@@ -25,6 +27,10 @@ const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, imgSourc
   const article = randomInteger(1000, 9999);
 
   const data = useAppSelector(getProductDetailDataSource);
+
+  // if (!data) {
+  //   return <Skeleton active />;
+  // }
 
   const closePopup = () => {
     setModal(false);
@@ -59,8 +65,10 @@ const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, imgSourc
             <div className={cx.leftUpBlock}>
               <div className={cx.leftUpBlockLike}>
                 <Image onClick={() => onLike(id)} className={cx.like} src={Like} alt="Like" />
-                <Image className={cx.modelLeft} src={imgSource} alt="Model one" />
+                <Slider images={data?.images || []} />
+                {/* <Image className={cx.modelLeft} src={imgSource} alt="Model one" /> */}
               </div>
+              
             </div>
 
             <div className={cx.descriptionBlock}>
@@ -72,6 +80,12 @@ const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, imgSourc
               {/* productList.description */}
 
               <div className={cx.descriptionOverflow}> 
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Aspernatur reiciendis, accusantium eius rerum dolores,
+                  doloremque iusto tenetur quibusdam quasi, consequatur nulla.
+                  Modi provident itaque hic quae. Ratione temporibus fugiat ex!
+                </p>
                 <p>
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                   Aspernatur reiciendis, accusantium eius rerum dolores,
@@ -103,7 +117,9 @@ const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, imgSourc
             </div>
           </div>
 
-          <h2>возможно, вам понравится</h2>
+          <div className={cx.maybeLike}>
+            <h2>возможно, вам понравится</h2>
+          </div>
 
           <div className={cx.slideBlock}>
             <ScrollSlider cardList={modalList}/>

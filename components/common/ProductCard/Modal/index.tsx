@@ -56,65 +56,68 @@ const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, imgSourc
   return (
     <div className={cx.wrapper}>
       <div className={cx.popup}>
-        <div className={cx.popupClose}>
-          <Image onClick={closePopup} src={Close} alt="close" />
-        </div>
-
-        <div className={cx.upBlock}>
-
-
-          <div className={cx.leftUpBlock}>
-
-            <Image onClick={() => onLike(id)} className={cx.like} src={Like} alt="Like" />
-            <Image className={cx.modelLeft} src={imgSource} alt="Model one" />
-            {/* <Image className={cx.modelRight} src={imgSource} alt="Model two" /> */}
+        <div className={cx.scroll}>
+          <div className={cx.popupClose}>
+            <Image onClick={closePopup} src={Close} alt="close" />
           </div>
 
-          <div className={cx.descriptionBlock}>
-            <h2>{title}</h2>
-            <h4>название бренда</h4>
-            <span className={cx.article}>0{article}</span>
-            <p>О ТОВАРЕ</p>
+          <div className={cx.upBlock}>
 
-            {/* productList.description */}
 
-            <div className={cx.descriptionOverflow}> 
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Aspernatur reiciendis, accusantium eius rerum dolores,
-                doloremque iusto tenetur quibusdam quasi, consequatur nulla.
-                Modi provident itaque hic quae. Ratione temporibus fugiat ex!
-              </p>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Aspernatur reiciendis, accusantium eius rerum dolores,
-                doloremque iusto tenetur quibusdam quasi, consequatur nulla.
-                Modi provident itaque hic quae. Ratione temporibus fugiat ex!
-              </p>
-            </div>
-            <div className={cx.btnPrice}>
-              <div className={cx.price}>
-                <span className={cx.throughPrice}>9900 </span>
-                <span className={cx.activePrice}>{price}</span>
+            <div className={cx.leftUpBlock}>
+              <div className={cx.leftUpBlockLike}>
+                <Image onClick={() => onLike(id)} className={cx.like} src={Like} alt="Like" />
+                <Image className={cx.modelLeft} src={imgSource} alt="Model one" />
               </div>
-              <div className={cx.chooseSize}>
-                <Select title="выбрать размер" options={sizesOption}/>
-                <Image className={cx.arrowDown} src={ArrowDown} alt='sizes'/>
-                <span>{}</span>
-              </div>
-              <div className={cx.appCart}>
-                <button onClick={() => onAddToBasket(id)} >добавить в корзину</button>
-              </div>      
             </div>
-            
+
+            <div className={cx.descriptionBlock}>
+              <h2>{title}</h2>
+              <h4>название бренда</h4>
+              <span className={cx.article}>0{article}</span>
+              <p>О ТОВАРЕ</p>
+
+              {/* productList.description */}
+
+              <div className={cx.descriptionOverflow}> 
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Aspernatur reiciendis, accusantium eius rerum dolores,
+                  doloremque iusto tenetur quibusdam quasi, consequatur nulla.
+                  Modi provident itaque hic quae. Ratione temporibus fugiat ex!
+                </p>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Aspernatur reiciendis, accusantium eius rerum dolores,
+                  doloremque iusto tenetur quibusdam quasi, consequatur nulla.
+                  Modi provident itaque hic quae. Ratione temporibus fugiat ex!
+                </p>
+              </div>
+              <div className={cx.btnPrice}>
+                <div className={cx.price}>
+                  <span className={cx.throughPrice}>9900 </span>
+                  <span className={cx.activePrice}>{price}</span>
+                </div>
+                <div className={cx.chooseSize}>
+                  <Select title="выбрать размер" options={sizesOption}/>
+                  <Image className={cx.arrowDown} src={ArrowDown} alt='sizes'/>
+                  <span>{}</span>
+                </div>
+                <div className={cx.appCart}>
+                  <button onClick={() => onAddToBasket(id)} >добавить в корзину</button>
+                </div>      
+              </div>
+              
+            </div>
+          </div>
+
+          <h2>возможно, вам понравится</h2>
+
+          <div className={cx.slideBlock}>
+            <ScrollSlider cardList={modalList}/>
           </div>
         </div>
-
-        <h2>возможно, вам понравится</h2>
-
-        <div className={cx.slideBlock}>
-          <ScrollSlider cardList={modalList}/>
-        </div>
+        
 
         
       </div>

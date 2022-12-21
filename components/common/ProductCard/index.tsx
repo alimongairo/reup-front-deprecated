@@ -38,7 +38,7 @@ const ProductCard = ({
 
   useEffect(() => {
     modal ? document.body.style.overflow = 'hidden' : document.body.style.overflow = '';
-  }, [modal])
+  }, [modal]) //кидать запрос на бэк чтоб получить инфо о товаре
 
   const goToProductDetail = () => {
     router.push(`${EPagesRoutes.ProductDetail}/${id}`);

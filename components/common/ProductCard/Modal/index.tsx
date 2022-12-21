@@ -9,7 +9,6 @@ import { getProductDetailDataSource } from '@/store/productDetail/selectors';
 import { TProductItem } from '@/store/productList/type';
 import Image from 'next/image';
 import { useMemo } from 'react';
-import ProductCard from '..';
 import Select from '../../Select';
 import cx from './index.module.scss';
 
@@ -22,7 +21,6 @@ type IProps = {
 } & TProductItem;
   
 const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, imgSource, title, price, description, productList }:IProps) => {
-  console.log(productList)
 
   const article = randomInteger(1000, 9999);
 
@@ -47,11 +45,6 @@ const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, imgSourc
       <Image key={product.id} onClick={goToProductDetail} className={cx.Jeans} src={Jeans} alt="Jeans" />
     );
   });
-  const cardList = [...productList, ...productList].map((product) => {
-    return (
-      <Image key={product.id} src={product.imgSource} alt="slider"/>
-    );
-  });
 
   return (
     <div className={cx.wrapper}>
@@ -62,7 +55,6 @@ const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, imgSourc
           </div>
 
           <div className={cx.upBlock}>
-
 
             <div className={cx.leftUpBlock}>
               <div className={cx.leftUpBlockLike}>

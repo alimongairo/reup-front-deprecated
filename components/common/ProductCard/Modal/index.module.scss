@@ -65,14 +65,13 @@
                     width: 50%;
                     .leftUpBlockLike {
                         position: relative;
-                        .modelLeft, .modelRight {
-                            height: 100%;
-                            width: 100%;
-                        }
+                        width: 100%;
+                        height: 100%;
                         .like {
                             position: absolute;
                             right: 20px;
                             top: 20px;
+                            z-index: 999;
                             &:hover {
                                 cursor: pointer;
                                 transform: scale(1.2);

@@ -22,7 +22,7 @@ type IProps = {
   productList: TProductItem[]
 } & TProductItem;
   
-const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, imgSource, title, price, description, productList }:IProps) => {
+const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, title, price, description, productList }:IProps) => {
 
   const article = randomInteger(1000, 9999);
 

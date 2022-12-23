@@ -1,14 +1,18 @@
 import React from 'react';
 import classNames from 'classnames';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+
+import Heading from '@/components/common/Heading';
+import Text from '@/components/common/Text';
 
 import { TProductItem } from '@/store/productList/type';
 import { EPagesRoutes } from '@/constants/router';
 
 import Like from '@/static/icons/like.svg';
+import fillLike from '@/static/icons/fillLike.svg';
 
 import cx from './index.module.scss';
-import { useRouter } from 'next/router';
 
 // TODO replace imgSource to url
 
@@ -20,6 +24,7 @@ type IProps = {
 const ProductCard = ({
   id,
   title,
+  like,
   imgSource,
   description,
   price,
@@ -38,7 +43,7 @@ const ProductCard = ({
         className={classNames(cx.likeIcon, 'iconBnt')}
         onClick={() => onLike(id)}
       >
-        <Image src={Like} alt="like" width={20} />
+        <Image src={like ? fillLike : Like} alt="like" width={20} />
       </span>
       <Image
         src={imgSource}
@@ -47,12 +52,12 @@ const ProductCard = ({
         onClick={goToProductDetail}
       />
       <div className={cx.text}>
-        <h2>{title}</h2>
-        <p>{description}</p>
+        <Heading size="medium">{title}</Heading>
+        <Text>{description}</Text>
       </div>
       <div className={cx.actions}>
         <button onClick={() => onAddToBasket(id)}>В корзину</button>
-        <h2>{price} ₽</h2>
+        <Heading size="small">{price} ₽</Heading>
       </div>
     </div>
   );

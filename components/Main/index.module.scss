@@ -4,6 +4,12 @@
   @include container;
   display: flex;
   flex-direction: column;
+  .text {
+    @include contentWidth(true, true);
+    > h1 {
+      margin: 2rem;
+    }
+  }
   >h1,
   .pink >h1{
     font-family: 'Dela Gothic One', sans-serif;
@@ -19,8 +25,11 @@
   .pink {
     background: #EF67F1;
     padding-bottom: 8rem;
-    > h1 {
-      color: white
+    h1 {
+      color: white;
+    }
+    .left{
+      text-align: right;
     }
   }
   .marquee{

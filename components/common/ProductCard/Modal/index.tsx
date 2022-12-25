@@ -27,7 +27,7 @@ const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, title, p
 
   const dispatch = useAppDispatch();
   const article = randomInteger(1000, 9999);
-  const data = useAppSelector(getProductDetailDataSource);
+  
 
   const closePopup = () => {
     setModal(false);
@@ -44,6 +44,7 @@ const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, title, p
       dispatch(getProductDetailAction(String(id)));
     }
   }, [id]);
+  const data = useAppSelector(getProductDetailDataSource);
 
   const sizesOption = useMemo(() => {
     return (
@@ -53,7 +54,7 @@ const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, title, p
         label: String(i),
       })) || []
     );
-  }, []);
+  }, [data]);
 
   if (!data) {
     return <Skeleton active />;

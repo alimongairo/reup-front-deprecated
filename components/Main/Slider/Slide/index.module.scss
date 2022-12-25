@@ -1,0 +1,66 @@
+.slide{
+  position: relative;
+  display: grid;
+  grid-template-areas: 'bigImg smallImg' 'bigImg text';
+  grid-template-columns: 1fr 1fr;
+  opacity: 1;
+  min-width: 1151px;
+
+  .bigImg {
+    grid-area: bigImg;
+    img {
+      height: 100%;
+    }
+  }
+
+  .smallImg{
+    grid-area: smallImg;
+    background: #FF8742;
+  }
+
+  .text {
+    grid-area: text;
+    background: #FF8742;
+    :global(>h1){
+      margin: 1rem 0;
+      margin-bottom: 2rem;
+    }
+    :global(h1),
+    :global(p){
+      padding: 0 2rem;
+    }
+    button {
+      margin: 0 2rem;
+      align-self: end;
+    }
+    .underLine {
+      border-top: 2px solid black;
+      display: flex;
+      flex-direction: column;
+
+    }
+    padding-bottom: 1rem;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 5s;
+}
+
+@keyframes fade {
+    0% {
+      opacity: .4;
+    }
+    25% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+    }
+}

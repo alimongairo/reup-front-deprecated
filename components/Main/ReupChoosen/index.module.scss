@@ -1,0 +1,38 @@
+@import 'styles/mixins.scss';
+
+.wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 4rem;
+  @include contentWidth();
+  .info {
+    width: 40%;
+    margin-top: 4rem;
+    padding: 2rem 3rem;
+    border-top: 2px solid black;
+    > h2 {
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+      line-height: 35px;
+      letter-spacing: 0.2em;
+      text-align: left;
+    }
+    > p {
+      font-family: 'Gilroy', sans-serif;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 25px;
+      letter-spacing: 0.07em;
+      text-align: left;
+    }
+  }
+  .imgWrapper {
+    margin-top: -100px;
+    width: 40%;
+    > img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

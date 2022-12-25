@@ -1,3 +1,46 @@
+:root {
+    --reup-unit: .25rem;
+    --reup-radius: 5px;
+}
+
+body {
+    margin: 0;
+}
+
+* {
+    font-family: 'Gilroy' , sans-serif;
+}
+
+@font-face {
+    font-family: 'Gilroy', sans-serif;
+    src: url("../static/fonts/gilroy/Gilroy-Black.ttf");
+}
+
 .w100{
     width: 100%;
+}
+
+.iconBnt {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+button {
+    outline: 2px solid black;
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+    background: transparent;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21px;
+    letter-spacing: 0.07em;
+    padding: calc(var(--reup-unit ) * 2 ) calc(var(--reup-unit ) * 6);
+}
+button:hover{
+    background: #8B30F2;
+    color: white
 }

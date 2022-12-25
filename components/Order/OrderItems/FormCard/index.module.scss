@@ -1,0 +1,25 @@
+.formCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0 2rem;
+  margin-bottom: 6rem;
+
+  .header {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 49px;
+    margin-bottom: 1.5rem;
+    text-transform: lowercase;
+    transform: translateX(-2rem);
+  }
+
+  input {
+    border: none;
+    border-bottom: 1px solid #8a8a8a;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: lowercase;
+    max-width: 28rem;
+  }
+}

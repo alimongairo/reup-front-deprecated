@@ -34,6 +34,7 @@ const ProductsList = ({ productList }: IProps) => {
         description={product.description}
         price={product.price}
         imgSource={product.imgSource}
+        like={product.like}
       />
     );
   });

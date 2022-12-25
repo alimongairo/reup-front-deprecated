@@ -1,30 +1,45 @@
 .slide{
-  display: flex;
+  position: relative;
+  display: grid;
+  grid-template-areas: 'bigImg smallImg' 'bigImg text';
+  grid-template-columns: 1fr 1fr;
   opacity: 1;
+  min-width: 1151px;
 
-  .side {
-    width: 50%;
-    display: flex;
-    &:last-child {
+  .bigImg {
+    grid-area: bigImg;
+    img {
+      height: 100%;
+    }
+  }
+
+  .smallImg{
+    grid-area: smallImg;
+    background: #FF8742;
+  }
+
+  .text {
+    grid-area: text;
+    background: #FF8742;
+    :global(>h1){
+      margin: 1rem 0;
+      margin-bottom: 2rem;
+    }
+    :global(h1),
+    :global(p){
+      padding: 0 2rem;
+    }
+    button {
+      margin: 0 2rem;
+      align-self: end;
+    }
+    .underLine {
+      border-top: 2px solid black;
       display: flex;
       flex-direction: column;
-      .text {
-        background: #FF8742;
-        height: 100%;
-        :global( >h1){
-          padding-left: 2rem;
-        }
-        > div {
-          border-top: 3px solid black;
-          padding: 2rem;
-          display: flex;
-          flex-direction: column;
-          button{
-            align-self: flex-end;
-          }
-        }
-      }
+
     }
+    padding-bottom: 1rem;
   }
 
   img {

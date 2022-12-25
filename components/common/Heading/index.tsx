@@ -5,11 +5,16 @@ import cx from './index.module.scss';
 
 type TProps = {
   children: ReactNode;
+  className?: string[];
   size?: 'big' | 'medium' | 'small';
 };
 
-const Heading = ({ children, size = 'big' }: TProps) => {
-  return <h1 className={classNames(cx.heading, cx[size])}>{children}</h1>;
+const Heading = ({ children, size = 'big', className }: TProps) => {
+  return (
+    <h1 className={classNames(cx.heading, cx[size], ...(className || []))}>
+      {children}
+    </h1>
+  );
 };
 
 export default Heading;

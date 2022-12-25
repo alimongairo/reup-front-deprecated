@@ -1,4 +1,7 @@
+@import 'styles/mixins.scss';
+
 .wrapper {
+  @include contentWidth();
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);

@@ -14,6 +14,7 @@ import { getProductListDataSource } from '@/store/productList/selectors';
 import { getProductListAction } from '@/store/productList/thunk';
 
 import cx from './index.module.scss';
+import classNames from 'classnames';
 
 const MainPageComponents = () => {
   const dispatch = useAppDispatch();
@@ -28,15 +29,22 @@ const MainPageComponents = () => {
     <div className={cx.main}>
       <Slider />
       <Category />
-      <Heading>picked for you</Heading>
+      <div className={cx.text}>
+        <Heading>picked for you</Heading>
+      </div>
       <ProductsList productList={newProducts} />
-      <Heading>REUP choos</Heading>
+      <div className={cx.text}>
+        <Heading>REUP choos</Heading>
+      </div>
       <div className={cx.pink}>
-        s
         <ReupChoosen />
-        <Heading>collections</Heading>
+        <div className={cx.text}>
+          <Heading>collections</Heading>
+        </div>
         <Collections />
-        <h1 style={{ textAlign: 'right' }}>i like</h1>
+        <div className={classNames(cx.text, cx.left)}>
+          <Heading>i like</Heading>
+        </div>
         <ProductsList productList={newProducts} />
       </div>
       <Marquee gradient={false} speed={60}>

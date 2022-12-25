@@ -2,8 +2,9 @@
 
 .wrapper {
   display: flex;
-  @include container;
   height: auto;
+  @include contentWidth;
+  position: relative;
   .slides {
     width: 100%;
   }

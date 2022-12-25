@@ -27,22 +27,11 @@ const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, title, p
 
   const dispatch = useAppDispatch();
   const article = randomInteger(1000, 9999);
-
   const data = useAppSelector(getProductDetailDataSource);
 
   const closePopup = () => {
     setModal(false);
   };
-
-  const sizesOption = useMemo(() => {
-    return (
-      data?.sizes.map((i) => ({
-        id: i,
-        value: i,
-        label: String(i),
-      })) || []
-    );
-  }, []);
 
   const modalList = [...productList, ...productList].map((product) => {
     return (
@@ -55,6 +44,16 @@ const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, title, p
       dispatch(getProductDetailAction(String(id)));
     }
   }, [id]);
+
+  const sizesOption = useMemo(() => {
+    return (
+      data?.sizes.map((i) => ({
+        id: i,
+        value: i,
+        label: String(i),
+      })) || []
+    );
+  }, []);
 
   if (!data) {
     return <Skeleton active />;
@@ -74,7 +73,6 @@ const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, title, p
               <div className={cx.leftUpBlockLike}>
                 <Image onClick={() => onLike(id)} className={cx.like} src={Like} alt="Like" />
                 <Slider images={data?.images || []} />
-                {/* <Image className={cx.modelLeft} src={imgSource} alt="Model one" /> */}
               </div>
               
             </div>
@@ -84,8 +82,6 @@ const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, title, p
               <h4>название бренда</h4>
               <span className={cx.article}>0{article}</span>
               <p>О ТОВАРЕ</p>
-
-              {/* productList.description */}
 
               <div className={cx.descriptionOverflow}> 
                 <p>
@@ -133,9 +129,7 @@ const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, title, p
             <ScrollSlider cardList={modalList}/>
           </div>
         </div>
-        
-
-        
+    
       </div>
     </div>
   );

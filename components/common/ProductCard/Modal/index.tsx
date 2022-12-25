@@ -1,15 +1,16 @@
 import ScrollSlider from '@/components/common/ScrollSlider';
 import { randomInteger } from '@/helpers/utils';
-import { useAppSelector } from '@/hooks/store';
+import { useAppDispatch, useAppSelector } from '@/hooks/store';
 import ArrowDown from '@/static/icons/arrow-down.svg';
 import Like from '@/static/icons/like.svg';
 import Close from '@/static/icons/popupClose.svg';
 import Jeans from '@/static/img/Jeans.png';
 import { getProductDetailDataSource } from '@/store/productDetail/selectors';
+import { getProductDetailAction } from '@/store/productDetail/thunk';
 import { TProductItem } from '@/store/productList/type';
 import { Skeleton } from 'antd';
 import Image from 'next/image';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import Select from '../../Select';
 import cx from './index.module.scss';
 import Slider from './Slider';
@@ -24,13 +25,10 @@ type IProps = {
   
 const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, title, price, description, productList }:IProps) => {
 
+  const dispatch = useAppDispatch();
   const article = randomInteger(1000, 9999);
 
   const data = useAppSelector(getProductDetailDataSource);
-
-  // if (!data) {
-  //   return <Skeleton active />;
-  // }
 
   const closePopup = () => {
     setModal(false);
@@ -51,6 +49,16 @@ const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, title, p
       <Image key={product.id} onClick={goToProductDetail} className={cx.Jeans} src={Jeans} alt="Jeans" />
     );
   });
+
+  useEffect(() => {
+    if (id) {
+      dispatch(getProductDetailAction(String(id)));
+    }
+  }, [id]);
+
+  if (!data) {
+    return <Skeleton active />;
+  }
 
   return (
     <div className={cx.wrapper}>

@@ -4,6 +4,11 @@ import BasketHeader from '@/components/Basket/BasketItems/BasketHeader';
 import EmptyBasket from '@/components/common/EmptyBasket';
 import BasketProductCard from '@/components/Basket/BasketItems/BasketProductCard';
 import BasketSummary from '@/components/Basket/BasketItems/BasketSummary';
+import {
+  isAllBasketChecked,
+  getBasketTotalPrice,
+  getBasketCount,
+} from '@/components/Basket/helpers';
 
 import {
   getBasketDataSource,
@@ -15,9 +20,6 @@ import {
 } from '@/store/productList/selectors';
 
 import { useAppSelector } from '@/hooks/store';
-import { isAllBasketChecked } from '@/helpers/isAllBasketChecked';
-import { getBasketTotalPrice } from '@/helpers/getBasketTotalPrice';
-import { getBasketCount } from '@/helpers/getBasketCount';
 
 import cx from './index.module.scss';
 
@@ -61,7 +63,7 @@ const Basket = () => {
             </div>
             <BasketSummary
               truePrice={getBasketTotalPrice(basket, products)}
-              oldPpice={getBasketTotalPrice(basket, products, false)}
+              oldPrice={getBasketTotalPrice(basket, products, false)}
               count={getBasketCount(basket)}
             />
           </div>

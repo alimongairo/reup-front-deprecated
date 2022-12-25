@@ -5,11 +5,11 @@ import cx from './index.module.scss';
 
 interface IProps {
   truePrice: number;
-  oldPpice: number;
+  oldPrice: number;
   count: number;
 }
 
-const BasketSummary = ({ truePrice, oldPpice, count }: IProps) => {
+const BasketSummary = ({ truePrice, oldPrice, count }: IProps) => {
   return (
     <ContaineredAffix>
       <div className={cx.wrapper}>
@@ -21,11 +21,11 @@ const BasketSummary = ({ truePrice, oldPpice, count }: IProps) => {
         <div className={cx.priceDetails}>
           <div>
             <div>товары {count} шт:</div>
-            <div>{oldPpice} ₽</div>
+            <div>{oldPrice} ₽</div>
           </div>
           <div>
             <div>скидка:</div>
-            <div>-{oldPpice - truePrice} ₽</div>
+            <div>-{oldPrice - truePrice} ₽</div>
           </div>
           <div>
             <div>доставка:</div>

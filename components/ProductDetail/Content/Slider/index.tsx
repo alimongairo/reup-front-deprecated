@@ -37,6 +37,7 @@ const Slider = ({ images }: IProps) => {
       <div className={cx.previewSlides}>
         {images.map((img, i) => (
           <div
+            key={i}
             className={classNames(cx.prev, activeSlide === i && cx.active)}
             onClick={() => setActiveSlide(i)}
           >

@@ -13,11 +13,7 @@ import Like from '@/static/icons/like.svg';
 import fillLike from '@/static/icons/fillLike.svg';
 
 import cx from './index.module.scss';
-<<<<<<< HEAD
-import { useRouter } from 'next/router';
 import Modal from './Modal';
-=======
->>>>>>> stage
 
 // TODO replace imgSource to url
 
@@ -55,7 +51,6 @@ const ProductCard = ({
 
   return (
     <div className={cx.wrapper}>
-<<<<<<< HEAD
       <button onClick={() => modalActive()} className={cx.modalBtn}>
         Быстрый просмотр
       </button>
@@ -119,28 +114,6 @@ const ProductCard = ({
           </div>
         </>
       )}
-=======
-      <span
-        className={classNames(cx.likeIcon, 'iconBnt')}
-        onClick={() => onLike(id)}
-      >
-        <Image src={like ? fillLike : Like} alt="like" width={20} />
-      </span>
-      <Image
-        src={imgSource}
-        alt={title}
-        className={cx.productImg}
-        onClick={goToProductDetail}
-      />
-      <div className={cx.text}>
-        <Heading size="medium">{title}</Heading>
-        <Text>{description}</Text>
-      </div>
-      <div className={cx.actions}>
-        <button onClick={() => onAddToBasket(id)}>В корзину</button>
-        <Heading size="small">{price} ₽</Heading>
-      </div>
->>>>>>> stage
     </div>
   );
 };

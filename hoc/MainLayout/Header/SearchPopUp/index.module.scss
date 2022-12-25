@@ -1,0 +1,7 @@
+.main_searchContainer {
+  display: none;
+
+  &_isActive {
+    display: block;
+  }
+}

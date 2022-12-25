@@ -70,7 +70,7 @@ export const getProductItemAction = createAsyncThunk<
   `${CASH_PREVIEW_PRODUCT_ALIAS}/getItem`,
   async (id: string, { rejectWithValue }) => {
     try {
-      return mockUpProduct;
+      return mockUpProduct as TProductCard;
     } catch (error) {
       return rejectWithValue(error as Error);
     }

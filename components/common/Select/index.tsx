@@ -12,7 +12,7 @@ export interface ISelectOption {
 export interface ISelect {
   title: string;
   options: ISelectOption[];
-  onSelect?: (value: ISelectOption['value']) => void;
+  onSelect?: (value: ISelectOption['value'] | undefined) => void;
   initValue?: ISelectOption['value'];
 }
 
@@ -24,11 +24,14 @@ const Select = ({ title, initValue, options, onSelect }: ISelect) => {
     setDdVisible(true);
   };
 
-  const onSelectValue = (value: ISelectOption['value']) => {
+  const onSelectValue = (selectedValue: ISelectOption['value']) => {
+    const newValue =
+      value && selectedValue === value ? undefined : selectedValue;
+
     if (onSelect) {
-      onSelect(value);
+      onSelect(newValue);
     }
-    setValue(value);
+    setValue(newValue);
   };
 
   return (
@@ -37,7 +40,7 @@ const Select = ({ title, initValue, options, onSelect }: ISelect) => {
       onMouseEnter={onMouseEnter}
       onMouseLeave={() => setDdVisible(false)}
     >
-      <div className={cx.title}>{title}</div>
+      <div className={cx.title}>{value ? value : title}</div>
       <div className={classNames(cx.dd, ddVisible && cx.ddVisible)}>
         {options.map((option) => {
           return (

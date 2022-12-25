@@ -23,6 +23,7 @@ export type TReview = {
   color: string;
   size: string;
   review: string;
+  reviewsImg: Array<any>;
   avatar?: any; // TODO поменять на url как будет бек
 };
 

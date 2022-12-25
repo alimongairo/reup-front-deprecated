@@ -2,6 +2,7 @@ import { Skeleton } from 'antd';
 
 import ProductDetailContent from '@/components/ProductDetail/Content';
 import ProductsList from '@/components/Main/ProductList';
+import Heading from '@/components/common/Heading';
 
 import { useAppSelector } from '@/hooks/store';
 import { getProductDetailLoading } from '@/store/productDetail/selectors';
@@ -20,9 +21,9 @@ const ProductDetail = () => {
   return (
     <div className={cx.wrapper}>
       <ProductDetailContent />
-      <h1>вы недавно смотрели</h1>
+      <Heading>вы недавно смотрели</Heading>
       <ProductsList productList={productList} />
-      <h1>возможно вам понравится</h1>
+      <Heading>возможно вам понравится</Heading>
       <ProductsList productList={productList} />
     </div>
   );

@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+
+import Heading from '@/components/common/Heading';
+import Text from '@/components/common/Text';
 
 import { TProductItem } from '@/store/productList/type';
 import { EPagesRoutes } from '@/constants/router';
 
 import Like from '@/static/icons/like.svg';
+import fillLike from '@/static/icons/fillLike.svg';
 
 import cx from './index.module.scss';
-import { useRouter } from 'next/router';
+
 import Modal from './Modal';
+
 
 // TODO replace imgSource to url
 
@@ -22,6 +28,7 @@ type IProps = {
 const ProductCard = ({
   id,
   title,
+  like,
   imgSource,
   description,
   price,

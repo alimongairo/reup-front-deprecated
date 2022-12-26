@@ -6,6 +6,9 @@
 
   .logo{
     padding: 0 2rem;
+    &.clickable {
+      cursor: pointer;
+    }
   }
 
   .firstRow{
@@ -27,7 +30,11 @@
     display: flex;
     padding: 0 2rem;
     justify-content: flex-end;
+    gap: 3rem !important;
     border: solid;
     border-right: none;
+    img {
+      width: 25px;
+    }
   }
 }

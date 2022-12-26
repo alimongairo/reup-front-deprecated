@@ -21,7 +21,7 @@ const ProductDetailContent = () => {
     <div className={cx.wrapper}>
       <Header />
       <div className={cx.content}>
-        <Slider images={data?.images || []} />
+        <Slider images={data.images || []} />
         <Params {...data} />
       </div>
       <div>

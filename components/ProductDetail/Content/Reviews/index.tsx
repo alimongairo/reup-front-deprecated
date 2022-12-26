@@ -9,6 +9,7 @@ import { useAppSelector } from '@/hooks/store';
 import { getProductDetailDataSource } from '@/store/productDetail/selectors';
 
 import cx from './index.module.scss';
+import Heading from '@/components/common/Heading';
 
 const Reviews = () => {
   const data = useAppSelector(getProductDetailDataSource);
@@ -24,12 +25,14 @@ const Reviews = () => {
   return (
     <div className={cx.wrapper}>
       <div className={classNames(cx.title, data.reviews?.length && cx.ping)}>
-        <h1>продавец / название магазина</h1>
+        <Heading size={'medium'}>продавец / название магазина</Heading>
         <ReviewStars grade={4.3} />
         {data.reviews?.length ? (
-          <h2>РЕЙТИНГ И ОТЗЫВЫ</h2>
+          <Heading size={'medium'}>рейтинг и отзывы</Heading>
         ) : (
-          <h2>На этот товар пока нет отзывов. Закажите и будьте первым!</h2>
+          <Heading size={'medium'}>
+            На этот товар пока нет отзывов. Закажите и будьте первым!
+          </Heading>
         )}
       </div>
       {data.reviews?.length && <ScrollSlider cardList={cardList || []} />}

@@ -1,7 +1,7 @@
 .wrapper {
   border-bottom: 3px solid black;
   border-top: 3px solid black;
-  .title{
+  .title {
     padding: 0 2rem;
     padding-top: 2rem;
     display: flex;
@@ -9,7 +9,7 @@
     gap: 2rem;
     padding-bottom: 2rem;
     &.ping {
-      background: #EF67F1;
+      background: #ef67f1;
     }
     h1 {
       font-family: 'Dela Gothic One', sans-serif;
@@ -21,7 +21,7 @@
       margin: 0;
     }
     h2 {
-      font-family: 'Gilroy',sans-serif;
+      font-family: 'Gilroy', sans-serif;
       font-style: normal;
       font-weight: 700;
       font-size: 24px;

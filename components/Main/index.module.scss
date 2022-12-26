@@ -1,6 +1,6 @@
 @import 'styles/mixins.scss';
 
-.main{
+.main {
   @include container;
   display: flex;
   flex-direction: column;
@@ -10,8 +10,8 @@
       margin: 2rem;
     }
   }
-  >h1,
-  .pink >h1{
+  > h1,
+  .pink > h1 {
     font-family: 'Dela Gothic One', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -23,16 +23,16 @@
     margin-right: 2rem;
   }
   .pink {
-    background: #EF67F1;
+    background: #ef67f1;
     padding-bottom: 8rem;
     h1 {
       color: white;
     }
-    .left{
+    .left {
       text-align: right;
     }
   }
-  .marquee{
+  .marquee {
     font-size: 64px;
     font-family: 'Gilroy', sans-serif;
     font-weight: bold;
@@ -42,6 +42,6 @@
     overflow: hidden;
     border-bottom: 2px solid black;
     border-top: 2px solid black;
-    padding-right: .3em;
+    padding-right: 0.3em;
   }
 }

@@ -1,4 +1,4 @@
-.slide{
+.slide {
   position: relative;
   display: grid;
   grid-template-areas: 'bigImg smallImg' 'bigImg text';
@@ -13,20 +13,20 @@
     }
   }
 
-  .smallImg{
+  .smallImg {
     grid-area: smallImg;
-    background: #FF8742;
+    background: #ff8742;
   }
 
   .text {
     grid-area: text;
-    background: #FF8742;
-    :global(>h1){
+    background: #ff8742;
+    :global(> h1) {
       margin: 1rem 0;
       margin-bottom: 2rem;
     }
     :global(h1),
-    :global(p){
+    :global(p) {
       padding: 0 2rem;
     }
     button {
@@ -37,7 +37,6 @@
       border-top: 2px solid black;
       display: flex;
       flex-direction: column;
-
     }
     padding-bottom: 1rem;
   }
@@ -54,13 +53,13 @@
 }
 
 @keyframes fade {
-    0% {
-      opacity: .4;
-    }
-    25% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 1;
-    }
+  0% {
+    opacity: 0.4;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }

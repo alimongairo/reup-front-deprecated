@@ -11,6 +11,7 @@ import upFinger from '@/static/icons/upFinger.svg';
 import cx from './index.module.scss';
 
 const ReviewCard = ({
+  id,
   avatar,
   name,
   date,
@@ -18,10 +19,9 @@ const ReviewCard = ({
   color,
   size,
   review,
-  reviewsImg,
 }: TReview) => {
   return (
-    <div className={cx.wrapperWithImages}>
+    <div className={cx.wrapperWithImages} data-reviewid={String(id)}>
       <div className={cx.wrapper}>
         <div className={cx.contentWrapper}>
           <div className={cx.imgWrapper}>

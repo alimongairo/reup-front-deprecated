@@ -2,6 +2,7 @@ import { createWrapper } from 'next-redux-wrapper';
 import { configureStore } from '@reduxjs/toolkit';
 
 import productListReducer from '@/store/productList/slice';
+import likedListReducer from '@/store/likedList/slice';
 import basketReducer from '@/store/basket/slice';
 import userReducer from '@/store/user/slice';
 import productDetailReducer from '@/store/productDetail/slice';
@@ -11,6 +12,7 @@ export const makeStore = () =>
   configureStore({
     reducer: {
       productList: productListReducer,
+      likedList: likedListReducer,
       basket: basketReducer,
       productDetail: productDetailReducer,
       user: userReducer,

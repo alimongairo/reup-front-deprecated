@@ -40,7 +40,9 @@ const MainPageHeader = () => {
         />
         <Search />
         <div className={cx.buttons}>
-
+          <Link href={EPagesRoutes.Liked}>
+            <Image src={Like} alt={'Liked'}/>
+          </Link>
           <Link href={EPagesRoutes.Profile}>
             <Image src={profile} alt={'Profile'} />
           </Link>

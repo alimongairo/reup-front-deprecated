@@ -11,7 +11,7 @@ interface IProps {
 }
 
 const LikedList = ({ likedList }: IProps) => {
-  const cardList = [...likedList, ...likedList]
+  const cardList = [...likedList, ...likedList];
   const onLikeHandler = useCallback((id: number) => {
     console.log('like');
     console.log(likedList);
@@ -44,7 +44,6 @@ const LikedList = ({ likedList }: IProps) => {
       })}
     </div>
   );
- 
 };
 
 export default LikedList;

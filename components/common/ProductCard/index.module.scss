@@ -7,14 +7,7 @@
   position: relative;
   transition: 0.3s;
 
-  .modalBtn {
-    opacity: 0;
-    position: absolute;
-    height: 2.5em;
-    left: 17px;
-    right: 17px;
-  }
-
+  
   :global(p) {
     margin: 1rem 0;
   }

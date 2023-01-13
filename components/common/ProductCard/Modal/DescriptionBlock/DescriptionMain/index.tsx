@@ -6,12 +6,11 @@ type IProps = {
   dataSourse: TProductCard;
 };
 
-const DescriptionMain = ({dataSourse}:IProps) => {
-  
+const DescriptionMain = ({ dataSourse }: IProps) => {
   return (
-      <div className={cx.descriptionOverflow}>
-        <Text>{dataSourse.description}</Text>
-      </div>
+    <div className={cx.descriptionOverflow}>
+      <Text>{dataSourse.description}</Text>
+    </div>
   );
 };
 

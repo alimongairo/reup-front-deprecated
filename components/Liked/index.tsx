@@ -12,7 +12,6 @@ import cx from './index.module.scss';
 import LikedList from './LikedList';
 
 const LikedLayout = () => {
-
   const productList = useAppSelector(getProductListDataSource);
   const likedList = useAppSelector(getLikedListDataSource);
   const loading = useAppSelector(getProductDetailLoading);
@@ -33,9 +32,9 @@ const LikedLayout = () => {
       <Heading>Избранное</Heading>
       <LikedList likedList={likedList} />
       <Heading>возможно вам понравится</Heading>
-      <ProductsList productList={productList} /> 
-    </div>  
-  )
-}
+      <ProductsList productList={productList} />
+    </div>
+  );
+};
 
-export default LikedLayout
+export default LikedLayout;

@@ -6,18 +6,17 @@ import cx from './index.module.scss';
 
 type IProps = {
   onAddToBasket: (id: number) => void;
-  price:number;
+  price: number;
   dataSourse: TProductCard;
-  id:number;
+  id: number;
 };
 
-const DescriptionBlock = ({dataSourse, price, onAddToBasket, id}:IProps) => {
-
+const DescriptionBlock = ({ dataSourse, price, onAddToBasket, id }: IProps) => {
   return (
     <div className={cx.descriptionBlock}>
       <DescriptionHeader dataSourse={dataSourse} />
 
-      <DescriptionMain dataSourse={dataSourse}/>
+      <DescriptionMain dataSourse={dataSourse} />
 
       <Price id={id} dataSourse={dataSourse} onClickBasket={onAddToBasket} />
     </div>

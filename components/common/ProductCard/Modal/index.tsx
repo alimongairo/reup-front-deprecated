@@ -18,17 +18,30 @@ type IProps = {
   onAddToBasket: (id: number) => void;
   goToProductDetail: () => void;
   setModal: any;
-  productList: TProductItem[]
+  productList: TProductItem[];
 } & TProductItem;
-  
-const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, price, productList }:IProps) => {
 
+const Modal = ({
+  onLike,
+  goToProductDetail,
+  id,
+  onAddToBasket,
+  setModal,
+  price,
+  productList,
+}: IProps) => {
   const dispatch = useAppDispatch();
   const data = useAppSelector(getProductDetailDataSource);
-  
+
   const modalList = [...productList, ...productList].map((product) => {
     return (
-      <Image key={product.id} onClick={goToProductDetail} className={cx.Jeans} src={Jeans} alt="Jeans" />
+      <Image
+        key={product.id}
+        onClick={goToProductDetail}
+        className={cx.Jeans}
+        src={Jeans}
+        alt="Jeans"
+      />
     );
   });
 
@@ -46,23 +59,27 @@ const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, price, p
     <div className={cx.wrapper}>
       <div className={cx.popup}>
         <div className={cx.scroll}>
-          <PopupClose setModal={setModal}/>
+          <PopupClose setModal={setModal} />
           <div className={cx.upBlock}>
             <div className={cx.leftUpBlock}>
-              <LeftUpBlock onLike={onLike} id={id} dataSourse={data}/>
+              <LeftUpBlock onLike={onLike} id={id} dataSourse={data} />
             </div>
-            <DescriptionBlock dataSourse={data} id={id} price={price} onAddToBasket={onAddToBasket} />
+            <DescriptionBlock
+              dataSourse={data}
+              id={id}
+              price={price}
+              onAddToBasket={onAddToBasket}
+            />
           </div>
 
           <div className={cx.maybeLike}>
-            <Heading size='medium'>возможно, вам понравится</Heading>
+            <Heading size="medium">возможно, вам понравится</Heading>
           </div>
 
           <div className={cx.slideBlock}>
-            <ScrollSlider cardList={modalList}/>
+            <ScrollSlider cardList={modalList} />
           </div>
         </div>
-    
       </div>
     </div>
   );

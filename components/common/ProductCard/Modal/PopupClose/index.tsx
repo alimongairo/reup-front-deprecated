@@ -7,7 +7,7 @@ type IProps = {
   setModal: any;
 };
 
-const PopupClose = ({setModal}:IProps) => {
+const PopupClose = ({ setModal }: IProps) => {
   const closePopup = () => {
     setModal(false);
   };

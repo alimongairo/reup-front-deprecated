@@ -6,17 +6,17 @@ type IProps = {
   dataSourse: TProductCard;
 };
 
-const DescriptionHeader = ({dataSourse }:IProps) => {
+const DescriptionHeader = ({ dataSourse }: IProps) => {
   return (
     <div>
       <div>
-        <Heading size = 'medium'>{dataSourse.title}</Heading>
+        <Heading size="medium">{dataSourse.title}</Heading>
       </div>
       <div>
-        <Heading size = 'medium'>{dataSourse.brandTitle}</Heading>
+        <Heading size="medium">{dataSourse.brandTitle}</Heading>
       </div>
       <Text>0{dataSourse.brandCode}</Text>
-      <Text size='bold'>О ТОВАРЕ</Text>
+      <Text size="bold">О ТОВАРЕ</Text>
     </div>
   );
 };

@@ -7,11 +7,10 @@ import cx from './index.module.scss';
 type IProps = {
   onLike: (id: number) => void;
   dataSourse: TProductCard;
-  id: number
+  id: number;
 };
 
 const LeftUpBlock = ({ onLike, id, dataSourse }: IProps) => {
-
   return (
     <div className={cx.leftUpBlockLike}>
       <Image

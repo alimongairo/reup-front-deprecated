@@ -12,7 +12,7 @@ interface IProps {
 const LikedList = ({ likedList }: IProps) => {
   const onLikeHandler = useCallback((id: number) => {
     console.log('like');
-    console.log(likedList)
+    console.log(likedList);
   }, []);
 
   const onAddToBasketHandler = useCallback((id: number) => {

@@ -1,18 +1,22 @@
-import { randomInteger } from '@/helpers/utils';
-import cx from './index.module.scss';
+import Heading from '@/components/common/Heading';
+import Text from '@/components/common/Text';
+import { TProductCard } from '@/store/productDetail/type';
 
 type IProps = {
-  title: string;
+  dataSourse: TProductCard;
 };
 
-const DescriptionHeader = ({ title }:IProps) => {
-  const article = randomInteger(1000, 9999);
+const DescriptionHeader = ({dataSourse }:IProps) => {
   return (
-    <div className={cx.header}>
-      <h2>{title}</h2>
-      <h4>название бренда</h4>
-      <span className={cx.article}>0{article}</span>
-      <p>О ТОВАРЕ</p>
+    <div>
+      <div>
+        <Heading size = 'medium'>{dataSourse.title}</Heading>
+      </div>
+      <div>
+        <Heading size = 'medium'>{dataSourse.brandTitle}</Heading>
+      </div>
+      <Text>0{dataSourse.brandCode}</Text>
+      <Text size='bold'>О ТОВАРЕ</Text>
     </div>
   );
 };

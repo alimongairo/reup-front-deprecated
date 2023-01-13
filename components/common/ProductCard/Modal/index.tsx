@@ -1,16 +1,17 @@
-import ScrollSlider from '@/components/common/ScrollSlider';
-import { useAppDispatch, useAppSelector } from '@/hooks/store';
-import Jeans from '@/static/img/Jeans.png';
-import { getProductDetailDataSource } from '@/store/productDetail/selectors';
-import { getProductDetailAction } from '@/store/productDetail/thunk';
-import { TProductItem } from '@/store/productList/type';
+import { useEffect } from 'react';
 import { Skeleton } from 'antd';
 import Image from 'next/image';
-import { useEffect } from 'react';
+import Heading from '../../Heading';
 import DescriptionBlock from './DescriptionBlock';
-import cx from './index.module.scss';
 import LeftUpBlock from './LeftUpBlock';
 import PopupClose from './PopupClose';
+import { useAppDispatch, useAppSelector } from '@/hooks/store';
+import { TProductItem } from '@/store/productList/type';
+import ScrollSlider from '@/components/common/ScrollSlider';
+import { getProductDetailDataSource } from '@/store/productDetail/selectors';
+import { getProductDetailAction } from '@/store/productDetail/thunk';
+import Jeans from '@/static/img/Jeans.png';
+import cx from './index.module.scss';
 
 type IProps = {
   onLike: (id: number) => void;
@@ -20,9 +21,10 @@ type IProps = {
   productList: TProductItem[]
 } & TProductItem;
   
-const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, title, price, description, productList }:IProps) => {
+const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, price, productList }:IProps) => {
 
   const dispatch = useAppDispatch();
+  const data = useAppSelector(getProductDetailDataSource);
   
   const modalList = [...productList, ...productList].map((product) => {
     return (
@@ -35,7 +37,6 @@ const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, title, p
       dispatch(getProductDetailAction(String(id)));
     }
   }, [id]);
-  const data = useAppSelector(getProductDetailDataSource);
 
   if (!data) {
     return <Skeleton active />;
@@ -50,11 +51,11 @@ const Modal = ({onLike, goToProductDetail, id, onAddToBasket, setModal, title, p
             <div className={cx.leftUpBlock}>
               <LeftUpBlock onLike={onLike} id={id} dataSourse={data}/>
             </div>
-            <DescriptionBlock dataSourse={data} id={id} price={price} title={title} onAddToBasket={onAddToBasket} />
+            <DescriptionBlock dataSourse={data} id={id} price={price} onAddToBasket={onAddToBasket} />
           </div>
 
           <div className={cx.maybeLike}>
-            <h2>возможно, вам понравится</h2>
+            <Heading size='medium'>возможно, вам понравится</Heading>
           </div>
 
           <div className={cx.slideBlock}>

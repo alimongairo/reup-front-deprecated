@@ -26,7 +26,7 @@ export const getLikedListAction = createAsyncThunk(
   `${LIKED_LIST_ALIAS}/fetch`,
   async () => {
     try {
-      // const data = await getProductListRequest();
+      // const data = await getLikedListRequest();
 
       return mockData;
     } catch (error) {

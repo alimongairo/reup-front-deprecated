@@ -29,9 +29,12 @@ const LikedLayout = () => {
 
   return (
     <div className={cx.wrapper}>
-      <Heading>Избранное</Heading>
-      <LikedList likedList={likedList} />
-      <Heading>возможно вам понравится</Heading>
+      <Heading size = 'big'>Избранное</Heading>
+      <div className={cx.likedList}>
+        <LikedList likedList={likedList} />
+      </div>
+      
+      <Heading size = 'big'>вам может понравиться</Heading>
       <ProductsList productList={productList} />
     </div>
   );

@@ -9,191 +9,88 @@
 
 .wrapper {
     position: fixed;
+    display: flex;
+    justify-content: center;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     z-index: 1050;
-    width: 100%;
-    height: 100%;
+    max-width: 100vw;
+    max-height: 100vh;
     background-color: rgba(255, 255, 255, 0.5);
     animation: show 0.5s ease-in-out;
+    overflow-y: scroll;
 
     .popup {
-        position: fixed;
+        position: absolute;
 		z-index: 4;
-		left: 50%;
 		top: 50px;
-		width: 1180px;
-		transform: translateX(-50%);
+		width: 75.625em;
+        height: 58.375em;
         background: #fff;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        padding: 22px;
+        justify-content: space-around;
         box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.5);
+        padding: 2.5em;
 
-        .popupClose {
-			position: absolute;
-			right: 22px;
-			top: 22px;
-			cursor: pointer;
-			font-size: 35px;
-			color: #fff;
-			font-weight: 300;
-		}
-
-        .upBlock {
+        .scroll {
+            height: 100%;
             display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            height: 45vh;
-
-            .leftUpBlock {
-                position: relative;
+            flex-direction: column;
+            justify-content: space-around;
+    
+            .upBlock {
                 display: flex;
                 flex-direction: row;
-                justify-content: flex-start;
-                padding-right: 20px;
-                width: 50%;
-                .modelLeft, .modelRight {
-                    height: 100%;
-                    width: 50%;
-                }
-                .like {
-                    position: absolute;
-                    right: 40px;
-                    top: 20px;
-                    &:hover {
-                        cursor: pointer;
-                        transform: scale(1.2);
-                        transition: 0.3s;
-                    }
-                }
-            }
-
-            .descriptionBlock {
-                display: flex;
-                flex-direction: column;
                 justify-content: space-between;
-                padding-left: 20px;
-                height: 100%;
-                width: 50%;
-                h2 {
-                    font-size: 32px;
-                    font-weight: 700;
-                    line-height: 35.2px;
-                    letter-spacing: 0.1em;
-                    margin-top: 0;
-                    margin-bottom: 10px;
-                    padding-top: 0;
-                }
-                h4 {
-                    font-size: 24px;
-                    font-weight: 600;
-                    line-height: 26.4px;
-                    letter-spacing: 0.1em;
-                    margin-top: 0;
-                    margin-bottom: 10px;
-                    padding-top: 0;
-                }
-                .article {
-                    font-size: 20px;
-                    font-weight: 300;
-                    line-height: 22px;
-                    letter-spacing: 0.08em;
-                }
-                p {
-                    font-size: 24px;
-                    font-weight: 700;
-                    line-height: 26.4px;
-                    letter-spacing: 0.1em;
-                    margin-bottom: 5px;
-                }
-                .descriptionOverflow {
-                    overflow-y: scroll;
-                    margin-top: 0;
-                    padding-top: 0;
-                    p {
-                        font-size: 20px;
-                        font-weight: 400;
-                        line-height: 26.4px;
-                        letter-spacing: 7%;
-                    }
-                }
-                .btnPrice {
-                    align-self: flex-start;
+                height: 50%;
+    
+                .leftUpBlock {
+                    position: relative;
                     display: flex;
-                    flex-direction: column;
-                    .price {
-                        align-self: flex-end;
-                        .throughPrice {
-                            text-decoration: line-through;
-                            font-size: 24px;
+                    flex-direction: row;
+                    justify-content: center;
+                    padding-right: 20px;
+                    width: 60%;             
+                }
+                    .descriptionOverflow {
+                        overflow-y: scroll;
+                        margin-top: 0;
+                        padding-top: 0;
+                        p {
+                            font-size: 20px;
                             font-weight: 400;
                             line-height: 26.4px;
-                            letter-spacing: 0.1em;
-                        }
-                        .activePrice {
-                            font-size: 32px;
-                            font-weight: 700;
-                            line-height: 35.2px;
-                            letter-spacing: 0.1em;
+                            letter-spacing: 7%;
                         }
                     }
-                    button {
-                        font-size: 24px;
-                        font-weight: 700;
-                        line-height: 26.4px;
-                        letter-spacing: 0.1em;
-                    }
-                    .chooseSize {
-                        margin-top: 10px;
-                        position: relative; 
-                        div {
-                            box-sizing: border-box;
-                            width: 100%;
-                            text-align: center;
-                            font-size: 24px;
-                            font-weight: 700;
-                            line-height: 26.4px;
-                            letter-spacing: 0.1em;
-                        }
-                        .arrowDown {
-                            position: absolute;
-                            width: 16px;
-                            height: 8px;
-                            right: 15px;
-                            top: 20px;
-                        }
-                    }
-                    .appCart {
-                        margin-top: 15px;
-                        width: 100%;
-                        
-                        button {
-                            width: 100%;
-                        }
-                    }
-                }   
+            }
+    
+            .maybeLike {
+                h2 {
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 32px;
+                    margin-top: 0;
+                    margin-bottom: 0;
+                    line-height: 110%;
+                }
+            }
+            
+    
+            .slideBlock {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                padding: 0;
+                img {
+                    cursor: pointer;
+                }
             }
         }
-
-        h2 {
-            font-style: normal;
-            font-weight: 700;
-            font-size: 32px;
-            line-height: 110%;
-        }
-
-        .slideBlock {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            img {
-                cursor: pointer;
-            }
-        }
+        
     }
 }

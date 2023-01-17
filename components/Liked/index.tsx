@@ -26,14 +26,12 @@ const LikedLayout = () => {
   if (loading) {
     return <Skeleton active />;
   }
+  console.log(likedList)
 
   return (
     <div className={cx.wrapper}>
-      <Heading size="big">Избранное</Heading>
-      <div className={cx.likedList}>
-        <LikedList likedList={likedList} />
-      </div>
-
+      <Heading size="big">избранное</Heading>
+      <LikedList likedList={likedList} />
       <Heading size="big">вам может понравиться</Heading>
       <ProductsList productList={productList} />
     </div>

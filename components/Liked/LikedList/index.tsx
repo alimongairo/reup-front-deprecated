@@ -1,10 +1,12 @@
 import { useCallback } from 'react';
 
 import ProductCard from '@/components/common/ProductCard';
-import ScrollSlider from '@/components/common/ScrollSlider';
 
 import { TLikedItem } from '@/store/likedList/type';
 import cx from './index.module.scss';
+import Link from 'next/link';
+import { EPagesRoutes } from '@/constants/router';
+import Text from '@/components/common/Text';
 
 interface IProps {
   likedList: TLikedItem[];
@@ -22,9 +24,19 @@ const LikedList = ({ likedList }: IProps) => {
   }, []);
 
   if (!likedList.length) {
-    return <div>Пустo...</div>;
+    return (
+      <div className={cx.space}> 
+        <Text size='bold'><p>Кажется, вам пока ничего не понравилось</p></Text>
+
+        <Link href={`${EPagesRoutes.Main}/`}>
+          <button>отправиться на поиски</button>
+        </Link>
+        
+      </div>
+    );
   }
   return (
+
     <div className={cx.likedBlock}>
       {cardList.map((product) => {
         return (

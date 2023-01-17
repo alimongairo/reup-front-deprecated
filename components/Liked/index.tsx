@@ -26,7 +26,7 @@ const LikedLayout = () => {
   if (loading) {
     return <Skeleton active />;
   }
-  console.log(likedList)
+  console.log(likedList);
 
   return (
     <div className={cx.wrapper}>

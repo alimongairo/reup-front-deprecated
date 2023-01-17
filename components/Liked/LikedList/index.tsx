@@ -25,18 +25,18 @@ const LikedList = ({ likedList }: IProps) => {
 
   if (!likedList.length) {
     return (
-      <div className={cx.space}> 
-        <Text size='bold'><p>Кажется, вам пока ничего не понравилось</p></Text>
+      <div className={cx.space}>
+        <Text size="bold">
+          <p>Кажется, вам пока ничего не понравилось</p>
+        </Text>
 
         <Link href={`${EPagesRoutes.Main}/`}>
           <button>отправиться на поиски</button>
         </Link>
-        
       </div>
     );
   }
   return (
-
     <div className={cx.likedBlock}>
       {cardList.map((product) => {
         return (

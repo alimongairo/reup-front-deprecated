@@ -55,7 +55,6 @@ const LikedList = ({ likedList }: IProps) => {
               like={product.like}
             />
           </div>
-          
         );
       })}
     </div>

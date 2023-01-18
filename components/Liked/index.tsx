@@ -29,7 +29,7 @@ const LikedLayout = () => {
 
   if (loading) {
     return <Skeleton active />;
-  };
+  }
 
   return (
     <div className={cx.wrapper}>

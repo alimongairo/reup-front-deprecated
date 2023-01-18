@@ -1,14 +1,13 @@
 .wrapper {
   width: 100%;
   margin: 0 auto;
- 
 
   .header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding:32px 32px 0px;
+    padding: 32px 32px 0px;
     padding-bottom: 0;
     margin-bottom: 0;
     .HeadAndNumber {
@@ -24,10 +23,10 @@
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    padding:0px 32px 0px; 
+    padding: 0px 32px 0px;
   }
 
   .recommendation {
-    padding:32px 32px 0px; 
+    padding: 32px 32px 0px;
   }
 }

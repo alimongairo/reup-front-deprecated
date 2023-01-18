@@ -13,7 +13,8 @@ interface IProps {
 }
 
 const LikedList = ({ likedList }: IProps) => {
-  const cardList = [...likedList, ...likedList];
+  const cardList = [...likedList];
+
   const onLikeHandler = useCallback((id: number) => {
     console.log('like');
     console.log(likedList);
@@ -40,18 +41,21 @@ const LikedList = ({ likedList }: IProps) => {
     <div className={cx.likedBlock}>
       {cardList.map((product) => {
         return (
-          <ProductCard
-            productList={likedList}
-            key={product.id}
-            onLike={onLikeHandler}
-            onAddToBasket={onAddToBasketHandler}
-            title={product.title}
-            id={product.id}
-            description={product.description}
-            price={product.price}
-            imgSource={product.imgSource}
-            like={product.like}
-          />
+          <div className={cx.likedSize} key={product.id}>
+            <ProductCard
+              productList={likedList}
+              key={product.id}
+              onLike={onLikeHandler}
+              onAddToBasket={onAddToBasketHandler}
+              title={product.title}
+              id={product.id}
+              description={product.description}
+              price={product.price}
+              imgSource={product.imgSource}
+              like={product.like}
+            />
+          </div>
+          
         );
       })}
     </div>

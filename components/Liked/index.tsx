@@ -1,3 +1,4 @@
+import { EPagesRoutes } from '@/constants/router';
 import { useAppDispatch, useAppSelector } from '@/hooks/store';
 import { getLikedListDataSource } from '@/store/likedList/selectors';
 import { getLikedListAction } from '@/store/likedList/thunk';
@@ -5,17 +6,20 @@ import { getProductDetailLoading } from '@/store/productDetail/selectors';
 import { getProductListDataSource } from '@/store/productList/selectors';
 import { getProductListAction } from '@/store/productList/thunk';
 import { Skeleton } from 'antd';
+import Image from 'next/image';
+import Link from 'next/link';
 import React, { useEffect } from 'react';
 import Heading from '../common/Heading';
 import ProductsList from '../Main/ProductList';
 import cx from './index.module.scss';
 import LikedList from './LikedList';
+import Close from '@/static/icons/popupClose.svg';
+import Text from '../common/Text';
 
 const LikedLayout = () => {
   const productList = useAppSelector(getProductListDataSource);
   const likedList = useAppSelector(getLikedListDataSource);
   const loading = useAppSelector(getProductDetailLoading);
-
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -25,14 +29,41 @@ const LikedLayout = () => {
 
   if (loading) {
     return <Skeleton active />;
-  }
-  console.log(likedList);
+  };
 
   return (
     <div className={cx.wrapper}>
-      <Heading size="big">избранное</Heading>
+      <div className={cx.header}>
+        <div className={cx.HeadAndNumber}>
+          <Heading size="big">
+            {likedList.length === 0 ? (
+              <span>избранное</span>
+            ) : (
+              <span>избранное {likedList.length}шт</span>
+            )}
+          </Heading>
+        </div>
+        <Link href={`${EPagesRoutes.Main}/`}>
+          <Image src={Close} alt="close" />
+        </Link>
+      </div>
+
+      <div className={cx.search}>
+        {likedList.length === 0 ? (
+          ''
+        ) : (
+          <Text>
+            <span>Поиск товара...</span>
+          </Text>
+        )}
+      </div>
+
       <LikedList likedList={likedList} />
-      <Heading size="big">вам может понравиться</Heading>
+
+      <div className={cx.recommendation}>
+        <Heading size="big">вам может понравиться</Heading>
+      </div>
+
       <ProductsList productList={productList} />
     </div>
   );

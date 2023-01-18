@@ -10,16 +10,16 @@ import product1 from '@/static/img/product1.png';
 
 const imgs = [product1];
 
-for (let i = 0; i < 4; i++) {
+for (let i = 0; i < 10; i++) {
   mockData.push(
-  //   {
-  //   title: 'Свитшот',
-  //   id: i,
-  //   description: 'Тёплая одежда',
-  //   price: randomInteger(499, 10000),
-  //   imgSource: imgs[randomInteger(0, imgs.length - 1)],
-  //   like: i % 3 === 0,
-  // }
+    {
+    title: 'Свитшот',
+    id: i,
+    description: 'Тёплая одежда',
+    price: randomInteger(499, 10000),
+    imgSource: imgs[randomInteger(0, imgs.length - 1)],
+    like: i % 3 === 0,
+  }
   );
 }
 

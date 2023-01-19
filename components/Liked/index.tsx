@@ -51,11 +51,7 @@ const LikedLayout = () => {
       </div>
 
       <div className={cx.search}>
-        {likedList.length === 0 ? (
-          ''
-        ) : (
-          <Search/>
-        )}
+        {likedList.length === 0 ? '' : <Search />}
       </div>
 
       <LikedList likedList={likedList} />

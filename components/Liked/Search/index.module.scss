@@ -1,17 +1,17 @@
 .search__panel {
-    border: none;
-    border-bottom: solid 3px;
-    display: flex;
-    justify-content: space-between;
-    align-items:center;
+  border: none;
+  border-bottom: solid 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.search__panel__input{
-    padding-bottom: 5px;
-    width: 80%;
-    text-align: left;
-    border: none;
-    font-family: inherit;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
+.search__panel__input {
+  padding-bottom: 5px;
+  width: 80%;
+  text-align: left;
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
 }

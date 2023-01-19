@@ -15,6 +15,8 @@ import cx from './index.module.scss';
 import LikedList from './LikedList';
 import Close from '@/static/icons/popupClose.svg';
 import Text from '../common/Text';
+import MainPageSearch from '@/hoc/MainLayout/Header/Search';
+import Search from './Search';
 
 const LikedLayout = () => {
   const productList = useAppSelector(getProductListDataSource);
@@ -52,9 +54,7 @@ const LikedLayout = () => {
         {likedList.length === 0 ? (
           ''
         ) : (
-          <Text>
-            <span>Поиск товара...</span>
-          </Text>
+          <Search/>
         )}
       </div>
 

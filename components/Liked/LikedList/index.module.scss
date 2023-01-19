@@ -1,11 +1,18 @@
 .likedBlock {
   width: 100vw;
+  // display: grid;
+  // grid-template-columns: 1fr 1fr 1fr 1fr;
+  // grid-template-rows: 1fr 1fr;
+  // gap: 0px 0px;
+
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 0px 0px;
+  grid-template-columns: repeat(auto-fill, minmax(11vw, max-content));
+  gap: 20px 40px;
+  // width: 20rem;
+
   padding: 0 32px;
-  .likedSize {
+  .likedSize > div {
+    width: 11vw;
   }
 }
 

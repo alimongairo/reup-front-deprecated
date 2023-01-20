@@ -5,7 +5,7 @@ import cx from './index.module.scss';
 const MainPageSearch = ()=>{
     return (
     <div className={cx.search__panel}>
-        <input className={cx.search__panel__input} type="search" placeholder='А что мы тут ищем?'/>
+        <input className={cx.search__panel__input} type="search" placeholder='а что мы тут ищем?'/>
         <Image src={searchLogo} alt='searchLogo'></Image>
     </div>
 )}

@@ -1,13 +1,13 @@
-.likedBlock{
+.likedBlock {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
   grid-template-rows: repeat(auto-fill, minmax(580px, 580px));
   grid-gap: 2rem;
   justify-content: center;
   padding: 0 2rem;
-   > div {
-     width: auto;
-   }
+  > div {
+    width: auto;
+  }
 }
 
 .space {

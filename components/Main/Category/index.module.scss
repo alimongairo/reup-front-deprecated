@@ -8,6 +8,7 @@
   grid-template-rows: repeat(3, 1fr);
   grid-gap: 2px;
   margin-top: 2px;
+  border-bottom: 2px solid black;
   > button {
     text-align: right;
   }

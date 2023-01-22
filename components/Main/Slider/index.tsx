@@ -52,14 +52,14 @@ const Slider = () => {
     });
   };
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     onNextSlide();
-  //   }, 5000);
-  //   return () => {
-  //     clearInterval(interval);
-  //   };
-  // }, [slideNumber]);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      onNextSlide();
+    }, 5000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [slideNumber]);
 
   return (
     <div className={cx.wrapper}>

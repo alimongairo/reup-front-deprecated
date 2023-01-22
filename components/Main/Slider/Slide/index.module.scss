@@ -52,6 +52,10 @@
   animation-duration: 5s;
 }
 
+.moreBtn {
+  align-self: end;
+}
+
 @keyframes fade {
   0% {
     opacity: 0.4;

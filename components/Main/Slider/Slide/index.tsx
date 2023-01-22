@@ -4,9 +4,9 @@ import { useRouter } from 'next/router';
 
 import Heading from '@/components/common/Heading';
 import Text from '@/components/common/Text';
-import { EPagesRoutes } from '@/constants/router';
+import MoreButton from '@/components/common/MoreButton';
 
-import moreArrow from '@/static/icons/moreArrow.svg';
+import { EPagesRoutes } from '@/constants/router';
 
 import cx from './index.module.scss';
 
@@ -49,10 +49,7 @@ const Slide = ({
         <div className={cx.underLine}>
           <Heading size="medium">{brandName}</Heading>
           <Text>{brandDescription}</Text>
-          <button className={cx.btn} onClick={moreHandler}>
-            <span>больше</span>
-            <Image src={moreArrow} alt="moreArrow" />
-          </button>
+          <MoreButton className={cx.moreBtn} onClick={moreHandler} />
         </div>
       </div>
     </div>

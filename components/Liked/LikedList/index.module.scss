@@ -1,18 +1,13 @@
-.likedBlock {
-  display: flex;
-  flex-direction: column;
+.likedBlock{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
+  grid-template-rows: repeat(auto-fill, minmax(580px, 580px));
+  grid-gap: 2rem;
   justify-content: center;
-  align-items: center;
-
-  .likedFlex {
-    box-sizing: border-box;
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-  .likedSize > div {
-    width: 11vw;
-  }
+  padding: 0 2rem;
+   > div {
+     width: auto;
+   }
 }
 
 .space {

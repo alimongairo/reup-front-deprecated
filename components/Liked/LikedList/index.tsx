@@ -59,7 +59,6 @@ const LikedList = ({ likedList }: IProps) => {
           );
         })}
       </div>
-      
     </div>
   );
 };

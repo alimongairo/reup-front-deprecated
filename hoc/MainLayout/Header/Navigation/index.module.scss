@@ -1,0 +1,13 @@
+.navbar {
+    border: solid;
+    height: 5rem;
+    margin: 0 auto;
+}
+
+.navbar__list{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    list-style-type: none;
+}

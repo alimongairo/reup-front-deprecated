@@ -1,9 +1,29 @@
-import {useRouter} from "next/router";
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import ProductDetail from '@/components/ProductDetail';
+import MainLayout from '@/hoc/MainLayout';
 
-const ProductDetail = ()=>{
-    const router = useRouter()
-    const {id} = router.query
-    return <div>ProductDetail: {id}</div>
-}
+import { useAppDispatch } from '@/hooks/store';
+import { getProductDetailAction } from '@/store/productDetail/thunk';
+import { getProductListAction } from '@/store/productList/thunk';
 
-export default ProductDetail
+const ProductDetailPage = () => {
+  const router = useRouter();
+  const { id } = router.query;
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (id) {
+      dispatch(getProductDetailAction(id as string));
+    }
+    dispatch(getProductListAction());
+  }, [id]);
+
+  return (
+    <MainLayout>
+      <ProductDetail />
+    </MainLayout>
+  );
+};
+
+export default ProductDetailPage;

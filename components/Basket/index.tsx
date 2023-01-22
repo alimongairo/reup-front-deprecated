@@ -1,14 +1,24 @@
-import {Button} from "antd";
-import {ShoppingCartOutlined} from "@ant-design/icons";
-import Link from "next/link";
-import {EPagesRoutes} from "@/constants/router";
+import { useEffect } from 'react';
 
-const Basket = ()=>{
-    return <div>
-        <Link href={EPagesRoutes.Basket}>
-            <Button type="primary" size="large" icon={<ShoppingCartOutlined/>}/>
-        </Link>
+import BasketPageHeader from '@/components/Basket/Header';
+import BasketProductList from '@/components/Basket/BasketItems';
+
+import { getBasketAction } from '@/store/basket/thunk';
+import { useAppDispatch } from '@/hooks/store';
+
+const BasketLayout = () => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getBasketAction());
+  }, []);
+
+  return (
+    <div className="w100">
+      <BasketPageHeader />
+      <BasketProductList />
     </div>
-}
+  );
+};
 
-export default Basket
+export default BasketLayout;

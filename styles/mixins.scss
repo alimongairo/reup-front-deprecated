@@ -1,0 +1,40 @@
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1600px;
+
+@mixin minScreen($min, $max){
+  @media screen and (min-width: $min) and (max-width: $max) {
+    min-width: $min;
+  }
+}
+
+@mixin maxScreen($max){
+  @media screen and (max-width: $max){
+    max-width: $max !important;
+  }
+}
+
+@mixin container {
+  @include minScreen($sm, $md);
+  @include minScreen($md, $lg);
+  @include minScreen($lg, $xl);
+  @include minScreen($xl, $xxl);
+}
+
+@mixin contentWidth ($centred: true, $padding: false ) {
+  max-width: $xxl;
+  width: 100% ;
+  @if $padding {
+    padding: 0 2rem;
+  }
+  @if $centred {
+    margin: 0 auto;
+  }
+  @include maxScreen($xxl);
+  @include maxScreen($xl);
+  @include maxScreen($lg);
+  @include maxScreen($md);
+  @include maxScreen($sm);
+}

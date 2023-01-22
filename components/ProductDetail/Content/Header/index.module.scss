@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+  align-items: baseline;
+  padding: 0 2rem;
+  > img {
+    width: 50px;
+    height: auto;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    > div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+.wrapper {
+  display: flex;
+  grid-template-columns: repeat(3, 400px);
+  gap: 0px;
+  justify-content: center;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,25 @@
+.classicButton {
+  min-width: 12.5rem;
+  padding: 1rem;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  background-color: #ffffff;
+  border: 2px solid #cccccc;
+  border-radius: 0.5rem;
+  text-transform: lowercase;
+  cursor: pointer;
+}
+.classicButton:hover,
+.classicButton:focus,
+.classicButton:active,
+.classicButton.selected {
+  border-color: #000000;
+  color: #000000;
+}
+
+.classicButton.small {
+  padding: 0.5rem 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.04rem;
+}

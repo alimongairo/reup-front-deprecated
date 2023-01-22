@@ -1,0 +1,21 @@
+.heading {
+  font-family: 'Dela Gothic One', sans-serif;
+
+  &.big {
+    font-size: 64px;
+  }
+
+  &.medium {
+    font-size: 32px;
+  }
+
+  &.small {
+    font-size: 16px;
+  }
+  display: inline-block;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 110%;
+  letter-spacing: 0.04em;
+  color: #000000;
+}

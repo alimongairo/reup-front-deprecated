@@ -1,13 +1,12 @@
-import { useAppDispatch } from '@/hooks/store';
-
-import MainLayout from "@/components/Main";
-
-import cx from './index.module.scss';
+import MainPageComponents from '@/components/Main';
+import MainLayout from '@/hoc/MainLayout';
 
 const MainPage = () => {
-  const dispatch = useAppDispatch();
-
-  return <MainLayout/>
+  return (
+    <MainLayout>
+      <MainPageComponents />
+    </MainLayout>
+  );
 };
 
 export default MainPage;

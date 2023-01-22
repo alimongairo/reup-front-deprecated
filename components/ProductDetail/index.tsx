@@ -23,8 +23,6 @@ const ProductDetail = () => {
       <ProductDetailContent />
       <Heading>вы недавно смотрели</Heading>
       <ProductsList productList={productList} />
-      <Heading>возможно вам понравится</Heading>
-      <ProductsList productList={productList} />
     </div>
   );
 };

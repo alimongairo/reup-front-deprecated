@@ -1,6 +1,11 @@
 .wrapper {
   margin-top: 2rem;
   border-top: 2px solid black;
+
+  .moreBtn {
+    align-self: end;
+  }
+
   .imgWrapper img {
     width: 100%;
     height: 100%;

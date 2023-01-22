@@ -29,20 +29,20 @@ const MainPageComponents = () => {
       <Slider />
       <Category />
       <div className={cx.text}>
-        <Heading>picked for you</Heading>
+        <Heading>подобрали для тебя</Heading>
       </div>
       <ProductsList productList={newProducts} />
       <div className={cx.text}>
-        <Heading>REUP choos</Heading>
+        <Heading>выбор REUP</Heading>
       </div>
       <div className={cx.pink}>
         <ReupChoosen />
         <div className={cx.text}>
-          <Heading>collections</Heading>
+          <Heading>коллекции</Heading>
         </div>
         <Collections />
         <div className={classNames(cx.text, cx.left)}>
-          <Heading>i like</Heading>
+          <Heading>мне нравится</Heading>
         </div>
         <ProductsList productList={newProducts} />
       </div>

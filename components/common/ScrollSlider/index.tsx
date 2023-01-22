@@ -1,11 +1,11 @@
 import { memo, ReactNode, useRef } from 'react';
 import Image from 'next/image';
 
+import MoreButton from '@/components/common/MoreButton';
+
 import leftArrow from '@/static/icons/leftArrow.svg';
-import moreArrow from '@/static/icons/moreArrow.svg';
 
 import cx from './index.module.scss';
-import Text from '@/components/common/Text';
 
 export interface IScrollSlider {
   cardList: Array<ReactNode>;
@@ -48,10 +48,7 @@ const ScrollSlider = ({ cardList, onClickMore }: IScrollSlider) => {
           <Image src={leftArrow} alt="arrow" height={30} />
         </div>
       </div>
-      <div className={cx.more} onClick={onClickMore}>
-        <Text size="bold">больше</Text>
-        <Image src={moreArrow} alt="more" />
-      </div>
+      <MoreButton className={cx.moreBtn} />
     </>
   );
 };

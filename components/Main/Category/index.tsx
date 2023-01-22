@@ -8,7 +8,7 @@ const Category = () => {
       <button>обувь</button>
       <button>винтаж</button>
       <button>аксессуары</button>
-      <button>ювелирака</button>
+      <button>ювелирка</button>
       <button>Upcycle</button>
       <button>вторые ручки</button>
     </div>

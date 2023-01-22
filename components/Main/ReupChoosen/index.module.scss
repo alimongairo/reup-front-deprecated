@@ -5,6 +5,9 @@
   justify-content: space-evenly;
   gap: 4rem;
   @include contentWidth();
+  .moreBtn {
+    margin: 0 80%;
+  }
   .info {
     width: 40%;
     margin-top: 4rem;

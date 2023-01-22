@@ -1,5 +1,7 @@
 import Image from 'next/image';
 
+import MoreButton from '@/components/common/MoreButton';
+
 import img from '@/static/img/model1.png';
 import cx from './index.module.scss';
 
@@ -13,7 +15,7 @@ const ReupChoosen = () => {
           напрямую зависит от стандартных подходов. Идейные соображения высшего
           порядка, а также разбавленное изрядной долей
         </p>
-        <button>Больше</button>
+        <MoreButton className={cx.moreBtn} />
       </div>
       <div className={cx.imgWrapper}>
         <Image src={img} alt="model1" />

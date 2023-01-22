@@ -39,10 +39,18 @@ const Footer = () => {
         <div>
           <ul>
             <li>
-              <Text>Служба поддержки клиентов</Text>
+              <Text>
+                <>
+                  <sup>*</sup>Служба поддержки клиентов
+                </>
+              </Text>
             </li>
             <li>
-              <Text>Вся юр. информация</Text>
+              <Text>
+                <>
+                  <sup>*</sup>Вся юр. информация
+                </>
+              </Text>
             </li>
           </ul>
           <div className={cx.media}>

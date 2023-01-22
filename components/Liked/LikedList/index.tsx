@@ -31,7 +31,7 @@ const LikedList = ({ likedList }: IProps) => {
           <p>Кажется, вам пока ничего не понравилось</p>
         </Text>
 
-        <Link href={`${EPagesRoutes.Main}/`}>
+        <Link href={`${EPagesRoutes.Main}`}>
           <button>отправиться на поиски</button>
         </Link>
       </div>
@@ -39,24 +39,27 @@ const LikedList = ({ likedList }: IProps) => {
   }
   return (
     <div className={cx.likedBlock}>
-      {cardList.map((product) => {
-        return (
-          <div className={cx.likedSize} key={product.id}>
-            <ProductCard
-              productList={likedList}
-              key={product.id}
-              onLike={onLikeHandler}
-              onAddToBasket={onAddToBasketHandler}
-              title={product.title}
-              id={product.id}
-              description={product.description}
-              price={product.price}
-              imgSource={product.imgSource}
-              like={product.like}
-            />
-          </div>
-        );
-      })}
+      <div className={cx.likedFlex}>
+        {cardList.map((product) => {
+          return (
+            <div className={cx.likedSize} key={product.id}>
+              <ProductCard
+                productList={likedList}
+                key={product.id}
+                onLike={onLikeHandler}
+                onAddToBasket={onAddToBasketHandler}
+                title={product.title}
+                id={product.id}
+                description={product.description}
+                price={product.price}
+                imgSource={product.imgSource}
+                like={product.like}
+              />
+            </div>
+          );
+        })}
+      </div>
+      
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { EPagesRoutes } from '@/constants/router';
 import { useAppDispatch, useAppSelector } from '@/hooks/store';
+import Close from '@/static/icons/popupClose.svg';
 import { getLikedListDataSource } from '@/store/likedList/selectors';
 import { getLikedListAction } from '@/store/likedList/thunk';
 import { getProductDetailLoading } from '@/store/productDetail/selectors';
@@ -8,14 +9,11 @@ import { getProductListAction } from '@/store/productList/thunk';
 import { Skeleton } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Heading from '../common/Heading';
 import ProductsList from '../Main/ProductList';
 import cx from './index.module.scss';
 import LikedList from './LikedList';
-import Close from '@/static/icons/popupClose.svg';
-import Text from '../common/Text';
-import MainPageSearch from '@/hoc/MainLayout/Header/Search';
 import Search from './Search';
 
 const LikedLayout = () => {
@@ -45,7 +43,7 @@ const LikedLayout = () => {
             )}
           </Heading>
         </div>
-        <Link href={`${EPagesRoutes.Main}/`}>
+        <Link href={`${EPagesRoutes.Main}`}>
           <Image src={Close} alt="close" />
         </Link>
       </div>

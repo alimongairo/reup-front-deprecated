@@ -1,16 +1,15 @@
 .likedBlock {
-  width: 100vw;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 0px 0px;
-
-  // display: grid;
-  // grid-template-columns: repeat(auto-fill, minmax(11vw, max-content));
-  // gap: 20px 40px;
-  // width: 20rem;
-
-  padding: 0 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  .likedFlex {
+    box-sizing: border-box;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
   .likedSize > div {
     width: 11vw;
   }

@@ -36,3 +36,16 @@
     transform: rotate(180deg);
   }
 }
+
+.more {
+  margin: 0 2rem;
+  text-align: right;
+  cursor: pointer;
+
+  :global(p){
+    font-weight: 700 !important;
+    font-size: 32px;
+    line-height: 84.8%;
+    margin-bottom: 1rem;
+  }
+}

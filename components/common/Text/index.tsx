@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
+import classNames from 'classnames';
 
 import cx from './index.module.scss';
-import classNames from 'classnames';
 
 interface IProps {
   children: ReactNode;

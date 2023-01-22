@@ -1,0 +1,35 @@
+.menu {
+  display: none !important;
+  position: absolute;
+  top: 45px;
+  background: white;
+  width: 200px;
+  border: 2px solid black;
+  z-index: 2;
+
+  .menuItem {
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    display: flex;
+    justify-content: center !important;
+  }
+}
+
+.mask{
+  position: absolute;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.visible {
+  display: flex !important;
+}
+

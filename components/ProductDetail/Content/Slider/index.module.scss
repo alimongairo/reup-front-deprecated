@@ -1,4 +1,4 @@
-.slider{
+.slider {
   display: flex;
   gap: 2rem;
   justify-content: center;
@@ -11,12 +11,12 @@
     max-height: 584px;
     overflow-y: scroll;
     .prev {
-      transition: .3s;
+      transition: 0.3s;
       outline: 2px solid transparent;
       display: flex;
       background: black;
-      &.active{
-        opacity: .8;
+      &.active {
+        opacity: 0.8;
       }
       img {
         width: 100%;
@@ -24,7 +24,7 @@
       }
     }
   }
-  .activeSlide{
+  .activeSlide {
     width: 75%;
     img {
       width: 100%;

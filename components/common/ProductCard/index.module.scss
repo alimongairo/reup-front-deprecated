@@ -5,29 +5,29 @@
   flex-direction: column;
   gap: calc(var(--reup-unit));
   position: relative;
-  transition:.3s;
+  transition: 0.3s;
 
-  :global(p){
-    margin: 1rem 0 ;
+  :global(p) {
+    margin: 1rem 0;
   }
 
-  .productImg{
+  .productImg {
     width: 100%;
     height: auto;
     cursor: pointer;
   }
-  .likeIcon{
+  .likeIcon {
     position: absolute;
-    right: calc(var(--reup-unit)  * 3);
-    top: calc(var(--reup-unit)  * 3);
-    transition:.3s;
+    right: calc(var(--reup-unit) * 3);
+    top: calc(var(--reup-unit) * 3);
+    transition: 0.3s;
     &:hover {
       transform: scale(1.2);
     }
   }
 
   .text,
-  .actions{
+  .actions {
     font-weight: normal;
     display: flex;
     justify-content: space-between;
@@ -43,9 +43,9 @@
       color: black !important;
     }
   }
-  .actions{
+  .actions {
     border-top: 2px solid black;
-    :global(h1){
+    :global(h1) {
       margin-bottom: 0;
       margin-top: 0;
       color: black !important;

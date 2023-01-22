@@ -1,5 +1,4 @@
-
-@mixin h1  {
+@mixin h1 {
   font-family: 'Gilroy', sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -35,16 +34,16 @@
   align-items: baseline;
   width: fit-content;
   gap: 3rem;
-};
+}
 
-.footer{
+.footer {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   gap: 1rem;
   .priceWrapper {
     display: flex;
-    gap: .5rem;
+    gap: 0.5rem;
     align-items: baseline;
     .oldPrice {
       text-decoration: line-through;

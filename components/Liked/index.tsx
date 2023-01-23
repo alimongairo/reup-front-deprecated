@@ -1,3 +1,11 @@
+import { useEffect } from 'react';
+import { Skeleton } from 'antd';
+import Image from 'next/image';
+import Link from 'next/link';
+import Heading from '../common/Heading';
+import ProductsList from '../Main/ProductList';
+import LikedList from './LikedList';
+import Search from './Search';
 import { EPagesRoutes } from '@/constants/router';
 import { useAppDispatch, useAppSelector } from '@/hooks/store';
 import Close from '@/static/icons/popupClose.svg';
@@ -6,15 +14,7 @@ import { getLikedListAction } from '@/store/likedList/thunk';
 import { getProductDetailLoading } from '@/store/productDetail/selectors';
 import { getProductListDataSource } from '@/store/productList/selectors';
 import { getProductListAction } from '@/store/productList/thunk';
-import { Skeleton } from 'antd';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useEffect } from 'react';
-import Heading from '../common/Heading';
-import ProductsList from '../Main/ProductList';
 import cx from './index.module.scss';
-import LikedList from './LikedList';
-import Search from './Search';
 
 const LikedLayout = () => {
   const productList = useAppSelector(getProductListDataSource);

@@ -1,12 +1,12 @@
 import { useCallback } from 'react';
+import Link from 'next/link';
 
 import ProductCard from '@/components/common/ProductCard';
+import Text from '@/components/common/Text';
+import { EPagesRoutes } from '@/constants/router';
 
 import { TLikedItem } from '@/store/likedList/type';
 import cx from './index.module.scss';
-import Link from 'next/link';
-import { EPagesRoutes } from '@/constants/router';
-import Text from '@/components/common/Text';
 
 interface IProps {
   likedList: TLikedItem[];

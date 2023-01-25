@@ -23,27 +23,25 @@
   }
 
   &.invalid {
-    border: 2px solid #BA0000;
-
+    border: 2px solid #ba0000;
   }
 
   outline: none;
 }
 
-
-.visibleError{
-    &.errorMessage {
-      height: 20px;
-    }
+.visibleError {
+  &.errorMessage {
+    height: 20px;
+  }
 }
 
 .errorMessage {
-  transition: .3s;
+  transition: 0.3s;
   display: inline-block;
   height: 0;
   overflow: hidden;
   margin-top: -0.1rem;
-  color:  #BA0000;
+  color: #ba0000;
 }
 
 .codeInput {

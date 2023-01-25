@@ -30,7 +30,11 @@ const DropDownProfile = () => {
       visible={visible}
       setVisible={onClick}
       overlay={overlay}
-      title={<Image src={profile} alt={'Profile'} />}
+      title={
+        <Link href={EPagesRoutes.Auth}>
+          <Image src={profile} alt={'Profile'} />
+        </Link>
+      }
     />
   );
 };

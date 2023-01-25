@@ -1,0 +1,26 @@
+.input {
+  padding: 12px 20px;
+  border: 2px solid #828282;
+  transition: .3s;
+  box-sizing: border-box;
+  font-family: 'Gilroy', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 110%;
+
+  &:hover {
+    border: 2px solid #4F4F4F;
+  }
+  &:active,
+  &:focus{
+    border: 2px solid #000000;
+  }
+
+  &.disabled {
+    border: 2px solid #E0E0E0;
+    background: #F2F2F2;
+  }
+  outline: none;
+
+}

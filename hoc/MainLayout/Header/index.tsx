@@ -1,16 +1,15 @@
-import { Button } from 'antd';
-import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { LoginOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 
+import BasketLinkButton from '@/components/Basket/BasketLinkButton';
+
+import DropDownProfile from '@/hoc/MainLayout/Header/DropDownProfile';
 import { EPagesRoutes } from '@/constants/router';
 import Search from '@/hoc/MainLayout/Header/Search';
-import BasketLinkButton from '@/components/Basket/BasketLinkButton';
 import Navigation from '@/hoc/MainLayout/Header/Navigation';
+
 import logo from '@/static/icons/Logo.svg';
-import profile from '@/static/icons/profile.svg';
 
 import cx from './index.module.scss';
 
@@ -37,9 +36,7 @@ const MainPageHeader = () => {
         />
         <Search />
         <div className={cx.buttons}>
-          <Link href={EPagesRoutes.Profile}>
-            <Image src={profile} alt={'Profile'} />
-          </Link>
+          <DropDownProfile />
           <BasketLinkButton />
           {/*<Link href={EPagesRoutes.Auth}>*/}
           {/*</Link>*/}

@@ -9,6 +9,8 @@ interface IProps {
   setActiveTab?: (activeTab: number) => void;
 }
 
+// TODO отрефакторить, добавить кеширование
+
 const Tabs = ({ tabs, activeTab, setActiveTab }: IProps) => {
   const [active, setActive] = useState(activeTab || tabs[0].id);
 

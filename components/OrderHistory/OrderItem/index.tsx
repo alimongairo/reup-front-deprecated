@@ -1,6 +1,8 @@
 import Image from 'next/image';
+import { useState } from 'react';
 
 import Text from '@/components/common/Text';
+import Modal from '@/components/OrderHistory/Modal';
 
 import { TOrderHistoryItem } from '@/store/orderHistory/type';
 import arrowDown from '@/static/icons/downArrow.svg';
@@ -19,7 +21,10 @@ const OrderItem = ({
   wayToGet,
   status,
   isClosed = false,
+  id,
 }: TOrderHistoryItem & { isClosed: boolean }) => {
+  const [visible, setVisible] = useState(false);
+
   return (
     <div className={cx.wrapper}>
       <h3 className={cx.num}>{num}</h3>
@@ -37,7 +42,7 @@ const OrderItem = ({
               <Image key={i} src={item} alt={'preview'} width="81" />
             ))}
           </div>
-          <div className={cx.more}>
+          <div className={cx.more} onClick={() => setVisible(true)}>
             <Text>подробнее</Text>
             <Image src={arrowDown} alt={'arrowDown'} />
           </div>
@@ -68,6 +73,7 @@ const OrderItem = ({
         <Text>Ожидаемая дата доставки: {deliveryDate}</Text>
         <div className={cx.isPaid}>{isPaid ? 'Оплачено' : 'Не оплачено'}</div>
       </div>
+      <Modal isVisible={visible} setVisible={setVisible} orderId={id} />
     </div>
   );
 };

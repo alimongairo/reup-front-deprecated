@@ -3,11 +3,16 @@ import {
   ORDER_HISTORY_ALICE,
   TOrderHistoryStore,
 } from '@/store/orderHistory/type';
-import { getOrderHistoryAction } from '@/store/orderHistory/thunk';
+import {
+  getOrderDetailAction,
+  getOrderHistoryAction,
+} from '@/store/orderHistory/thunk';
 
 const initialState: TOrderHistoryStore = {
   loading: true,
   dataSource: [],
+  orderDetailLoading: false,
+  orderDetail: [],
 };
 
 const orderHistorySlice = createSlice({
@@ -24,6 +29,17 @@ const orderHistorySlice = createSlice({
     });
     builder.addCase(getOrderHistoryAction.rejected, (state) => {
       state.loading = false;
+    });
+
+    builder.addCase(getOrderDetailAction.pending, (state) => {
+      state.orderDetailLoading = true;
+    });
+    builder.addCase(getOrderDetailAction.fulfilled, (state, { payload }) => {
+      state.orderDetailLoading = false;
+      state.orderDetail = payload;
+    });
+    builder.addCase(getOrderDetailAction.rejected, (state) => {
+      state.orderDetailLoading = false;
     });
   },
 });

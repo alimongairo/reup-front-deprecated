@@ -2,15 +2,17 @@ import { notification } from 'antd';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import {
+  IOrderDetailItem,
   ORDER_HISTORY_ALICE,
   TOrderHistoryItem,
 } from '@/store/orderHistory/type';
 
 import smallProductImg from '@/static/img/smallProduct_remove.png';
+import bigProductImg from '@/static/img/bigProduct_remove.png';
 
 const mockOrderHistory: TOrderHistoryItem[] = [
   {
-    id: 0,
+    id: '0',
     num: '№200493',
     price: 7800,
     oldPrice: 12900,
@@ -32,7 +34,7 @@ const mockOrderHistory: TOrderHistoryItem[] = [
     ],
   },
   {
-    id: 2,
+    id: '1',
     num: '№200493',
     price: 7800,
     oldPrice: 12900,
@@ -54,6 +56,32 @@ const mockOrderHistory: TOrderHistoryItem[] = [
     ],
   },
 ];
+const mockOrderDetail: IOrderDetailItem[] = [
+  {
+    id: 0,
+    color: 'черный',
+    size: 'm',
+    image: bigProductImg,
+    price: 1000,
+    oldPrice: 1500,
+  },
+  {
+    id: 1,
+    color: 'черный',
+    size: 'm',
+    image: bigProductImg,
+    price: 1000,
+    oldPrice: 1500,
+  },
+  {
+    id: 3,
+    color: 'черный',
+    size: 'm',
+    image: bigProductImg,
+    price: 1000,
+    oldPrice: 1500,
+  },
+];
 
 export const getOrderHistoryAction = createAsyncThunk<
   TOrderHistoryItem[],
@@ -64,6 +92,21 @@ export const getOrderHistoryAction = createAsyncThunk<
 >(`${ORDER_HISTORY_ALICE}/get`, async (isActive, { rejectWithValue }) => {
   try {
     return mockOrderHistory;
+  } catch (error) {
+    notification.error({ message: 'error!' });
+    return rejectWithValue(error as Error);
+  }
+});
+
+export const getOrderDetailAction = createAsyncThunk<
+  IOrderDetailItem[],
+  { orderId: string },
+  {
+    rejectValue: Error;
+  }
+>(`${ORDER_HISTORY_ALICE}/detail`, async (payload, { rejectWithValue }) => {
+  try {
+    return mockOrderDetail;
   } catch (error) {
     notification.error({ message: 'error!' });
     return rejectWithValue(error as Error);

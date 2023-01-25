@@ -1,0 +1,57 @@
+.input {
+  padding: 12px 20px;
+  border: 2px solid #828282;
+  transition: 0.3s;
+  box-sizing: border-box;
+  font-family: 'Gilroy', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 110%;
+
+  &:hover {
+    border: 2px solid #4f4f4f;
+  }
+  &:active,
+  &:focus {
+    border: 2px solid #000000;
+  }
+
+  &.disabled {
+    border: 2px solid #e0e0e0;
+    background: #f2f2f2;
+  }
+
+  &.invalid {
+    border: 2px solid #ba0000;
+  }
+
+  outline: none;
+}
+
+.visibleError {
+  &.errorMessage {
+    height: 20px;
+  }
+}
+
+.errorMessage {
+  transition: 0.3s;
+  display: inline-block;
+  height: 0;
+  overflow: hidden;
+  margin-top: -0.1rem;
+  color: #ba0000;
+}
+
+.codeInput {
+  outline: none;
+  border: none;
+  width: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.label {
+  text-align: left;
+}

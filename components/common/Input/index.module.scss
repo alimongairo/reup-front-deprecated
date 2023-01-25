@@ -21,5 +21,39 @@
     border: 2px solid #e0e0e0;
     background: #f2f2f2;
   }
+
+  &.invalid {
+    border: 2px solid #BA0000;
+
+  }
+
   outline: none;
+}
+
+
+.visibleError{
+    &.errorMessage {
+      height: 20px;
+    }
+}
+
+.errorMessage {
+  transition: .3s;
+  display: inline-block;
+  height: 0;
+  overflow: hidden;
+  margin-top: -0.1rem;
+  color:  #BA0000;
+}
+
+.codeInput {
+  outline: none;
+  border: none;
+  width: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.label {
+  text-align: left;
 }

@@ -1,5 +1,5 @@
-import AuthComponent from '@/components/Auth';
 import LoginLayout from '@/hoc/LoginLayout';
+import AuthComponent from '@/components/Auth';
 
 const AuthPage = () => {
   return (

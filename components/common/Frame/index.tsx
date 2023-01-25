@@ -11,17 +11,18 @@ import back from '@/static/icons/back.svg';
 interface IProps {
   title: string;
   onBack?: () => void;
+  onClose?: () => void;
   children: ReactNode;
 }
 
-const Frame = ({ title, children, onBack }: IProps) => {
+const Frame = ({ title, children, onBack, onClose }: IProps) => {
   return (
     <div className={cx.wrapper}>
       <div className={cx.bthHeader}>
         <div onClick={onBack}>
           <Image src={back} alt="back" />
         </div>
-        <div>
+        <div onClick={onClose} className={cx.close}>
           <Image src={close} alt="close" />
         </div>
       </div>

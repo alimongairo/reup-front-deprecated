@@ -1,0 +1,20 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  padding: 2rem 0;
+  background: #efefef;
+  min-height: calc(100vh - 150px);
+}
+
+.supportText {
+  display: inline-block;
+  max-width: 400px;
+  margin: 1rem auto;
+}
+
+.success {
+  max-width: 300px;
+  margin: 1rem auto;
+}

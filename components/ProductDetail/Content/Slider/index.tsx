@@ -34,20 +34,20 @@ const Slider = ({ images }: IProps) => {
 
   return (
     <div className={cx.slider}>
-      {images?.map((img, index) => {
-        return (
+      <div className={cx.previewSlides}>
+        {images.map((img, i) => (
           <div
-            key={index}
-            className={classNames(cx.slide, activeSlide === index && cx.active)}
-            style={{
-              flexGrow: activeSlide === index ? images?.length : 1,
-            }}
-            onClick={() => setActiveSlide(index)}
+            key={i}
+            className={classNames(cx.prev, activeSlide === i && cx.active)}
+            onClick={() => setActiveSlide(i)}
           >
-            <Image src={img} alt="img" />
+            <Image src={img} alt={'prevSlide'} />
           </div>
-        );
-      })}
+        ))}
+      </div>
+      <div className={cx.activeSlide}>
+        <Image src={images[activeSlide]} alt={'activeSlide'} />
+      </div>
     </div>
   );
 };

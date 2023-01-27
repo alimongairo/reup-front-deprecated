@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Text from '@/components/common/Text';
 
 import vk from '@/static/icons/vk.svg';
 import tg from '@/static/icons/tg.svg';
@@ -15,18 +16,42 @@ const Footer = () => {
         {' '}
         <div>
           <ul>
-            <li>Новинки</li>
-            <li>Выбор REUP</li>
-            <li>Локальные бренды</li>
-            <li>Винтажные магазины</li>
-            <li>Ювелирка</li>
-            <li>Частные предложения (Вторые ручки)</li>
+            <li>
+              <Text>Новинки</Text>
+            </li>
+            <li>
+              <Text>Выбор REUP</Text>
+            </li>
+            <li>
+              <Text>Локальные бренды</Text>
+            </li>
+            <li>
+              <Text>Винтажные магазины</Text>
+            </li>
+            <li>
+              <Text>Ювелирка</Text>
+            </li>
+            <li>
+              <Text>Частные предложения (Вторые ручки)</Text>
+            </li>
           </ul>
         </div>
         <div>
           <ul>
-            <li>Служба поддержки клиентов</li>
-            <li>Вся юр. информация</li>
+            <li>
+              <Text>
+                <>
+                  <sup>*</sup>Служба поддержки клиентов
+                </>
+              </Text>
+            </li>
+            <li>
+              <Text>
+                <>
+                  <sup>*</sup>Вся юр. информация
+                </>
+              </Text>
+            </li>
           </ul>
           <div className={cx.media}>
             <div>

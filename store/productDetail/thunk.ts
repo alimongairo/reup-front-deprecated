@@ -16,7 +16,7 @@ const mockProduct: TProductCard = {
   params: 'Текстовый блок с характеристиками товара',
   price: 1990,
   oldPrice: 3990,
-  isLiked: false,
+  isLiked: true,
   images: [product2, product2, product2],
   brandCode: '03289',
   reviews: [
@@ -27,6 +27,11 @@ const mockProduct: TProductCard = {
       grade: 3,
       color: 'цвет',
       size: 'размер',
+      avatar: product2,
+      reviewsImg: [
+        { id: 1, img: product2, reviewId: 1 },
+        { id: 2, img: product2, reviewId: 1 },
+      ],
       review:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
     },
@@ -37,6 +42,8 @@ const mockProduct: TProductCard = {
       grade: 3,
       color: 'цвет',
       size: 'размер',
+      reviewsImg: [{ id: 3, img: product2, reviewId: 2 }],
+      avatar: product2,
       review:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
     },
@@ -47,6 +54,8 @@ const mockProduct: TProductCard = {
       grade: 3,
       color: 'цвет',
       size: 'размер',
+      reviewsImg: [],
+      avatar: product2,
       review:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
     },
@@ -57,6 +66,12 @@ const mockProduct: TProductCard = {
       grade: 3,
       color: 'цвет',
       size: 'размер',
+      reviewsImg: [
+        { id: 4, img: product2, reviewId: 4 },
+        { id: 5, img: product2, reviewId: 4 },
+        { id: 6, img: product2, reviewId: 4 },
+      ],
+      avatar: product2,
       review:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
     },

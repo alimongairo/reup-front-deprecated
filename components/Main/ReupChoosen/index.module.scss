@@ -1,8 +1,13 @@
+@import 'styles/mixins.scss';
+
 .wrapper {
   display: flex;
-  justify-content: center;
-  gap: 2rem;
-  border-bottom: 2px solid black;
+  justify-content: space-evenly;
+  gap: 4rem;
+  @include contentWidth();
+  .moreBtn {
+    margin: 0 80%;
+  }
   .info {
     width: 40%;
     margin-top: 4rem;
@@ -27,5 +32,10 @@
   }
   .imgWrapper {
     margin-top: -100px;
+    width: 40%;
+    > img {
+      width: 100%;
+      height: auto;
+    }
   }
 }

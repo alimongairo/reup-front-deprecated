@@ -1,8 +1,10 @@
 .wrapper {
-  padding: calc(var(--reup-unit ) * 2 ) calc(var(--reup-unit ) * 6);
+  padding: calc(var(--reup-unit) * 2) calc(var(--reup-unit) * 6);
   border: 2px solid black;
   display: inline-block;
   position: relative;
+  width: 200px;
+  text-align: center;
   .title {
     font-family: 'Gilroy', sans-serif;
     font-size: 18px;
@@ -11,7 +13,7 @@
     letter-spacing: 0.07em;
     cursor: pointer;
   }
-  .dd{
+  .dd {
     position: absolute;
     border: 2px solid black;
     width: 100%;
@@ -19,26 +21,24 @@
     top: calc(100%);
     opacity: 0;
     pointer-events: none;
-    transition: .3s;
+    transition: 0.3s;
     &.ddVisible {
       opacity: 1;
       pointer-events: auto;
     }
     .option {
       text-align: center;
-      transition: .3s;
-      padding: .5rem;
+      transition: 0.3s;
+      padding: 0.5rem;
       font-size: 16px;
       font-weight: bold;
       background: white;
-      &:hover{
+      &:hover {
         background: #e3e3e3;
       }
       &.selected {
-        background: #8B30F2
+        background: #8b30f2;
       }
-
     }
   }
 }
-

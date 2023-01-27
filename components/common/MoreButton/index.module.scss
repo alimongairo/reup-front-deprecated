@@ -1,0 +1,13 @@
+.more {
+  margin: 0 2rem;
+  text-align: right;
+  cursor: pointer;
+  width: 200px;
+  :global(p) {
+    font-weight: 700 !important;
+    font-size: 32px;
+    line-height: 84.8%;
+    padding: 0 !important;
+    margin-bottom: 1rem;
+  }
+}

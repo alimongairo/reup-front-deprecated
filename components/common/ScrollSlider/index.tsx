@@ -1,14 +1,18 @@
-import { ReactNode, useRef } from 'react';
+import { memo, ReactNode, useRef } from 'react';
 import Image from 'next/image';
 
+import MoreButton from '@/components/common/MoreButton';
+
 import leftArrow from '@/static/icons/leftArrow.svg';
+
 import cx from './index.module.scss';
 
 export interface IScrollSlider {
   cardList: Array<ReactNode>;
+  onClickMore?: () => void;
 }
 
-const ScrollSlider = ({ cardList }: IScrollSlider) => {
+const ScrollSlider = ({ cardList, onClickMore }: IScrollSlider) => {
   const listRef = useRef<HTMLDivElement | null>(null);
 
   const scrollList = (isNext: boolean) => {
@@ -32,18 +36,21 @@ const ScrollSlider = ({ cardList }: IScrollSlider) => {
   };
 
   return (
-    <div className={cx.wrapper}>
-      <div onClick={scrollListToPrev} className={cx.prevBtn}>
-        <Image src={leftArrow} alt="arrow" height={30} />
+    <>
+      <div className={cx.wrapper}>
+        <div onClick={scrollListToPrev} className={cx.prevBtn}>
+          <Image src={leftArrow} alt="arrow" height={30} />
+        </div>
+        <div ref={listRef} className={cx.list}>
+          {cardList}
+        </div>
+        <div onClick={scrollListToNext} className={cx.nextBtn}>
+          <Image src={leftArrow} alt="arrow" height={30} />
+        </div>
       </div>
-      <div ref={listRef} className={cx.list}>
-        {cardList}
-      </div>
-      <div onClick={scrollListToNext} className={cx.nextBtn}>
-        <Image src={leftArrow} alt="arrow" height={30} />
-      </div>
-    </div>
+      <MoreButton className={cx.moreBtn} />
+    </>
   );
 };
 
-export default ScrollSlider;
+export default memo(ScrollSlider);

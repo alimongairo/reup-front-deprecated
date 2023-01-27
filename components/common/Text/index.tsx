@@ -1,15 +1,33 @@
-import { ReactNode } from 'react';
-
-import cx from './index.module.scss';
+import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 import classNames from 'classnames';
 
-interface IProps {
+import cx from './index.module.scss';
+
+interface IProps
+  extends DetailedHTMLProps<
+    HTMLAttributes<HTMLParagraphElement>,
+    HTMLParagraphElement
+  > {
   children: ReactNode;
   size?: 'bold' | 'normal';
+  decoration?: 'line';
 }
 
-const Text = ({ children, size = 'normal' }: IProps) => {
-  return <p className={classNames(cx.text, cx[size])}>{children}</p>;
+const Text = ({
+  children,
+  size = 'normal',
+  decoration,
+  className,
+  ...props
+}: IProps) => {
+  return (
+    <p
+      className={classNames(cx.text, cx[size], cx[decoration || ''], className)}
+      {...props}
+    >
+      {children}
+    </p>
+  );
 };
 
 export default Text;

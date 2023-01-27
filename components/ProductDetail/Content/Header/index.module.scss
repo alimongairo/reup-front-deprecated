@@ -2,26 +2,13 @@
   display: flex;
   justify-content: space-between;
   align-self: center;
-  padding: 2rem;
-  h1 {
-    font-family: 'Dela Gothic One', sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 32px;
-    line-height: 110%;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.04em;
-    color: #000000;
+  align-items: baseline;
+  padding: 0 2rem;
+  > img {
+    width: 50px;
+    height: auto;
   }
-  h2 {
-    font-family: 'Gilroy', sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 110%;
-    letter-spacing: 0.07em;
-  }
+
   .info {
     display: flex;
     flex-direction: column;
@@ -30,7 +17,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-
     }
   }
 }

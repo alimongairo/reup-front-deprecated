@@ -1,12 +1,10 @@
-
-
-.list{
+.list {
   display: flex;
   gap: calc(var(--reup-unit) * 8);
   height: calc(100% + 10px);
   overflow-x: scroll;
   padding: 1rem 2rem;
-  transition: .3s;
+  transition: 0.3s;
 
   &::-webkit-scrollbar {
     display: none;
@@ -15,18 +13,18 @@
   scrollbar-width: none;
 }
 
-.wrapper{
+.wrapper {
   position: relative;
   overflow: hidden;
   .prevBtn,
-  .nextBtn{
+  .nextBtn {
     z-index: 10;
     position: absolute;
     top: calc(45% - 2rem);
-    transition: .3s;
-    opacity: .5;
+    transition: 0.3s;
+    opacity: 0.5;
     padding: 2rem;
-    &:hover{
+    &:hover {
       opacity: 1;
     }
   }
@@ -39,3 +37,6 @@
   }
 }
 
+.moreBtn {
+  margin: 0 80%;
+}

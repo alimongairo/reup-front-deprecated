@@ -2,6 +2,8 @@ import { useMemo } from 'react';
 import Image from 'next/image';
 
 import Select from '@/components/common/Select';
+import Heading from '@/components/common/Heading';
+import Text from '@/components/common/Text';
 
 import { TProductCard } from '@/store/productDetail/type';
 
@@ -23,12 +25,12 @@ const Params = ({ sizes, description, oldPrice, price }: TProductCard) => {
     <div className={cx.wrapper}>
       <div>
         <div>
-          <h1>О ТОВАРЕ</h1>
-          <p>{description}</p>
+          <Heading size={'medium'}>О ТОВАРЕ</Heading>
+          <Text>{description}</Text>
         </div>
         <div>
           <div className={cx.headRow}>
-            <h1>ХАРАКТЕРИСТИКИ</h1>
+            <Heading size={'medium'}>ХАРАКТЕРИСТИКИ</Heading>
             <Image src={arrowDown} alt={'arrowDown'} />
           </div>
           <Select title="выбрать размер" options={sizesOption} />

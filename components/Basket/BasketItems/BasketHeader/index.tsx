@@ -2,6 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Tooltip } from 'antd';
 
+import Heading from '@/components/common/Heading';
+
 import { EPagesRoutes } from '@/constants/router';
 import closeIcon from '@/static/icons/close.svg';
 
@@ -14,12 +16,12 @@ interface IProps {
 const BasketHeader = ({ basketCount }: IProps) => {
   return (
     <div className={cx.title}>
-      <h1>
+      <Heading>
         корзина
         {!!basketCount && (
           <span className={cx.basketCount}> {basketCount} шт</span>
         )}
-      </h1>
+      </Heading>
       <Tooltip title="закрыть корзину">
         <Link href={`${EPagesRoutes.Main}`}>
           <button className="iconBnt">

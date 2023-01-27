@@ -19,9 +19,13 @@ const Recommendations = () => {
 
   return (
     <>
-      <Heading>подобрали для тебя </Heading>
+      <div className={cx.heading}>
+        <Heading>подобрали для тебя </Heading>
+      </div>
       <ProductsList productList={products} />
-      <Heading>избранное</Heading>
+      <div className={cx.heading}>
+        <Heading>избранное</Heading>
+      </div>
       <ProductsList productList={products} />
     </>
   );

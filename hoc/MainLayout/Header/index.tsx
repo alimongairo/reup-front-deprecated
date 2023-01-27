@@ -1,18 +1,16 @@
-import { Button } from 'antd';
-import Link from 'next/link';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
-import { LoginOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
-import { EPagesRoutes } from '@/constants/router';
-import Search from '@/hoc/MainLayout/Header/Search';
 import BasketLinkButton from '@/components/Basket/BasketLinkButton';
+import { EPagesRoutes } from '@/constants/router';
 import Navigation from '@/hoc/MainLayout/Header/Navigation';
 import logo from '@/static/icons/Logo.svg';
 import profile from '@/static/icons/profile.svg';
 
 import cx from './index.module.scss';
+import Search from '@/components/Search';
 
 const MainPageHeader = () => {
   const router = useRouter();

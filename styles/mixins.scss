@@ -25,7 +25,7 @@ $xxl: 1600px;
 
 @mixin contentWidth ($centred: true, $padding: false ) {
   max-width: $xxl;
-  width: 100% ;
+  width: calc(100% - 4rem);
   @if $padding {
     padding: 0 2rem;
   }

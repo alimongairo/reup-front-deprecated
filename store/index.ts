@@ -7,6 +7,7 @@ import userReducer from '@/store/user/slice';
 import productDetailReducer from '@/store/productDetail/slice';
 import productCashReducer from '@/store/cashPreviewProducts/slice';
 import orderHistoryReducer from '@/store/orderHistory/slice';
+import categoryReducer from '@/store/category/slice';
 
 export const makeStore = () =>
   configureStore({
@@ -17,6 +18,7 @@ export const makeStore = () =>
       user: userReducer,
       productsCash: productCashReducer,
       orderHistory: orderHistoryReducer,
+      category: categoryReducer
     },
   });
 

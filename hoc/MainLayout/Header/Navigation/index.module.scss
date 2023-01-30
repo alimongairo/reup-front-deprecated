@@ -1,4 +1,4 @@
-.navbar {
+.navbar{
     border: solid;
     height: 5rem;
     margin: 0 auto;
@@ -10,4 +10,9 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
     list-style-type: none;
+}
+
+.link{
+    color: black;
+    text-decoration: none;
 }

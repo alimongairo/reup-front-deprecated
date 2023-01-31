@@ -1,16 +1,8 @@
 .search__panel {
   width: 100%;
-}
-
-.search__panel__input {
-  width: 20%;
-  text-align: end;
-  border: none;
-  border-bottom: solid 2px;
-  padding-left: 10px;
-  font-family: inherit;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  font-size: 24px;
+  img {
+    &:hover {
+      cursor: pointer;
+    }
+  }  
 }

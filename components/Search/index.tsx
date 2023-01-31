@@ -4,7 +4,6 @@ import cx from './index.module.scss';
 import { useState } from 'react';
 
 const Search = () => {
-  
   const [modalSearch, setModalSearch] = useState(false);
 
   return (

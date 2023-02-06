@@ -12,7 +12,9 @@ interface IProps {
 const MainLayout = ({ children }: IProps) => {
   return (
     <div className={cx.wrapper}>
-      <Header />
+      <div className={cx.header}>
+        <Header />
+      </div>
       {children}
       <Footer />
     </div>

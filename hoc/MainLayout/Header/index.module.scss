@@ -13,7 +13,7 @@
 
   .firstRow{
     border: solid;
-    border-bottom: none;
+    //border-bottom: none;
     height: 7rem;
   }
 
@@ -36,5 +36,30 @@
     img {
       width: 25px;
     }
+  }
+
+  .header{
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    background-color: white;
+  }
+
+  .navBar{
+    width: 100%;
+    position: fixed;
+    top: 63px;
+    left: 0;
+    right: 0;
+    z-index: 15;
+    background-color: white;
+    transition: top 0.3s;
+  }
+
+  .navBarHiden{
+    top: -100px;
   }
 }

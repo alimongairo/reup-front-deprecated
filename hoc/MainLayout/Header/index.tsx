@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import classNames from 'classnames';
 
 import BasketLinkButton from '@/components/Basket/BasketLinkButton';
+import like from '@/static/icons/like.svg'
 
 import DropDownProfile from '@/hoc/MainLayout/Header/DropDownProfile';
 import { EPagesRoutes } from '@/constants/router';
@@ -39,7 +40,9 @@ const MainPageHeader = () => {
   return (
     <div className={cx.wrapper}>
       <div className={cx.firstRow}>
-        <div className={cx.header}>
+        <div className={classNames({
+        [cx.navBarHiden]:hiden},
+          cx.header)}>
           <Image
            className={classNames(
              cx.logo,
@@ -49,19 +52,20 @@ const MainPageHeader = () => {
             alt="Logo"
             onClick={onClickLogo}
           />
-          <Search />
+            <div className={cx.navBar}>
+              <Navigation />
+              <div className={cx.search}>
+                <Search />
+                </div>
+              </div>
           <div className={cx.buttons}>
+          <Image src={like} alt='likehLogo'></Image>
           <DropDownProfile />
           <BasketLinkButton />
           {/*<Link href={EPagesRoutes.Auth}>*/}
           {/*</Link>*/}
           </div>
         </div>
-      </div>
-      <div className={classNames({
-        [cx.navBarHiden]:hiden
-      },cx.navBar)}>
-        <Navigation />
       </div>
     </div>
   );

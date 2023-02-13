@@ -9,32 +9,32 @@ const MainPageNavigation = () => {
       <ul className={cx.navbar__list}>
         <li>
           <Link className={cx.link} href={EPagesRoutes.Category}>
-            <h3>новинки</h3>
-          </Link>
-        </li>
-        <li>
-          <Link className={cx.link} href={EPagesRoutes.Category}>
-            <h3>выбор REUP</h3>
-          </Link>
-        </li>
-        <li>
-          <Link className={cx.link} href={EPagesRoutes.Category}>
             <h3>локальные бренды</h3>
           </Link>
         </li>
         <li>
           <Link className={cx.link} href={EPagesRoutes.Category}>
-            <h3>винтажные магазины</h3>
+            <h3>vintage</h3>
           </Link>
         </li>
         <li>
           <Link className={cx.link} href={EPagesRoutes.Category}>
-            <h3>ювелирные изделия</h3>
+            <h3>селективные сэконд-хэнды</h3>
+          </Link>
+        </li>
+        <li>
+          <Link className={cx.link} href={EPagesRoutes.Category}>
+            <h3>upcycle</h3>
           </Link>
         </li>
         <li>
           <Link className={cx.link} href={EPagesRoutes.Category}>
             <h3>вторые ручки</h3>
+          </Link>
+        </li>
+        <li>
+          <Link className={cx.linkSale} href={EPagesRoutes.Category}>
+            <h3>sale</h3>
           </Link>
         </li>
       </ul>

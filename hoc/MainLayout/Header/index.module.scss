@@ -1,8 +1,11 @@
 .wrapper {
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   width: 100%;
   display: flex;
-  flex-direction: column;
+  //flex-direction: column;
   z-index: 15;
   // gap: 1rem;
 
@@ -15,7 +18,7 @@
   }
 
   .firstRow{
-    height: 7rem;
+    // height: 5rem;
     margin: 0 auto;
   }
 
@@ -49,8 +52,8 @@
     width: 100%;
     position: fixed;
     top: 0px;
-    left: 0;
-    right: 0;
+    left: 0px;
+    right: 0px;
     border: outset;
     border-color: black;
     border-top: none;
@@ -66,10 +69,12 @@
   .navBar{
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     padding: 0 2rem;
+    gap: 3rem;
   }
 
   .navBarHiden{

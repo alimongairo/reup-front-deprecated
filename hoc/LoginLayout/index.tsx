@@ -1,5 +1,7 @@
 import { FC, ReactNode } from 'react';
 
+import Header from '@/hoc/MainLayout/Header';
+
 import cx from './index.module.scss';
 
 interface IProps {
@@ -7,7 +9,12 @@ interface IProps {
 }
 
 const LoginLayout: FC<IProps> = ({ children }) => {
-  return <div className={cx.wrapper}>{children}</div>;
+  return (
+    <div className={cx.wrapper}>
+      <Header />
+      {children}
+    </div>
+  );
 };
 
 export default LoginLayout;

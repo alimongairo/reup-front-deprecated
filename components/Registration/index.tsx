@@ -1,39 +1,45 @@
-import { Button, Form, Input } from 'antd';
+import { useMemo, useState } from 'react';
 
+import { RegistrationContext, steps } from '@/components/Registration/context';
+
+import cx from './index.module.scss';
+
+// TODO refactoring
 const RegistrationComponent = () => {
-  const [form] = Form.useForm();
+  const [step, setStep] = useState(0);
 
-  const onFinish = (values: { email: string; password: string }) => {
-    console.log(values);
-  };
+  const incStep = () =>
+    setStep((state) => {
+      if (state + 1 < steps.length) {
+        return state + 1;
+      }
+      return steps.length - 1;
+    });
+
+  const decStep = () =>
+    setStep((state) => {
+      if (state - 1 >= 0) {
+        return state - 1;
+      }
+      return 0;
+    });
+
+  const providerValue = useMemo(() => {
+    return {
+      incStep,
+      decStep,
+      step,
+    };
+  }, [step]);
+
+  const CurrentStepComponent = steps[step];
 
   return (
-    <Form
-      form={form}
-      onFinish={onFinish}
-      labelCol={{ span: 8 }}
-      wrapperCol={{ span: 16 }}
-    >
-      <Form.Item
-        name="email"
-        label="Email"
-        rules={[{ required: true, message: 'Please input your email!' }]}
-      >
-        <Input placeholder="Input your email..." type="email" />
-      </Form.Item>
-      <Form.Item
-        name="password"
-        label="Password"
-        rules={[{ required: true, message: 'Please input your password!' }]}
-      >
-        <Input placeholder="Input your password..." type="password" />
-      </Form.Item>
-      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button type="primary" htmlType="submit">
-          Registration
-        </Button>
-      </Form.Item>
-    </Form>
+    <div className={cx.wrapper}>
+      <RegistrationContext.Provider value={providerValue}>
+        <CurrentStepComponent />
+      </RegistrationContext.Provider>
+    </div>
   );
 };
 

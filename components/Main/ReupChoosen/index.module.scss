@@ -3,22 +3,21 @@
   overflow: hidden;
   .slide {
     padding: 2rem;
-    opacity: .5;
-    transition: .3s;
+    opacity: 0.5;
+    transition: 0.3s;
     display: flex;
     gap: 2rem;
     &.active {
       opacity: 1;
     }
-    .imgWrapper img{
+    .imgWrapper img {
       width: 100%;
       height: auto;
     }
-
   }
 }
 
-.slider{
+.slider {
   border-bottom: 1px solid black;
   padding-bottom: 1rem;
   background: var(--reup-green);
@@ -26,7 +25,7 @@
 }
 
 .countTitle {
-  margin: 1rem 2rem ;
+  margin: 1rem 2rem;
   transform: translateY(-94px);
 }
 
@@ -44,8 +43,8 @@
     transform: scale(1) !important;
   }
   .count {
-    transition: .3s;
-    background: #FFFFFF;
+    transition: 0.3s;
+    background: #ffffff;
     opacity: 0.5;
     width: 10px;
     cursor: pointer;

@@ -12,9 +12,9 @@ const imgs = [product1];
 
 for (let i = 0; i < 4; i++) {
   mockData.push({
-    title: 'Свитшот',
+    title: 'Блузка женская “Лэйди”',
     id: i,
-    description: 'Тёплая одежда',
+    brand: 'Befree',
     price: randomInteger(499, 10000),
     imgSource: imgs[randomInteger(0, imgs.length - 1)],
     like: i % 3 === 0,

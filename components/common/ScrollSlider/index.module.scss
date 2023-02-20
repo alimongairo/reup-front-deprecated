@@ -16,27 +16,54 @@
 .wrapper {
   position: relative;
   overflow: hidden;
+
   .prevBtn,
   .nextBtn {
     z-index: 10;
     position: absolute;
     top: calc(45% - 2rem);
     transition: 0.3s;
-    opacity: 0.5;
-    padding: 2rem;
+    opacity: 0;
+    background: white;
+    border: 1px solid black;
+    padding: 0.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     &:hover {
       opacity: 1;
     }
   }
   .prevBtn {
-    left: -15px;
+    cursor: pointer;
+    left: 10px;
   }
   .nextBtn {
-    right: -15px;
+    cursor: pointer;
+    right: 10px;
     transform: rotate(180deg);
   }
 }
 
 .moreBtn {
-  margin: 0 80%;
+  margin: 0 89%;
+}
+
+.btnWrapper {
+  width: 200px;
+  height: 100%;
+  z-index: 10;
+  position: absolute;
+}
+
+.btnWrapper:last-child {
+  right: 0;
+  top: 0;
+}
+
+.btnWrapper:hover {
+  .prevBtn,
+  .nextBtn {
+    opacity: 1;
+  }
 }

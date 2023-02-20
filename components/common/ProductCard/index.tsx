@@ -5,12 +5,12 @@ import { useRouter } from 'next/router';
 
 import Heading from '@/components/common/Heading';
 import Text from '@/components/common/Text';
+import Button from '@/components/common/Button';
 
 import { TProductItem } from '@/store/productList/type';
 import { EPagesRoutes } from '@/constants/router';
 
 import Like from '@/static/icons/like.svg';
-import fillLike from '@/static/icons/fillLike.svg';
 
 import cx from './index.module.scss';
 
@@ -26,7 +26,7 @@ const ProductCard = ({
   title,
   like,
   imgSource,
-  description,
+  brand,
   price,
   onLike,
   onAddToBasket,
@@ -43,7 +43,7 @@ const ProductCard = ({
         className={classNames(cx.likeIcon, 'iconBnt')}
         onClick={() => onLike(id)}
       >
-        <Image src={like ? fillLike : Like} alt="like" width={20} />
+        <Image src={Like} alt="like" width={20} />
       </span>
       <Image
         src={imgSource}
@@ -52,12 +52,12 @@ const ProductCard = ({
         onClick={goToProductDetail}
       />
       <div className={cx.text}>
-        <Heading size="medium">{title}</Heading>
-        <Text>{description}</Text>
+        <Heading tag="h3">{title}</Heading>
+        <Text size="thin">{brand}</Text>
       </div>
       <div className={cx.actions}>
-        <button onClick={() => onAddToBasket(id)}>В корзину</button>
-        <Heading size="small">{price} ₽</Heading>
+        <Button onClick={() => onAddToBasket(id)}>в корзину</Button>
+        <Heading tag="h3">{price} ₽</Heading>
       </div>
     </div>
   );

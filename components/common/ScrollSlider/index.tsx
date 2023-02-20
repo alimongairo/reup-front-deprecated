@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import MoreButton from '@/components/common/MoreButton';
 
-import leftArrow from '@/static/icons/leftArrow.svg';
+import back from '@/static/icons/back.svg';
 
 import cx from './index.module.scss';
 
@@ -38,14 +38,18 @@ const ScrollSlider = ({ cardList, onClickMore }: IScrollSlider) => {
   return (
     <>
       <div className={cx.wrapper}>
-        <div onClick={scrollListToPrev} className={cx.prevBtn}>
-          <Image src={leftArrow} alt="arrow" height={30} />
+        <div className={cx.btnWrapper}>
+          <div onClick={scrollListToPrev} className={cx.prevBtn}>
+            <Image src={back} alt="arrow" width={18} />
+          </div>
         </div>
         <div ref={listRef} className={cx.list}>
           {cardList}
         </div>
-        <div onClick={scrollListToNext} className={cx.nextBtn}>
-          <Image src={leftArrow} alt="arrow" height={30} />
+        <div className={cx.btnWrapper}>
+          <div onClick={scrollListToNext} className={cx.nextBtn}>
+            <Image src={back} alt="arrow" width={18} />
+          </div>
         </div>
       </div>
       <MoreButton className={cx.moreBtn} />

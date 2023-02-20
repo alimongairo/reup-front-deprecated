@@ -9,7 +9,7 @@ interface IProps
     HTMLParagraphElement
   > {
   children: ReactNode;
-  size?: 'bold' | 'normal';
+  size?: 'thin' | 'normal' | 'big';
   decoration?: 'line';
 }
 

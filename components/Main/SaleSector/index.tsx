@@ -24,7 +24,7 @@ const SaleSector = () => {
         </div>
       </div>
       <div className={cx.row}>
-        <div className={classNames(cx.orangeWrapper, cx.info)}>
+        <div className={classNames(cx.greenWrapper, cx.info)}>
           <h1>скидки 20% на аксессуары</h1>
           <MoreButton className={cx.moreBtn} />
         </div>

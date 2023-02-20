@@ -1,4 +1,4 @@
-import MainLayout from '@/hoc/MainLayout';
+import MainLayout from '@/layouts/MainLayout';
 
 const CreateProductPage = () => {
   return (

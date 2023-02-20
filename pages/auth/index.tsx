@@ -1,4 +1,4 @@
-import LoginLayout from '@/hoc/LoginLayout';
+import LoginLayout from '@/layouts/LoginLayout';
 import AuthComponent from '@/components/Auth';
 
 const AuthPage = () => {

@@ -4,7 +4,7 @@ import cx from './index.module.scss';
 
 import leftArrow from '@/static/icons/leftArrow.svg';
 import slide1 from '@/static/img/slide1.png';
-import slide2 from '@/static/img/SliderOne_two.png';
+import slide2 from '@/static/img/firstDisplayImg.png';
 
 import Slide, { ISlide } from '@/components/Main/Slider/Slide';
 import classNames from 'classnames';
@@ -16,19 +16,19 @@ const slideArray: ISlide[] = [
     id: 0,
     active: false,
     brandDescription:
-      'Наше дело не так однозначно, как может показаться: существующая теория ',
+      'Наше дело не так однозначно, как может показаться: существующая теория напрямую зависит от стандартных подходов. Идейные соображения высшего порядка, а также разбавленное изрядной долей ',
     smallImg: slide2,
     bigImg: slide1,
-    brandName: 'Название бренда',
+    brandName: 'Befree',
   },
   {
     id: 1,
     active: false,
     brandDescription:
-      'Наше дело не так однозначно, как может показаться: существующая теория ',
+      'Наше дело не так однозначно, как может показаться: существующая теория напрямую зависит от стандартных подходов. Идейные соображения высшего порядка, а также разбавленное изрядной долей ',
     smallImg: slide2,
     bigImg: slide1,
-    brandName: 'Имя бренда',
+    brandName: 'Befree',
   },
 ];
 
@@ -52,19 +52,19 @@ const Slider = () => {
     });
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      onNextSlide();
-    }, 5000);
-    return () => {
-      clearInterval(interval);
-    };
-  }, [slideNumber]);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     onNextSlide();
+  //   }, 5000);
+  //   return () => {
+  //     clearInterval(interval);
+  //   };
+  // }, [slideNumber]);
 
   return (
     <div className={cx.wrapper}>
       <div onClick={onPrevSlide} className={cx.arrow}>
-        <Image src={leftArrow} alt="Arrow left" />
+        {/*<Image src={leftArrow} alt="Arrow left" />*/}
       </div>
 
       <div className={cx.slides}>
@@ -80,7 +80,7 @@ const Slider = () => {
       </div>
 
       <div onClick={onNextSlide} className={classNames(cx.arrow, cx.rotate)}>
-        <Image src={leftArrow} alt="Arrow right" />
+        {/*<Image src={leftArrow} alt="Arrow right" />*/}
       </div>
     </div>
   );

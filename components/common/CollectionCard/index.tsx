@@ -3,6 +3,8 @@ import Image from 'next/image';
 import cx from './index.module.scss';
 import { useRouter } from 'next/router';
 import { EPagesRoutes } from '@/constants/router';
+import Heading from '@/components/common/Heading';
+import Text from '@/components/common/Text';
 
 interface IProps {
   id: number;
@@ -20,12 +22,10 @@ const CollectionCard = ({ id, img, title, brand }: IProps) => {
 
   return (
     <div className={cx.wrapper} onClick={goToCollection}>
-      <div className={cx.imgWrapper}>
-        <Image src={img} alt="img" width={400} />
-      </div>
+      <Image src={img} alt="img" width={340} />
       <div className={cx.text}>
-        <h1>{title}</h1>
-        <span>{brand}</span>
+        <Text size="big">{title}</Text>
+        <Text size="thin">{brand}</Text>
       </div>
     </div>
   );

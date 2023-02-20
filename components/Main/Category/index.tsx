@@ -1,16 +1,18 @@
+import Button from '@/components/common/Button';
+
 import cx from './index.module.scss';
 
 const Category = () => {
   return (
     <div className={cx.wrapper}>
-      <button>локальные бренды</button>
-      <button>парфюм</button>
-      <button>обувь</button>
-      <button>винтаж</button>
-      <button>аксессуары</button>
-      <button>ювелирка</button>
-      <button>Upcycle</button>
-      <button>вторые ручки</button>
+      <Button className={cx.right}>локальные бренды</Button>
+      <Button className={cx.right}>парфюм</Button>
+      <Button className={cx.left}>обувь</Button>
+      <Button className={cx.left}>винтаж</Button>
+      <Button className={cx.center}>аксессуары</Button>
+      <Button className={cx.center}>ювелирка</Button>
+      <Button className={cx.right}>Upcycle</Button>
+      <Button className={cx.right}>вторые ручки</Button>
     </div>
   );
 };

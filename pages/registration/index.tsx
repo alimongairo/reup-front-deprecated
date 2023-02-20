@@ -1,4 +1,4 @@
-import LoginLayout from '@/hoc/LoginLayout';
+import LoginLayout from '@/layouts/LoginLayout';
 import RegistrationComponent from '@/components/Registration';
 
 const RegistrationPage = () => {

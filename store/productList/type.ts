@@ -9,7 +9,7 @@ export type TProductListStore = {
 export type TProductItem = {
   title: string;
   id: number;
-  description: string;
+  brand: string;
   price: number;
   imgSource: any; // TODO replace to url
   like?: boolean;

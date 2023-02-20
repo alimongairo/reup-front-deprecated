@@ -21,7 +21,7 @@ const DetailItem = ({
       </div>
       <div className={cx.content}>
         <div>
-          <Heading size="medium">Название товара</Heading>
+          <Heading tag="h2">Название товара</Heading>
           <Text>название бренда</Text>
         </div>
         <div>
@@ -29,11 +29,11 @@ const DetailItem = ({
             цвет: {color} размер: {size}
           </Text>
           {oldPrice && (
-            <Text size="bold" decoration="line">
+            <Text size="big" decoration="line">
               {oldPrice}
             </Text>
           )}
-          <Text size="bold">{price}</Text>
+          <Text size="big">{price}</Text>
         </div>
       </div>
     </div>

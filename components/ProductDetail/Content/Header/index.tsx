@@ -8,7 +8,6 @@ import { useAppSelector } from '@/hooks/store';
 import { getProductDetailDataSource } from '@/store/productDetail/selectors';
 
 import heart from '@/static/icons/bigHard.svg';
-import fillLike from '@/static/icons/fillLike.svg';
 
 import cx from './index.module.scss';
 
@@ -24,11 +23,11 @@ const ProductDetailHeader = () => {
       <div className={cx.info}>
         <Heading>{productDetail.title}</Heading>
         <div>
-          <Heading size={'medium'}>{productDetail.brandTitle}</Heading>
-          <Text size={'bold'}>{productDetail.brandCode}</Text>
+          <Heading tag="h2">{productDetail.brandTitle}</Heading>
+          <Text>{productDetail.brandCode}</Text>
         </div>
       </div>
-      <Image src={productDetail.isLiked ? fillLike : heart} alt="heart" />
+      <Image src={heart} alt="heart" />
     </div>
   );
 };

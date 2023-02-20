@@ -27,7 +27,7 @@ const Frame = ({ title, children, onBack, onClose }: IProps) => {
         </div>
       </div>
       <div className={cx.header}>
-        <Heading size="medium">{title}</Heading>
+        <Heading tag="h2">{title}</Heading>
       </div>
       <div className={cx.content}>{children}</div>
     </div>

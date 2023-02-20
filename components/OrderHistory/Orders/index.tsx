@@ -39,7 +39,7 @@ const Orders = ({ isActive }: IProps) => {
   if (!dataSource.length) {
     return (
       <Space direction="vertical" size="large">
-        <Heading size="medium">
+        <Heading tag="h2">
           Здесь пока нет заказов. Может, Вы еще не нашли то, что искали?
         </Heading>
         <button onClick={goToMainPage}>отправиться на поиски</button>

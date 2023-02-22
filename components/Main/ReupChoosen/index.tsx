@@ -103,19 +103,21 @@ const ReupChoosen = () => {
           </div>
         </div>
       </div>
-      <Text className={cx.countTitle}>{activeSlideIndex + 1} из 3</Text>
-      <div className={cx.slideCount}>
-        {[1, 2, 3].map((i, index) => {
-          return (
-            <div
-              key={index}
-              onClick={() => setActiveSlideIndex(index)}
-              className={classNames(cx.count, {
-                [cx.activeCount]: index === activeSlideIndex,
-              })}
-            ></div>
-          );
-        })}
+      <div className={cx.footer}>
+        <Text className={cx.countTitle}>{activeSlideIndex + 1} из 3</Text>
+        <div className={cx.slideCount}>
+          {[1, 2, 3].map((i, index) => {
+            return (
+              <div
+                key={index}
+                onClick={() => setActiveSlideIndex(index)}
+                className={classNames(cx.count, {
+                  [cx.activeCount]: index === activeSlideIndex,
+                })}
+              ></div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

@@ -32,7 +32,7 @@ const MainPageComponents = () => {
       <Heading>подобрали для тебя</Heading>
       <ProductsList productList={newProducts} />
 
-      <Heading>выбор REUP</Heading>
+      <Heading style={{ marginBottom: '-40px' }}>выбор REUP</Heading>
       <ReupChoosen />
 
       <div className={cx.greenText}>

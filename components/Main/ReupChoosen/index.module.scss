@@ -1,22 +1,26 @@
 .slides {
   display: flex;
   overflow-x: hidden;
-  background: linear-gradient(180deg, rgba(54, 241, 229, 0) 20%, rgb(190, 218, 98) 20%);
+  background: linear-gradient(
+    180deg,
+    rgba(54, 241, 229, 0) 20%,
+    rgb(190, 218, 98) 20%
+  );
   .slide {
     background: var(--reup-green);
     padding: 2rem;
     padding-top: 0;
     margin-top: 5rem;
-    transition: .3s;
+    transition: 0.3s;
     display: flex;
     gap: 2rem;
-    &.active .text{
+    &.active .text {
       opacity: 1;
     }
     .imgWrapper {
       margin-top: -105px;
     }
-    .imgWrapper img{
+    .imgWrapper img {
       width: 100%;
       height: auto;
     }
@@ -24,7 +28,7 @@
 }
 
 .countTitle {
-  margin: 1rem 2rem ;
+  margin: 1rem 2rem;
 }
 
 .slideCount {
@@ -41,8 +45,8 @@
     transform: scale(1) !important;
   }
   .count {
-    transition: .3s;
-    background: #FFFFFF;
+    transition: 0.3s;
+    background: #ffffff;
     opacity: 0.5;
     width: 10px;
     cursor: pointer;
@@ -59,7 +63,7 @@
   flex-direction: column;
   gap: 1rem;
   padding: 2rem 0;
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .moreBtn {
@@ -74,5 +78,9 @@
 }
 
 .slider {
-  background: linear-gradient(180deg, rgba(54,241,229,0) 26%, rgba(190,218,98,1) 26%);
+  background: linear-gradient(
+    180deg,
+    rgba(54, 241, 229, 0) 26%,
+    rgba(190, 218, 98, 1) 26%
+  );
 }

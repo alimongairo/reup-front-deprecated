@@ -1,0 +1,28 @@
+.wrapper {
+    padding: 2.5em;
+    .search_input {
+        width: 100%;
+        
+        
+        input {
+            width: 100%;
+            border: 0;
+            border-bottom: 2px solid black;
+
+            font-family: 'Gilroy';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 110%;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.07em;
+        }
+    }
+
+    .search_result {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}

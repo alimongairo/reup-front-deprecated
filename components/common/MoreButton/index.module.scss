@@ -6,9 +6,9 @@
 
   &:hover {
     :global(p) {
-      color: var(--reup-primary)
+      color: var(--reup-primary);
     }
-    :global(svg line){
+    :global(svg line) {
       stroke: var(--reup-primary);
     }
   }
@@ -18,7 +18,7 @@
     :global(p) {
       color: var(--reup-primary-active);
     }
-    :global(svg line){
+    :global(svg line) {
       stroke: var(--reup-primary-active);
     }
   }

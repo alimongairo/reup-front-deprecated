@@ -30,6 +30,7 @@ const MainPageSearch = () => {
           src={searchLogo}
           alt="searchLogo"
           onClick={() => setVisible(true)}
+          style={{ cursor: 'pointer' }}
         />
         <div className={classNames(cx.ddSearch, { [cx.visible]: visible })}>
           <div className={cx.searchInput}>

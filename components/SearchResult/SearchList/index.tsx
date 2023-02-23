@@ -1,15 +1,13 @@
-
 import ProductCard from '@/components/common/ProductCard';
 import React, { useCallback } from 'react';
 import { TProductItem } from '@/store/productList/type';
 import cx from './index.module.scss';
 
 interface IProps {
-  searchProducts: TProductItem []
-} 
+  searchProducts: TProductItem[];
+}
 
-const SearchList = ({searchProducts}:IProps) => {
-
+const SearchList = ({ searchProducts }: IProps) => {
   const onLikeHandler = useCallback((id: number) => {
     console.log('like');
   }, []);
@@ -32,7 +30,7 @@ const SearchList = ({searchProducts}:IProps) => {
         like={product.like}
       />
     );
-  })
+  });
 
   return (
     <div className={cx.wrapper}>

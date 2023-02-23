@@ -1,4 +1,3 @@
-
 import { useAppDispatch, useAppSelector } from '@/hooks/store';
 import { getProductListDataSource } from '@/store/productList/selectors';
 import { getProductListAction } from '@/store/productList/thunk';
@@ -8,9 +7,7 @@ import cx from './index.module.scss';
 import SearchFilter from './SearchFilter';
 import SearchList from './SearchList';
 
-
 const SearchLayout = () => {
-
   const searchValue = 'Лэйди';
   const dispatch = useAppDispatch();
   const searchProducts = useAppSelector(getProductListDataSource);
@@ -19,20 +16,18 @@ const SearchLayout = () => {
     dispatch(getProductListAction());
   }, []);
 
-  
   return (
     <div className={cx.wrapper}>
       <div className={cx.search_input}>
-        <input type="search" value={searchValue}/>
+        <input type="search" value={searchValue} />
       </div>
 
       <Heading>По запросу {`"${searchValue}"`} найдено 145 товаров</Heading>
 
       <div className={cx.search_result}>
-        <SearchFilter/>
-        <SearchList searchProducts={searchProducts}/>
+        <SearchFilter />
+        <SearchList searchProducts={searchProducts} />
       </div>
-      
     </div>
   );
 };

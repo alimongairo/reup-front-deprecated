@@ -2,7 +2,7 @@ import React, {
   DetailedHTMLProps,
   HTMLAttributes,
   HTMLInputTypeAttribute,
-  useState,
+  InputHTMLAttributes,
 } from 'react';
 import classNames from 'classnames';
 
@@ -12,8 +12,8 @@ import cx from './index.module.scss';
 import CodeInput from '@/components/common/Input/CodeInput';
 
 interface IProps
-  extends DetailedHTMLProps<
-    HTMLAttributes<HTMLInputElement>,
+  extends React.DetailedHTMLProps<
+    React.InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
   > {
   type?: HTMLInputTypeAttribute;

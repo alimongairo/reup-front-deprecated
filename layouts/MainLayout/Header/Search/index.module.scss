@@ -1,14 +1,130 @@
-.search__panel{
+.search{
     width: 100%;
 }
 
-.search__panel__input{
-    width: 30%;
-    text-align: end;
-    border: none;
-    border-bottom: solid;
-    font-family: inherit;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
+.ddSearch {
+    &.visible {
+        opacity: 1;
+        transform: translateY(0) !important;
+        pointer-events: all;
+        z-index: 10;
+    }
+    transform: translateY(-10px);
+    opacity: 0;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 66px;
+    transition: .3s;
+    z-index: 0;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    box-sizing: border-box;
+    padding: 2rem;
+    padding-top: .5rem;
+    background: white;
+    pointer-events: none;
+}
+
+.searchInput {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: white;
+    border-bottom: 1px solid black;
+    padding: .8rem 0;
+    img {
+        cursor: pointer;
+    }
+}
+
+.input {
+    &:hover,
+    &:active,
+    &:focus {
+        border: none;
+    }
+    border: none !important;
+    width: -webkit-fill-available;
+}
+
+.historyBlock {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    .historyTitle {
+        margin-bottom: 24px;
+    }
+    .historyRow {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    .imgCard {
+        width: 170px;
+        position: relative;
+        text-align: center;
+        cursor: pointer;
+        img {
+            width: 100%;
+            height: auto;
+            transition: .3s;
+        }
+        .cardInfo {
+            position: absolute;
+            text-align: center;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            pointer-events: none;
+            transition: .3s;
+        }
+        &:hover{
+            img {
+                opacity: .5;
+            }
+            .cardInfo {
+                opacity: 1;
+                pointer-events: auto;
+            }
+        }
+    }
+    .previewWrapper {
+        height: 63vh;
+        overflow: scroll;
+        .preview {
+            padding: 2rem;
+            padding-bottom: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+    }
+}
+
+.closeMask {
+    &.maskVisible {
+        opacity: .3 !important;
+        pointer-events: all !important;
+        z-index: 8;
+    }
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+    width: 100%;
+    bottom: 0;
+    height: calc(100% - 66px);
+    background: black;
+    left: 0;
+    position: fixed;
+    transition: .4s;
 }

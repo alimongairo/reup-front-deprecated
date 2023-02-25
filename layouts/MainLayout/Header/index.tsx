@@ -38,8 +38,6 @@ const MainPageHeader = () => {
         <div className={cx.buttons}>
           <DropDownProfile />
           <BasketLinkButton />
-          {/*<Link href={EPagesRoutes.Auth}>*/}
-          {/*</Link>*/}
         </div>
       </div>
       <div>

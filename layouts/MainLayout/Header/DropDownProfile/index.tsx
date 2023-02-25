@@ -1,35 +1,48 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import DropDown, { IDropDownItem } from '@/components/common/DropDown';
+import Text from '@/components/common/Text';
 
 import { EPagesRoutes } from '@/constants/router';
+
 import profile from '@/static/icons/profile.svg';
-import Button from '@/components/common/Button';
+
+import cx from './index.module.scss';
 
 const DropDownProfile = () => {
   const [visible, setVisible] = useState(false);
+  const router = useRouter();
 
   const onClick = () => {
     setVisible((state) => !state);
+  };
+
+  const toOrderHistory = () => {
+    router.push(`${EPagesRoutes.OrderHistory}`);
+  };
+
+  const toLogin = () => {
+    router.push(`${EPagesRoutes.Auth}`);
   };
 
   const overlay: IDropDownItem[] = [
     {
       id: 0,
       label: (
-        <Link href={EPagesRoutes.OrderHistory}>
-          <Button>Мои заказы</Button>
-        </Link>
+        <div onClick={toOrderHistory} className={cx.ddItem}>
+          <Text>Мои заказы</Text>
+        </div>
       ),
     },
     {
       id: 1,
       label: (
-        <Link href={EPagesRoutes.Auth}>
-          <Button>Войти</Button>
-        </Link>
+        <div onClick={toLogin} className={cx.ddItem}>
+          <Text>Войти</Text>
+        </div>
       ),
     },
   ];

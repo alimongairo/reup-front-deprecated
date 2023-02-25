@@ -1,0 +1,10 @@
+.ddItem {
+  padding: .7rem 0;
+  transition: .3s;
+  width: 100%;
+  cursor: pointer;
+  &:hover {
+    background: var(--reup-primary);
+
+  }
+}

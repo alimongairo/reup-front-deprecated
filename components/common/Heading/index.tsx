@@ -12,7 +12,7 @@ interface IProps
 }
 
 const Heading = ({ children, tag = 'h1', className, ...props }: IProps) => {
-  const classes = classNames(cx.heading, cx[tag], ...(className || []));
+  const classes = classNames(cx.heading, cx[tag], className);
 
   switch (tag) {
     case 'h1':

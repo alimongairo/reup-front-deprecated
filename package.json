@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "prepare": "husky install",
-    "precommit": "npm run lint:write && npm run prettier",
+    "precommit": "npm run lint:write && npm run prettier && git add -A .",
     "prepush": "npm run lint",
     "prettier": "prettier --write ./pages ./components ",
     "lint": "eslint --debug ./pages ./components",

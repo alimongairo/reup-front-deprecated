@@ -5,7 +5,7 @@ import cx from './index.module.scss';
 
 interface IProps {
   searchProducts: TProductItem[];
-  searchValue: String
+  searchValue: String;
 }
 
 const SearchList = ({ searchProducts, searchValue }: IProps) => {

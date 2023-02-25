@@ -26,7 +26,7 @@ const SearchLayout = () => {
 
       <div className={cx.search_result}>
         <SearchFilter />
-        <SearchList searchProducts={searchProducts} />
+        <SearchList searchValue={searchValue} searchProducts={searchProducts} />
       </div>
     </div>
   );

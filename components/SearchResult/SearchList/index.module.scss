@@ -1,8 +1,16 @@
 .wrapper {
-  width: 70%;
+  width: 80%;
   .search_list {
     display: flex;
+    // padding: 2rem;
     flex-direction: row;
     flex-wrap: wrap;
+    > div {
+      padding: 2rem;
+      span {
+        margin-right: 2rem;
+        margin-top: 2rem;
+      }
+    }
   }
 }

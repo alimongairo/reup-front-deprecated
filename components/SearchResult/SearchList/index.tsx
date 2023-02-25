@@ -5,9 +5,10 @@ import cx from './index.module.scss';
 
 interface IProps {
   searchProducts: TProductItem[];
+  searchValue: String
 }
 
-const SearchList = ({ searchProducts }: IProps) => {
+const SearchList = ({ searchProducts, searchValue }: IProps) => {
   const onLikeHandler = useCallback((id: number) => {
     console.log('like');
   }, []);
@@ -16,25 +17,25 @@ const SearchList = ({ searchProducts }: IProps) => {
     console.log('add to basket');
   }, []);
 
-  const searchList = [...searchProducts, ...searchProducts].map((product) => {
-    return (
-      <ProductCard
-        key={product.id}
-        onLike={onLikeHandler}
-        onAddToBasket={onAddToBasketHandler}
-        title={product.title}
-        id={product.id}
-        brand={product.brand}
-        price={product.price}
-        imgSource={product.imgSource}
-        like={product.like}
-      />
-    );
-  });
+  const searchList = [...searchProducts, ...searchProducts, ...searchProducts];
 
   return (
     <div className={cx.wrapper}>
-      <div className={cx.search_list}>{searchList}</div>
+      <div className={cx.search_list}>
+        {searchList.map((product) => (
+          <ProductCard
+            key={product.id}
+            onLike={onLikeHandler}
+            onAddToBasket={onAddToBasketHandler}
+            title={product.title}
+            id={product.id}
+            brand={product.brand}
+            price={product.price}
+            imgSource={product.imgSource}
+            like={product.like}
+          />
+        ))}
+      </div>
     </div>
   );
 };

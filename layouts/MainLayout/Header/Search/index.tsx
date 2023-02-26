@@ -13,11 +13,16 @@ import Products from '@/layouts/MainLayout/Header/Search/Products';
 import close from '@/static/icons/close.svg';
 
 import cx from './index.module.scss';
+import { useRouter } from 'next/router';
 
 const MainPageSearch = () => {
   const [visible, setVisible] = useState(false);
   const [searchValue, setSearchValue] = useState('');
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+  const toSearch = () => {
+    router.push(`${EPagesRoutes.SearchResult}?search=${searchValue}`)
+  }
 
   useEffect(() => {
     if (visible && wrapperRef.current) {
@@ -43,7 +48,7 @@ const MainPageSearch = () => {
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
             />
-            <Button>найти</Button>
+            <Button onClick={toSearch}>найти</Button>
             <Image
               src={close}
               alt={'close'}

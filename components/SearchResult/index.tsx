@@ -1,32 +1,39 @@
-import { useAppDispatch, useAppSelector } from '@/hooks/store';
-import { getProductListDataSource } from '@/store/productList/selectors';
+import { EPagesRoutes } from '@/constants/router';
+import { useAppDispatch } from '@/hooks/store';
 import { getProductListAction } from '@/store/productList/thunk';
-import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import Heading from '../common/Heading';
+import Input from '../common/Input';
 import cx from './index.module.scss';
 import SearchFilter from './SearchFilter';
 import SearchList from './SearchList';
 
 const SearchLayout = () => {
-  const searchValue = 'Лэйди';
   const dispatch = useAppDispatch();
-  const searchProducts = useAppSelector(getProductListDataSource);
+  const router = useRouter();
+  const onChangeInput = (event: any) => {
+    router.push(`${EPagesRoutes.SearchResult}?search=${event.target.value}`);
+  };
 
   useEffect(() => {
+    // router.query.search
     dispatch(getProductListAction());
   }, []);
 
   return (
     <div className={cx.wrapper}>
       <div className={cx.search_input}>
-        <input type="search" value={searchValue} />
+        <Input onChange={onChangeInput} value={router.query.search} />
       </div>
 
-      <Heading>По запросу {`"${searchValue}"`} найдено 145 товаров</Heading>
+      <Heading>
+        По запросу {`"${router.query.search}"`} найдено 145 товаров
+      </Heading>
 
       <div className={cx.search_result}>
         <SearchFilter />
-        <SearchList searchValue={searchValue} searchProducts={searchProducts} />
+        <SearchList />
       </div>
     </div>
   );

@@ -1,14 +1,16 @@
+import Button from '@/components/common/Button';
 import ProductCard from '@/components/common/ProductCard';
-import React, { useCallback } from 'react';
-import { TProductItem } from '@/store/productList/type';
+import { useAppSelector } from '@/hooks/store';
+import ArrowDown from '@/static/icons/leftArrow.svg';
+import { getProductListDataSource } from '@/store/productList/selectors';
+import Image from 'next/image';
+import { useCallback, useState } from 'react';
+import BrandBtn from '../BrandBtn';
+import SortBtn from '../SortBtn';
 import cx from './index.module.scss';
 
-interface IProps {
-  searchProducts: TProductItem[];
-  searchValue: String;
-}
-
-const SearchList = ({ searchProducts, searchValue }: IProps) => {
+const SearchList = () => {
+  const searchProducts = useAppSelector(getProductListDataSource);
   const onLikeHandler = useCallback((id: number) => {
     console.log('like');
   }, []);
@@ -17,10 +19,35 @@ const SearchList = ({ searchProducts, searchValue }: IProps) => {
     console.log('add to basket');
   }, []);
 
-  const searchList = [...searchProducts, ...searchProducts, ...searchProducts];
+  const searchList = [
+    ...searchProducts,
+    ...searchProducts,
+    ...searchProducts,
+    ...searchProducts,
+    ...searchProducts,
+  ];
 
   return (
     <div className={cx.wrapper}>
+      <div className={cx.buttons}>
+        {/* <Button>
+          Сортировать
+          <Image src={ArrowDown} alt="Arrow down" />
+        </Button>
+        
+        <Button>
+          Бренд
+          <Image src={ArrowDown} alt="Arrow down" />
+        </Button> */}
+
+        <Button>
+          <BrandBtn />
+        </Button>
+        <Button>
+          <SortBtn />
+        </Button>
+      </div>
+
       <div className={cx.search_list}>
         {searchList.map((product) => (
           <ProductCard

@@ -1,10 +1,8 @@
 import Button from '@/components/common/Button';
 import ProductCard from '@/components/common/ProductCard';
 import { useAppSelector } from '@/hooks/store';
-import ArrowDown from '@/static/icons/leftArrow.svg';
 import { getProductListDataSource } from '@/store/productList/selectors';
-import Image from 'next/image';
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 import BrandBtn from '../BrandBtn';
 import SortBtn from '../SortBtn';
 import cx from './index.module.scss';
@@ -30,16 +28,6 @@ const SearchList = () => {
   return (
     <div className={cx.wrapper}>
       <div className={cx.buttons}>
-        {/* <Button>
-          Сортировать
-          <Image src={ArrowDown} alt="Arrow down" />
-        </Button>
-        
-        <Button>
-          Бренд
-          <Image src={ArrowDown} alt="Arrow down" />
-        </Button> */}
-
         <Button>
           <BrandBtn />
         </Button>

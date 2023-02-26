@@ -30,7 +30,6 @@ const BrandBtn = () => {
       key: '3',
     },
   ];
-  console.log(items);
 
   return (
     <Dropdown

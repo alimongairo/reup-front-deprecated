@@ -1,0 +1,10 @@
+.wrapper_price {
+  .price_input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    input {
+      width: 50%;
+    }
+  }
+}

@@ -1,10 +1,19 @@
 .wrapper_price {
+  padding-top: 1.5rem;
   .price_input {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding-top: 1rem;
     input {
-      width: 50%;
+      width: 45%;
+    }
+  }
+  .governor {
+    width: 100%;
+    padding-top: 1rem;
+    .governor_border {
+      border-bottom: 1px solid #000;
     }
   }
 }

@@ -29,7 +29,10 @@ const SearchLayout = () => {
   return (
     <div className={cx.wrapper}>
       <div className={cx.search_input}>
-        <Input onChange={onChangeInput} value={router.query.search} />
+        <Input
+          onChange={onChangeInput}
+          value={router.query.search ? router.query.search : ''}
+        />
         <Image
           onClick={onClickCloseSearch}
           src={closeIcon}
@@ -39,7 +42,7 @@ const SearchLayout = () => {
 
       <Heading>
         {router.query.search
-          ? `По запросу ${router.query.search} найдено 145 товаров`
+          ? `По запросу "${router.query.search}" найдено 145 товаров`
           : 'Ничего не найдено'}
       </Heading>
 

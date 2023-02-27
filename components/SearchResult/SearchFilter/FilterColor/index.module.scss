@@ -1,0 +1,29 @@
+.wrapper_color {
+  padding-top: 1.5rem;
+  .btn_group_color {
+    padding-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    button {
+      width: 18%;
+      height: 20%;
+      margin-left: 0.3rem;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    .btn_one {
+      margin-left: 0;
+      background-color: #fff;
+    }
+    .btn_two {
+      background-color: #000;
+    }
+    .btn_three {
+      background-color: #7991f5;
+    }
+    .btn_four {
+      background-color: #bdda63;
+    }
+  }
+}

@@ -3,7 +3,7 @@ import cx from './index.module.scss';
 
 const FilterPattern = () => {
   return (
-    <div className={cx.wrapper}>
+    <div className={cx.wrapper_pattern}>
       <p>FilterPattern</p>
     </div>
   );

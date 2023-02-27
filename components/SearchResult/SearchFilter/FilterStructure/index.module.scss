@@ -1,0 +1,11 @@
+.wrapper_structure {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #000;
+  img:hover {
+    cursor: pointer;
+  }
+}

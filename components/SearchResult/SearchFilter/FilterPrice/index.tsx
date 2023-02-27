@@ -11,7 +11,13 @@ const FilterPrice = () => {
         <Input placeholder="от" />
         <Input placeholder="до" />
       </div>
-      <div className={cx.governor}></div>
+
+      <div className={cx.governor}>
+        {' '}
+        {/* Реализовать блок с ползунком*/}
+        <div className={cx.governor_border}></div>
+        <span>320</span>
+      </div>
     </div>
   );
 };

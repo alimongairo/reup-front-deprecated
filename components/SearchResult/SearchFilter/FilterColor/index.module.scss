@@ -15,15 +15,27 @@
     .btn_one {
       margin-left: 0;
       background-color: #fff;
+      &:focus {
+        transform: scale(1.1);
+      }
     }
     .btn_two {
       background-color: #000;
+      &:focus {
+        transform: scale(1.1);
+      }
     }
     .btn_three {
       background-color: #7991f5;
+      &:focus {
+        transform: scale(1.1);
+      }
     }
     .btn_four {
       background-color: #bdda63;
+      &:focus {
+        transform: scale(1.1);
+      }
     }
   }
 }

@@ -7,7 +7,7 @@ import cx from './index.module.scss';
 const FilterStyle = () => {
   return (
     <div className={cx.wrapper_style}>
-      <Text>сезон</Text>
+      <Text>стиль</Text>
       <Image src={Plus} alt="Plus" />
     </div>
   );

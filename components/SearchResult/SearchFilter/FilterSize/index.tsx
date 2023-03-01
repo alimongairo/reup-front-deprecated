@@ -86,13 +86,13 @@ const FilterSize = () => {
             </div>
 
             <div className={cx.btn_group_size}>
-              <div>
+              <div className={cx.btn_group_size_one}>
                 <Button>s</Button>
                 <Button>m</Button>
                 <Button>l</Button>
                 <Button>xl</Button>
               </div>
-              <div>
+              <div className={cx.btn_group_size_one}>
                 <Button>s</Button>
                 <Button>m</Button>
                 <Button>l</Button>

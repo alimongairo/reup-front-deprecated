@@ -15,10 +15,12 @@ const SearchLayout = () => {
   const dispatch = useAppDispatch();
   const router = useRouter();
   const [value, setValue] = useState(router.query.search);
+
   const onChangeInput = (event: any) => {
     router.push(`${EPagesRoutes.SearchResult}?search=${event.target.value}`);
     setValue(event.target.value);
   };
+
   const onClickCloseSearch = () => {
     router.query.search = '';
     setValue('');

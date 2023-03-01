@@ -1,11 +1,45 @@
-.wrapper_structure {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+.wrapper_pattern {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
   border-bottom: 1px solid #000;
-  img:hover {
-    cursor: pointer;
+  padding-bottom: 1rem;
+
+  .header_pattern {
+    width: 100%;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .minus {
+      height: 1rem;
+    }
+
+    img {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .list_pattern {
+    padding-top: 1rem;
+    .len,
+    .klen,
+    .bulion,
+    .medalion,
+    .omlet {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-top: 1rem;
+      label {
+        padding-left: 0.5rem;
+      }
+    }
+  }
+  .list_pattern_dis {
+    display: none;
+    transition: 0.2s;
   }
 }

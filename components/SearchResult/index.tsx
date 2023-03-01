@@ -3,7 +3,7 @@ import { useAppDispatch } from '@/hooks/store';
 import { getProductListAction } from '@/store/productList/thunk';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Heading from '../common/Heading';
 import Input from '../common/Input';
 import cx from './index.module.scss';
@@ -14,11 +14,15 @@ import closeIcon from '@/static/icons/close.svg';
 const SearchLayout = () => {
   const dispatch = useAppDispatch();
   const router = useRouter();
+  const [value, setValue] = useState(router.query.search);
   const onChangeInput = (event: any) => {
     router.push(`${EPagesRoutes.SearchResult}?search=${event.target.value}`);
+    setValue(event.target.value);
   };
   const onClickCloseSearch = () => {
     router.query.search = '';
+    setValue('');
+    router.push(`${EPagesRoutes.SearchResult}`);
   };
 
   useEffect(() => {
@@ -29,10 +33,7 @@ const SearchLayout = () => {
   return (
     <div className={cx.wrapper}>
       <div className={cx.search_input}>
-        <Input
-          onChange={onChangeInput}
-          value={router.query.search ? router.query.search : ''}
-        />
+        <Input onChange={onChangeInput} value={value} />
         <Image
           onClick={onClickCloseSearch}
           src={closeIcon}

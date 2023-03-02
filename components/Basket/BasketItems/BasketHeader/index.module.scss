@@ -1,0 +1,27 @@
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0;
+
+  .basketCount {
+    font-size: 50%;
+    font-family: 'Dela Gothic One', sans-serif;
+    margin-left: 1rem;
+  }
+
+  button {
+    padding: 0;
+    height: 24px;
+    width: 24px;
+
+    &:hover {
+      background-color: transparent;
+      color: #000;
+    }
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

@@ -1,6 +1,6 @@
+@import 'styles/mixins.scss';
+
 .wrapper {
-  display: flex;
-  justify-content: center;
-  height: 100vh;
-  align-items: center;
+  @include container;
+  overflow: hidden;
 }

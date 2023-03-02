@@ -23,6 +23,14 @@ const DropDownProfile = () => {
         </Link>
       ),
     },
+    {
+      id: 1,
+      label: (
+        <Link href={EPagesRoutes.Auth}>
+          <button>Войти</button>
+        </Link>
+      ),
+    },
   ];
 
   return (

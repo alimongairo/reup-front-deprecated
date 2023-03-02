@@ -31,10 +31,16 @@
     gap: 1rem;
   }
 
+  .firstRow :hover{
+    background-color: white;
+    transition: none;
+  }
+
   .buttons{
     display: flex;
     padding: 0 2rem;
     justify-content: flex-end;
+    align-items: center;
     align-items: center;
     gap: 3rem !important;
     border: outset;
@@ -45,6 +51,10 @@
     img {
       width: 25px;
     }
+  }
+
+  .profile :hover{
+    height: 4rem;
   }
   
 
@@ -62,9 +72,6 @@
     transition: 0.3s linear;
     //z-index: 4;
   }
-
-
-
 
   .navBar{
     width: 100%;

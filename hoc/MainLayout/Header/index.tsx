@@ -60,7 +60,9 @@ const MainPageHeader = () => {
               </div>
           <div className={cx.buttons}>
           <Image src={like} alt='likehLogo'></Image>
-          <DropDownProfile />
+          <div className={cx.profile}>
+            <DropDownProfile />
+          </div>
           <BasketLinkButton />
           {/*<Link href={EPagesRoutes.Auth}>*/}
           {/*</Link>*/}

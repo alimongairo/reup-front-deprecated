@@ -39,6 +39,7 @@
 .actions {
   display: flex;
   gap: 2rem;
+  margin-top: -5px;
   > * {
     cursor: pointer;
   }

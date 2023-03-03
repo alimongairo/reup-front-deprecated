@@ -1,19 +1,19 @@
-import { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import { useMemo, useState } from 'react';
 import { useRouter } from 'next/router';
 
 import DropDown, { IDropDownItem } from '@/components/common/DropDown';
 import Text from '@/components/common/Text';
 
-import { EPagesRoutes } from '@/constants/router';
+import LoginItem from '@/layouts/MainLayout/Header/DropDownProfile/Login';
 
-import profile from '@/static/icons/profile.svg';
+import { EPagesRoutes } from '@/constants/router';
+import ProfileSvg from '@/static/icons/Profile';
 
 import cx from './index.module.scss';
 
 const DropDownProfile = () => {
   const [visible, setVisible] = useState(false);
+  const [visibleAuth, setVisibleAuth] = useState(false);
   const router = useRouter();
 
   const onClick = () => {
@@ -24,35 +24,37 @@ const DropDownProfile = () => {
     router.push(`${EPagesRoutes.OrderHistory}`);
   };
 
-  const toLogin = () => {
-    router.push(`${EPagesRoutes.Auth}`);
-  };
-
-  const overlay: IDropDownItem[] = [
-    {
-      id: 0,
-      label: (
-        <div onClick={toOrderHistory} className={cx.ddItem}>
-          <Text>Мои заказы</Text>
-        </div>
-      ),
-    },
-    {
-      id: 1,
-      label: (
-        <div onClick={toLogin} className={cx.ddItem}>
-          <Text>Войти</Text>
-        </div>
-      ),
-    },
-  ];
+  const overlay: IDropDownItem[] = useMemo(() => {
+    return [
+      {
+        id: 0,
+        label: (
+          <div onClick={toOrderHistory} className={cx.ddItem}>
+            <Text size="thin">Мои заказы</Text>
+          </div>
+        ),
+      },
+      {
+        id: 1,
+        label: (
+          <div className={cx.ddItem}>
+            <LoginItem />
+          </div>
+        ),
+      },
+    ];
+  }, [visibleAuth]);
 
   return (
     <DropDown
       visible={visible}
       setVisible={onClick}
       overlay={overlay}
-      title={<Image src={profile} alt={'Profile'} />}
+      title={
+        <div className={cx.ddTitle}>
+          <ProfileSvg active={visible} />
+        </div>
+      }
     />
   );
 };

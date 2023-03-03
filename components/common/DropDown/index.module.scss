@@ -1,17 +1,17 @@
 .menu {
   display: none !important;
   position: absolute;
-  top: 48px;
-  left: -71px;
+  top: 40.5px;
+  left: -81px;
   background: white;
-  width: 200px;
+  width: 129px;
   border: 1px solid black;
   z-index: 2;
   flex-direction: column;
   height: auto !important;
-  gap: 0;
+  gap: 24px;
   align-items: center;
-
+  padding: 24px;
   .menuItem {
     text-align: center;
     text-decoration: none;

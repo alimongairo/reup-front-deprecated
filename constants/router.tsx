@@ -11,4 +11,7 @@ export enum EPagesRoutes {
   UnauthorizedOrder = '/unauthorizedOrder',
   Collection = '/collection',
   Brand = '/brand',
+  Category = '/category',
+  Sale = '/sale',
+  Liked = '/liked',
 }

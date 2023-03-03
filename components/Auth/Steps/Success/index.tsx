@@ -2,7 +2,6 @@ import { useContext } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import Frame from '@/components/common/Frame';
 import { AuthContext } from '@/components/Auth/context';
 
 import { EPagesRoutes } from '@/constants/router';
@@ -18,15 +17,11 @@ const Success = () => {
   };
 
   return (
-    <Frame
-      title="вы успешно вошли!"
-      onBack={contextValue?.decStep}
-      onClose={onClose}
-    >
+    <div>
       <Link href={EPagesRoutes.Main}>
         <button className={cx.mTop}>к покупкам</button>
       </Link>
-    </Frame>
+    </div>
   );
 };
 

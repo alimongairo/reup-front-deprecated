@@ -1,10 +1,27 @@
 .ddItem {
-  padding: .7rem 0;
-  transition: .3s;
+  transition: 0.3s;
   width: 100%;
   cursor: pointer;
-  &:hover {
+  text-align: left;
+  &:after {
+    display: block;
+    content: '';
+    height: 2px;
+    width: 0;
     background: var(--reup-primary);
-
+    transition: .3s;
   }
+  &:hover {
+    color: var(--reup-primary);
+    font-weight: 500;
+    &:after{
+      width: 100%;
+    }
+  }
+}
+
+.ddTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

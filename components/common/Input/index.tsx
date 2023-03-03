@@ -42,6 +42,7 @@ const Input = ({
         className={classNames(className, cx.input, { [cx.invalid]: invalid })}
         {...props}
       />
+
       {errorMessage && (
         <Text
           className={classNames(

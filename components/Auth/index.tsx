@@ -1,8 +1,7 @@
 import { useState, useMemo } from 'react';
 
 import { steps, AuthContext } from '@/components/Auth/context';
-
-import cx from './index.module.scss';
+import Modal from '@/components/Auth/Modal';
 
 const AuthComponent = () => {
   const [step, setStep] = useState(0);
@@ -32,12 +31,11 @@ const AuthComponent = () => {
   }, [step]);
 
   const CurrentStepComponent = steps[step];
+
   return (
-    <div className={cx.wrapper}>
-      <AuthContext.Provider value={providerValue}>
-        <CurrentStepComponent />
-      </AuthContext.Provider>
-    </div>
+    <AuthContext.Provider value={providerValue}>
+      <CurrentStepComponent />
+    </AuthContext.Provider>
   );
 };
 

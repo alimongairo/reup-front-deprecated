@@ -3,12 +3,16 @@ import { useRouter } from 'next/router';
 
 import Text from '@/components/common/Text';
 import Input from '@/components/common/Input';
-import Frame from '@/components/common/Frame';
 import A from '@/components/common/A';
 import { AuthContext } from '@/components/Auth/context';
 
 import { EPagesRoutes } from '@/constants/router';
 import { isValidEmail } from '@/helpers/utils';
+
+import styles from './index.module.scss';
+import Button from '@/components/common/Button';
+import Frame from '@/components/common/Frame';
+import classNames from 'classnames';
 
 const EmailStep = () => {
   const contextValue = useContext(AuthContext);
@@ -26,6 +30,10 @@ const EmailStep = () => {
     [],
   );
 
+  const toRegister = () => {
+    router.push(`${EPagesRoutes.Registration}`);
+  };
+
   const sendCode = () => {
     if (invalidEmail) {
       alert('Invalid email!');
@@ -35,24 +43,27 @@ const EmailStep = () => {
   };
 
   return (
-    <Frame
-      title="вход в личный кабинет"
-      onBack={contextValue?.decStep}
-      onClose={onClose}
-    >
-      <Text>введите адрес эл.почты</Text>
-      <Input
-        placeholder="reup@reup.ru"
-        type="email"
-        invalid={invalidEmail}
-        errorMessage="неверный адрес эл. почты"
-        onChange={onChangeEmail}
-      />
-      <button onClick={sendCode}>отправить код</button>
-      <Text>
-        еще не зарегистрированы?{' '}
-        <A href={EPagesRoutes.Registration}>регистрация</A>
-      </Text>
+    <Frame title="вход в личный кабинет">
+      <div className={styles.wrapper}>
+        <div className={classNames(styles.flex, styles.header)}>
+          <Input
+            placeholder="reup@reup.ru"
+            type="email"
+            invalid={invalidEmail}
+            errorMessage="неверный адрес эл. почты"
+            onChange={onChangeEmail}
+            label="введите адрес эл.почты"
+          />
+        </div>
+        <Text size="thin">мы отправим вам код на эл. почту</Text>
+        <div>
+          <Button onClick={sendCode}>отправить код</Button>
+        </div>
+        <Text size="thin">еще не зарегистрированы?</Text>
+        <Text onClick={toRegister} className={styles.pointer}>
+          зарегистрироваться
+        </Text>
+      </div>
     </Frame>
   );
 };

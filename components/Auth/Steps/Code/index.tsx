@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import { useRouter } from 'next/router';
 
-import Frame from '@/components/common/Frame';
 import Text from '@/components/common/Text';
 import Input from '@/components/common/Input';
 import { AuthContext } from '@/components/Auth/context';
@@ -20,11 +19,7 @@ const CodeStep = () => {
   };
 
   return (
-    <Frame
-      title="вход в личный кабинет"
-      onBack={contextValue?.decStep}
-      onClose={onClose}
-    >
+    <div>
       <Text className={cx.supportText}>
         введите код, который мы отправили вам на электронную почту.
       </Text>
@@ -33,7 +28,7 @@ const CodeStep = () => {
       <Text onClick={contextValue?.incStep}>
         <A href="#">отправить код</A>
       </Text>
-    </Frame>
+    </div>
   );
 };
 

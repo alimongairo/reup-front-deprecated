@@ -1,13 +1,13 @@
 .navbar {
-    border: solid;
-    height: 5rem;
-    margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-.navbar__list{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    list-style-type: none;
+.navbarItem {
+  transition: .3s;
+  cursor: pointer;
+  &:hover {
+    color: var(--reup-green)
+  }
 }

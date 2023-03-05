@@ -26,7 +26,7 @@ const Slider = ({ images }: IProps) => {
   useEffect(() => {
     const interval = setInterval(() => {
       onNextSlide();
-    }, 3000);
+    }, 30000);
     return () => {
       clearInterval(interval);
     };

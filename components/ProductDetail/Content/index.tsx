@@ -18,10 +18,12 @@ const ProductDetailContent = () => {
 
   return (
     <div className={cx.wrapper}>
-      <Header />
       <div className={cx.content}>
         <Slider images={data.images || []} />
-        <Params {...data} />
+        <div className={cx.mainContent}>
+          <Header />
+          <Params {...data} />
+        </div>
       </div>
     </div>
   );

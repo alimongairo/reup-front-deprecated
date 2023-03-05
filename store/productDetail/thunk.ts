@@ -4,7 +4,9 @@ import { notification } from 'antd';
 import { getProductDetailRequest } from '@/network/rest/productDetail';
 import { mockFetch } from '@/helpers/mockFetch';
 
-import product2 from '@/static/img/product2.png';
+import product_slide1 from '@/static/img/product_slide1.png';
+import product_slide2 from '@/static/img/product_slide2.png';
+import product_slide3 from '@/static/img/product_slide3.png';
 
 const mockProduct: TProductCard = {
   id: '1',
@@ -17,7 +19,7 @@ const mockProduct: TProductCard = {
   price: 1990,
   oldPrice: 3990,
   isLiked: true,
-  images: [product2, product2, product2],
+  images: [product_slide1, product_slide2, product_slide3],
   brandCode: '03289',
   reviews: [
     {
@@ -27,10 +29,10 @@ const mockProduct: TProductCard = {
       grade: 3,
       color: 'цвет',
       size: 'размер',
-      avatar: product2,
+      avatar: product_slide1,
       reviewsImg: [
-        { id: 1, img: product2, reviewId: 1 },
-        { id: 2, img: product2, reviewId: 1 },
+        { id: 1, img: product_slide1, reviewId: 1 },
+        { id: 2, img: product_slide1, reviewId: 1 },
       ],
       review:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
@@ -42,8 +44,8 @@ const mockProduct: TProductCard = {
       grade: 3,
       color: 'цвет',
       size: 'размер',
-      reviewsImg: [{ id: 3, img: product2, reviewId: 2 }],
-      avatar: product2,
+      reviewsImg: [{ id: 3, img: product_slide1, reviewId: 2 }],
+      avatar: product_slide1,
       review:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
     },
@@ -55,7 +57,7 @@ const mockProduct: TProductCard = {
       color: 'цвет',
       size: 'размер',
       reviewsImg: [],
-      avatar: product2,
+      avatar: product_slide1,
       review:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
     },
@@ -67,11 +69,11 @@ const mockProduct: TProductCard = {
       color: 'цвет',
       size: 'размер',
       reviewsImg: [
-        { id: 4, img: product2, reviewId: 4 },
-        { id: 5, img: product2, reviewId: 4 },
-        { id: 6, img: product2, reviewId: 4 },
+        { id: 4, img: product_slide1, reviewId: 4 },
+        { id: 5, img: product_slide2, reviewId: 4 },
+        { id: 6, img: product_slide3, reviewId: 4 },
       ],
-      avatar: product2,
+      avatar: product_slide1,
       review:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
     },

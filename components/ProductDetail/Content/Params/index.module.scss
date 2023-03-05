@@ -39,6 +39,13 @@
 
 .description {
   border-bottom: 1px #000000 outset;
+  max-width: 745px;
+
+  p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 }
 
 .price {
@@ -79,8 +86,24 @@
     }
   }
 
+  .sizeButtons {
+    display: flex;
+    flex-direction: column;
+    div {
+      padding: 20px 0;
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+    }
+  }
+
   .productButtons {
     display: flex;
     gap: 20px;
+
+    .buyButton {
+      color: #000000;
+      text-decoration: none;
+    }
   }
 }

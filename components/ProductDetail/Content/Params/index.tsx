@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { EPagesRoutes } from '@/constants/router';
@@ -7,6 +7,7 @@ import Select from '@/components/common/Select';
 import Heading from '@/components/common/Heading';
 import Text from '@/components/common/Text';
 import Button from '@/components/common/Button';
+import classNames from 'classnames';
 
 import { TProductCard } from '@/store/productDetail/type';
 
@@ -25,6 +26,10 @@ const Params = ({ sizes, description, oldPrice, price }: TProductCard) => {
     );
   }, []);
 
+  const [viseble, setViseble] = useState(true);
+
+  useEffect(() => {});
+
   return (
     <div className={cx.wrapper}>
       <div className={cx.price}>
@@ -32,23 +37,36 @@ const Params = ({ sizes, description, oldPrice, price }: TProductCard) => {
           {oldPrice && <span className={cx.oldPrice}>{oldPrice}</span>}
           <span className={cx.price}>{price}</span>
         </div>
-        <Select title="выбрать размер" options={sizesOption} />
+        {/* <Select title="выбрать размер" options={sizesOption} /> */}
+
+        <div className={cx.sizeButtons}>
+          <Heading tag="h3">выберите размер</Heading>
+          <div>
+            <Button>{sizes[1]}</Button>
+            <Button>{sizes[2]}</Button>
+            <Button>{sizes[3]}</Button>
+          </div>
+        </div>
+
         <div className={cx.productButtons}>
           <Button>
-            <Link href={EPagesRoutes.Basket}>купть сейчас</Link>
+            <Link className={cx.buyButton} href={EPagesRoutes.Basket}>
+              купть сейчас
+            </Link>
           </Button>
           <Button>добавить в корзину</Button>
         </div>
-        <Heading tag="h2">характеристики</Heading>
+        <Heading tag="h3">характеристики</Heading>
       </div>
 
       <div>
         <div>
           <div className={cx.headRow}>
             <div className={cx.description}>
-              <Heading tag="h2">описание</Heading>
+              <Heading tag="h3">описание</Heading>
               <p>
-                <Text>{description}</Text>
+                <Text className={classNames()}>{description}</Text>
+                <Heading tag="h3">показать больше</Heading>
               </p>
             </div>
             <div></div>

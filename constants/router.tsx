@@ -7,7 +7,11 @@ export enum EPagesRoutes {
   Profile = '/profile',
   CreateProduct = '/createProduct',
   Order = '/order',
+  OrderHistory = '/orderHistory',
   UnauthorizedOrder = '/unauthorizedOrder',
   Collection = '/collection',
   Brand = '/brand',
+  Category = '/category',
+  Sale = '/sale',
+  Liked = '/liked',
 }

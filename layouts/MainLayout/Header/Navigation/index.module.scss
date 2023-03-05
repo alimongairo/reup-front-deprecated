@@ -1,0 +1,13 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbarItem {
+  transition: .3s;
+  cursor: pointer;
+  &:hover {
+    color: var(--reup-green)
+  }
+}

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import ProductDetail from '@/components/ProductDetail';
-import MainLayout from '@/hoc/MainLayout';
+import MainLayout from '@/layouts/MainLayout';
 
 import { useAppDispatch } from '@/hooks/store';
 import { getProductDetailAction } from '@/store/productDetail/thunk';

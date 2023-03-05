@@ -1,0 +1,6 @@
+@import 'styles/mixins.scss';
+
+.wrapper {
+  @include container;
+  overflow: hidden;
+}

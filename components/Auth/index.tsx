@@ -1,17 +1,41 @@
-import { Form, Input } from 'antd';
+import { useState, useMemo } from 'react';
+
+import { steps, AuthContext } from '@/components/Auth/context';
+import Modal from '@/components/Auth/Modal';
 
 const AuthComponent = () => {
-  const [form] = Form.useForm();
+  const [step, setStep] = useState(0);
+
+  const incStep = () =>
+    setStep((state) => {
+      if (state + 1 < steps.length) {
+        return state + 1;
+      }
+      return steps.length - 1;
+    });
+
+  const decStep = () =>
+    setStep((state) => {
+      if (state - 1 >= 0) {
+        return state - 1;
+      }
+      return 0;
+    });
+
+  const providerValue = useMemo(() => {
+    return {
+      incStep,
+      decStep,
+      step,
+    };
+  }, [step]);
+
+  const CurrentStepComponent = steps[step];
 
   return (
-    <Form form={form} labelCol={{ span: 8 }} wrapperCol={{ span: 16 }}>
-      <Form.Item name="email" label="Email">
-        <Input placeholder="Input email..." />
-      </Form.Item>
-      <Form.Item name="password" label="Password">
-        <Input placeholder="Input password..." type="password" />
-      </Form.Item>
-    </Form>
+    <AuthContext.Provider value={providerValue}>
+      <CurrentStepComponent />
+    </AuthContext.Provider>
   );
 };
 

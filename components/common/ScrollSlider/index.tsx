@@ -1,11 +1,11 @@
 import { memo, ReactNode, useRef } from 'react';
 import Image from 'next/image';
 
-import leftArrow from '@/static/icons/leftArrow.svg';
-import moreArrow from '@/static/icons/moreArrow.svg';
+import MoreButton from '@/components/common/MoreButton';
+
+import back from '@/static/icons/back.svg';
 
 import cx from './index.module.scss';
-import Text from '@/components/common/Text';
 
 export interface IScrollSlider {
   cardList: Array<ReactNode>;
@@ -38,20 +38,21 @@ const ScrollSlider = ({ cardList, onClickMore }: IScrollSlider) => {
   return (
     <>
       <div className={cx.wrapper}>
-        <div onClick={scrollListToPrev} className={cx.prevBtn}>
-          <Image src={leftArrow} alt="arrow" height={30} />
+        <div className={cx.btnWrapper}>
+          <div onClick={scrollListToPrev} className={cx.prevBtn}>
+            <Image src={back} alt="arrow" width={18} />
+          </div>
         </div>
         <div ref={listRef} className={cx.list}>
           {cardList}
         </div>
-        <div onClick={scrollListToNext} className={cx.nextBtn}>
-          <Image src={leftArrow} alt="arrow" height={30} />
+        <div className={cx.btnWrapper}>
+          <div onClick={scrollListToNext} className={cx.nextBtn}>
+            <Image src={back} alt="arrow" width={18} />
+          </div>
         </div>
       </div>
-      <div className={cx.more} onClick={onClickMore}>
-        <Text size="bold">больше</Text>
-        <Image src={moreArrow} alt="more" />
-      </div>
+      <MoreButton className={cx.moreBtn} />
     </>
   );
 };

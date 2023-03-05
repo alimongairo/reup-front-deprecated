@@ -3,7 +3,6 @@
 .wrapper {
   display: flex;
   height: auto;
-  @include contentWidth;
   position: relative;
   .slides {
     width: 100%;

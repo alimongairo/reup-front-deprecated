@@ -21,7 +21,7 @@ const UserDeliveryInfo = ({ user }: IProps) => {
         </div>
       </div>
       <div>
-        <Button small>
+        <Button>
           изменить адрес <sup>+</sup>
         </Button>
       </div>

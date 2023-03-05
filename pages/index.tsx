@@ -1,5 +1,5 @@
 import MainPageComponents from '@/components/Main';
-import MainLayout from '@/hoc/MainLayout';
+import MainLayout from '@/layouts/MainLayout';
 
 const MainPage = () => {
   return (

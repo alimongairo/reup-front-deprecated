@@ -1,44 +1,33 @@
 .slide {
-  position: relative;
   display: grid;
-  grid-template-areas: 'bigImg smallImg' 'bigImg text';
-  grid-template-columns: 1fr 1fr;
-  opacity: 1;
-  min-width: 1151px;
+  grid-template-columns: 33% auto;
+  grid-template-rows: 1fr;
 
-  .bigImg {
-    grid-area: bigImg;
-    img {
-      height: 100%;
-    }
+  .rightSide {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
 
-  .smallImg {
-    grid-area: smallImg;
-    background: #ff8742;
+  .divider {
+    height: 1px;
+    background: black;
+    margin: 1rem 0;
+  }
+
+  .mainContent {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .mainText {
+    display: inline-block;
+    width: 85%;
+    margin-top: 20px;
   }
 
   .text {
-    grid-area: text;
-    background: #ff8742;
-    :global(> h1) {
-      margin: 1rem 0;
-      margin-bottom: 2rem;
-    }
-    :global(h1),
-    :global(p) {
-      padding: 0 2rem;
-    }
-    button {
-      margin: 0 2rem;
-      align-self: end;
-    }
-    .underLine {
-      border-top: 2px solid black;
-      display: flex;
-      flex-direction: column;
-    }
-    padding-bottom: 1rem;
+    padding: 40px;
   }
 
   img {

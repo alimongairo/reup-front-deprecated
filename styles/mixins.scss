@@ -23,9 +23,10 @@ $xxl: 1600px;
   @include minScreen($xl, $xxl);
 }
 
-@mixin contentWidth ($centred: true, $padding: false ) {
+@mixin contentWidth ($centred: true, $padding: false, $width: 100% ) {
   max-width: $xxl;
-  width: 100% ;
+  width: $width;
+
   @if $padding {
     padding: 0 2rem;
   }

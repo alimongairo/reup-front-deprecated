@@ -1,0 +1,37 @@
+.btnGroupwrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+  width: 100%;
+  .btnOneColumn,
+  .btnTwoColumn,
+  .btnThreeColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .btnOneColumn {
+    .onebtnOneColumn {
+      text-align: right;
+    }
+    .twobtnOneColumn {
+      text-align: center;
+    }
+  }
+  .btnTwoColumn {
+    .onebtnTwoColumn {
+      text-align: left;
+    }
+    .twobtnTwoColumn {
+      text-align: right;
+    }
+  }
+  .btnThreeColumn {
+    .onebtnThreeColumn {
+      text-align: center;
+    }
+    .twobtnThreeColumn {
+      text-align: right;
+    }
+  }
+}

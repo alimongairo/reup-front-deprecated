@@ -13,7 +13,7 @@ const SearchFilter = () => {
   return (
     <div className={cx.wrapper_filter}>
       <div className={cx.wrapper_content_filters}>
-        <Heading tag="h2">фильтры</Heading>
+        <Heading tag="h3">фильтры</Heading>
 
         <FilterPrice />
         <FilterSize />

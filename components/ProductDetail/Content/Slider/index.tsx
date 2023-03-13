@@ -48,6 +48,9 @@ const Slider = ({ images }: IProps) => {
       <div className={cx.activeSlide}>
         <Image src={images[activeSlide]} alt={'activeSlide'} />
       </div>
+      <div className={cx.sizeBtn}>
+        <button title="на модели размер">!</button>
+      </div>
     </div>
   );
 };

@@ -23,7 +23,7 @@ const ProductDetailHeader = () => {
       <div className={cx.info}>
         <Heading>{productDetail.title}</Heading>
         <div>
-          <Heading tag="h3">{productDetail.brandTitle}</Heading>
+          <Heading tag="h2">{productDetail.brandTitle}</Heading>
           <Text className={cx.brandCode}>{productDetail.brandCode}</Text>
         </div>
       </div>

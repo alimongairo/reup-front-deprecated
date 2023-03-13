@@ -34,4 +34,27 @@
       max-height: 800px;
     }
   }
+
+  .sizeBtn {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 20px 20px;
+
+    button {
+      border: 1px outset #e4e4e4;
+      border-radius: 50%;
+      text-decoration: none;
+      background-color: #e4e4e4;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      justify-self: center;
+    }
+
+    button:hover {
+      background-color: black;
+      color: white;
+    }
+  }
 }

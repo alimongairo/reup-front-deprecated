@@ -11,22 +11,11 @@ import classNames from 'classnames';
 
 import { TProductCard } from '@/store/productDetail/type';
 
-import arrowDown from '@/static/icons/downArrow.svg';
-
 import cx from './index.module.scss';
 
 const Params = ({ sizes, description, oldPrice, price }: TProductCard) => {
-  const sizesOption = useMemo(() => {
-    return (
-      sizes.map((i) => ({
-        id: i,
-        value: i,
-        label: String(i),
-      })) || []
-    );
-  }, []);
-
-  const [viseble, setViseble] = useState(true);
+  const [hide, setHide] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {});
 
@@ -37,11 +26,11 @@ const Params = ({ sizes, description, oldPrice, price }: TProductCard) => {
           {oldPrice && <span className={cx.oldPrice}>{oldPrice}</span>}
           <span className={cx.price}>{price}</span>
         </div>
-        {/* <Select title="выбрать размер" options={sizesOption} /> */}
 
         <div className={cx.sizeButtons}>
           <Heading tag="h3">выберите размер</Heading>
           <div>
+            <Button>{sizes[0]}</Button>
             <Button>{sizes[1]}</Button>
             <Button>{sizes[2]}</Button>
             <Button>{sizes[3]}</Button>
@@ -63,13 +52,30 @@ const Params = ({ sizes, description, oldPrice, price }: TProductCard) => {
         <div>
           <div className={cx.headRow}>
             <div className={cx.description}>
-              <Heading tag="h3">описание</Heading>
+              <Heading tag="h3"> описание</Heading>
               <p>
-                <Text className={classNames()}>{description}</Text>
-                <Heading tag="h3">показать больше</Heading>
+                <Text className={classNames(cx.short, { [cx.full]: hide })}>
+                  {description}
+                </Text>
+                <Heading tag="h3" onClick={() => setHide(true)}>
+                  показать больше
+                </Heading>
               </p>
             </div>
-            <div></div>
+            <div className={cx.productInfo}>
+              <Heading tag="h3">о товаре</Heading>
+              <div className={classNames(cx.closed, { [cx.open]: open })}>
+                <Text>состав </Text>
+                <Text>сезон </Text>
+                <Text>узор </Text>{' '}
+                {/* подставить данные о товаре с бэка/моков */}
+                <Text>стиль </Text>
+                <Text>цвет </Text>
+                <Text>
+                  <a href="#">тфблица размеров</a>
+                </Text>
+              </div>
+            </div>
           </div>
         </div>
       </div>

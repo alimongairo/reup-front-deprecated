@@ -8,9 +8,11 @@ const PersonalAccount = () => {
     <div className={cx.wrapper}>
       <BtnGroup />
 
-      <Heading tag="h1">мои данные</Heading>
+      <div className={cx.personal_data}>
+        <Heading tag="h1">мои данные</Heading>
 
-      <PersonalData />
+        <PersonalData />
+      </div>
     </div>
   );
 };

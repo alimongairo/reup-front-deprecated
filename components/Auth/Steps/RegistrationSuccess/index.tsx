@@ -4,18 +4,20 @@ import { useRouter } from 'next/router';
 import Frame from '@/components/common/Frame';
 import Text from '@/components/common/Text';
 import A from '@/components/common/A';
-import { RegistrationContext } from '@/components/Registration/context';
+import { AuthContext } from '@/components/Auth/context';
 
 import { EPagesRoutes } from '@/constants/router';
 
-import cx from '../index.module.scss';
-
 const SuccessRegistration = () => {
-  const contextValue = useContext(RegistrationContext);
+  const contextValue = useContext(AuthContext);
   const router = useRouter();
 
   const onClose = () => {
     router.push(EPagesRoutes.Main);
+  };
+
+  const toProfile = () => {
+    router.push(EPagesRoutes.Profile);
   };
 
   return (
@@ -23,10 +25,13 @@ const SuccessRegistration = () => {
       title="регистрация успешно завершена!"
       onBack={contextValue?.decStep}
       onClose={onClose}
+      width="320px"
     >
-      <Text className={cx.success}>
+      <Text size="thin" style={{ marginTop: '1rem' }}>
         добавьте информацию о себе в{' '}
-        <A href={EPagesRoutes.Main}>личном кабинете</A>
+        <Text size="big" onClick={toProfile}>
+          личном кабинете
+        </Text>
       </Text>
     </Frame>
   );

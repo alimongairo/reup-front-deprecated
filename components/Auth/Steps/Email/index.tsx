@@ -17,10 +17,9 @@ import classNames from 'classnames';
 const EmailStep = () => {
   const contextValue = useContext(AuthContext);
   const [invalidEmail, setInvalidEmail] = useState(false);
-  const router = useRouter();
 
   const onClose = () => {
-    router.push(EPagesRoutes.Main);
+    contextValue?.onClose();
   };
 
   const onChangeEmail = useCallback(
@@ -29,10 +28,6 @@ const EmailStep = () => {
     },
     [],
   );
-
-  const toRegister = () => {
-    router.push(`${EPagesRoutes.Registration}`);
-  };
 
   const sendCode = () => {
     if (invalidEmail) {
@@ -43,7 +38,7 @@ const EmailStep = () => {
   };
 
   return (
-    <Frame title="вход в личный кабинет">
+    <Frame title="вход в личный кабинет" onClose={onClose}>
       <div className={styles.wrapper}>
         <div className={classNames(styles.flex, styles.header)}>
           <Input
@@ -60,7 +55,7 @@ const EmailStep = () => {
           <Button onClick={sendCode}>отправить код</Button>
         </div>
         <Text size="thin">еще не зарегистрированы?</Text>
-        <Text onClick={toRegister} className={styles.pointer}>
+        <Text onClick={contextValue?.toRegistration} className={styles.pointer}>
           зарегистрироваться
         </Text>
       </div>

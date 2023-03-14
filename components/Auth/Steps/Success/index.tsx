@@ -1,27 +1,24 @@
 import { useContext } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 import { AuthContext } from '@/components/Auth/context';
-
-import { EPagesRoutes } from '@/constants/router';
+import Button from '@/components/common/Button';
+import Frame from '@/components/common/Frame';
 
 import cx from './index.module.scss';
 
 const Success = () => {
   const contextValue = useContext(AuthContext);
-  const router = useRouter();
 
-  const onClose = () => {
-    router.push(EPagesRoutes.Main);
+  const goToMain = () => {
+    contextValue?.onClose();
   };
 
   return (
-    <div>
-      <Link href={EPagesRoutes.Main}>
-        <button className={cx.mTop}>к покупкам</button>
-      </Link>
-    </div>
+    <Frame title="вы успешно вошли!" onClose={contextValue?.onClose}>
+      <Button className={cx.btn} onClick={goToMain}>
+        к покупкам
+      </Button>
+    </Frame>
   );
 };
 

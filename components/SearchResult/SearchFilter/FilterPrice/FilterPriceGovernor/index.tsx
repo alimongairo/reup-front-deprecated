@@ -18,10 +18,6 @@ const FilterPriceGovernor = ({
   };
 
   return (
-    // <div className={cx.governor}>
-    //   <div className={cx.governor_border}></div>
-    //   <span>320</span>
-    // </div>
     <div className={cx.wrapper}>
       <div className={cx.slidecontainer}>
         <input

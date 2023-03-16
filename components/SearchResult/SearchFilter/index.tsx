@@ -11,6 +11,7 @@ import cx from './index.module.scss';
 
 const SearchFilter = () => {
   return (
+    //сделать тут форму ебаную
     <div className={cx.wrapper_filter}>
       <div className={cx.wrapper_content_filters}>
         <Heading tag="h3">фильтры</Heading>

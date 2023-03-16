@@ -1,29 +1,30 @@
 .input {
   padding: 12px 20px;
-  border: 2px solid #828282;
+  border: 1px solid #828282;
   transition: 0.3s;
   box-sizing: border-box;
   font-family: 'Gilroy', sans-serif;
   font-style: normal;
   font-weight: 300;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 110%;
+  margin: 8px 0;
 
   &:hover {
-    border: 2px solid #4f4f4f;
+    border: 1px solid #4f4f4f;
   }
   &:active,
   &:focus {
-    border: 2px solid #000000;
+    border: 1px solid #000000;
   }
 
   &.disabled {
-    border: 2px solid #e0e0e0;
+    border: 1px solid #e0e0e0;
     background: #f2f2f2;
   }
 
   &.invalid {
-    border: 2px solid #ba0000;
+    border: 1px solid #ba0000;
   }
 
   outline: none;
@@ -50,6 +51,7 @@
   width: 20px;
   font-size: 20px;
   text-align: center;
+  font-weight: 700;
 }
 
 .label {

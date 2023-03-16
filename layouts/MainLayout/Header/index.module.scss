@@ -1,40 +1,46 @@
 .wrapper {
-  width: 100%;
   display: flex;
-  flex-direction: column;
-  // gap: 1rem;
-
-  .logo{
-    padding: 0 2rem;
-    &.clickable {
-      cursor: pointer;
-    }
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid black;
+  width: calc(100% - 60px);
+  padding: 0 30px;
+  transition: .3s;
+  &:hover {
+    background: white;
   }
+}
 
-  .firstRow{
-    border: solid;
-    border-bottom: none;
-    height: 7rem;
-  }
+.leftSide {
+  align-items: center;
+  display: flex;
+  width: 90%;
+  padding: 5px 0;
+  justify-content: space-between;
+  margin-right: 30px;
+  padding-right: 30px;
+  border-right: 1px solid black;
+}
 
-  .firstRow,
-  .firstRow > div{
-    height: 4rem;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 1rem;
-  }
+.logo {
+  cursor: pointer;
+}
 
-  .buttons{
-    display: flex;
-    padding: 0 2rem;
-    justify-content: flex-end;
-    gap: 3rem !important;
-    border: solid;
-    border-right: none;
-    img {
-      width: 25px;
-    }
+.notMain {
+  background: white;
+}
+
+.hide {
+  top: -70px;
+}
+
+.actions {
+  display: flex;
+  gap: 2rem;
+  margin-top: -5px;
+  > * {
+    cursor: pointer;
   }
 }

@@ -7,19 +7,21 @@ import cx from './index.module.scss';
 
 import close from '@/static/icons/close.svg';
 import back from '@/static/icons/back.svg';
+import classNames from 'classnames';
 
 interface IProps {
   title: string;
   onBack?: () => void;
   onClose?: () => void;
   children: ReactNode;
+  width?: string;
 }
 
-const Frame = ({ title, children, onBack, onClose }: IProps) => {
+const Frame = ({ title, children, onBack, onClose, width }: IProps) => {
   return (
-    <div className={cx.wrapper}>
+    <div className={cx.wrapper} style={{ width }}>
       <div className={cx.bthHeader}>
-        <div onClick={onBack}>
+        <div onClick={onBack} className={classNames({ [cx.hide]: !onBack })}>
           <Image src={back} alt="back" />
         </div>
         <div onClick={onClose} className={cx.close}>

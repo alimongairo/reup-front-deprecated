@@ -1,7 +1,6 @@
-import { Skeleton } from 'antd';
+import { Skeleton, Modal } from 'antd';
 import { useEffect } from 'react';
 
-import Modal from '@/components/common/Modal';
 import DetailItem from '@/components/OrderHistory/DetailItem';
 
 import { useAppDispatch, useAppSelector } from '@/hooks/store';
@@ -27,7 +26,7 @@ const OrderHistoryModal = ({ isVisible, setVisible, orderId }: IModalProps) => {
   }, []);
 
   return (
-    <Modal isVisible={isVisible} onClose={() => setVisible(false)}>
+    <Modal visible={isVisible} onCancel={() => setVisible(false)}>
       {isLoading && <Skeleton active />}
       {dataSource.map((i) => (
         <DetailItem {...i} key={i.id} />

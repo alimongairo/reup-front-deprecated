@@ -9,9 +9,10 @@ import cx from '@/layouts/MainLayout/Header/Search/index.module.scss';
 
 interface IHistoryItemProps {
   title: string;
+  withClose?: boolean;
 }
 
-const HistoryItem = ({ title }: IHistoryItemProps) => {
+const HistoryItem = ({ title, withClose = false }: IHistoryItemProps) => {
   const onClear = () => {
     console.log('delete', title);
   };
@@ -19,7 +20,14 @@ const HistoryItem = ({ title }: IHistoryItemProps) => {
   return (
     <div className={cx.historyRow}>
       <Text size="thin">{title}</Text>
-      <Image src={close} alt={'close'} onClick={onClear} />
+      {withClose && (
+        <Image
+          className={cx.pointer}
+          src={close}
+          alt={'close'}
+          onClick={onClear}
+        />
+      )}
     </div>
   );
 };
@@ -31,9 +39,9 @@ const SearchHistory = () => {
         <Heading className={cx.historyTitle} tag="h3">
           вы недавно искали
         </Heading>
-        <HistoryItem title="рубашка белая" />
-        <HistoryItem title="костюм серый" />
-        <HistoryItem title="пижама женская" />
+        <HistoryItem title="рубашка белая" withClose />
+        <HistoryItem title="костюм серый" withClose />
+        <HistoryItem title="пижама женская" withClose />
       </div>
       <div className={cx.historyBlock}>
         <Heading className={cx.historyTitle} tag="h3">
@@ -42,6 +50,14 @@ const SearchHistory = () => {
         <HistoryItem title="рубашка белая" />
         <HistoryItem title="костюм серый" />
         <HistoryItem title="пижама женская" />
+      </div>
+      <div className={cx.historyBlock}>
+        <Heading className={cx.historyTitle} tag="h3">
+          больше интересного
+        </Heading>
+        <HistoryItem title="какой-то бренд" />
+        <HistoryItem title="какой-то бренд" />
+        <HistoryItem title="какой-то бренд" />
       </div>
     </div>
   );

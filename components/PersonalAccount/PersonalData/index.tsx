@@ -15,7 +15,6 @@ const PersonalData = () => {
       const formData = new FormData(formRef.current);
       for (const [q, value] of formData) {
         formDataObject[q] = value;
-        console.log(formDataObject);
       }
     }
   };
@@ -50,7 +49,7 @@ const PersonalData = () => {
           <div className={cx.rightBlockform}>
             <Heading tag="h4">контактные данные</Heading>
             <Input type="email" name="mail" placeholder="электронная почта" />
-            <Input type="tel" name="tel" placeholder="+7(999)999-99-99" />
+            <Input type="tel" name="tel" placeholder="+7 (999) 999-99-99" />
             <Input type="text" name="city" placeholder="Нижний Новгород" />
           </div>
         </div>

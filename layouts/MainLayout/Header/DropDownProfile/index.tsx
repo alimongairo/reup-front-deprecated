@@ -13,7 +13,6 @@ import cx from './index.module.scss';
 
 const DropDownProfile = () => {
   const [visible, setVisible] = useState(false);
-  const [visibleAuth, setVisibleAuth] = useState(false);
   const router = useRouter();
 
   const onClick = () => {
@@ -87,7 +86,7 @@ const DropDownProfile = () => {
         ),
       },
     ];
-  }, [visibleAuth]);
+  }, [visible]);
 
   return (
     <DropDown

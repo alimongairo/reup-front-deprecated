@@ -14,11 +14,12 @@ interface IProps {
   onBack?: () => void;
   onClose?: () => void;
   children: ReactNode;
+  width?: string;
 }
 
-const Frame = ({ title, children, onBack, onClose }: IProps) => {
+const Frame = ({ title, children, onBack, onClose, width }: IProps) => {
   return (
-    <div className={cx.wrapper}>
+    <div className={cx.wrapper} style={{ width }}>
       <div className={cx.bthHeader}>
         <div onClick={onBack} className={classNames({ [cx.hide]: !onBack })}>
           <Image src={back} alt="back" />

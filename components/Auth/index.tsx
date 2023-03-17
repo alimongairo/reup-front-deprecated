@@ -1,10 +1,19 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 
 import { steps, AuthContext } from '@/components/Auth/context';
 import Modal from '@/components/Auth/Modal';
 
-const AuthComponent = () => {
+interface IProps {
+  visible: boolean;
+  setVisible: (visible: boolean) => void;
+}
+
+const AuthComponent = ({ visible, setVisible }: IProps) => {
   const [step, setStep] = useState(0);
+
+  const onClose = () => {
+    setVisible(false);
+  };
 
   const incStep = () =>
     setStep((state) => {
@@ -22,20 +31,37 @@ const AuthComponent = () => {
       return 0;
     });
 
+  const toRegistration = () => {
+    setStep(3);
+  };
+
+  const toAuth = () => {
+    setStep(0);
+  };
+
   const providerValue = useMemo(() => {
     return {
       incStep,
       decStep,
+      onClose,
+      toRegistration,
+      toAuth,
       step,
     };
-  }, [step]);
+  }, [step, visible]);
 
   const CurrentStepComponent = steps[step];
 
+  useEffect(() => {
+    setStep(0);
+  }, [visible]);
+
   return (
-    <AuthContext.Provider value={providerValue}>
-      <CurrentStepComponent />
-    </AuthContext.Provider>
+    <Modal visible={visible} onClose={() => setVisible(false)}>
+      <AuthContext.Provider value={providerValue}>
+        <CurrentStepComponent />
+      </AuthContext.Provider>
+    </Modal>
   );
 };
 

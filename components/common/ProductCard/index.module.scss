@@ -6,16 +6,35 @@
   position: relative;
   transition: 0.3s;
 
+  &:hover {
+    .previewBtn {
+      opacity: 1;
+      z-index: 10;
+    }
+
+    .productImg {
+      opacity: 0.7;
+    }
+
+    .likeIcon {
+      opacity: 0.7 !important;
+    }
+  }
+
   .productImg {
     width: 100%;
     height: auto;
     cursor: pointer;
+    transition: 0.3s;
   }
+
   .likeIcon {
     position: absolute;
     right: calc(var(--reup-unit) * 3);
     top: calc(var(--reup-unit) * 3);
     transition: 0.3s;
+    opacity: 1;
+    z-index: 10;
     &:hover {
       transform: scale(1.2);
     }
@@ -34,5 +53,18 @@
     gap: 8px;
     margin-bottom: 16px;
     margin-top: 8px;
+  }
+
+  .previewBtn {
+    position: absolute;
+    top: 25%;
+    margin: 0 2rem;
+    padding: 10px;
+    opacity: 0;
+    transition: 0.3s;
+    cursor: pointer;
+    :global(p) {
+      font-size: 12px;
+    }
   }
 }

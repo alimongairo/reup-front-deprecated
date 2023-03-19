@@ -10,7 +10,7 @@ interface IProps
   > {
   children: ReactNode;
   size?: 'thin' | 'normal' | 'big';
-  decoration?: 'line';
+  decoration?: 'line' | 'underline';
 }
 
 const Text = ({

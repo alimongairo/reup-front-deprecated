@@ -15,6 +15,7 @@ const ReupChoosen = () => {
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const { width } = useWindowSize();
   const curWidth = width ? width - 200 : 'auto';
+
   return (
     <div className={cx.slider}>
       <div className={cx.slides}>

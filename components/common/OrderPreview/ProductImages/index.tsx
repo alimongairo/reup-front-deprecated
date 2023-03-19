@@ -15,14 +15,14 @@ interface IProps {
 const ProductImages = ({ products, basket }: IProps) => {
   return (
     <div className={cx.wrapper}>
-      <Link href={`${EPagesRoutes.Basket}/`}>
+      <Link href={`${EPagesRoutes.Basket}/`} rel={EPagesRoutes.Basket}>
         <Image
           src={products[basket[0].productId].imgSource}
           alt="product image"
         />
       </Link>
       {basket.length > 1 && (
-        <Link href={`${EPagesRoutes.Basket}/`}>
+        <Link href={`${EPagesRoutes.Basket}/`} rel={EPagesRoutes.Basket}>
           <div className={cx.ohterImages}>
             <div className={basket.length > 2 ? cx.blur : undefined}>
               <Image

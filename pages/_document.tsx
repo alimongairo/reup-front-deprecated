@@ -14,6 +14,8 @@ const Document = () => {
           href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap"
           rel="stylesheet"
         />
+        <title>Reup</title>
+        <meta name="reup" />
       </Head>
       <body>
         <Main />

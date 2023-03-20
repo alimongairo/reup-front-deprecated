@@ -7,6 +7,8 @@
   --reup-disable-color: #D6D6D6;
   --reup-transition: .3s;
   --reup-green: #BDDA63;
+  --reup-blue: #2D9CDB;
+  --reup-dark-green:  #0A8831;
 }
 
 body {
@@ -269,6 +271,8 @@ body {
 .w100 {
   width: 100%;
 }
+
+
 
 .pointer {
   cursor: pointer;

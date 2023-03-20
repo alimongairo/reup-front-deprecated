@@ -1,5 +1,6 @@
 import { ReactNode, useState } from 'react';
 import classNames from 'classnames';
+import Text from 'components/common/Text';
 
 import cx from './index.module.scss';
 
@@ -34,7 +35,7 @@ const Tabs = ({ tabs, activeTab, setActiveTab }: IProps) => {
               )}
               onClick={() => onTitleClick(item.id)}
             >
-              {item.title}
+              <Text size={'big'}>{item.title}</Text>
             </div>
           );
         })}

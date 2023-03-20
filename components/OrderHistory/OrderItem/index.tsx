@@ -1,79 +1,91 @@
 import Image from 'next/image';
 import { useState } from 'react';
+import classNames from 'classnames';
 
 import Text from '@/components/common/Text';
-import Modal from '@/components/OrderHistory/Modal';
+import Button from '@/components/common/Button';
+import OrderDetailModal from '@/components/OrderHistory/OrderItem/OrderDetailModal';
 
-import { TOrderHistoryItem } from '@/store/orderHistory/type';
-import arrowDown from '@/static/icons/downArrow.svg';
-
+import product from 'static/img/smallProduct_remove.png';
 import cx from './index.module.scss';
 
-const OrderItem = ({
-  num,
-  deliveryDate,
-  isPaid,
-  oldPrice,
-  price,
-  previewImages,
-  orderDate,
-  paymentMethod,
-  wayToGet,
-  status,
-  isClosed = false,
-  id,
-}: TOrderHistoryItem & { isClosed: boolean }) => {
+const OrderItem = () => {
   const [visible, setVisible] = useState(false);
+
+  const toggleVisible = () => {
+    setVisible((state) => !state);
+  };
 
   return (
     <div className={cx.wrapper}>
-      <h3 className={cx.num}>{num}</h3>
+      <div className={cx.header}>
+        <Text size="big" className={cx.num}>
+          №200493 / в пути
+        </Text>
+        <div className={cx.price}>
+          <Text size="thin">6 товаров</Text>
+          <Text size="big" className={cx.price}>
+            7800 ₽
+          </Text>
+        </div>
+      </div>
+
       <div className={cx.content}>
+        <div className={cx.products}>
+          <div className={cx.product}>
+            <Image className={cx.productImg} src={product} alt={'product'} />
+            <Text size={'big'} className={cx.space1}>
+              название товара
+            </Text>
+            <Text size={'thin'} className={cx.space1}>
+              название бренда
+            </Text>
+            <Text size={'thin'} className={cx.space2}>
+              размер 44 / синий
+            </Text>
+          </div>
+          <div className={cx.product}>
+            <Image className={cx.productImg} src={product} alt={'product'} />
+            <Text size={'big'} className={cx.space1}>
+              название товара
+            </Text>
+            <Text size={'thin'} className={cx.space1}>
+              название бренда
+            </Text>
+            <Text size={'thin'} className={cx.space2}>
+              размер 44 / синий
+            </Text>
+          </div>
+        </div>
         <div>
-          <div className={cx.row}>
-            <Text>6 товаров</Text>
-            <div className={cx.prices}>
-              {oldPrice && <span className={cx.oldPrice}>{oldPrice} ₽</span>}
-              <span className={cx.price}>{price} ₽</span>
-            </div>
-          </div>
-          <div className={cx.images}>
-            {previewImages.map((item, i) => (
-              <Image key={i} src={item} alt={'preview'} width="81" />
-            ))}
-          </div>
-          <div className={cx.more} onClick={() => setVisible(true)}>
-            <Text>подробнее</Text>
-            <Image src={arrowDown} alt={'arrowDown'} />
+          <Text size={'big'} className={cx.space2}>
+            дата заказа
+          </Text>
+          <Text size={'thin'}>9.01.2022</Text>
+        </div>
+        <div>
+          <Text size={'big'} className={cx.space2}>
+            способ оплаты
+          </Text>
+          <Text size={'thin'}>СБП Сбербанк</Text>
+        </div>
+        <div>
+          <Text size={'big'} className={cx.space2}>
+            адрес пункта выдачи
+          </Text>
+          <Text size={'thin'}>СДЭК, 40 лет Победы ул, 7 м. Автозаводская </Text>
+        </div>
+        <div className={cx.status}>
+          <Button onClick={toggleVisible}>подробнее</Button>
+          <OrderDetailModal visible={visible} onClose={toggleVisible} />
+          <div className={cx.info}>
+            <Text size={'big'} className={classNames(cx.space2, cx.payed)}>
+              оплачено
+            </Text>
+            <Text size={'thin'}>ожидаемая дата доставки: 12 января</Text>
           </div>
         </div>
-        <div className={cx.center}>
-          <div>
-            <h4>дата заказа</h4>
-            <Text size="normal">{orderDate}</Text>
-          </div>
-          <div>
-            <h4>способ оплаты</h4>
-            <Text size="normal">{paymentMethod}</Text>
-          </div>
-          <div>
-            <h4>способ получения</h4>
-            <Text size="normal">пункт выдачи: {wayToGet.pointOfIssue}</Text>
-            <Text size="normal">получатель: {wayToGet.recipient}</Text>
-          </div>
-          {isClosed && (
-            <div>
-              <button>оформить возврат</button>
-            </div>
-          )}
-        </div>
-        <div className={cx.status}>{status}</div>
       </div>
-      <div className={cx.footer}>
-        <Text>Ожидаемая дата доставки: {deliveryDate}</Text>
-        <div className={cx.isPaid}>{isPaid ? 'Оплачено' : 'Не оплачено'}</div>
-      </div>
-      <Modal isVisible={visible} setVisible={setVisible} orderId={id} />
     </div>
   );
 };

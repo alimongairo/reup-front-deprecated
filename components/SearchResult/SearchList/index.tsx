@@ -3,8 +3,8 @@ import ProductCard from '@/components/common/ProductCard';
 import { useAppSelector } from '@/hooks/store';
 import { getProductListDataSource } from '@/store/productList/selectors';
 import { useCallback } from 'react';
-import BrandBtn from '../BrandBtn';
-import SortBtn from '../SortBtn';
+import BrandBtn from '../DropDownBtn/BrandBtn';
+import SortBtn from '../DropDownBtn/SortBtn';
 import cx from './index.module.scss';
 
 const SearchList = () => {

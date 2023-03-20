@@ -270,6 +270,10 @@ body {
   width: 100%;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 .iconBnt {
   background: transparent;
   border: none;

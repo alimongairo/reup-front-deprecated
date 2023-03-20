@@ -1,0 +1,43 @@
+.flex_form {
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 3.063rem;
+
+  .leftBlockform {
+    width: 36.938rem;
+    display: flex;
+    flex-direction: column;
+    .floor {
+      padding-top: 2rem;
+    }
+    .floor_checked {
+      display: flex;
+      padding-top: 0.75rem;
+      input {
+        width: 2rem;
+        height: 2rem;
+        padding: 0;
+      }
+      label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 6.563rem;
+      }
+      .twoLabel {
+        margin-left: 1.5rem;
+      }
+    }
+  }
+
+  .rightBlockform {
+    margin-left: 3.188rem;
+    width: 36.938rem;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.submit {
+  margin-top: 3rem;
+}

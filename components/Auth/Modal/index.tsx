@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import classNames from 'classnames';
+import Portal from '@/hoc/Portal';
 
 interface IProps {
   children: ReactNode;
@@ -8,11 +9,10 @@ interface IProps {
 }
 
 import cx from './index.module.scss';
-import Portal from '@/hoc/Portal';
 
 const AuthModal = ({ children, visible, onClose }: IProps) => {
   return (
-    <Portal>
+    <Portal visible={visible}>
       <div className={cx.wrapper}>
         <div className={classNames(cx.modal, { [cx.visible]: visible })}>
           {children}

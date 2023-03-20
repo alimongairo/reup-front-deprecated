@@ -1,0 +1,50 @@
+.slider {
+  width: 50%;
+  position: relative;
+  .slides {
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    display: flex;
+  }
+  .slide {
+    transition: 0.3s;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.info {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #e4e4e4;
+  width: 20px;
+  text-align: center;
+  border-radius: 50%;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.counter {
+  position: absolute;
+  width: 80px;
+  height: 5px;
+  display: flex;
+  gap: 5px;
+  z-index: 100;
+  bottom: 10px;
+  right: 10px;
+
+  .countBlock {
+    cursor: pointer;
+    width: 10%;
+    height: 100%;
+    background: #e4e4e4;
+    transition: 0.3s;
+    &.active {
+      flex-grow: 1;
+      background: black;
+    }
+  }
+}

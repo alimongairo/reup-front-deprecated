@@ -14,6 +14,11 @@ const Document = () => {
           href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap"
           rel="stylesheet"
         />
+        <title>Reup</title>
+        <meta
+          name="reup"
+          content="Check out iPhone 12 XR Pro and iPhone 12 Pro Max. Visit your local store and for expert advice."
+        />
       </Head>
       <body>
         <Main />

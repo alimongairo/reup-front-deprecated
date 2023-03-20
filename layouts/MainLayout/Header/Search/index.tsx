@@ -26,8 +26,11 @@ const MainPageSearch = () => {
 
   useEffect(() => {
     if (visible && wrapperRef.current) {
+      document.body.style.overflow = 'hidden';
       wrapperRef.current.querySelector('input')?.focus();
+      return;
     }
+    document.body.style.overflow = 'auto';
   }, [visible]);
 
   return (

@@ -12,8 +12,8 @@ const FilterPrice = () => {
     <div className={cx.wrapper_price}>
       <Heading tag="h4">цена</Heading>
       <div className={cx.price_input}>
-        <Input placeholder="от" value={valuePriceOt} />
-        <Input placeholder="до" value={valuePriceOt} />
+        <Input placeholder="от" name="minPrice" value={valuePriceOt} />
+        <Input placeholder="до" name="maxPrice" value={valuePriceOt} />
       </div>
 
       <FilterPriceGovernor

@@ -1,11 +1,21 @@
+import { useRouter } from 'next/router';
+
 import Heading from '@/components/common/Heading';
 import Text from 'components/common/Text';
 import Input from '@/components/common/Input';
 import Button from '@/components/common/Button';
 
+import { EPagesRoutes } from '@/constants/router';
+
 import cx from './index.module.scss';
 
 const Summary = () => {
+  const router = useRouter();
+
+  const goToOrder = () => {
+    router.push(EPagesRoutes.Order);
+  };
+
   return (
     <div className={cx.wrapper}>
       <div className={cx.row}>
@@ -25,7 +35,7 @@ const Summary = () => {
         <Text size={'thin'}>бесплатно</Text>
       </div>
       <Input theme="grey" placeholder={'введите промокод'} />
-      <Button>Оформить заказ</Button>
+      <Button onClick={goToOrder}>Оформить заказ</Button>
     </div>
   );
 };

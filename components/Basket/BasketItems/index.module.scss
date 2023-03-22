@@ -2,7 +2,7 @@
 
 .wrapper {
   @include contentWidth(true, true, calc(100% - 4rem));
-
+  margin-top: 2rem;
   .contentWrapper {
     display: flex;
     gap: 50px;

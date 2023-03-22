@@ -22,7 +22,7 @@ const BasketItem = () => {
       <Image src={productImg} alt={'product'} />
       <div className={cx.content}>
         <div className={cx.row}>
-          <Heading tag={'h4'}>Топ Trendyol</Heading>
+          <Text size={'big'}>Топ Trendyol</Text>
           <Heading tag={'h3'}>10 000 ₽</Heading>
         </div>
         <div className={cx.row}>

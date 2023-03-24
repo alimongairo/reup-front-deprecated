@@ -33,23 +33,11 @@
     flex-wrap: wrap;
     > div {
       padding: 1rem;
-      width: 10%;
+      width: 5%;
       span {
         margin-right: 1rem;
         margin-top: 1rem;
       }
     }
-
-    // display: grid;
-    // grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
-    // grid-template-rows: repeat(auto-fill, minmax(580px, 580px));
-    // justify-content: space-between;
-    // > div {
-    //   padding: 1rem;
-    //   width: 10%;
-    //   span {
-    //     margin-right: 1rem;
-    //     margin-top: 1rem;
-    //   }
   }
 }

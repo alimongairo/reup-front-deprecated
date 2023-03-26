@@ -1,6 +1,5 @@
 import { Affix } from 'antd';
 
-import EmptyBasket from '@/components/common/EmptyBasket';
 import ProductImages from '@/components/common/OrderPreview/ProductImages';
 import PriceInfo from '@/components/common/OrderPreview/PriceInfo';
 import FirstRow from '@/components/common/OrderPreview/FirstRow';
@@ -19,18 +18,11 @@ const OrderPreview = ({ products, basket }: IProps) => {
   return (
     <Affix offsetTop={32}>
       <div className={cx.wrapper}>
-        {!basket || !basket.length ? (
-          <EmptyBasket />
-        ) : (
-          <>
-            <FirstRow />
-
-            <div className={cx.content}>
-              <ProductImages basket={basket} products={products} />
-              <PriceInfo basket={basket} products={products} />
-            </div>
-          </>
-        )}
+        <FirstRow />
+        <div className={cx.content}>
+          <ProductImages basket={basket || []} products={products} />
+          <PriceInfo basket={basket || []} products={products} />
+        </div>
       </div>
     </Affix>
   );

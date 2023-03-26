@@ -23,6 +23,7 @@
       img {
         width: 100%;
         height: auto;
+        object-fit: cover;
       }
     }
   }
@@ -30,8 +31,8 @@
     width: 75%;
     img {
       width: 100%;
-      height: auto;
       max-height: 800px;
+      object-fit: cover;
     }
   }
 
@@ -42,7 +43,7 @@
     padding: 20px 20px;
 
     button {
-      border: 1px outset #e4e4e4;
+      border: 1px solid #e4e4e4;
       border-radius: 50%;
       text-decoration: none;
       background-color: #e4e4e4;

@@ -1,15 +1,10 @@
-import React, {
-  DetailedHTMLProps,
-  HTMLAttributes,
-  HTMLInputTypeAttribute,
-  InputHTMLAttributes,
-} from 'react';
+import React, { HTMLInputTypeAttribute } from 'react';
 import classNames from 'classnames';
 
 import Text from '@/components/common/Text';
+import CodeInput from '@/components/common/Input/CodeInput';
 
 import cx from './index.module.scss';
-import CodeInput from '@/components/common/Input/CodeInput';
 
 interface IProps
   extends React.DetailedHTMLProps<
@@ -21,6 +16,7 @@ interface IProps
   invalid?: boolean;
   label?: string;
   errorMessage?: string;
+  theme?: 'light' | 'grey';
 }
 
 const Input = ({
@@ -29,6 +25,7 @@ const Input = ({
   errorMessage,
   codeInput,
   label,
+  theme = 'light',
   ...props
 }: IProps) => {
   if (codeInput) {
@@ -39,7 +36,9 @@ const Input = ({
     <>
       {label && <Text className={cx.label}>{label}</Text>}
       <input
-        className={classNames(className, cx.input, { [cx.invalid]: invalid })}
+        className={classNames(className, cx.input, cx[theme], {
+          [cx.invalid]: invalid,
+        })}
         {...props}
       />
 

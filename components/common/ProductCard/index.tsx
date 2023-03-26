@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import Heading from '@/components/common/Heading';
 import Text from '@/components/common/Text';
 import Button from '@/components/common/Button';
+import PreviewProductModal from '@/components/common/ProductCard/PreviewProductModal';
 
 import { TProductItem } from '@/store/productList/type';
 import { EPagesRoutes } from '@/constants/router';
@@ -31,14 +32,27 @@ const ProductCard = ({
   onLike,
   onAddToBasket,
 }: IProps) => {
+  const [visibleModal, setVisibleModal] = useState(false);
   const router = useRouter();
 
   const goToProductDetail = () => {
     router.push(`${EPagesRoutes.ProductDetail}/${id}`);
   };
 
+  const onCloseModal = () => {
+    setVisibleModal(false);
+  };
+
   return (
     <div className={cx.wrapper}>
+      <Button
+        size="small"
+        className={cx.previewBtn}
+        onClick={() => setVisibleModal(true)}
+      >
+        <Text size="thin">быстрый просмотр</Text>
+      </Button>
+      <PreviewProductModal visible={visibleModal} onClose={onCloseModal} />
       <span
         className={classNames(cx.likeIcon, 'iconBnt')}
         onClick={() => onLike(id)}

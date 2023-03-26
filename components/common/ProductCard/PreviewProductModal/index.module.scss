@@ -1,0 +1,43 @@
+.contentWrapper {
+  display: flex;
+  gap: 20px;
+
+  .imgWrapper {
+    width: 50%;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .info {
+    .heading {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    width: 50%;
+    .price {
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+    }
+    .sizes {
+      display: flex;
+      gap: 15px;
+    }
+    .code {
+      color: #828282;
+    }
+    .oldPrice {
+      color: rgba(0, 0, 0, 0.5);
+    }
+  }
+  .space {
+    margin: 1rem 0;
+  }
+  .line {
+    height: 1px;
+    background: black;
+    width: 100%;
+  }
+}

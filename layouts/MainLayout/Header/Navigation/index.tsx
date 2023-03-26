@@ -48,13 +48,6 @@ const MainPageNavigation = () => {
       >
         upcycle
       </Text>
-      <Text
-        size="thin"
-        className={cx.navbarItem}
-        onClick={() => goToCategory('вторые ручки')}
-      >
-        вторые ручки
-      </Text>
       <Text size="thin" className={cx.navbarItem} onClick={goToSale}>
         sale
       </Text>

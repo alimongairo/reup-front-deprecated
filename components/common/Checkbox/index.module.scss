@@ -1,0 +1,62 @@
+.wrapper {
+  display: flex;
+  height: 100%;
+  cursor: pointer;
+
+  &.top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  &.left {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &.right {
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .input {
+    top: -5%;
+    left: -5%;
+    margin: 0;
+    width: 110%;
+    height: 110%;
+    position: absolute;
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    &:hover::after {
+      background-color: var(--reup-primary);
+    }
+
+    &:checked::after {
+      background-color: var(--reup-primary-active);
+      background-image: url('../../../static/icons/checked.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  .inputWrapper {
+    width: 32px;
+    height: 32px;
+    border: 1px solid black;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .uiInput {
+    transition: 0.3s;
+  }
+}

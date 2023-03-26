@@ -7,11 +7,25 @@ interface IProps
   extends DetailedHTMLProps<
     HTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
-  > {}
+  > {
+  disable?: boolean;
+  size?: 'small' | 'normal';
+}
 
-const Button = ({ children, className, ...props }: IProps) => {
+const Button = ({
+  children,
+  className,
+  disable,
+  size = 'normal',
+  ...props
+}: IProps) => {
   return (
-    <button className={classNames(className, cx.btn)} {...props}>
+    <button
+      className={classNames(className, cx.btn, cx[size], 'pointer', {
+        [cx.disable]: disable,
+      })}
+      {...props}
+    >
       {children}
     </button>
   );

@@ -25,9 +25,9 @@ const Footer = () => {
       </div>
       <div className={cx.icons}>
         <Image width={20} src={vk} alt={'vk'} />
-        <Image width={20} src={tg} alt={'tg'} />
         <Image width={20} src={instagram} alt={'instagram'} />
         <Image width={20} src={facebook} alt={'facebook'} />
+        <Image width={20} src={tg} alt={'tg'} />
       </div>
     </div>
   );

@@ -7,18 +7,18 @@ import Select from '@/components/common/Select';
 import Heading from '@/components/common/Heading';
 import Text from '@/components/common/Text';
 import Button from '@/components/common/Button';
+import Collapse from '@/components/common/Collapse';
 import classNames from 'classnames';
+import ProductInfo from '@/components/common/ProductCard/PreviewProductModal/ProductInfo';
 
 import { TProductCard } from '@/store/productDetail/type';
 
 import cx from './index.module.scss';
 
+const mockText =
+  'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores sequi, odio tenetur dolorem sint debitis molestias eligendi veniam dignissimos! Distinctio praesentium fugit possimus doloremque saepe mollitia voluptatum eos aliquam quo?';
+
 const Params = ({ sizes, description, oldPrice, price }: TProductCard) => {
-  const [hide, setHide] = useState(false);
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {});
-
   return (
     <div className={cx.wrapper}>
       <div className={cx.price}>
@@ -47,34 +47,23 @@ const Params = ({ sizes, description, oldPrice, price }: TProductCard) => {
         </div>
         <Heading tag="h3">характеристики</Heading>
       </div>
-
       <div>
         <div>
           <div className={cx.headRow}>
             <div className={cx.description}>
-              <Heading tag="h3"> описание</Heading>
-              <p>
-                <Text className={classNames(cx.short, { [cx.full]: hide })}>
-                  {description}
-                </Text>
-                <Heading tag="h3" onClick={() => setHide(true)}>
-                  показать больше
-                </Heading>
-              </p>
+              <Collapse
+                title={'описание'}
+                content={<Text size="thin">{mockText}</Text>}
+                moreText={'показать больше'}
+                lessText={'показать меньше'}
+                hideCollapseIcon
+              />
             </div>
             <div className={cx.productInfo}>
-              <Heading tag="h3">о товаре</Heading>
-              <div className={classNames(cx.closed, { [cx.open]: open })}>
-                <Text>состав </Text>
-                <Text>сезон </Text>
-                <Text>узор </Text>{' '}
-                {/* подставить данные о товаре с бэка/моков */}
-                <Text>стиль </Text>
-                <Text>цвет </Text>
-                <Text>
-                  <a href="#">тфблица размеров</a>
-                </Text>
-              </div>
+              <Collapse title={'о товаре'} content={<ProductInfo />} />
+              <Text decoration="underline" className={'pointer'}>
+                таблица размеров
+              </Text>
             </div>
           </div>
         </div>

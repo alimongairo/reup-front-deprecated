@@ -1,6 +1,8 @@
-import Heading from '@/components/common/Heading';
-import Input from '@/components/common/Input';
 import { useRef } from 'react';
+
+import Input from '@/components/common/Input';
+import Text from '@/components/common/Text';
+
 import cx from './index.module.scss';
 
 const PersonalData = () => {
@@ -24,15 +26,13 @@ const PersonalData = () => {
       <form ref={formRef} onChange={onChangeForm} id="form">
         <div className={cx.flex_form}>
           <div className={cx.leftBlockform}>
-            <Heading tag="h4">личные данные</Heading>
+            <Text size="big">личные данные</Text>
             <Input type="text" name="name" placeholder="Иванов" />
             <Input type="text" name="firstName" placeholder="Иван" />
             <Input type="text" name="lastName" placeholder="Иванович" />
             <Input type="date" name="age" placeholder="дд.мм.гггг" />
 
-            <Heading className={cx.floor} tag="h4">
-              пол
-            </Heading>
+            <Text size="big">пол</Text>
             <div className={cx.floor_checked}>
               <label>
                 <Input type="checkbox" name="floorMen" />
@@ -47,7 +47,7 @@ const PersonalData = () => {
           </div>
 
           <div className={cx.rightBlockform}>
-            <Heading tag="h4">контактные данные</Heading>
+            <Text size="big">контактные данные</Text>
             <Input type="email" name="mail" placeholder="электронная почта" />
             <Input type="tel" name="tel" placeholder="+7 (999) 999-99-99" />
             <Input type="text" name="city" placeholder="Нижний Новгород" />

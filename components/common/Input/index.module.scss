@@ -9,7 +9,20 @@
   font-size: 16px;
   line-height: 110%;
   margin: 8px 0;
-
+  &.grey {
+    border: 1px solid transparent;
+    background: #f3f3f3;
+    color: #4f4f4f;
+    &:hover {
+      color: black;
+      background: #eaeaea;
+    }
+    &:focus {
+      border: 1px solid #828282;
+      color: black;
+      background: #eaeaea;
+    }
+  }
   &:hover {
     border: 1px solid #4f4f4f;
   }

@@ -1,53 +1,73 @@
-import React, { useState } from 'react';
-import { DownOutlined } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
-import { Dropdown, Space } from 'antd';
+import { useMemo, useState } from 'react';
+import { useRouter } from 'next/router';
 
-const BrandBtn = () => {
-  const [open, setOpen] = useState(false);
+import DropDown, { IDropDownItem } from '@/components/common/DropDown';
+import Text from '@/components/common/Text';
 
-  const handleMenuClick: MenuProps['onClick'] = (e) => {
-    if (e.key === '3') {
-      setOpen(false);
-    }
+import LoginItem from '@/layouts/MainLayout/Header/DropDownProfile/Login';
+
+import { EPagesRoutes } from '@/constants/router';
+import ProfileSvg from '@/static/icons/Profile';
+import classNames from 'classnames';
+import cx from './index.module.scss';
+
+const DropDownProfile = () => {
+  const [visible, setVisible] = useState(false);
+  const router = useRouter();
+
+  const onClick = () => {
+    setVisible((state) => !state);
   };
 
-  const handleOpenChange = (flag: boolean) => {
-    setOpen(flag);
+  const toOrderHistory = () => {
+    router.push(`${EPagesRoutes.OrderHistory}`);
   };
 
-  const items: MenuProps['items'] = [
-    {
-      label: 'Adidas',
-      key: '1',
-    },
-    {
-      label: 'Nike',
-      key: '2',
-    },
-    {
-      label: 'Puma',
-      key: '3',
-    },
-  ];
+  const toPersonalAccount = () => {
+    router.push(`${EPagesRoutes.PersonalAccount}`);
+  };
+
+  const overlay: IDropDownItem[] = useMemo(() => {
+    return [
+      {
+        id: 0,
+        label: (
+          <div onClick={toPersonalAccount} className={cx.ddItem}>
+            <Text size="thin">Adidas</Text>
+          </div>
+        ),
+      },
+      {
+        id: 1,
+        label: (
+          <div className={cx.ddItem}>
+            <Text size="thin">Puma</Text>
+          </div>
+        ),
+      },
+      {
+        id: 2,
+        label: (
+          <div onClick={toOrderHistory} className={cx.ddItem}>
+            <Text size="thin">Nike</Text>
+          </div>
+        ),
+      },
+    ];
+  }, [visible]);
 
   return (
-    <Dropdown
-      menu={{
-        items,
-        onClick: handleMenuClick,
-      }}
-      onOpenChange={handleOpenChange}
-      open={open}
-    >
-      <a onClick={(e) => e.preventDefault()}>
-        <Space>
-          Брэнд
-          <DownOutlined />
-        </Space>
-      </a>
-    </Dropdown>
+    <DropDown
+      visible={visible}
+      setVisible={onClick}
+      overlay={overlay}
+      title={
+        <div className={cx.ddTitle}>
+          <Text>Брэнд</Text>
+        </div>
+      }
+    />
   );
 };
 
-export default BrandBtn;
+export default DropDownProfile;

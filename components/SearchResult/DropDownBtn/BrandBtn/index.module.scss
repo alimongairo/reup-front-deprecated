@@ -1,0 +1,32 @@
+.ddItem {
+  transition: 0.3s;
+  width: 100%;
+  cursor: pointer;
+  text-align: left;
+  &:after {
+    display: block;
+    content: '';
+    height: 2px;
+    width: 0;
+    background: var(--reup-primary);
+    transition: 0.3s;
+  }
+  &:hover {
+    color: var(--reup-primary);
+    font-weight: 500;
+    &:after {
+      width: 100%;
+    }
+  }
+}
+
+.ddTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lastItem {
+  border-top: 1px solid #000;
+  padding-top: 1rem;
+}

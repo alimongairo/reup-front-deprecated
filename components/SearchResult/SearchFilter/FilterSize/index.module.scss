@@ -104,23 +104,10 @@
 
   .btn_group_size {
     padding-top: 0.75rem;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    div {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      flex-wrap: nowrap;
-    }
-    button {
-      width: auto !important;
-      padding: 0.8em;
-      height: auto;
-      margin: 0.3rem;
-      margin-left: 0;
-    }
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 5px;
   }
   p {
     padding-top: 0.75rem;

@@ -1,5 +1,5 @@
 import Text from '@/components/common/Text';
-import Minus from '@/static/icons/Minuse.svg';
+import Minus from '@/static/icons/minuse.svg';
 import Plus from '@/static/icons/plus.svg';
 import Image from 'next/image';
 import { useState } from 'react';

@@ -85,21 +85,6 @@ const FilterSize = () => {
               </a>
             </div>
 
-            <div className={cx.btn_group_size}>
-              <div className={cx.btn_group_size_one}>
-                <Button>s</Button>
-                <Button>m</Button>
-                <Button>l</Button>
-                <Button>xl</Button>
-              </div>
-              <div className={cx.btn_group_size_one}>
-                <Button>s</Button>
-                <Button>m</Button>
-                <Button>l</Button>
-                <Button>xl</Button>
-              </div>
-            </div>
-
             <Text onClick={onClickPopup}>таблица размеров</Text>
           </div>
         </div>
@@ -125,18 +110,14 @@ const FilterSize = () => {
           </div>
 
           <div className={cx.btn_group_size}>
-            <div>
-              <Button>s</Button>
-              <Button>m</Button>
-              <Button>l</Button>
-              <Button>xl</Button>
-            </div>
-            <div>
-              <Button>s</Button>
-              <Button>m</Button>
-              <Button>l</Button>
-              <Button>xl</Button>
-            </div>
+            <Button size="small">s</Button>
+            <Button size="small">m</Button>
+            <Button size="small">l</Button>
+            <Button size="small">xl</Button>
+            <Button size="small">s</Button>
+            <Button size="small">m</Button>
+            <Button size="small">l</Button>
+            <Button size="small">xl</Button>
           </div>
 
           <Text onClick={onClickPopup}>таблица размеров</Text>

@@ -101,14 +101,21 @@
       }
     }
   }
-
-  .btn_group_size {
-    padding-top: 0.75rem;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr 1fr;
-    gap: 5px;
+  .size_btn {
+    width: 100%;
+    .btn_group_size {
+      padding-top: 0.75rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 1fr 1fr;
+      gap: 5px;
+      width: 200px;
+      button {
+        padding: 0.5em 1.3em;
+      }
+    }
   }
+
   p {
     padding-top: 0.75rem;
     text-decoration: underline;

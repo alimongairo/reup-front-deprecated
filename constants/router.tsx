@@ -15,4 +15,6 @@ export enum EPagesRoutes {
   Category = '/category',
   Sale = '/sale',
   Liked = '/liked',
+  Returns = '/returns',
+  ReturnItem = '/returns/returnItem/',
 }

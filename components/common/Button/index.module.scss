@@ -13,6 +13,11 @@
   letter-spacing: 0.07em;
   color: #000000;
 
+  &.active {
+    color: white;
+    background: var(--reup-primary-active);
+  }
+
   &.small {
     padding: 11px 25px;
   }

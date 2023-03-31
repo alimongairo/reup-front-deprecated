@@ -12,8 +12,12 @@ import close from '@/static/icons/close.svg';
 
 import cx from './index.module.scss';
 
-const MainPageSearch = () => {
-  const [visible, setVisible] = useState(false);
+interface IProps {
+  visible: boolean;
+  setVisible: (visible: boolean) => void;
+}
+
+const MainPageSearch = ({ visible, setVisible }: IProps) => {
   const [searchValue, setSearchValue] = useState('');
   const wrapperRef = useRef<HTMLDivElement>(null);
 

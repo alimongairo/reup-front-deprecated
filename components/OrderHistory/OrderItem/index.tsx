@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 import classNames from 'classnames';
 
 import Text from '@/components/common/Text';
@@ -7,9 +7,14 @@ import Button from '@/components/common/Button';
 import OrderDetailModal from '@/components/OrderHistory/OrderItem/OrderDetailModal';
 
 import product from 'static/img/smallProduct_remove.png';
+
 import cx from './index.module.scss';
 
-const OrderItem = () => {
+interface IProps {
+  actionNode?: ReactNode;
+}
+
+const OrderItem = ({ actionNode }: IProps) => {
   const [visible, setVisible] = useState(false);
 
   const toggleVisible = () => {
@@ -76,8 +81,14 @@ const OrderItem = () => {
           <Text size={'thin'}>СДЭК, 40 лет Победы ул, 7 м. Автозаводская </Text>
         </div>
         <div className={cx.status}>
-          <Button onClick={toggleVisible}>подробнее</Button>
-          <OrderDetailModal visible={visible} onClose={toggleVisible} />
+          {actionNode ? (
+            actionNode
+          ) : (
+            <>
+              <Button onClick={toggleVisible}>подробнее</Button>
+              <OrderDetailModal visible={visible} onClose={toggleVisible} />
+            </>
+          )}
           <div className={cx.info}>
             <Text size={'big'} className={classNames(cx.space2, cx.payed)}>
               оплачено

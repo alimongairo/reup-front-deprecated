@@ -18,6 +18,7 @@ import cx from './index.module.scss';
 const MainPageHeader = () => {
   const router = useRouter();
   const [hide, setHide] = useState(false);
+  const [searchVisible, setSearchVisible] = useState(false);
 
   const goToBasket = () => {
     router.push(EPagesRoutes.Basket);
@@ -58,7 +59,7 @@ const MainPageHeader = () => {
           REUP
         </Heading>
         <Navigation />
-        <Search />
+        <Search visible={searchVisible} setVisible={setSearchVisible} />
       </div>
       <div className={cx.actions}>
         <Image src={like} alt="like" width={18} onClick={goToLiked} />

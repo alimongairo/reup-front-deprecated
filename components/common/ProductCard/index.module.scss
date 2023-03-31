@@ -5,6 +5,7 @@
   gap: calc(var(--reup-unit));
   position: relative;
   transition: 0.3s;
+  max-width: 200px;
 
   &:hover {
     .previewBtn {

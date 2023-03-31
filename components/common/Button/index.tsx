@@ -10,6 +10,7 @@ interface IProps
   > {
   disable?: boolean;
   size?: 'small' | 'normal';
+  active?: boolean;
 }
 
 const Button = ({
@@ -17,12 +18,14 @@ const Button = ({
   className,
   disable,
   size = 'normal',
+  active,
   ...props
 }: IProps) => {
   return (
     <button
       className={classNames(className, cx.btn, cx[size], 'pointer', {
         [cx.disable]: disable,
+        [cx.active]: active,
       })}
       {...props}
     >

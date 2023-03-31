@@ -1,0 +1,12 @@
+@import 'styles/mixins.scss';
+
+.wrapper {
+  @include contentWidth(true, true, calc(100% - 4rem));
+  margin-top: 2rem;
+  .pageTitle {
+    margin-bottom: 2rem;
+  }
+  .count {
+    margin-bottom: 1rem;
+  }
+}

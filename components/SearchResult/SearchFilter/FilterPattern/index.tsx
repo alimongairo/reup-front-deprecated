@@ -15,7 +15,7 @@ const FilterPattern = () => {
   return (
     <div className={cx.wrapper_pattern}>
       <div className={cx.header_pattern}>
-        <Text>узор</Text>
+        <Text size="normal">узор</Text>
         {listActive ? (
           <Image
             className={cx.minus}

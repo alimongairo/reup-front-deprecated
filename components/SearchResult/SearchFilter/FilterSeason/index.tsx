@@ -15,7 +15,7 @@ const FilterSeason = () => {
   return (
     <div className={cx.wrapper_pattern}>
       <div className={cx.header_pattern}>
-        <Text>сезон</Text>
+        <Text size="normal">сезон</Text>
         {listActive ? (
           <Image
             className={cx.minus}

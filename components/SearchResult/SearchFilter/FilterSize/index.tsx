@@ -90,7 +90,7 @@ const FilterSize = () => {
         </div>
       ) : (
         <div className={cx.size_btn}>
-          <Heading tag="h4">размер</Heading>
+          <Text size="normal">размер</Text>
 
           <div className={cx.size_checkbox}>
             <a

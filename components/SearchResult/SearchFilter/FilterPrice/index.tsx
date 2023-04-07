@@ -1,27 +1,15 @@
-import Heading from '@/components/common/Heading';
 import Input from '@/components/common/Input';
-import React, { useState } from 'react';
-import FilterPriceGovernor from './FilterPriceGovernor';
+import Text from '@/components/common/Text';
 import cx from './index.module.scss';
 
 const FilterPrice = () => {
-  const [valuePriceOt, setValuePriceOt] = useState('50');
-  const [valuePriceDo, setValuePriceDo] = useState('50');
-  // const focusInput = ;
   return (
     <div className={cx.wrapper_price}>
-      <Heading tag="h4">цена</Heading>
+      <Text size="normal">цена</Text>
       <div className={cx.price_input}>
-        <Input placeholder="от" name="minPrice" value={valuePriceOt} />
-        <Input placeholder="до" name="maxPrice" value={valuePriceOt} />
+        <Input placeholder="от" name="minPrice" />
+        <Input placeholder="до" name="maxPrice" />
       </div>
-
-      <FilterPriceGovernor
-        valuePriceDo={valuePriceDo}
-        setValuePriceDo={setValuePriceDo}
-        valuePriceOt={valuePriceOt}
-        setValuePriceOt={setValuePriceOt}
-      />
     </div>
   );
 };

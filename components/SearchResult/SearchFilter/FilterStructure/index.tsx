@@ -16,7 +16,7 @@ const FilterStructure = () => {
 
   return (
     <div className={cx.wrapper_pattern}>
-      <div className={cx.header_pattern}>
+      {/* <div className={cx.header_pattern}>
         <Collapse
           title="состав"
           content={
@@ -45,9 +45,23 @@ const FilterStructure = () => {
             </div>
           }
         />
+      </div> */}
+
+      <div className={cx.header_pattern}>
+        <Text size="normal">состав</Text>
+        {listActive ? (
+          <Image
+            className={cx.minus}
+            onClick={onClickListActive}
+            src={Minus}
+            alt="Minus"
+          />
+        ) : (
+          <Image onClick={onClickListActive} src={Plus} alt="Plus" />
+        )}
       </div>
 
-      {/* <div className={listActive ? cx.list_pattern : cx.list_pattern_dis}>
+      <div className={listActive ? cx.list_pattern : cx.list_pattern_dis}>
         <div className={cx.len}>
           <input
             type="checkbox"
@@ -69,7 +83,7 @@ const FilterStructure = () => {
           />
           <label htmlFor="klen">синтетика</label>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };

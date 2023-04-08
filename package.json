@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "deploy": "next build && next export && node ./scripts/deploy.js",
+    "pre-deploy": "next build && next export",
+    "deploy": "npm run pre-deploy && node ./scripts/deploy.js",
     "start": "next start",
     "prepare": "husky install",
     "precommit": "npm run lint:write && npm run prettier && git add -A .",

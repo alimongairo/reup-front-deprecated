@@ -15,7 +15,7 @@ export interface IMainSlider {
   bgColor?: string;
 }
 
-const ReupChoosen = () => {
+const Slider = () => {
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const { width } = useWindowSize();
   const curWidth = width ? width - 200 : 'auto';
@@ -128,4 +128,4 @@ const ReupChoosen = () => {
   );
 };
 
-export default ReupChoosen;
+export default Slider;

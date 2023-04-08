@@ -1,0 +1,46 @@
+.bannerImg {
+  width: 100%;
+  height: auto;
+}
+
+.logo {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+}
+
+.promoCards {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  border-bottom: 1px solid black;
+  .promoBanner {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    overflow: hidden;
+    img {
+      width: auto;
+      height: 85%;
+    }
+    .bannerFooter {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+    }
+  }
+  .promoProduct,
+  .about {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
+    gap: 25px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+    .moreBtn {
+      align-self: flex-end;
+    }
+  }
+}

@@ -14,6 +14,7 @@ import { useAppDispatch, useAppSelector } from '@/hooks/store';
 import { getProductListDataSource } from '@/store/productList/selectors';
 import { useEffect } from 'react';
 import { getProductListAction } from '@/store/productList/thunk';
+import classNames from 'classnames';
 
 const Scheme2 = () => {
   const dispatch = useAppDispatch();
@@ -64,10 +65,14 @@ const Scheme2 = () => {
           </Text>
         </div>
       </div>
-      <Heading>заголовок</Heading>
+      <div className={classNames(cx.heading, cx.headingSlider)}>
+        <Heading>заголовок</Heading>
+      </div>
       <Slider />
       <div className={cx.products}>
-        <Heading>заголовок</Heading>
+        <div className={cx.heading}>
+          <Heading>заголовок</Heading>
+        </div>
         <ProductsList productList={newProducts} />
       </div>
     </div>

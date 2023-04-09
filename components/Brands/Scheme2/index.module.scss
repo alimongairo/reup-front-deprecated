@@ -1,3 +1,5 @@
+@import 'styles/mixins.scss';
+
 .bannerImg {
   width: 100%;
   height: auto;
@@ -7,12 +9,14 @@
   border: 1px solid black;
   display: flex;
   justify-content: center;
+  margin-top: -6px;
 }
 
 .promoCards {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   border-bottom: 1px solid black;
+  margin-bottom: 6rem;
   .promoBanner {
     border-left: 1px solid black;
     border-right: 1px solid black;
@@ -47,4 +51,13 @@
 
 .products {
   background: #799de1;
+  padding-bottom: 2rem;
+}
+
+.headingSlider {
+  margin-bottom: -2rem !important;
+}
+
+.heading {
+  @include contentWidth(true, true, calc(100% - 4rem));
 }

@@ -31,7 +31,7 @@ const SearchList = () => {
         <Button>
           <BrandBtn />
         </Button>
-        <Button>
+        <Button className={cx.btn_sort}>
           <SortBtn />
         </Button>
       </div>

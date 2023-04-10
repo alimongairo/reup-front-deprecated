@@ -1,0 +1,43 @@
+.wrapper_color {
+  padding-top: 1.5rem;
+  .btn_group_color {
+    padding-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    button {
+      width: 3.438em;
+      height: 2.375em;
+      padding: 0.8em;
+      margin-left: 0.3rem;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    .btn_one {
+      margin-left: 0;
+      background-color: #fff;
+      &:focus {
+        transform: scale(1.1);
+      }
+    }
+    .btn_two {
+      background-color: #000;
+      &:focus {
+        transform: scale(1.1);
+      }
+    }
+    .btn_three {
+      background-color: #7991f5;
+      &:focus {
+        transform: scale(1.1);
+      }
+    }
+    .btn_four {
+      background-color: #bdda63;
+      &:focus {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

@@ -13,7 +13,7 @@ const MainPageNavigation = () => {
     const searchParams = new URLSearchParams({ category });
     routing.push(`${EPagesRoutes.Category}?${searchParams}`);
   };
-
+  
   const goToSale = () => {
     routing.push(EPagesRoutes.Sale);
   };

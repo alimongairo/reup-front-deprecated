@@ -1,0 +1,12 @@
+.wrapper_price {
+  padding-top: 1.5rem;
+  .price_input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 1rem;
+    input {
+      width: 48%;
+    }
+  }
+}

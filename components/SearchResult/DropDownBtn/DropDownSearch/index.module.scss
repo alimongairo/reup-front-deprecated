@@ -1,0 +1,43 @@
+.menu {
+  display: none !important;
+  // display: block;
+  position: absolute;
+  top: 33px;
+  left: -25px;
+  background: white;
+  width: 10.2rem;
+  border: 1px solid black;
+  z-index: 99;
+  flex-direction: column;
+  height: auto !important;
+  gap: 24px;
+  align-items: center;
+  padding: 24px;
+  .menuItem {
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    display: flex;
+    color: black;
+    justify-content: center !important;
+  }
+}
+
+.mask {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.visible {
+  display: flex !important;
+}

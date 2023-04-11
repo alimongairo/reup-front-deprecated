@@ -1,30 +1,24 @@
 import { useMemo, useState } from 'react';
-import { useRouter } from 'next/router';
 
-import DropDown, { IDropDownItem } from '@/components/common/DropDown';
+import { IDropDownItem } from '@/components/common/DropDown';
 import Text from '@/components/common/Text';
 
-import LoginItem from '@/layouts/MainLayout/Header/DropDownProfile/Login';
-
-import { EPagesRoutes } from '@/constants/router';
-import ProfileSvg from '@/static/icons/Profile';
-import classNames from 'classnames';
+import { DownOutlined } from '@ant-design/icons';
+import DropDownSearch from '../DropDownSearch';
 import cx from './index.module.scss';
 
-const DropDownProfile = () => {
+const BrandBtn = () => {
   const [visible, setVisible] = useState(false);
-  const router = useRouter();
+  const [brand, setBrand] = useState(false);
+  const [spanActive, setSpanActive] = useState(false);
 
   const onClick = () => {
     setVisible((state) => !state);
+    setSpanActive(!spanActive);
   };
 
-  const toOrderHistory = () => {
-    router.push(`${EPagesRoutes.OrderHistory}`);
-  };
-
-  const toPersonalAccount = () => {
-    router.push(`${EPagesRoutes.PersonalAccount}`);
+  const clickBrand = () => {
+    setBrand(true);
   };
 
   const overlay: IDropDownItem[] = useMemo(() => {
@@ -32,7 +26,7 @@ const DropDownProfile = () => {
       {
         id: 0,
         label: (
-          <div onClick={toPersonalAccount} className={cx.ddItem}>
+          <div onClick={clickBrand} className={cx.ddItem}>
             <Text size="thin">Adidas</Text>
           </div>
         ),
@@ -40,7 +34,7 @@ const DropDownProfile = () => {
       {
         id: 1,
         label: (
-          <div className={cx.ddItem}>
+          <div onClick={clickBrand} className={cx.ddItem}>
             <Text size="thin">Puma</Text>
           </div>
         ),
@@ -48,7 +42,7 @@ const DropDownProfile = () => {
       {
         id: 2,
         label: (
-          <div onClick={toOrderHistory} className={cx.ddItem}>
+          <div onClick={clickBrand} className={cx.ddItem}>
             <Text size="thin">Nike</Text>
           </div>
         ),
@@ -57,17 +51,18 @@ const DropDownProfile = () => {
   }, [visible]);
 
   return (
-    <DropDown
+    <DropDownSearch
       visible={visible}
       setVisible={onClick}
       overlay={overlay}
       title={
         <div className={cx.ddTitle}>
           <Text>Брэнд</Text>
+          <DownOutlined className={spanActive ? cx.ddTitleSpanActive : ''} />
         </div>
       }
     />
   );
 };
 
-export default DropDownProfile;
+export default BrandBtn;

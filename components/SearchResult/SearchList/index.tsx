@@ -29,10 +29,10 @@ const SearchList = () => {
     <div className={cx.wrapper}>
       <div className={cx.buttons}>
         <Button>
-          <BrandBtn />
-        </Button>
-        <Button className={cx.btn_sort}>
           <SortBtn />
+        </Button>
+        <Button className={cx.btn_brand}>
+          <BrandBtn />
         </Button>
       </div>
 

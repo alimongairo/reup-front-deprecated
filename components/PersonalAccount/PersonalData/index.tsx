@@ -18,6 +18,7 @@ const PersonalData = () => {
       for (const [q, value] of formData) {
         formDataObject[q] = value;
       }
+      console.log(formDataObject);
     }
   };
 

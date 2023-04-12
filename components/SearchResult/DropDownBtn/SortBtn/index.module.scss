@@ -1,0 +1,44 @@
+.ddItem {
+  transition: 0.3s;
+  width: 100%;
+  cursor: pointer;
+  text-align: left;
+  &:after {
+    display: block;
+    content: '';
+    height: 2px;
+    width: 0;
+    background: var(--reup-primary);
+    transition: 0.3s;
+  }
+  &:hover {
+    color: var(--reup-primary);
+    font-weight: 500;
+    &:after {
+      width: 100%;
+    }
+  }
+}
+.ddTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 10.2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+  .ddTitleSpanActive {
+    transform: rotate(180deg);
+    transition: 0.3s;
+  }
+}
+
+.lastItem {
+  border-top: 1px solid #000;
+  padding-top: 1rem;
+}

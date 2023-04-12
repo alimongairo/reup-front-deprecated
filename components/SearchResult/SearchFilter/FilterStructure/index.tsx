@@ -1,5 +1,3 @@
-import Checkbox from '@/components/common/Checkbox';
-import Collapse from '@/components/common/Collapse';
 import Text from '@/components/common/Text';
 import Minus from '@/static/icons/minuse.svg';
 import Plus from '@/static/icons/plus.svg';

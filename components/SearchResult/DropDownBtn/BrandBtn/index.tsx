@@ -9,7 +9,6 @@ import cx from './index.module.scss';
 
 const BrandBtn = () => {
   const [visible, setVisible] = useState(false);
-  const [brand, setBrand] = useState(false);
   const [spanActive, setSpanActive] = useState(false);
 
   const onClick = () => {
@@ -17,16 +16,12 @@ const BrandBtn = () => {
     setSpanActive(!spanActive);
   };
 
-  const clickBrand = () => {
-    setBrand(true);
-  };
-
   const overlay: IDropDownItem[] = useMemo(() => {
     return [
       {
         id: 0,
         label: (
-          <div onClick={clickBrand} className={cx.ddItem}>
+          <div className={cx.ddItem}>
             <Text size="thin">Adidas</Text>
           </div>
         ),
@@ -34,7 +29,7 @@ const BrandBtn = () => {
       {
         id: 1,
         label: (
-          <div onClick={clickBrand} className={cx.ddItem}>
+          <div className={cx.ddItem}>
             <Text size="thin">Puma</Text>
           </div>
         ),
@@ -42,7 +37,7 @@ const BrandBtn = () => {
       {
         id: 2,
         label: (
-          <div onClick={clickBrand} className={cx.ddItem}>
+          <div className={cx.ddItem}>
             <Text size="thin">Nike</Text>
           </div>
         ),

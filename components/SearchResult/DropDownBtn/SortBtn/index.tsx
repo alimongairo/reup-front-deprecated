@@ -1,52 +1,62 @@
-import React, { useState } from 'react';
+import { useMemo, useState } from 'react';
+
+import { IDropDownItem } from '@/components/common/DropDown';
+import Text from '@/components/common/Text';
+
 import { DownOutlined } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
-import { Dropdown, Space } from 'antd';
+import DropDownSearch from '../DropDownSearch';
+import cx from './index.module.scss';
 
 const SortBtn = () => {
-  const [open, setOpen] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const [spanActive, setSpanActive] = useState(false);
 
-  const handleMenuClick: MenuProps['onClick'] = (e) => {
-    if (e.key === '3') {
-      setOpen(false);
-    }
+  const onClick = () => {
+    setVisible((state) => !state);
+    setSpanActive(!spanActive);
   };
 
-  const handleOpenChange = (flag: boolean) => {
-    setOpen(flag);
-  };
-
-  const items: MenuProps['items'] = [
-    {
-      label: 'По цене',
-      key: '1',
-    },
-    {
-      label: 'По рейтингу',
-      key: '2',
-    },
-    {
-      label: 'Новинки',
-      key: '3',
-    },
-  ];
+  const overlay: IDropDownItem[] = useMemo(() => {
+    return [
+      {
+        id: 0,
+        label: (
+          <div className={cx.ddItem}>
+            <Text size="thin">По цене</Text>
+          </div>
+        ),
+      },
+      {
+        id: 1,
+        label: (
+          <div className={cx.ddItem}>
+            <Text size="thin">По рейтингу</Text>
+          </div>
+        ),
+      },
+      {
+        id: 2,
+        label: (
+          <div className={cx.ddItem}>
+            <Text size="thin">По дате</Text>
+          </div>
+        ),
+      },
+    ];
+  }, [visible]);
 
   return (
-    <Dropdown
-      menu={{
-        items,
-        onClick: handleMenuClick,
-      }}
-      onOpenChange={handleOpenChange}
-      open={open}
-    >
-      <a onClick={(e) => e.preventDefault()}>
-        <Space>
-          Сортировать
-          <DownOutlined />
-        </Space>
-      </a>
-    </Dropdown>
+    <DropDownSearch
+      visible={visible}
+      setVisible={onClick}
+      overlay={overlay}
+      title={
+        <div className={cx.ddTitle}>
+          <Text>Сортировать</Text>
+          <DownOutlined className={spanActive ? cx.ddTitleSpanActive : ''} />
+        </div>
+      }
+    />
   );
 };
 

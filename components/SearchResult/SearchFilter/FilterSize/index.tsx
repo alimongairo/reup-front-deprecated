@@ -1,12 +1,14 @@
 import Button from '@/components/common/Button';
 import Heading from '@/components/common/Heading';
 import Text from '@/components/common/Text';
-import React, { useState } from 'react';
+import React, { memo, useContext, useState } from 'react';
 import PopupClose from '@/static/icons/close.svg';
 import cx from './index.module.scss';
 import Image from 'next/image';
+import { FilterContext } from '..';
 
 const FilterSize = () => {
+  const { setFormData } = useContext(FilterContext);
   const [actSizeInt, setActSizeInt] = useState(false);
   const [actSizeRu, setActSizeRu] = useState(false);
   const [popupActive, setPopupActive] = useState(false);
@@ -24,6 +26,12 @@ const FilterSize = () => {
 
   const onClickPopup = () => {
     setPopupActive(!popupActive);
+  };
+
+  const setFilterSize = (size: string) => {
+    setFormData((state: any) => {
+      return { ...state, size };
+    });
   };
 
   return (
@@ -110,7 +118,15 @@ const FilterSize = () => {
           </div>
 
           <div className={cx.btn_group_size}>
-            <Button size="small">s</Button>
+            <Button
+              onClick={(e) => {
+                e.preventDefault();
+                setFilterSize('s');
+              }}
+              size="small"
+            >
+              s
+            </Button>
             <Button size="small">m</Button>
             <Button size="small">l</Button>
             <Button size="small">xl</Button>
@@ -126,4 +142,4 @@ const FilterSize = () => {
     </div>
   );
 };
-export default FilterSize;
+export default memo(FilterSize);

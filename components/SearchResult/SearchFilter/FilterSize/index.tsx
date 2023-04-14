@@ -33,6 +33,11 @@ const FilterSize = () => {
       return { ...state, size };
     });
   };
+  const setFilterRuInt = (countrySize: string) => {
+    setFormData((state: any) => {
+      return { ...state, countrySize };
+    });
+  };
 
   return (
     <div className={cx.wrapper_size}>
@@ -78,14 +83,20 @@ const FilterSize = () => {
 
             <div className={cx.size_checkbox}>
               <a
-                onClick={(e) => sizeCheckboxRuActive(e)}
+                onClick={(e) => {
+                  sizeCheckboxRuActive(e);
+                  setFilterRuInt('ru');
+                }}
                 className={actSizeRu ? cx.active : cx.disabled}
                 href=""
               >
                 ru{' '}
               </a>
               <a
-                onClick={(e) => sizeCheckboxIntActive(e)}
+                onClick={(e) => {
+                  sizeCheckboxRuActive(e);
+                  setFilterRuInt('int');
+                }}
                 className={actSizeInt ? cx.active : cx.disabled}
                 href=""
               >
@@ -102,14 +113,20 @@ const FilterSize = () => {
 
           <div className={cx.size_checkbox}>
             <a
-              onClick={(e) => sizeCheckboxRuActive(e)}
+              onClick={(e) => {
+                sizeCheckboxRuActive(e);
+                setFilterRuInt('ru');
+              }}
               className={actSizeRu ? cx.active : cx.disabled}
               href=""
             >
               ru{' '}
             </a>
             <a
-              onClick={(e) => sizeCheckboxIntActive(e)}
+              onClick={(e) => {
+                sizeCheckboxIntActive(e);
+                setFilterRuInt('int');
+              }}
               className={actSizeInt ? cx.active : cx.disabled}
               href=""
             >
@@ -127,13 +144,69 @@ const FilterSize = () => {
             >
               s
             </Button>
-            <Button size="small">m</Button>
-            <Button size="small">l</Button>
-            <Button size="small">xl</Button>
-            <Button size="small">s</Button>
-            <Button size="small">m</Button>
-            <Button size="small">l</Button>
-            <Button size="small">xl</Button>
+            <Button
+              onClick={(e) => {
+                e.preventDefault();
+                setFilterSize('m');
+              }}
+              size="small"
+            >
+              m
+            </Button>
+            <Button
+              onClick={(e) => {
+                e.preventDefault();
+                setFilterSize('l');
+              }}
+              size="small"
+            >
+              l
+            </Button>
+            <Button
+              onClick={(e) => {
+                e.preventDefault();
+                setFilterSize('xl');
+              }}
+              size="small"
+            >
+              xl
+            </Button>
+            <Button
+              onClick={(e) => {
+                e.preventDefault();
+                setFilterSize('s');
+              }}
+              size="small"
+            >
+              s
+            </Button>
+            <Button
+              onClick={(e) => {
+                e.preventDefault();
+                setFilterSize('m');
+              }}
+              size="small"
+            >
+              m
+            </Button>
+            <Button
+              onClick={(e) => {
+                e.preventDefault();
+                setFilterSize('l');
+              }}
+              size="small"
+            >
+              l
+            </Button>
+            <Button
+              onClick={(e) => {
+                e.preventDefault();
+                setFilterSize('xl');
+              }}
+              size="small"
+            >
+              xl
+            </Button>
           </div>
 
           <Text onClick={onClickPopup}>таблица размеров</Text>

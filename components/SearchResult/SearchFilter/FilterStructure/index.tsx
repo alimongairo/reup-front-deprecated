@@ -1,50 +1,42 @@
+import { memo, useContext, useState } from 'react';
 import Text from '@/components/common/Text';
 import Minus from '@/static/icons/minuse.svg';
 import Plus from '@/static/icons/plus.svg';
 import Image from 'next/image';
-import { useState } from 'react';
 import cx from './index.module.scss';
+import Input from '@/components/common/Input';
+import { FilterContext } from '..';
 
 const FilterStructure = () => {
+  const { setFormData } = useContext(FilterContext);
+  const [checked, setChecked] = useState(false);
   const [listActive, setListActive] = useState(false);
+
+  const structure = {
+    hlopok: false,
+    sintetika: false,
+  };
 
   const onClickListActive = () => {
     setListActive(!listActive);
   };
 
+  const clickInput = (e: any) => {
+    setChecked(!checked);
+    const target = e.target.name;
+    if (target == 'hlopok') {
+      structure.hlopok = checked;
+    }
+    if (target == 'sintetika') {
+      structure.sintetika = checked;
+    }
+    setFormData((state: any) => {
+      return { ...state, structure };
+    });
+  };
+
   return (
     <div className={cx.wrapper_pattern}>
-      {/* <div className={cx.header_pattern}>
-        <Collapse
-          title="состав"
-          content={
-            <div>
-              <div className={cx.len}>
-                <input
-                  type="checkbox"
-                  className={cx.custom_checkbox}
-                  id="len"
-                  name="len"
-                  value="yes"
-                />
-                <label htmlFor="len">хлопок</label>
-              </div>
-
-              <div className={cx.klen}>
-                <input
-                  type="checkbox"
-                  className={cx.custom_checkbox}
-                  id="klen"
-                  name="klen"
-                  value="yes"
-                />
-                <label htmlFor="klen">синтетика</label>
-              </div>
-            </div>
-          }
-        />
-      </div> */}
-
       <div className={cx.header_pattern}>
         <Text size="normal">состав</Text>
         {listActive ? (
@@ -60,29 +52,29 @@ const FilterStructure = () => {
       </div>
 
       <div className={listActive ? cx.list_pattern : cx.list_pattern_dis}>
-        <div className={cx.len}>
-          <input
+        <div className={cx.hlopok}>
+          <Input
             type="checkbox"
+            onClick={(e) => clickInput(e)}
             className={cx.custom_checkbox}
-            id="len"
-            name="len"
-            value="yes"
+            id="hlopok"
+            name="hlopok"
           />
-          <label htmlFor="len">хлопок</label>
+          <label htmlFor="hlopok">хлопок</label>
         </div>
 
-        <div className={cx.klen}>
-          <input
+        <div className={cx.sintetika}>
+          <Input
             type="checkbox"
+            onClick={(e) => clickInput(e)}
             className={cx.custom_checkbox}
-            id="klen"
-            name="klen"
-            value="yes"
+            id="sintetika"
+            name="sintetika"
           />
-          <label htmlFor="klen">синтетика</label>
+          <label htmlFor="sintetika">синтетика</label>
         </div>
       </div>
     </div>
   );
 };
-export default FilterStructure;
+export default memo(FilterStructure);

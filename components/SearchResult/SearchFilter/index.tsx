@@ -8,6 +8,7 @@ import FilterSize from './FilterSize';
 import FilterStructure from './FilterStructure';
 import FilterStyle from './FilterStyle';
 import cx from './index.module.scss';
+import Input from '@/components/common/Input';
 
 export const FilterContext = createContext<any>(null);
 

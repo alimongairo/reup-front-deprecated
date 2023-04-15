@@ -1,38 +1,34 @@
-import { memo, useContext, useState } from 'react';
+import Input from '@/components/common/Input';
 import Text from '@/components/common/Text';
 import Minus from '@/static/icons/minuse.svg';
 import Plus from '@/static/icons/plus.svg';
 import Image from 'next/image';
-import cx from './index.module.scss';
-import Input from '@/components/common/Input';
+import { useContext, useMemo, useState } from 'react';
 import { FilterContext } from '..';
+import cx from './index.module.scss';
 
 const FilterStructure = () => {
   const { setFormData } = useContext(FilterContext);
-  const [checked, setChecked] = useState(false);
+  const [checkedHlopok, setCheckedHlopok] = useState(false);
   const [listActive, setListActive] = useState(false);
-
-  const structure = {
-    hlopok: false,
-    sintetika: false,
-  };
 
   const onClickListActive = () => {
     setListActive(!listActive);
   };
 
   const clickInput = (e: any) => {
-    setChecked(!checked);
-    const target = e.target.name;
-    if (target == 'hlopok') {
-      structure.hlopok = checked;
-    }
-    if (target == 'sintetika') {
-      structure.sintetika = checked;
+    if (e.target.name === 'hlopok') {
+      setCheckedHlopok((state) => !state);
     }
     setFormData((state: any) => {
-      return { ...state, structure };
+      return { ...state, [e.target.name]: e.target.checked ?? e.target.value };
     });
+  };
+
+  const checkboxToggle = (name: string) => {
+    if (name === 'hlopok') {
+      setCheckedHlopok((state) => !state);
+    }
   };
 
   return (
@@ -53,20 +49,21 @@ const FilterStructure = () => {
 
       <div className={listActive ? cx.list_pattern : cx.list_pattern_dis}>
         <div className={cx.hlopok}>
-          <Input
+          <input
             type="checkbox"
-            onClick={(e) => clickInput(e)}
+            onChange={(e) => checkboxToggle('hlopok')}
             className={cx.custom_checkbox}
             id="hlopok"
             name="hlopok"
+            checked={checkedHlopok}
           />
           <label htmlFor="hlopok">хлопок</label>
         </div>
 
         <div className={cx.sintetika}>
-          <Input
+          <input
             type="checkbox"
-            onClick={(e) => clickInput(e)}
+            onChange={(e) => clickInput(e)}
             className={cx.custom_checkbox}
             id="sintetika"
             name="sintetika"
@@ -77,4 +74,4 @@ const FilterStructure = () => {
     </div>
   );
 };
-export default memo(FilterStructure);
+export default FilterStructure;

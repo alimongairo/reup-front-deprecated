@@ -7,6 +7,7 @@ const mockData: TProductItem[] = [];
 
 // TODO remove
 import product1 from '@/static/img/product1.png';
+import { getProductsRequest } from '@/network/rest/product';
 
 const imgs = [product1];
 
@@ -25,8 +26,8 @@ export const getProductListAction = createAsyncThunk(
   `${PRODUCT_LIST_ALIAS}/fetch`,
   async () => {
     try {
-      // const data = await getProductListRequest();
-
+      const data = await getProductsRequest();
+      console.log(data);
       return mockData;
     } catch (error) {
       notification.error({ message: 'error' });

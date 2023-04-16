@@ -1,20 +1,24 @@
+import { useEffect } from 'react';
+import classNames from 'classnames';
 import Image from 'next/image';
-import brandBanner from '@/static/img/brandBanner_remove.png';
-import brandLogo from '@/static/img/brandLogo.png';
+
+import BrandProductList from '@/components/Brands/BrandProductList';
+import Slider from '@/components/Brands/Scheme2/Slider';
 import Heading from '@/components/common/Heading';
 import Text from '@/components/common/Text';
-import sweetshot from '@/static/img/sweetshot_remove.png';
 import MoreButton from '@/components/common/MoreButton';
+import ProductsList from '@/components/Main/ProductList';
+
+import brandBanner from '@/static/img/brandBanner_remove.png';
+import brandLogo from '@/static/img/brandLogo.png';
+import sweetshot from '@/static/img/sweetshot_remove.png';
 import brandPromo from '@/static/img/brandPromo_remove.png';
 
-import cx from './index.module.scss';
-import Slider from '@/components/Brands/Scheme2/Slider';
-import ProductsList from '@/components/Main/ProductList';
 import { useAppDispatch, useAppSelector } from '@/hooks/store';
 import { getProductListDataSource } from '@/store/productList/selectors';
-import { useEffect } from 'react';
 import { getProductListAction } from '@/store/productList/thunk';
-import classNames from 'classnames';
+
+import cx from './index.module.scss';
 
 const Scheme2 = () => {
   const dispatch = useAppDispatch();
@@ -75,6 +79,7 @@ const Scheme2 = () => {
         </div>
         <ProductsList productList={newProducts} />
       </div>
+      <BrandProductList />
     </div>
   );
 };

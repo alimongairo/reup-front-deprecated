@@ -48,20 +48,30 @@
     gap: 12px;
     align-items: baseline;
   }
+  .actions {
+    justify-content: space-between;
+    border-top: 1px solid black;
+    .toBasket {
+      margin-top: -1px;
+    }
+  }
   .text {
     flex-direction: column;
     align-items: start;
     gap: 8px;
-    margin-bottom: 16px;
+    margin-bottom: 5px;
     margin-top: 8px;
   }
 
   .previewBtn {
     position: absolute;
     top: 25%;
-    margin: 0 2rem;
+    left: 50%;
     padding: 10px;
+    white-space: nowrap;
+    width: 150px;
     opacity: 0;
+    transform: translateX(-50%);
     transition: 0.3s;
     cursor: pointer;
     :global(p) {

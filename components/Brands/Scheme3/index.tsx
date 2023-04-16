@@ -5,6 +5,7 @@ import FirstPage from '@/components/Brands/Scheme3/FirstPage';
 import Heading from '@/components/common/Heading';
 import MoreButton from '@/components/common/MoreButton';
 import Text from '@/components/common/Text';
+import ProductList from '@/components/Brands/ProductList';
 
 import img1 from './img.png';
 import img2 from './Rectangle 930 (1).png';
@@ -50,6 +51,7 @@ const Scheme3 = () => {
           <Image src={img5} alt={'img'} />
         </div>
       </div>
+      <ProductList />
     </div>
   );
 };

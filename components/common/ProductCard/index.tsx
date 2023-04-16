@@ -70,7 +70,10 @@ const ProductCard = ({
         <Text size="thin">{brand}</Text>
       </div>
       <div className={cx.actions}>
-        <Button onClick={() => onAddToBasket && onAddToBasket(id)}>
+        <Button
+          className={cx.toBasket}
+          onClick={() => onAddToBasket && onAddToBasket(id)}
+        >
           в корзину
         </Button>
         <Heading tag="h3">{price} ₽</Heading>

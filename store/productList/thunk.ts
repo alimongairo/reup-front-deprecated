@@ -26,8 +26,8 @@ export const getProductListAction = createAsyncThunk(
   `${PRODUCT_LIST_ALIAS}/fetch`,
   async () => {
     try {
-      const data = await getProductsRequest();
-      console.log(data);
+      // const data = await getProductsRequest();
+      // console.log(data);
       return mockData;
     } catch (error) {
       notification.error({ message: 'error' });

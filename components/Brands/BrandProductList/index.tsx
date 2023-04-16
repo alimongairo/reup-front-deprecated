@@ -13,7 +13,7 @@ const mockData = {
   price: 123,
 };
 
-const ProductList = () => {
+const BrandProductList = () => {
   return (
     <div className={cx.wrapper}>
       {new Array(30).fill(0).map((_, index) => (
@@ -23,4 +23,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default BrandProductList;

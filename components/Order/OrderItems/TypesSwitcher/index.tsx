@@ -21,8 +21,8 @@ const TypesSwitcher = ({
       {swithedTypes.map((type, index) => {
         return (
           <Button
-            onClickFunc={() => switcherFunc(type)}
-            isSelected={selectedType === type}
+            onClick={() => switcherFunc(type)}
+            // isSelected={selectedType === type}
             key={type + index}
           >
             {buttonInnerText[index]}

@@ -7,14 +7,15 @@ const mockData: TProductItem[] = [];
 
 // TODO remove
 import product1 from '@/static/img/product1.png';
+import { getProductsRequest } from '@/network/rest/product';
 
 const imgs = [product1];
 
 for (let i = 0; i < 4; i++) {
   mockData.push({
-    title: 'Свитшот',
+    title: 'Блузка женская “Лэйди”',
     id: i,
-    description: 'Тёплая одежда',
+    brand: 'Befree',
     price: randomInteger(499, 10000),
     imgSource: imgs[randomInteger(0, imgs.length - 1)],
     like: i % 3 === 0,
@@ -25,8 +26,8 @@ export const getProductListAction = createAsyncThunk(
   `${PRODUCT_LIST_ALIAS}/fetch`,
   async () => {
     try {
-      // const data = await getProductListRequest();
-
+      const data = await getProductsRequest();
+      console.log(data);
       return mockData;
     } catch (error) {
       notification.error({ message: 'error' });

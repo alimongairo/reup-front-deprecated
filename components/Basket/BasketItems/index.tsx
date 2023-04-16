@@ -1,59 +1,42 @@
-import { useEffect } from 'react';
-import { Skeleton } from 'antd';
+import EmptyBasket from '@/components/Basket/EmptyBasket';
+import Heading from '@/components/common/Heading';
+import BasketItem from '@/components/Basket/BasketItems/BasketItem';
+import Checkbox from '@/components/common/Checkbox';
+import Summary from '@/components/Basket/BasketItems/Summary';
 
-import EmptyBasket from '@/components/common/EmptyBasket';
-import BasketProductCard from '@/components/Basket/BasketItems/BasketProductCard';
-import BasketBuyButton from '@/components/Basket/BasketItems/BasketBuyButton';
-
-import {
-  getBasketDataSource,
-  getBasketLoading,
-} from '@/store/basket/selectors';
-import { getProductListAction } from '@/store/productList/thunk';
-import { getProductListDataSource } from '@/store/productList/selectors';
-
-import { useAppDispatch, useAppSelector } from '@/hooks/store';
-import { getBasketTotalPrice } from '@/helpers/getBasketTotalPrice';
+import { getBasketDataSource } from '@/store/basket/selectors';
+import { useAppSelector } from '@/hooks/store';
 
 import cx from './index.module.scss';
 
-const BasketProductList = () => {
-  const dispatch = useAppDispatch();
+const Basket = () => {
+  const basket = useAppSelector(getBasketDataSource);
 
-  const allProducts = useAppSelector(getProductListDataSource); //TODO: fetch by ids
-  const basketItems = useAppSelector(getBasketDataSource);
-
-  const loading = useAppSelector(getBasketLoading); //TODO: check errors fetch products
-
-  useEffect(() => {
-    dispatch(getProductListAction());
-  }, []);
-
-  if (loading) {
-    return <Skeleton active />;
-  }
-
-  if (!basketItems?.length) {
+  if (!basket?.length) {
     return <EmptyBasket />;
   }
 
   return (
-    <>
-      <div className={cx.basketProductList}>
-        {basketItems.map((product) => {
-          if (product.amount)
-            return (
-              <BasketProductCard
-                product={allProducts[product.productId]}
-                amount={product.amount}
-                key={product.productId}
-              />
-            );
-        })}
+    <div className={cx.wrapper}>
+      <Heading>корзина</Heading>
+      <div className={cx.contentWrapper}>
+        <div className={cx.productList}>
+          <div className={cx.header}>
+            <Heading tag={'h2'}>10 товаров</Heading>
+            <Checkbox
+              label="выбрать все"
+              labelPlacement="left"
+              id={'checkAll'}
+            />
+          </div>
+          <BasketItem />
+          <BasketItem />
+          <BasketItem />
+        </div>
+        <Summary />
       </div>
-      <BasketBuyButton total={getBasketTotalPrice(basketItems, allProducts)} />
-    </>
+    </div>
   );
 };
 
-export default BasketProductList;
+export default Basket;

@@ -1,0 +1,33 @@
+.wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-top: 0px solid black;
+  > button {
+    text-align: right;
+    border: none;
+    box-sizing: content-box;
+    font-weight: 700;
+    outline: 1px solid black;
+  }
+
+  > button:hover {
+    border: none;
+    outline: 1px solid black;
+  }
+
+  .right {
+    text-align: right;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .left {
+    text-align: left;
+  }
+}

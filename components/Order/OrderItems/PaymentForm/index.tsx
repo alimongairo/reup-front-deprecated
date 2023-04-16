@@ -35,7 +35,7 @@ const PaymentForm = ({ selectedPayment, paymentSwither }: IProps) => {
           </div>
 
           <div>
-            <Button small>
+            <Button>
               добавить карту <sup>+</sup>
             </Button>
           </div>

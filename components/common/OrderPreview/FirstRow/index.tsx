@@ -9,7 +9,7 @@ const FirstRow = () => {
   return (
     <div className={cx.firstRow}>
       <div className={cx.title}>ваш заказ</div>
-      <Link href={`${EPagesRoutes.Basket}/`}>
+      <Link href={`${EPagesRoutes.Basket}/`} rel={EPagesRoutes.Basket}>
         <Button type="link" size="small" className={cx.editButton}>
           изменить
         </Button>

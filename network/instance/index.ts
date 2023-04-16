@@ -1,23 +1,29 @@
 import Axios, { AxiosError, AxiosPromise, AxiosRequestConfig } from 'axios';
 
-// TODO add credentials
+// TODO credentials
 const instance = Axios.create({
-  baseURL: 'https://localhost:3000', // TODO replace at env
+  baseURL: 'http://127.0.0.1:8000', // TODO replace at env
+  withCredentials: false,
 });
 
 export const makeRequest = ({
   url,
-  method,
-  headers,
-  params,
-  responseType,
-  data,
+  method = 'get',
+  headers = {},
+  params = {},
+  responseType = 'json',
+  data = {},
 }: AxiosRequestConfig): AxiosPromise<any> => {
   return instance
-    .request({ url, method, headers, params, responseType, data })
-    .then((response) => ({
-      ...response,
-    }))
+    .request({
+      url,
+      method,
+      headers,
+      params,
+      responseType,
+      data,
+    })
+    .then((response) => response)
     .catch(async ({ response }: AxiosError) => {
       if (response) {
         const { message, status } = JSON.parse(

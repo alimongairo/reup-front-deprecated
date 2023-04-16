@@ -1,0 +1,72 @@
+.input {
+  padding: 12px 20px;
+  border: 1px solid #828282;
+  transition: 0.3s;
+  box-sizing: border-box;
+  font-family: 'Gilroy', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 110%;
+  margin: 8px 0;
+  &.grey {
+    border: 1px solid transparent;
+    background: #f3f3f3;
+    color: #4f4f4f;
+    &:hover {
+      color: black;
+      background: #eaeaea;
+    }
+    &:focus {
+      border: 1px solid #828282;
+      color: black;
+      background: #eaeaea;
+    }
+  }
+  &:hover {
+    border: 1px solid #4f4f4f;
+  }
+  &:active,
+  &:focus {
+    border: 1px solid #000000;
+  }
+
+  &.disabled {
+    border: 1px solid #e0e0e0;
+    background: #f2f2f2;
+  }
+
+  &.invalid {
+    border: 1px solid #ba0000;
+  }
+
+  outline: none;
+}
+
+.visibleError {
+  &.errorMessage {
+    height: 20px;
+  }
+}
+
+.errorMessage {
+  transition: 0.3s;
+  display: inline-block;
+  height: 0;
+  overflow: hidden;
+  margin-top: -0.1rem;
+  color: #ba0000;
+}
+
+.codeInput {
+  outline: none;
+  border: none;
+  width: 20px;
+  font-size: 20px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.label {
+  text-align: left;
+}

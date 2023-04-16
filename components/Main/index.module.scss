@@ -5,25 +5,24 @@
   display: flex;
   flex-direction: column;
   .text {
-    @include contentWidth(true, true);
+    background: var(--reup-green);
     > h1 {
       margin: 2rem;
+      text-align: right;
     }
   }
   > h1,
-  .pink > h1 {
+  .green > h1 {
     font-family: 'Dela Gothic One', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 64px;
     line-height: 110%;
     letter-spacing: 0.04em;
-    margin-top: 5rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
+    margin: 5rem 2rem 34px 2rem;
   }
-  .pink {
-    background: #ef67f1;
+  .green {
+    background: var(--reup-green);
     padding-bottom: 8rem;
     h1 {
       color: white;
@@ -44,4 +43,9 @@
     border-top: 2px solid black;
     padding-right: 0.3em;
   }
+}
+
+.greenText {
+  padding: 0rem 2rem 34px 2rem;
+  background: var(--reup-green);
 }

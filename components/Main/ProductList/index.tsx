@@ -30,7 +30,7 @@ const ProductsList = ({ productList }: IProps) => {
         onAddToBasket={onAddToBasketHandler}
         title={product.title}
         id={product.id}
-        description={product.description}
+        brand={product.brand}
         price={product.price}
         imgSource={product.imgSource}
         like={product.like}

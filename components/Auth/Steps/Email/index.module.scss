@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 370px;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  margin-top: 32px;
+}
+
+.pointer {
+  cursor: pointer;
+}

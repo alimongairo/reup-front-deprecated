@@ -1,31 +1,22 @@
-.emptyBasket {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  height: 30rem;
+@import 'styles/mixins.scss';
 
-  div {
-    font-size: 30px;
-    line-height: 36px;
-    font-weight: 700;
-    text-transform: lowercase;
+.wrapper {
+  @include contentWidth(true, true, calc(100% - 4rem));
+  margin-top: 2rem;
+  .contentWrapper {
+    display: flex;
+    gap: 50px;
+    justify-content: space-between;
+    margin: 2rem 0;
   }
 
-  .goHomeButton {
-    font-size: 20px;
-    line-height: 24px;
-    font-weight: 700;
-    color: #8a8a8a;
-    text-transform: lowercase;
+  .productList {
+    width: 75%;
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
   }
-}
-
-.basketProductList {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding-bottom: 4rem;
 }

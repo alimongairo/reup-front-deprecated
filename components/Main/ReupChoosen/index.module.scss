@@ -1,38 +1,86 @@
-@import 'styles/mixins.scss';
-
-.wrapper {
+.slides {
   display: flex;
-  justify-content: space-evenly;
-  gap: 4rem;
-  @include contentWidth();
-  .info {
-    width: 40%;
-    margin-top: 4rem;
-    padding: 2rem 3rem;
-    border-top: 2px solid black;
-    > h2 {
-      color: white;
-      font-size: 32px;
-      font-weight: bold;
-      line-height: 35px;
-      letter-spacing: 0.2em;
-      text-align: left;
+  overflow-x: hidden;
+  background: linear-gradient(
+    180deg,
+    rgba(54, 241, 229, 0) 20%,
+    rgb(190, 218, 98) 20%
+  );
+  .slide {
+    background: var(--reup-green);
+    padding: 2rem;
+    padding-top: 0;
+    margin-top: 5rem;
+    transition: 0.3s;
+    display: flex;
+    gap: 2rem;
+    &.active .text {
+      opacity: 1;
     }
-    > p {
-      font-family: 'Gilroy', sans-serif;
-      font-size: 24px;
-      font-weight: 500;
-      line-height: 25px;
-      letter-spacing: 0.07em;
-      text-align: left;
+    .imgWrapper {
+      margin-top: -105px;
     }
-  }
-  .imgWrapper {
-    margin-top: -100px;
-    width: 40%;
-    > img {
+    .imgWrapper img {
       width: 100%;
       height: auto;
     }
   }
+}
+
+.countTitle {
+  margin: 1rem 2rem;
+}
+
+.slideCount {
+  height: 7px;
+  width: 330px;
+  margin-left: 2rem;
+  display: flex;
+  gap: 8px;
+  background: var(--reup-green);
+  .activeCount {
+    flex-grow: 1;
+    background: black !important;
+    opacity: 1 !important;
+    transform: scale(1) !important;
+  }
+  .count {
+    transition: 0.3s;
+    background: #ffffff;
+    opacity: 0.5;
+    width: 10px;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+      background: #000000;
+    }
+  }
+}
+
+.text {
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem 0;
+  opacity: 0.5;
+}
+
+.moreBtn {
+  margin-top: 2rem;
+}
+
+.footer {
+  background: var(--reup-green);
+  border-bottom: 1px solid black;
+  padding-bottom: 2rem;
+  transform: translateY(-50px);
+}
+
+.slider {
+  background: linear-gradient(
+    180deg,
+    rgba(54, 241, 229, 0) 26%,
+    rgba(190, 218, 98, 1) 26%
+  );
 }

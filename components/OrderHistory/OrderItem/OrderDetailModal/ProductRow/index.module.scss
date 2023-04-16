@@ -1,0 +1,21 @@
+.row {
+  display: flex;
+  padding: 1.5rem 0;
+  .content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    padding-left: 2rem;
+    .flex {
+      margin-bottom: 1.3rem;
+    }
+    > div {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &:not(:last-child) {
+    border-bottom: 1px solid black;
+  }
+}

@@ -1,0 +1,25 @@
+.tabsTitle {
+  display: flex;
+  padding-left: 2rem;
+
+  .tabTitle {
+    border: 1px solid black;
+    padding: 1rem 2rem;
+    margin-right: 1.5rem;
+    background: white;
+    margin-bottom: -1px;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+
+  .active {
+    border-bottom: 2px solid transparent;
+    color: var(--reup-primary);
+  }
+}
+
+.tabContent {
+  padding: 2rem;
+  transition: 0.3s;
+  border-top: 1px solid black;
+}

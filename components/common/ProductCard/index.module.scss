@@ -1,26 +1,41 @@
 .wrapper {
-  width: 21vw;
-  min-width: 300px;
+  min-width: 213px;
   display: flex;
   flex-direction: column;
   gap: calc(var(--reup-unit));
   position: relative;
   transition: 0.3s;
+  max-width: 200px;
 
-  :global(p) {
-    margin: 1rem 0;
+  &:hover {
+    .previewBtn {
+      opacity: 1;
+      z-index: 10;
+    }
+
+    .productImg {
+      opacity: 0.7;
+    }
+
+    .likeIcon {
+      opacity: 0.7 !important;
+    }
   }
 
   .productImg {
     width: 100%;
     height: auto;
     cursor: pointer;
+    transition: 0.3s;
   }
+
   .likeIcon {
     position: absolute;
     right: calc(var(--reup-unit) * 3);
     top: calc(var(--reup-unit) * 3);
     transition: 0.3s;
+    opacity: 1;
+    z-index: 10;
     &:hover {
       transform: scale(1.2);
     }
@@ -30,25 +45,37 @@
   .actions {
     font-weight: normal;
     display: flex;
-    justify-content: space-between;
+    gap: 12px;
     align-items: baseline;
+  }
+  .actions {
+    justify-content: space-between;
+    border-top: 1px solid black;
+    .toBasket {
+      margin-top: -1px;
+    }
   }
   .text {
     flex-direction: column;
     align-items: start;
-
-    :global(h1) {
-      margin-bottom: 0;
-      margin-top: 0;
-      color: black !important;
-    }
+    gap: 8px;
+    margin-bottom: 5px;
+    margin-top: 8px;
   }
-  .actions {
-    border-top: 2px solid black;
-    :global(h1) {
-      margin-bottom: 0;
-      margin-top: 0;
-      color: black !important;
+
+  .previewBtn {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    padding: 10px;
+    white-space: nowrap;
+    width: 150px;
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: 0.3s;
+    cursor: pointer;
+    :global(p) {
+      font-size: 12px;
     }
   }
 }

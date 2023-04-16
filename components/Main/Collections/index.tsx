@@ -16,6 +16,7 @@ const Collections = () => {
       <CollectionCard id={1} {...collectionCardProps} />
       <CollectionCard id={2} {...collectionCardProps} />
       <CollectionCard id={3} {...collectionCardProps} />
+      <CollectionCard id={4} {...collectionCardProps} />
     </div>
   );
 };

@@ -1,6 +1,11 @@
 .wrapper {
   margin-top: 2rem;
   border-top: 2px solid black;
+
+  .moreBtn {
+    align-self: end;
+  }
+
   .imgWrapper img {
     width: 100%;
     height: 100%;
@@ -47,8 +52,8 @@
   }
 }
 
-.orangeWrapper {
-  background: #ff8742;
+.greenWrapper {
+  background: var(--reup-green);
 }
 .blueWrapper {
   background: #0a8ec7;

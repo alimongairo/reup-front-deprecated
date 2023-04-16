@@ -1,0 +1,32 @@
+.modal {
+  position: fixed;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  &.visible {
+    pointer-events: all;
+    z-index: 10;
+    opacity: 1;
+  }
+}
+
+.mask {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: black;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 0;
+  transition: 0.3s;
+  &.visible {
+    pointer-events: all;
+    z-index: 9;
+    opacity: 0.5;
+  }
+}

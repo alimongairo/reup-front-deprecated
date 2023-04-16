@@ -1,35 +1,33 @@
-import React from 'react';
-import { ButtonHTMLAttributes, ReactNode } from 'react';
+import React, { DetailedHTMLProps, HTMLAttributes } from 'react';
 import classNames from 'classnames';
+
 import cx from './index.module.scss';
 
-interface IProps {
-  small?: boolean;
-  type?: ButtonHTMLAttributes<HTMLButtonElement>['type'];
-  children?: ReactNode;
-  isSelected?: boolean;
-  className?: string;
-  onClickFunc?: () => void;
+interface IProps
+  extends DetailedHTMLProps<
+    HTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
+  disable?: boolean;
+  size?: 'small' | 'normal';
+  active?: boolean;
 }
 
 const Button = ({
-  small,
-  type = 'button',
   children,
-  isSelected,
   className,
-  onClickFunc,
+  disable,
+  size = 'normal',
+  active,
+  ...props
 }: IProps) => {
   return (
     <button
-      type={type}
-      className={classNames(
-        cx.classicButton,
-        isSelected && cx.selected,
-        small && cx.small,
-        className,
-      )}
-      onClick={onClickFunc}
+      className={classNames(className, cx.btn, cx[size], 'pointer', {
+        [cx.disable]: disable,
+        [cx.active]: active,
+      })}
+      {...props}
     >
       {children}
     </button>

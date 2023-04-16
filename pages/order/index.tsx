@@ -1,5 +1,5 @@
 import OrderLayout from '@/components/Order';
-import MainLayout from '@/hoc/MainLayout';
+import MainLayout from '@/layouts/MainLayout';
 
 const OrderPage = () => {
   return (

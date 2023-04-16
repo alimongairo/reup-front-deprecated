@@ -1,0 +1,23 @@
+@import 'styles/mixins.scss';
+
+.content {
+  @include contentWidth(true, true, calc(100% - 4rem));
+  margin-top: 2rem;
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 340px auto;
+}
+
+.banner {
+  position: relative;
+  img {
+    width: 100%;
+    height: auto;
+  }
+  h1 {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+  }
+}

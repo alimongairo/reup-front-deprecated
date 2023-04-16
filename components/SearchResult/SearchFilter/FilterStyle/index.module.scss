@@ -33,9 +33,36 @@
       justify-content: flex-start;
       align-items: center;
       padding-top: 1rem;
-      label {
-        padding-left: 0.5rem;
-      }
+    }
+    .custom_checkbox {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+    }
+
+    .custom_checkbox + label {
+      display: inline-flex;
+      align-items: center;
+      user-select: none;
+    }
+    .custom_checkbox + label::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      flex-grow: 0;
+      border: 1px solid #adb5bd;
+      margin-right: 0.75rem;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 50% 50%;
+    }
+
+    .custom_checkbox:checked + label::before {
+      border-color: black;
+      background-color: #7991f5;
+      background-image: url('../../../../static/icons/Shape.svg');
     }
   }
   .list_pattern_dis {

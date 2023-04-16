@@ -5,11 +5,14 @@ import Text from '@/components/common/Text';
 import { EPagesRoutes } from '@/constants/router';
 
 import cx from './index.module.scss';
+import { useState } from 'react';
 
 const MainPageNavigation = () => {
+  const [vintage, setVintage] = useState(false)
   const routing = useRouter();
 
   const goToCategory = (category: string) => {
+    setVintage(true)
     const searchParams = new URLSearchParams({ category });
     routing.push(`${EPagesRoutes.Category}?${searchParams}`);
   };

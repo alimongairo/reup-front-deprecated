@@ -11,3 +11,11 @@
     color: var(--reup-green)
   }
 }
+.navbarActive {
+  transition: .3s;
+  color: var(--reup-green);
+  cursor: pointer;
+  &:hover {
+    color: var(--reup-green)
+  }
+}

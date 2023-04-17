@@ -1,50 +1,23 @@
-.wrapper {
-  .banner {
+@import 'styles/mixins.scss';
+
+.content {
+  @include contentWidth(true, true, calc(100% - 4rem));
+  margin-top: 2rem;
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 340px auto;
+}
+
+.banner {
+  position: relative;
+  img {
     width: 100%;
-    padding: 0;
-    margin: 0;
-    img {
-      width: 100%;
-    }
+    height: auto;
   }
-
-  .search_input {
-    display: flex;
-    justify-content: flex-start;
-    padding-bottom: 1.5em;
-
-    img {
-      position: absolute;
-      right: 1.875rem;
-      &:hover {
-        cursor: pointer;
-      }
-    }
-    input {
-      width: 100%;
-      border: 0;
-      border-bottom: 1px solid black;
-      padding-top: 1em;
-      align-self: flex-start;
-      padding: 0;
-      padding-bottom: 1rem;
-      font-weight: 500;
-      font-size: 16px;
-      letter-spacing: 0.07em;
-
-      color: #000000;
-    }
-  }
-
   h1 {
-    padding-top: 1em;
-  }
-
-  .search_result {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 2.5em;
-    padding-top: 2em;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
   }
 }

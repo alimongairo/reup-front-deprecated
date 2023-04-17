@@ -1,0 +1,14 @@
+.wrapper {
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-flow: dense;
+  row-gap: 35px;
+  justify-items: center;
+  padding-top: 3rem;
+  > :not(:last-child):nth-child(10n) {
+    grid-row: span 2;
+    grid-column: span 2;
+    min-width: 90% !important;
+  }
+}

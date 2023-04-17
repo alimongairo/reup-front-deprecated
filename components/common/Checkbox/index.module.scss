@@ -1,7 +1,12 @@
 .wrapper {
-  display: flex;
+  display: inline-flex;
   height: 100%;
   cursor: pointer;
+  width: fit-content;
+
+  &:not(:first-child) {
+    padding-right: 10px;
+  }
 
   &.top {
     flex-direction: column;
@@ -58,5 +63,16 @@
 
   .uiInput {
     transition: 0.3s;
+  }
+}
+
+.checkboxGroup {
+  display: flex;
+  gap: 10px;
+  &.horizontal {
+    flex-direction: row;
+  }
+  &.vertical {
+    flex-direction: column;
   }
 }

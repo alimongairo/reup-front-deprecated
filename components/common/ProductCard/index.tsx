@@ -18,8 +18,8 @@ import cx from './index.module.scss';
 // TODO replace imgSource to url
 
 type IProps = {
-  onLike: (id: number) => void;
-  onAddToBasket: (id: number) => void;
+  onLike?: (id: number) => void;
+  onAddToBasket?: (id: number) => void;
 } & TProductItem;
 
 const ProductCard = ({
@@ -55,7 +55,7 @@ const ProductCard = ({
       <PreviewProductModal visible={visibleModal} onClose={onCloseModal} />
       <span
         className={classNames(cx.likeIcon, 'iconBnt')}
-        onClick={() => onLike(id)}
+        onClick={() => onLike && onLike(id)}
       >
         <Image src={Like} alt="like" width={20} />
       </span>
@@ -70,7 +70,12 @@ const ProductCard = ({
         <Text size="thin">{brand}</Text>
       </div>
       <div className={cx.actions}>
-        <Button onClick={() => onAddToBasket(id)}>в корзину</Button>
+        <Button
+          className={cx.toBasket}
+          onClick={() => onAddToBasket && onAddToBasket(id)}
+        >
+          в корзину
+        </Button>
         <Heading tag="h3">{price} ₽</Heading>
       </div>
     </div>

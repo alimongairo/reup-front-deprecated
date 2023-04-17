@@ -4,6 +4,7 @@ import searchLogo from '@/static/icons/serch.svg';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
+import { useRouter } from 'next/router';
 
 import Input from '@/components/common/Input';
 import Button from '@/components/common/Button';
@@ -13,16 +14,25 @@ import Products from '@/layouts/MainLayout/Header/Search/Products';
 import close from '@/static/icons/close.svg';
 
 import cx from './index.module.scss';
-import { useRouter } from 'next/router';
 
-const MainPageSearch = () => {
-  const [visible, setVisible] = useState(false);
+interface IProps {
+  visible: boolean;
+  setVisible: (visible: boolean) => void;
+}
+
+const MainPageSearch = ({ visible, setVisible }: IProps) => {
+  const router = useRouter();
   const [searchValue, setSearchValue] = useState('');
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const router = useRouter();
   const toSearch = () => {
     router.push(`${EPagesRoutes.SearchResult}?search=${searchValue}`)
   }
+
+  const onSearch = (e: any) => {
+    if (e.key === 'Enter' || e.type === 'click') {
+      router.push(EPagesRoutes.SearchResult + '?search=' + searchValue);
+    }
+  };
 
   useEffect(() => {
     if (visible && wrapperRef.current) {
@@ -52,8 +62,9 @@ const MainPageSearch = () => {
               className={classNames(cx.input)}
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
+              onKeyDown={(e) => onSearch(e)}
             />
-            <Button onClick={toSearch}>найти</Button>
+            <Button onClick={onSearch}>найти</Button>
             <Image
               src={close}
               alt={'close'}

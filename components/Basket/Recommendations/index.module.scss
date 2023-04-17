@@ -3,4 +3,7 @@
 .heading {
   @include contentWidth(true, true, calc(100% - 4rem));
   margin: 1.5rem 0;
+  :not(:first-child) {
+    margin-top: 2rem;
+  }
 }

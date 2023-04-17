@@ -11,6 +11,10 @@ import { useWindowSize } from '@/hooks/useWindow';
 import img from '@/static/img/model1.png';
 import cx from './index.module.scss';
 
+export interface IMainSlider {
+  bgColor?: string;
+}
+
 const ReupChoosen = () => {
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const { width } = useWindowSize();

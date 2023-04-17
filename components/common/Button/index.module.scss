@@ -13,6 +13,11 @@
   letter-spacing: 0.07em;
   color: #000000;
 
+  &.active {
+    color: white;
+    background: var(--reup-primary-active);
+  }
+
   &.small {
     padding: 11px 25px;
   }
@@ -22,9 +27,7 @@
     outline: none;
     background: #f2f2f2;
     color: #d6d6d6;
-    &:hover,
-    &:active,
-    &:focus {
+    &:hover {
       border: none;
       outline: none;
       background: #f2f2f2;
@@ -35,11 +38,5 @@
   &:hover {
     color: white;
     background: var(--reup-primary);
-  }
-
-  &:active,
-  &:focus {
-    color: white;
-    background: var(--reup-primary-active);
   }
 }

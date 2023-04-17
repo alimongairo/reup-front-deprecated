@@ -1,0 +1,59 @@
+.form {
+  border-right: 1px solid black;
+  box-sizing: border-box;
+  height: fit-content;
+  padding-right: 20px;
+}
+.filterItem:not(:last-child) {
+  margin-bottom: 20px;
+  .filterItemContent {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    > * {
+      width: 100%;
+    }
+  }
+}
+
+.heading {
+  margin-bottom: 20px;
+}
+
+.subTitle {
+  margin-bottom: 10px;
+}
+
+.sizeGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+
+.colors {
+  display: flex;
+  gap: 10px;
+}
+
+.color {
+  border: 1px solid black;
+  width: 70px;
+  height: 40px;
+  transition: 0.3s;
+  &.active {
+    outline: 2px solid var(--reup-primary-active);
+  }
+  &.black {
+    background: #3a3a3a;
+  }
+  &.white {
+    background: white;
+  }
+  &.blue {
+    background: var(--reup-primary-active);
+  }
+  &.green {
+    background: var(--reup-green);
+  }
+}

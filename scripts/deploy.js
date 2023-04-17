@@ -9,6 +9,8 @@ async function main() {
     // Replace "/out" with your build directory which contains all generated static files
     const outDir = path.join(process.cwd(), '/out');
 
+    console.log('Deploy in progress...');
+
     await new FtpDeploy().deploy({
       user: process.env.FTP_USER, // Your credentials
       password: process.env.FTP_PASS, // Your credentials

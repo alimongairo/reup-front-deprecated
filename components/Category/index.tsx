@@ -1,38 +1,25 @@
-import { EPagesRoutes } from '@/constants/router';
-import { useAppDispatch } from '@/hooks/store';
-import { getProductListAction } from '@/store/productList/thunk';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import Heading from '../common/Heading';
-import Input from '../common/Input';
-import SearchFilter from './SearchFilter';
-import SearchList from './SearchList';
+import Image from 'next/image';
+
+import FiltersForProducts from '@/components/common/FiltersForProducts';
+import ProductFeed from '@/components/ProductFeed';
+import Heading from '@/components/common/Heading';
+
+import img from './image.jpg';
 import cx from './index.module.scss';
 
 const CategoryLayout = () => {
-  const dispatch = useAppDispatch();
   const router = useRouter();
-  const [value, setValue] = useState(router.query.search);
-
-  const onChangeInput = (event: any) => {
-    router.push(`${EPagesRoutes.SearchResult}?search=${event.target.value}`);
-    setValue(event.target.value);
-  };
-
-  useEffect(() => {
-    // router.query.search
-    dispatch(getProductListAction());
-  }, []);
 
   return (
-    <div className={cx.wrapper}>
+    <div>
       <div className={cx.banner}>
-        <img src="../../static/img/Banner.png" />
+        <Heading>{router.query.category}</Heading>
+        <Image src={img} alt={'img'} />
       </div>
-
-      <div className={cx.search_result}>
-        <SearchFilter />
-        <SearchList />
+      <div className={cx.content}>
+        <FiltersForProducts />
+        <ProductFeed />
       </div>
     </div>
   );

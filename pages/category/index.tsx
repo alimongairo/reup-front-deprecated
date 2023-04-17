@@ -1,5 +1,5 @@
-import CategoryLayout from '@/components/Category';
 import MainLayout from '@/layouts/MainLayout';
+import CategoryLayout from '@/components/Category';
 
 const CategoryPage = () => {
   return (

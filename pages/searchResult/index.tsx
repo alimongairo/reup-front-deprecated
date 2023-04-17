@@ -1,12 +1,12 @@
-import SearchLayout from '@/components/SearchResult';
+import SearchResult from '@/components/Search';
 import MainLayout from '@/layouts/MainLayout';
 
-const SearchPage = () => {
+const SearchResultPage = () => {
   return (
     <MainLayout>
-      <SearchLayout />
+      <SearchResult />
     </MainLayout>
   );
 };
 
-export default SearchPage;
+export default SearchResultPage;

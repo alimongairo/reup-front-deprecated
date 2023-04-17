@@ -36,6 +36,8 @@ const Counter = ({ value, onChange }: IProps) => {
   const onKeyDown = (e: any) => {
     if (e.nativeEvent.target.value.length > MIN_INPUT_SIZE) {
       setInputSize(e.nativeEvent.target.value.length);
+    } else {
+      setInputSize(MIN_INPUT_SIZE);
     }
   };
 

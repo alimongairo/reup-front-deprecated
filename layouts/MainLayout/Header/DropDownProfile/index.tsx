@@ -19,12 +19,8 @@ const DropDownProfile = () => {
     setVisible((state) => !state);
   };
 
-  const toOrderHistory = () => {
-    router.push(`${EPagesRoutes.OrderHistory}`);
-  };
-  
-  const toPersonalAccount = () => {
-    router.push(`${EPagesRoutes.PersonalAccount}`);
+  const goToPage = (page: EPagesRoutes) => {
+    router.push(page);
   };
 
   const overlay: IDropDownItem[] = useMemo(() => {
@@ -32,7 +28,10 @@ const DropDownProfile = () => {
       {
         id: 0,
         label: (
-          <div onClick={toPersonalAccount} className={cx.ddItem}>
+          <div
+            onClick={() => goToPage(EPagesRoutes.PersonalAccount)}
+            className={cx.ddItem}
+          >
             <Text size="thin">Мои данные</Text>
           </div>
         ),
@@ -40,7 +39,10 @@ const DropDownProfile = () => {
       {
         id: 1,
         label: (
-          <div className={cx.ddItem}>
+          <div
+            onClick={() => goToPage(EPagesRoutes.Liked)}
+            className={cx.ddItem}
+          >
             <Text size="thin">Избранное</Text>
           </div>
         ),
@@ -48,7 +50,10 @@ const DropDownProfile = () => {
       {
         id: 2,
         label: (
-          <div onClick={toOrderHistory} className={cx.ddItem}>
+          <div
+            onClick={() => goToPage(EPagesRoutes.OrderHistory)}
+            className={cx.ddItem}
+          >
             <Text size="thin">Мои заказы</Text>
           </div>
         ),
@@ -56,7 +61,10 @@ const DropDownProfile = () => {
       {
         id: 3,
         label: (
-          <div className={cx.ddItem}>
+          <div
+            className={cx.ddItem}
+            onClick={() => goToPage(EPagesRoutes.Returns)}
+          >
             <Text size="thin">Возвраты</Text>
           </div>
         ),

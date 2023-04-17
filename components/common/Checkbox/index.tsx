@@ -5,7 +5,7 @@ import Text from '@/components/common/Text';
 
 import cx from './index.module.scss';
 
-interface IProps
+export interface ICheckboxProps
   extends DetailedHTMLProps<
     InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
@@ -21,7 +21,7 @@ const Checkbox = ({
   htmlFor,
   id,
   ...props
-}: IProps) => {
+}: ICheckboxProps) => {
   return (
     <div className={classNames(cx.wrapper, cx[labelPlacement])}>
       {label && (
@@ -32,6 +32,43 @@ const Checkbox = ({
       <div className={cx.inputWrapper}>
         <input className={cx.input} type="checkbox" {...props} id={id} />
       </div>
+    </div>
+  );
+};
+
+interface ICheckboxGroupProps
+  extends DetailedHTMLProps<
+    InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+  > {
+  checkboxList: ICheckboxProps[];
+  groupName?: string;
+  direction?: 'horizontal' | 'vertical';
+  onChangeGroup?: (newValue: Record<string, boolean>) => void;
+}
+
+export const CheckboxGroup = ({
+  checkboxList,
+  groupName,
+  direction = 'horizontal',
+  onChangeGroup,
+}: ICheckboxGroupProps) => {
+  const onChange = (value: string, checked: boolean) => {
+    if (value && !Array.isArray(value) && onChangeGroup) {
+      onChangeGroup({ [value]: checked });
+    }
+  };
+
+  return (
+    <div className={classNames(cx.checkboxGroup, cx[direction])}>
+      {checkboxList.map((checkbox, index) => (
+        <Checkbox
+          key={index}
+          {...checkbox}
+          name={groupName || checkbox.name}
+          onChange={(e) => onChange(checkbox.value as string, e.target.checked)}
+        />
+      ))}
     </div>
   );
 };

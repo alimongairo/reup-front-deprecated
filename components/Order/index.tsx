@@ -24,7 +24,7 @@ interface IProps {
   isLogined: boolean;
 }
 
-const OrderLayout = ({ isLogined }: IProps) => {
+const OrderLayoutOld = ({ isLogined }: IProps) => {
   const dispatch = useAppDispatch();
 
   const loading = useAppSelector(getBasketLoading); //TODO: check errors fetch products and user
@@ -56,4 +56,4 @@ const OrderLayout = ({ isLogined }: IProps) => {
   );
 };
 
-export default OrderLayout;
+export default OrderLayoutOld;

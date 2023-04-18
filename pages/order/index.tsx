@@ -1,4 +1,4 @@
-import OrderLayout from '@/components/Order';
+import OrderLayout from '@/components/Ordering';
 import MainLayout from '@/layouts/MainLayout';
 
 const OrderPage = () => {

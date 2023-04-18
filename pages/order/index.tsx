@@ -4,7 +4,7 @@ import MainLayout from '@/layouts/MainLayout';
 const OrderPage = () => {
   return (
     <MainLayout>
-      <OrderLayout isLogined />;
+      <OrderLayout isLogined />
     </MainLayout>
   );
 };

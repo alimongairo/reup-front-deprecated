@@ -1,0 +1,25 @@
+.wrapperOrderSummary {
+  padding: 4rem 3.125rem 0 3.125rem;
+  width: 50%;
+  .orderSummaryBlock {
+    width: 591px;
+    border: 1px solid black;
+    padding: 3.125rem;
+    .block_flex_order {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 12px;
+    }
+    .block_flex_title {
+      padding-bottom: 32px;
+      .change {
+        &:hover {
+          cursor: pointer;
+          color: var(--reup-primary);
+          text-decoration: underline;
+          transition: 0.2s;
+        }
+      }
+    }
+  }
+}

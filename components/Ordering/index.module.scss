@@ -1,0 +1,13 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .mainContentOrder {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    padding-left: 263px;
+    padding-right: 263px;
+  }
+}

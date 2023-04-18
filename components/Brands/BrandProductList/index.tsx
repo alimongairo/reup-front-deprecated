@@ -1,4 +1,5 @@
 import ProductCard from '@/components/common/ProductCard';
+import FiltersForProducts from '@/components/common/FiltersForProducts';
 
 import cx from './index.module.scss';
 
@@ -15,10 +16,13 @@ const mockData = {
 
 const BrandProductList = () => {
   return (
-    <div className={cx.wrapper}>
-      {new Array(30).fill(0).map((_, index) => (
-        <ProductCard {...mockData} key={index} />
-      ))}
+    <div className={cx.container}>
+      <FiltersForProducts />
+      <div className={cx.wrapper}>
+        {new Array(30).fill(0).map((_, index) => (
+          <ProductCard {...mockData} key={index} />
+        ))}
+      </div>
     </div>
   );
 };

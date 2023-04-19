@@ -30,16 +30,16 @@ const OrderSummary = () => {
           </Heading>
         </div>
         <div className={cx.block_flex_order}>
-          <Text size="thin">товары {dataBasket.ware} шт:</Text>
-          <Text size="thin">{dataBasket.sum} ₽</Text>
+          <Heading tag="h4">товары {dataBasket.ware} шт:</Heading>
+          <Heading tag="h4">{dataBasket.sum} ₽</Heading>
         </div>
         <div className={cx.block_flex_order}>
-          <Text size="thin">скидка:</Text>
-          <Text size="thin">-{dataBasket.deduction} ₽</Text>
+          <Heading tag="h4">скидка:</Heading>
+          <Heading tag="h4">-{dataBasket.deduction} ₽</Heading>
         </div>
         <div className={cx.block_flex_order}>
-          <Text size="thin">доставка:</Text>
-          <Text size="thin">{dataBasket.delivery}</Text>
+          <Heading tag="h4">доставка:</Heading>
+          <Heading tag="h4">{dataBasket.delivery}</Heading>
         </div>
       </div>
     </div>

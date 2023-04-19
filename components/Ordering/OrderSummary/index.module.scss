@@ -1,8 +1,11 @@
 .wrapperOrderSummary {
   padding: 4rem 3.125rem 0 3.125rem;
-  width: 50%;
+  width: 30%;
+  display: flex;
+  justify-content: center;
   .orderSummaryBlock {
-    width: 591px;
+    width: 560px;
+    height: 140px;
     border: 1px solid black;
     padding: 3.125rem;
     .block_flex_order {

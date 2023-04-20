@@ -1,3 +1,4 @@
+import Button from '@/components/common/Button';
 import { IPropsOrder } from '..';
 import AddressDelivery from './AddressDelivery';
 import PersonalData from './PersonalData';
@@ -8,6 +9,7 @@ const DataOrder = ({ isLogined }: IPropsOrder) => {
     <div className={cx.wrapperDataOrder}>
       <AddressDelivery />
       <PersonalData />
+      <Button>Оформить заказ</Button>
     </div>
   );
 };

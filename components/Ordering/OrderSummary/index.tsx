@@ -1,9 +1,8 @@
 import Heading from '@/components/common/Heading';
-import classNames from 'classnames';
-import cx from './index.module.scss';
-import Text from '@/components/common/Text';
-import { useRouter } from 'next/router';
 import { EPagesRoutes } from '@/constants/router';
+import classNames from 'classnames';
+import { useRouter } from 'next/router';
+import cx from './index.module.scss';
 
 const OrderSummary = () => {
   const dataBasket = {

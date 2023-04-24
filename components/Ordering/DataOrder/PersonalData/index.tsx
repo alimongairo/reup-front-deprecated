@@ -1,8 +1,10 @@
 import Heading from '@/components/common/Heading';
 import Input from '@/components/common/Input';
+import Checkbox from '@/components/common/Checkbox';
 import cx from './index.module.scss';
+import { IPropsOrder } from '../..';
 
-const PersonalData = () => {
+const PersonalData = ({ isLogined }: IPropsOrder) => {
   return (
     <div className={cx.wrapperPersonalData}>
       <Heading tag="h2">2. данные получателя</Heading>
@@ -20,6 +22,19 @@ const PersonalData = () => {
         <Heading className={cx.contact} tag="h4">
           *-поля обязательные для заполнения
         </Heading>
+      </div>
+
+      <div className={cx.checkbox}>
+        <Checkbox
+          label="я ознакомился и согласен с политикой обработки персональных данных и пользовательским соглашением"
+          labelPlacement="right"
+          id={'checkAll'}
+        />
+        <Checkbox
+          label="я согласен получать новости об акциях и специальных предложениях"
+          labelPlacement="right"
+          id={'checkAll'}
+        />
       </div>
     </div>
   );

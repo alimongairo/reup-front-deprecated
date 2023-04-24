@@ -8,7 +8,7 @@ const DataOrder = ({ isLogined }: IPropsOrder) => {
   return (
     <div className={cx.wrapperDataOrder}>
       <AddressDelivery />
-      <PersonalData />
+      <PersonalData isLogined />
       <Button>Оформить заказ</Button>
     </div>
   );

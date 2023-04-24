@@ -1,3 +1,4 @@
+import Checkbox from '../common/Checkbox';
 import DataOrder from './DataOrder';
 import OrderSummary from './OrderSummary';
 import TitleOrder from './TitleOrder';

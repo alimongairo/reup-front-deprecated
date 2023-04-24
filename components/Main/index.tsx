@@ -37,16 +37,16 @@ const MainPageComponents = () => {
 
       <div className={cx.greenText}>
         <Heading>коллекции</Heading>
-      </div>
-      <Collections />
 
+        <Collections />
+      </div>
       <div className={classNames(cx.text, cx.left)}>
         <Heading>мне нравится</Heading>
         <ProductsList productList={newProducts} />
       </div>
       <Marquee gradient={false} speed={60}>
         <span className={cx.marquee}>
-          акции скидки акции скидки акции скидки акции скидки
+          upcycle upcycle upcycle upcycle upcycle upcycle
         </span>
       </Marquee>
       <ProductsList productList={newProducts} />

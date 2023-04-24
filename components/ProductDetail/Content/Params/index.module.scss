@@ -38,7 +38,7 @@
 }
 
 .description {
-  border-bottom: 1px #000000 outset;
+  // border-bottom: 1px #000000 outset;
 
   .short {
     overflow: hidden;
@@ -49,6 +49,10 @@
     overflow: visible;
     max-height: fit-content;
   }
+}
+
+.productInfo {
+  border-top: 1px #000000 outset;
 }
 
 .price {

@@ -45,7 +45,9 @@ const Params = ({ sizes, description, oldPrice, price }: TProductCard) => {
           </Button>
           <Button>добавить в корзину</Button>
         </div>
-        <Heading tag="h3">характеристики</Heading>
+        <Text size="normal" decoration="underline">
+          характеристики
+        </Text>
       </div>
       <div>
         <div>
@@ -60,10 +62,12 @@ const Params = ({ sizes, description, oldPrice, price }: TProductCard) => {
               />
             </div>
             <div className={cx.productInfo}>
-              <Collapse title={'о товаре'} content={<ProductInfo />} />
-              <Text decoration="underline" className={'pointer'}>
-                таблица размеров
-              </Text>
+              <div>
+                <Collapse title={'о товаре'} content={<ProductInfo />} />
+                <Text decoration="underline" className={'pointer'}>
+                  таблица размеров
+                </Text>
+              </div>
             </div>
           </div>
         </div>

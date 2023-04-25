@@ -3,6 +3,7 @@ import Input from '@/components/common/Input';
 import Checkbox from '@/components/common/Checkbox';
 import cx from './index.module.scss';
 import { IPropsOrder } from '../..';
+import Text from '@/components/common/Text';
 
 const PersonalData = ({ isLogined }: IPropsOrder) => {
   return (
@@ -25,16 +26,21 @@ const PersonalData = ({ isLogined }: IPropsOrder) => {
       </div>
 
       <div className={cx.checkbox}>
-        <Checkbox
-          label="я ознакомился и согласен с политикой обработки персональных данных и пользовательским соглашением"
-          labelPlacement="right"
-          id={'checkAll'}
-        />
-        <Checkbox
+        <div>
+          <Checkbox label="" labelPlacement="right" id={'checkAll'} />
+        </div>
+        <div>
+          <Text size="thin">
+            я ознакомился и согласен с политикой обработки персональных данных и
+            пользовательским соглашением
+          </Text>
+        </div>
+
+        {/* <Checkbox
           label="я согласен получать новости об акциях и специальных предложениях"
           labelPlacement="right"
           id={'checkAll'}
-        />
+        /> */}
       </div>
     </div>
   );

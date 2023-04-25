@@ -17,10 +17,10 @@
       padding-top: 2rem;
     }
   }
-
   .checkbox {
-    align-self: flex-end;
-    // width: 80%;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
     padding-top: 2rem;
   }
 }

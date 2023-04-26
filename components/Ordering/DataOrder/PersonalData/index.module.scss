@@ -18,9 +18,21 @@
     }
   }
   .checkbox {
+    align-self: flex-end;
+    width: 80%;
     display: flex;
     justify-content: center;
     gap: 12px;
     padding-top: 2rem;
+    form {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+    label {
+      span {
+        text-decoration: underline;
+      }
+    }
   }
 }

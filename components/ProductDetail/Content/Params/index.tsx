@@ -32,7 +32,7 @@ const Params = ({ sizes, description, oldPrice, price }: TProductCard) => {
           <div>
             <Button>{sizes[0]}</Button>
             <Button>{sizes[1]}</Button>
-            <Button>{sizes[2]}</Button>
+            <Button disable>{sizes[2]}</Button>
             <Button>{sizes[3]}</Button>
           </div>
         </div>
@@ -45,7 +45,9 @@ const Params = ({ sizes, description, oldPrice, price }: TProductCard) => {
           </Button>
           <Button>добавить в корзину</Button>
         </div>
-        <Heading tag="h3">характеристики</Heading>
+        <Text size="normal" decoration="underline">
+          характеристики
+        </Text>
       </div>
       <div>
         <div>

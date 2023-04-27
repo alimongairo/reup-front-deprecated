@@ -6,7 +6,7 @@ import { mockFetch } from '@/helpers/mockFetch';
 
 import product_slide1 from '@/static/img/product_slide1.png';
 import product_slide2 from '@/static/img/product_slide2.png';
-import product_slide3 from '@/static/img/product_slide3.png';
+import product_slide3 from '@/static/img/product_slide1.png';
 
 const mockProduct: TProductCard = {
   id: '1',

@@ -30,7 +30,7 @@ const Slider = ({ images }: IProps) => {
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  });
 
   return (
     <div className={cx.slider}>
@@ -46,10 +46,10 @@ const Slider = ({ images }: IProps) => {
         ))}
       </div>
       <div className={cx.activeSlide}>
+        <div className={cx.sizeBtn}>
+          <button title="на модели размер">!</button>
+        </div>
         <Image src={images[activeSlide]} alt={'activeSlide'} />
-      </div>
-      <div className={cx.sizeBtn}>
-        <button title="на модели размер">!</button>
       </div>
     </div>
   );

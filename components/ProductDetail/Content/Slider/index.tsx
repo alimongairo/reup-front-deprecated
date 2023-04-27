@@ -30,7 +30,7 @@ const Slider = ({ images }: IProps) => {
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  });
 
   return (
     <div className={cx.slider}>

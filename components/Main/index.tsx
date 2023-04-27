@@ -22,7 +22,7 @@ const MainPageComponents = () => {
 
   useEffect(() => {
     dispatch(getProductListAction());
-  }, []);
+  });
 
   return (
     <div className={cx.main}>

@@ -16,18 +16,35 @@
     .contact {
       padding-top: 2rem;
     }
+
+    .checkboxOne,
+    .checkboxTwo {
+      display: flex;
+      width: 34rem;
+      justify-content: space-between;
+      gap: 12px;
+      input {
+        width: 34rem;
+      }
+    }
   }
   .checkbox {
     align-self: flex-end;
-    width: 80%;
+
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     gap: 12px;
     padding-top: 2rem;
-    form {
+    padding-bottom: 2rem;
+    .checkboxOne,
+    .checkboxTwo {
       display: flex;
-      justify-content: center;
+      width: 34rem;
+      justify-content: space-between;
       gap: 12px;
+      input {
+        width: 34rem;
+      }
     }
     label {
       span {

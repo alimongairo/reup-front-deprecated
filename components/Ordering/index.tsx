@@ -4,11 +4,11 @@ import OrderSummary from './OrderSummary';
 import TitleOrder from './TitleOrder';
 import cx from './index.module.scss';
 
-export interface IPropsOrder {
+export interface IPropsOrderLogined {
   isLogined: boolean;
 }
 
-const OrderLayout = ({ isLogined }: IPropsOrder) => {
+const OrderLayout = ({ isLogined }: IPropsOrderLogined) => {
   return (
     <div className={cx.wrapper}>
       <TitleOrder />

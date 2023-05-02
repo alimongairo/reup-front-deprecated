@@ -9,10 +9,10 @@ import { TFilterData } from '@/components/common/FiltersForProducts/context';
 import { EPagesRoutes } from '@/constants/router';
 
 import cx from './index.module.scss';
+import { getJSDocThisTag } from 'typescript';
 
 const SearchLayout = () => {
   const router = useRouter();
-
   const onChangeSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     router.push(EPagesRoutes.SearchResult + '?search=' + e.target.value);
   };

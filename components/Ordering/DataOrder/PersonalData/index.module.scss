@@ -1,54 +1,65 @@
 .wrapperPersonalData {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  h2 {
-    padding-top: 4.5rem;
-  }
-  .inputPersonalData {
-    align-self: flex-end;
-    width: 80%;
-    padding-top: 2rem;
-    input {
-      margin-top: 0.5rem;
-      width: 34rem;
-    }
-    .contact {
-      padding-top: 2rem;
-    }
-
-    .checkboxOne,
-    .checkboxTwo {
-      display: flex;
-      width: 34rem;
-      justify-content: space-between;
-      gap: 12px;
-      input {
-        width: 34rem;
-      }
-    }
-  }
-  .checkbox {
-    align-self: flex-end;
-
+  form {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    .checkboxOne,
-    .checkboxTwo {
-      display: flex;
-      width: 34rem;
-      justify-content: space-between;
-      gap: 12px;
+    align-items: flex-start;
+    h2 {
+      padding-top: 4.5rem;
+    }
+
+    .inputPersonalData {
+      align-self: flex-end;
+      width: 80%;
+      padding-top: 2rem;
+
       input {
+        margin-top: 0.5rem;
         width: 34rem;
       }
+
+      .contact {
+        padding-top: 2rem;
+      }
     }
-    label {
-      span {
-        text-decoration: underline;
+
+    .checkbox {
+      align-self: flex-end;
+      width: 80%;
+      gap: 12px;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+
+      .checkboxMain,
+      .checkboxMainTwo {
+        display: flex;
+        width: 34rem;
+        gap: 12px;
+
+        input {
+          width: 34rem;
+        }
+      }
+
+      .checkboxMainTwo {
+        margin-top: 1.5rem;
+      }
+
+      label {
+        span {
+          border-bottom: 2px solid black;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .btnClickSubmitForm {
+      align-self: flex-end;
+      width: 80%;
+
+      button {
+        width: 34rem;
       }
     }
   }

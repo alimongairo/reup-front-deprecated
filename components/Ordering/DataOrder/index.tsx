@@ -1,15 +1,18 @@
-import Button from '@/components/common/Button';
-import { IPropsOrder } from '..';
+import { IPropsOrderLogined } from '..';
+import { TOrderData } from '../context';
 import AddressDelivery from './AddressDelivery';
 import PersonalData from './PersonalData';
 import cx from './index.module.scss';
 
-const DataOrder = ({ isLogined }: IPropsOrder) => {
+const DataOrder = ({ isLogined }: IPropsOrderLogined) => {
+  const onChangeData = (data: TOrderData) => {
+    console.log(data);
+  };
+
   return (
     <div className={cx.wrapperDataOrder}>
       <AddressDelivery />
-      <PersonalData isLogined />
-      <Button>Оформить заказ</Button>
+      <PersonalData onChange={onChangeData} />
     </div>
   );
 };

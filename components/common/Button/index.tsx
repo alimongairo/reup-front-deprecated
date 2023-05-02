@@ -11,6 +11,7 @@ interface IProps
   disable?: boolean;
   size?: 'small' | 'normal';
   active?: boolean;
+  type?: 'submit';
 }
 
 const Button = ({
@@ -19,6 +20,7 @@ const Button = ({
   disable,
   size = 'normal',
   active,
+  type,
   ...props
 }: IProps) => {
   return (

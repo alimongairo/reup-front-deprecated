@@ -1,0 +1,31 @@
+.back {
+  text-align: left;
+  cursor: pointer;
+  width: 120px;
+  transition: var(--reup-transition);
+  padding: 2.5rem 0 0.75rem 3.125rem;
+
+  &:hover {
+    :global(p) {
+      color: var(--reup-primary);
+    }
+    :global(svg line) {
+      stroke: var(--reup-primary);
+    }
+  }
+
+  &:active,
+  &:focus {
+    :global(p) {
+      color: var(--reup-primary-active);
+    }
+    :global(svg line) {
+      stroke: var(--reup-primary-active);
+    }
+  }
+
+  :global(p) {
+    font-size: 20px;
+    transition: var(--reup-transition);
+  }
+}

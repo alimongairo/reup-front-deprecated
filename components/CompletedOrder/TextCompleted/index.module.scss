@@ -1,0 +1,21 @@
+.mainCompletedOrder {
+  width: 100%;
+  padding: 4rem 3.125rem;
+
+  .textCompletedOrder {
+    padding-top: 2rem;
+
+    span {
+      font-weight: bold;
+
+      &:hover {
+        cursor: pointer;
+        border-bottom: 1px solid #000;
+      }
+    }
+  }
+
+  .clickBtnMain {
+    padding-top: 2rem;
+  }
+}

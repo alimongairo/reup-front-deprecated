@@ -3,6 +3,7 @@ export enum EPagesRoutes {
   Auth = '/auth',
   Registration = '/registration',
   Basket = '/basket',
+  CompletedOrder = '/completedOrder',
   ProductDetail = '/productDetail',
   Profile = '/profile',
   CreateProduct = '/createProduct',

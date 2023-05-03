@@ -1,8 +1,8 @@
 import { createContext } from 'react';
 
-export enum PersonalDataType {
-  PersonalData = 'false',
-  Mailing = 'false',
+export enum EPersonalDataType {
+  PersonalData = 'personalData',
+  Mailing = 'mailing',
 }
 
 export type TOrderData = Omit<IOrderContext, 'setOrderData'>;
@@ -10,7 +10,7 @@ export type TOrderData = Omit<IOrderContext, 'setOrderData'>;
 export interface IOrderContext {
   lastName?: string;
   name?: string;
-  personalDataType?: PersonalDataType;
+  personalDataType?: EPersonalDataType[];
   patronymic?: boolean;
   numberTel?: number;
   mail?: string;

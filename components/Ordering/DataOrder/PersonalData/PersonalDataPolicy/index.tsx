@@ -1,19 +1,17 @@
-import { useContext, useEffect, useState } from 'react';
 import { EPersonalDataType, OrderContext } from '@/components/Ordering/context';
-import Checkbox, { ICheckboxProps } from '@/components/common/Checkbox';
-import Text from '@/components/common/Text';
+import { CheckboxGroup, ICheckboxProps } from '@/components/common/Checkbox';
+import { useContext, useEffect, useState } from 'react';
 import cx from './index.module.scss';
-import { ECompound } from '@/components/common/FiltersForProducts/context';
 
 const personalCheck: ICheckboxProps[] = [
   {
-    label: 'Обработка персональных данных',
+    label: `я ознакомился и согласен с политикой обработки персональных данных и пользовательским соглашением`,
     value: 'personal',
     id: 'personal',
     labelPlacement: 'right',
   },
   {
-    label: 'Рассылки',
+    label: 'я согласен получать новости об акциях и специальных предложениях',
     value: 'mailing',
     id: 'mailing',
     labelPlacement: 'right',
@@ -58,21 +56,12 @@ const PersonalDataPolicy = () => {
 
   return (
     <div className={cx.checkboxMain}>
-      <div>
-        <Checkbox
-          onChange={onChange}
-          label=""
-          labelPlacement="right"
-          id={'personData'}
-        />
-      </div>
-      <label htmlFor="personData">
-        <Text size="thin">
-          я ознакомился и согласен с
-          <span>политикой обработки персональных данных</span> и
-          пользовательским соглашением
-        </Text>
-      </label>
+      <CheckboxGroup
+        checkboxList={personalCheck}
+        groupName={'personalChecks'}
+        direction={'vertical'}
+        onChangeGroup={onChange}
+      />
     </div>
   );
 };

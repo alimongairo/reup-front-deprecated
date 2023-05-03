@@ -24,7 +24,6 @@ const PersonalData = ({ onChange }: IPropsOrder) => {
       const data = new FormData(formRef.current);
       setFormData((state) => ({ ...state, ...Object.fromEntries([...data]) }));
     }
-    console.log(formData);
   };
 
   const setOrderData = (data: TOrderData) => {
@@ -43,6 +42,7 @@ const PersonalData = ({ onChange }: IPropsOrder) => {
       onChange(formData);
     }
   }, [formData]);
+  console.log(formData);
 
   const toCompletedOrder = () => {
     router.push(EPagesRoutes.CompletedOrder);
@@ -72,31 +72,6 @@ const PersonalData = ({ onChange }: IPropsOrder) => {
 
           <div className={cx.checkbox}>
             <PersonalDataPolicy />
-
-            {/* <div className={cx.checkboxMain}>
-              <div>
-                <Checkbox label="" labelPlacement="right" id={'checkAll'} />
-              </div>
-              <label htmlFor="checkAll">
-                <Text size="thin">
-                  я ознакомился и согласен с{' '}
-                  <span>политикой обработки персональных данных</span> и
-                  пользовательским соглашением
-                </Text>
-              </label>
-            </div> */}
-
-            <div className={cx.checkboxMainTwo}>
-              <div>
-                <Checkbox label="" labelPlacement="right" id={'checkTwo'} />
-              </div>
-              <label htmlFor="checkTwo">
-                <Text size="thin">
-                  я согласен получать новости об акциях и специальных
-                  предложениях
-                </Text>
-              </label>
-            </div>
           </div>
         </form>
 

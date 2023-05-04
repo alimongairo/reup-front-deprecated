@@ -5,14 +5,15 @@ import PersonalData from './PersonalData';
 import cx from './index.module.scss';
 
 const DataOrder = ({ isLogined }: IPropsOrderLogined) => {
-  const onChangeData = (data: TOrderData) => {
-    console.log(data);
-  };
+  // const onChangeData = (data: TOrderData) => {
+  //   console.log(data);
+  // };
 
   return (
     <div className={cx.wrapperDataOrder}>
       <AddressDelivery />
-      <PersonalData onChange={onChangeData} />
+      {/* <PersonalData onChange={onChangeData} /> */}
+      <PersonalData />
     </div>
   );
 };

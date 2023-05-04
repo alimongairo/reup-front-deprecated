@@ -2,6 +2,7 @@ import { EPersonalDataType, OrderContext } from '@/components/Ordering/context';
 import { CheckboxGroup, ICheckboxProps } from '@/components/common/Checkbox';
 import { useContext, useEffect, useState } from 'react';
 import cx from './index.module.scss';
+import Text from '@/components/common/Text';
 
 const personalCheck: ICheckboxProps[] = [
   {
@@ -10,6 +11,8 @@ const personalCheck: ICheckboxProps[] = [
     id: 'personal',
     labelPlacement: 'right',
   },
+];
+const mailingCheck: ICheckboxProps[] = [
   {
     label: 'я согласен получать новости об акциях и специальных предложениях',
     value: 'mailing',
@@ -18,7 +21,10 @@ const personalCheck: ICheckboxProps[] = [
   },
 ];
 
-const PersonalDataPolicy = () => {
+const PersonalDataPolicy = ({
+  personalFormCheck,
+  setPersonalFormCheck,
+}: any) => {
   const { setOrderData } = useContext(OrderContext);
 
   const [personalValue, setPersonal] = useState<
@@ -29,6 +35,17 @@ const PersonalDataPolicy = () => {
   });
 
   const onChange = (changedValue: Record<EPersonalDataType, boolean>) => {
+    setPersonal((state) => {
+      return {
+        ...state,
+        ...changedValue,
+      };
+    });
+  };
+  const onChangePersonal = (
+    changedValue: Record<EPersonalDataType, boolean>,
+  ) => {
+    setPersonalFormCheck((state: any) => !state);
     setPersonal((state) => {
       return {
         ...state,
@@ -56,12 +73,31 @@ const PersonalDataPolicy = () => {
 
   return (
     <div className={cx.checkboxMain}>
-      <CheckboxGroup
-        checkboxList={personalCheck}
-        groupName={'personalChecks'}
-        direction={'vertical'}
-        onChangeGroup={onChange}
-      />
+      <div className={cx.checkboxGroupOne}>
+        <CheckboxGroup
+          checkboxList={personalCheck}
+          groupName={'personalChecks'}
+          direction={'vertical'}
+          onChangeGroup={onChangePersonal}
+        />
+        <Text size="thin">
+          я ознакомился и согласен с{' '}
+          <span>политикой обработки персональных данных</span> и
+          пользовательским соглашением
+        </Text>
+      </div>
+
+      <div className={cx.checkboxGroupTwo}>
+        <CheckboxGroup
+          checkboxList={mailingCheck}
+          groupName={'personalChecks'}
+          direction={'vertical'}
+          onChangeGroup={onChange}
+        />
+        <Text size="thin">
+          я согласен получать новости об акциях и специальных предложениях
+        </Text>
+      </div>
     </div>
   );
 };

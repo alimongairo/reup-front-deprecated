@@ -1,17 +1,26 @@
 .checkboxMain {
   display: flex;
+  flex-direction: column;
   width: 34rem;
-  gap: 12px;
-
-  input {
-    width: 34rem;
+  .checkboxGroupOne,
+  .checkboxGroupTwo {
+    display: flex;
   }
-  label {
+  .checkboxGroupOne {
     span {
-      border-bottom: 2px solid black;
+      border-bottom: 1px solid black;
       &:hover {
         cursor: pointer;
       }
     }
+  }
+  .checkboxGroupTwo {
+    padding-top: 1.5rem;
+  }
+  input {
+    width: 100%;
+  }
+  label {
+    display: none;
   }
 }

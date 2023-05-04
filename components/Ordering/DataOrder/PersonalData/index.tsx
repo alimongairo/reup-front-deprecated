@@ -18,6 +18,7 @@ const PersonalData = ({ onChange }: IPropsOrder) => {
   const router = useRouter();
   const formRef = useRef<any>();
   const [formData, setFormData] = useState<TOrderData>({});
+  const [personalFormCheck, setPersonalFormCheck] = useState(false);
 
   const onChangeForm = () => {
     if (formRef.current) {
@@ -42,10 +43,15 @@ const PersonalData = ({ onChange }: IPropsOrder) => {
       onChange(formData);
     }
   }, [formData]);
-  console.log(formData);
 
   const toCompletedOrder = () => {
-    router.push(EPagesRoutes.CompletedOrder);
+    if (personalFormCheck) {
+      router.push(EPagesRoutes.CompletedOrder);
+    } else {
+      alert(
+        'Вы не согласились с политикой обработки персональных данных и пользовательским соглашением ',
+      );
+    }
   };
 
   return (
@@ -71,7 +77,10 @@ const PersonalData = ({ onChange }: IPropsOrder) => {
           </div>
 
           <div className={cx.checkbox}>
-            <PersonalDataPolicy />
+            <PersonalDataPolicy
+              personalFormCheck={personalFormCheck}
+              setPersonalFormCheck={setPersonalFormCheck}
+            />
           </div>
         </form>
 

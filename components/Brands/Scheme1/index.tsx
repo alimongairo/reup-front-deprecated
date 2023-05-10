@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import classNames from 'classnames';
+import { useRouter } from 'next/router';
 
 import Text from '@/components/common/Text';
 import Heading from '@/components/common/Heading';
@@ -18,7 +19,11 @@ import banner2 from './banner2.jpg';
 import { Arrow } from '@/static/icons/Arrow';
 
 const Scheme1 = () => {
+  const router = useRouter();
   const [activeSlide, setActiveSlide] = useState(0);
+
+  const isEditable = router.query.editable === 'true';
+
   return (
     <div>
       <div className={cx.banner}>
@@ -58,7 +63,7 @@ const Scheme1 = () => {
       <div className={cx.navigation}>
         <div className={cx.left}>
           <Heading tag="h2">категории товаров</Heading>
-          <div>
+          <div className={cx.linkWithArrow}>
             <Text>больше</Text>
             <Arrow color="black" />
           </div>
@@ -76,14 +81,14 @@ const Scheme1 = () => {
         <div className={cx.right}>
           <div className={cx.row}>
             <Heading tag="h2">готовимся к лету</Heading>
-            <div>
+            <div className={cx.linkWithArrow}>
               <Text>перейти к товарам</Text>
               <Arrow color="black" />
             </div>
           </div>
           <div className={cx.row}>
             <Heading tag="h2">ювелирные изделия</Heading>
-            <div>
+            <div className={cx.linkWithArrow}>
               <Text>перейти к товарам</Text>
               <Arrow color="black" />
             </div>

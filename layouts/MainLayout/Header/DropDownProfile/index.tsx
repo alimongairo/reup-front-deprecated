@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useRouter } from 'next/router';
+import classNames from 'classnames';
 
 import DropDown, { IDropDownItem } from '@/components/common/DropDown';
 import Text from '@/components/common/Text';
@@ -8,7 +9,6 @@ import LoginItem from '@/layouts/MainLayout/Header/DropDownProfile/Login';
 
 import { EPagesRoutes } from '@/constants/router';
 import ProfileSvg from '@/static/icons/Profile';
-import classNames from 'classnames';
 import cx from './index.module.scss';
 
 const DropDownProfile = () => {
@@ -80,7 +80,10 @@ const DropDownProfile = () => {
       {
         id: 5,
         label: (
-          <div className={cx.ddItem}>
+          <div
+            className={cx.ddItem}
+            onClick={() => goToPage(EPagesRoutes.CreateBrand)}
+          >
             <Text size="thin">Стать продавцом</Text>
           </div>
         ),

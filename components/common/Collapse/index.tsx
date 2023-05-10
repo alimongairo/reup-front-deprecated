@@ -11,6 +11,8 @@ import classNames from 'classnames';
 interface IProps {
   title: string;
   content: ReactNode;
+  onOpen?: () => void;
+  isOpen?: boolean;
   hideCollapseIcon?: boolean;
   moreText?: string;
   lessText?: string;
@@ -22,12 +24,17 @@ const Collapse = ({
   moreText,
   lessText,
   hideCollapseIcon,
+  isOpen,
+  onOpen,
 }: IProps) => {
   const contentRef = useRef<HTMLDivElement>(null);
   const [isClose, setIsClose] = useState(true);
   const [heightContent, setHeightContent] = useState(0);
 
   const toggleOpen = () => {
+    if (onOpen && isClose) {
+      onOpen();
+    }
     setIsClose((state) => !state);
   };
 
@@ -45,6 +52,12 @@ const Collapse = ({
       contentRef.current.style.height = `${heightContent}px`;
     }
   }, [isClose]);
+
+  useEffect(() => {
+    if (isOpen !== undefined) {
+      setIsClose(!isOpen);
+    }
+  }, [isOpen]);
 
   return (
     <div className={cx.wrapper}>

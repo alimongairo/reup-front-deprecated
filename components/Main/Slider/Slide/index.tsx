@@ -30,7 +30,7 @@ const Slide = ({
   const router = useRouter();
 
   const moreHandler = () => {
-    router.push(`${EPagesRoutes.Brand}/${id}`);
+    router.push(`${EPagesRoutes.Brand}/${id}?schemeNum=${0}`);
   };
 
   return (

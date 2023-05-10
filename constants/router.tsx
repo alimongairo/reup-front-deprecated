@@ -19,4 +19,5 @@ export enum EPagesRoutes {
   Returns = '/returns',
   ReturnItem = '/returns/returnItem/',
   SearchResult = '/searchResult',
+  CreateBrand = '/createBrand',
 }

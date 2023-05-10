@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document';
+import Script from 'next/script';
 
 const Document = () => {
   return (
@@ -19,6 +20,11 @@ const Document = () => {
           name="reup"
           content="Check out iPhone 12 XR Pro and iPhone 12 Pro Max. Visit your local store and for expert advice."
         />
+        <Script
+          type="text/javascript"
+          src="../widget/widjet.js"
+          id="ISDEKscript"
+        ></Script>
       </Head>
       <body>
         <Main />

@@ -54,6 +54,17 @@ const PersonalData = ({ onChange }: IPropsOrder) => {
     }
   };
 
+  const onChangeMap = () => {
+    let ourWidjet = new ISDEKWidjet({
+      defaultCity: 'Нижний Новгород', //какой город отображается по умолчанию
+      cityFrom: 'Москва', // из какого города будет идти доставка
+      country: 'Россия', // можно выбрать страну, для которой отображать список ПВЗ
+      link: 'forpvz', // id элемента страницы, в который будет вписан виджет
+      path: 'https://widget.cdek.ru/widget/scripts/', //директория с библиотеками
+      servicepath: '../../../../widget/scripts/service.php', //ссылка на файл service.php на вашем сайте
+    });
+  };
+
   return (
     <div className={cx.wrapperPersonalData}>
       <OrderContext.Provider value={contextValue}>
@@ -91,6 +102,8 @@ const PersonalData = ({ onChange }: IPropsOrder) => {
             </Button>
           </div>
         </div>
+
+        <div className={cx.forpvz} id="forpvz" onClick={onChangeMap}></div>
       </OrderContext.Provider>
     </div>
   );

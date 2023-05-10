@@ -72,14 +72,6 @@ const DropDownProfile = () => {
       {
         id: 4,
         label: (
-          <div className={cx.ddItem}>
-            <Text size="thin">Настройки</Text>
-          </div>
-        ),
-      },
-      {
-        id: 5,
-        label: (
           <div
             className={cx.ddItem}
             onClick={() => goToPage(EPagesRoutes.CreateBrand)}
@@ -89,7 +81,7 @@ const DropDownProfile = () => {
         ),
       },
       {
-        id: 6,
+        id: 5,
         label: (
           <div className={classNames(cx.lastItem, cx.ddItem)}>
             <LoginItem />

@@ -15,6 +15,7 @@ const SubHeaderLK = () => {
   return (
     <div className={cx.wrapper}>
       <Button className={cx.right}>настройки</Button>
+
       <Button
         active={router.asPath === EPagesRoutes.Liked}
         className={cx.right}
@@ -22,6 +23,7 @@ const SubHeaderLK = () => {
       >
         избранное
       </Button>
+
       <Button
         className={cx.left}
         active={router.asPath === EPagesRoutes.OrderHistory}
@@ -29,6 +31,7 @@ const SubHeaderLK = () => {
       >
         мои заказы
       </Button>
+
       <Button
         className={cx.left}
         active={router.asPath.includes(EPagesRoutes.Returns)}
@@ -36,7 +39,15 @@ const SubHeaderLK = () => {
       >
         возвраты
       </Button>
-      <Button className={cx.center}>стать продавцом</Button>
+
+      <Button
+        className={cx.center}
+        active={router.asPath === EPagesRoutes.CreateBrand}
+        onClick={() => goToPage(EPagesRoutes.CreateBrand)}
+      >
+        стать продавцом
+      </Button>
+
       <Button
         className={cx.center}
         active={router.asPath === EPagesRoutes.PersonalAccount}

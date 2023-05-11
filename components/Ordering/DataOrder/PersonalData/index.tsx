@@ -1,14 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
-import { OrderContext, TOrderData } from '../../context';
 import { EPagesRoutes } from '@/constants/router';
 import Button from '@/components/common/Button';
-import Checkbox from '@/components/common/Checkbox';
 import Heading from '@/components/common/Heading';
 import Input from '@/components/common/Input';
-import Text from '@/components/common/Text';
-import cx from './index.module.scss';
+import { OrderContext, TOrderData } from '../../context';
 import PersonalDataPolicy from './PersonalDataPolicy';
+import cx from './index.module.scss';
 
 interface IPropsOrder {
   onChange?: (data: TOrderData) => void;
@@ -54,17 +52,6 @@ const PersonalData = ({ onChange }: IPropsOrder) => {
     }
   };
 
-  const onChangeMap = () => {
-    let ourWidjet = new ISDEKWidjet({
-      defaultCity: 'Нижний Новгород', //какой город отображается по умолчанию
-      cityFrom: 'Москва', // из какого города будет идти доставка
-      country: 'Россия', // можно выбрать страну, для которой отображать список ПВЗ
-      link: 'forpvz', // id элемента страницы, в который будет вписан виджет
-      path: 'https://widget.cdek.ru/widget/scripts/', //директория с библиотеками
-      servicepath: '../../../../widget/scripts/service.php', //ссылка на файл service.php на вашем сайте
-    });
-  };
-
   return (
     <div className={cx.wrapperPersonalData}>
       <OrderContext.Provider value={contextValue}>
@@ -102,8 +89,6 @@ const PersonalData = ({ onChange }: IPropsOrder) => {
             </Button>
           </div>
         </div>
-
-        <div className={cx.forpvz} id="forpvz" onClick={onChangeMap}></div>
       </OrderContext.Provider>
     </div>
   );

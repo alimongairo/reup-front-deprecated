@@ -1,7 +1,7 @@
+import { useMemo, useState } from 'react';
 import { IDropDownItem } from '@/components/common/DropDown';
 import Heading from '@/components/common/Heading';
 import Text from '@/components/common/Text';
-import { useMemo, useState } from 'react';
 import DropDownSdek from './DropDownSdek';
 import cx from './index.module.scss';
 

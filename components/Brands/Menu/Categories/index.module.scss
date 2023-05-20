@@ -1,0 +1,13 @@
+.footer {
+  display: flex;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.myChoice,
+.searchResult {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  row-gap: 0.5rem;
+}

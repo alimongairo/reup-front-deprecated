@@ -11,6 +11,7 @@ interface IProps
   disable?: boolean;
   size?: 'small' | 'normal';
   active?: boolean;
+  transparent?: boolean;
 }
 
 const Button = ({
@@ -19,6 +20,7 @@ const Button = ({
   disable,
   size = 'normal',
   active,
+  transparent,
   ...props
 }: IProps) => {
   return (
@@ -26,6 +28,7 @@ const Button = ({
       className={classNames(className, cx.btn, cx[size], 'pointer', {
         [cx.disable]: disable,
         [cx.active]: active,
+        [cx.transparent]: transparent,
       })}
       {...props}
     >

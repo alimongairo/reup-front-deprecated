@@ -1,0 +1,21 @@
+.colorList {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 2px;
+
+  .colorItem {
+    border: 1px solid black;
+    width: 50px;
+    height: 35px;
+    box-sizing: border-box;
+    transition: 0.1s;
+    outline: 2px solid transparent;
+
+    &.active {
+      outline: 2px solid blue;
+      border: 1px solid transparent;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.wrapper {
+  background: var(--reup-gray);
+  flex-direction: column;
+  gap: 1rem;
+  display: none;
+  position: absolute;
+  right: 0;
+  &.visible {
+    display: flex;
+  }
+}
+
+.link {
+  align-items: center;
+}
+
+.text {
+  display: inline-block;
+  max-width: 200px;
+}
+
+.title {
+  color: #828282;
+  text-align: right;
+}

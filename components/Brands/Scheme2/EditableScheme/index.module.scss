@@ -1,0 +1,79 @@
+@import 'styles/mixins.scss';
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 65vh;
+  background: var(--reup-gray);
+  border: 1px solid black;
+  box-sizing: border-box;
+  .uploadBtn {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+  }
+}
+
+.logo {
+  height: 94px;
+  display: flex;
+  justify-content: center;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  box-sizing: border-box;
+  .logoImgWrapper {
+    background: var(--reup-gray);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 35%;
+  }
+}
+
+.cardsWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  .card {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border-bottom: 1px solid black;
+    box-sizing: border-box;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+
+    .imgWrapper {
+      width: 100%;
+      height: 400px;
+      background: var(--reup-gray);
+      .btn {
+        margin: 2rem;
+      }
+    }
+    .moreBtn {
+      align-self: flex-end;
+    }
+  }
+
+  .centerCard {
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+    .imgWrapper {
+      background: var(--reup-gray);
+      height: 85%;
+      border-bottom: 1px solid black;
+      .btn {
+        margin: 2rem;
+      }
+    }
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      vertical-align: middle;
+      padding: 1.7rem;
+    }
+  }
+}

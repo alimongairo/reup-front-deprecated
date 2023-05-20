@@ -10,6 +10,7 @@ const schemes = [<Scheme1 key={0} />, <Scheme2 key={1} />, <Scheme3 key={2} />];
 
 const BrandPage = () => {
   const router = useRouter();
+
   const CurrentScheme = schemes[Number(router.query.schemeNum)];
   return <MainLayout>{CurrentScheme}</MainLayout>;
 };

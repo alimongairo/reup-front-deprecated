@@ -1,58 +1,29 @@
-@import 'styles/mixins.scss';
-
-.linkWithArrow {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  :global(p) {
-    display: inline;
-  }
-}
+@import '../../../../styles/mixins';
 
 .banner {
+  min-height: 60vh;
+  background: var(--reup-gray);
   position: relative;
-  .bannerUploadBtn {
-    position: absolute;
-    top: 10px;
-    left: 20px;
-  }
-  .bannerItem {
-    display: none;
-    &.active {
-      display: block !important;
-    }
-  }
-
-  .bannerImg {
-    width: 100%;
-    height: auto;
-  }
-  .brandName {
+  .title {
     position: absolute;
     top: 10%;
     left: 50%;
     transform: translateX(-50%);
   }
-
-  .description {
+  .btnDownload {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 10%;
+    left: 5%;
   }
-
-  .moreBtn {
-    display: flex;
-    cursor: pointer;
-    align-items: flex-end;
+  .bannerAddBtn {
     position: absolute;
-    gap: 10px;
+    top: 10%;
+    left: 20px;
+  }
+  .nextBtb {
+    position: absolute;
     bottom: 10%;
     right: 5%;
-    > h2 {
-      color: white;
-    }
   }
 }
 
@@ -117,8 +88,9 @@
     padding: 2rem;
   }
 
-  img {
-    width: 100%;
-    height: auto;
+  .galleryItem:not(:last-child) {
+    min-height: 200px;
+    background: var(--reup-gray);
+    padding: 2rem;
   }
 }

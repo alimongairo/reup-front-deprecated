@@ -1,0 +1,22 @@
+@import 'styles/mixins.scss';
+
+.wrapper {
+  @include contentWidth(true, true, calc(100% - 4rem));
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  .actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    position: relative;
+    .ddBtn {
+      padding: 10px;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      margin-left: 2rem;
+    }
+  }
+}

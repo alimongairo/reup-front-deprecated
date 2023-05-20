@@ -1,0 +1,118 @@
+@import 'styles/mixins.scss';
+
+.linkWithArrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  :global(p) {
+    display: inline;
+  }
+}
+
+.banner {
+  position: relative;
+  .bannerUploadBtn {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+  }
+  .bannerItem {
+    display: none;
+    &.active {
+      display: block !important;
+    }
+  }
+
+  .bannerImg {
+    width: 100%;
+    height: auto;
+  }
+  .brandName {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .description {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .nextBtb {
+    gap: 10px;
+    bottom: 10%;
+    right: 5%;
+    position: absolute;
+  }
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -5px;
+  border-bottom: 1px solid black;
+  .left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    padding: 0 2rem;
+    .navItems {
+      display: grid;
+      grid-template-columns: repeat(4, 150px);
+      grid-template-rows: 1fr 1fr;
+      grid-gap: 10px;
+    }
+  }
+  .right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid black;
+    .row {
+      padding: 2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      &:first-child {
+        background: var(--reup-primary-active);
+      }
+      &:last-child {
+        background: #c9c9c1;
+      }
+    }
+  }
+}
+
+.gallery {
+  display: flex;
+  gap: 10px;
+  position: relative;
+  @include contentWidth(true, true, calc(100% - 4rem));
+  padding-bottom: 2rem;
+  border-bottom: 1px solid black;
+  .galleryTitle {
+    position: absolute;
+    bottom: 6%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}

@@ -35,6 +35,12 @@
     }
   }
 
+  &.transparent {
+    background: transparent;
+    border: 1px solid var(--reup-primary);
+    color: var(--reup-primary);
+  }
+
   &:hover {
     color: white;
     background: var(--reup-primary);

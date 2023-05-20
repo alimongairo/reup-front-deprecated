@@ -13,4 +13,37 @@
 .radio {
   display: flex;
   align-items: flex-start;
+  flex-direction: row-reverse;
+  gap: 1rem;
+  width: fit-content;
+  &.right {
+    flex-direction: row;
+  }
+}
+
+.radioInput {
+  position: relative;
+  &::after {
+    position: absolute;
+    transition: 0.3s;
+    top: -3px;
+    content: '';
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid #828282;
+    box-shadow: 0 0 0 3px transparent, 0 0 0 5px transparent;
+    opacity: 1;
+    background: white;
+  }
+  &:checked::after {
+    border: 1px solid var(--reup-primary);
+    box-shadow: 0 0 0 4px white, 0 0 0 5px var(--reup-primary);
+    background: var(--reup-primary);
+    width: 8px;
+    height: 8px;
+    top: -1px;
+    margin: 0 3px;
+  }
 }

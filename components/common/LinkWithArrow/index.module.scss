@@ -1,0 +1,16 @@
+.linkWithArrow {
+  display: flex;
+  cursor: pointer;
+  align-items: flex-start;
+  gap: 10px;
+  &.white h2 {
+    color: white;
+  }
+
+  &.black h2 {
+    color: black;
+  }
+  :global(svg) {
+    width: 20px;
+  }
+}

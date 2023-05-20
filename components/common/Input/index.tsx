@@ -17,6 +17,7 @@ interface IProps
   label?: string;
   errorMessage?: string;
   theme?: 'light' | 'grey';
+  isTextArea?: boolean;
 }
 
 const Input = ({
@@ -26,6 +27,7 @@ const Input = ({
   codeInput,
   label,
   theme = 'light',
+  isTextArea,
   ...props
 }: IProps) => {
   if (codeInput) {
@@ -35,12 +37,21 @@ const Input = ({
   return (
     <>
       {label && <Text className={cx.label}>{label}</Text>}
-      <input
-        className={classNames(className, cx.input, cx[theme], {
-          [cx.invalid]: invalid,
-        })}
-        {...props}
-      />
+      {isTextArea ? (
+        <textarea
+          className={classNames(className, cx.input, cx[theme], {
+            [cx.invalid]: invalid,
+          })}
+          {...props}
+        />
+      ) : (
+        <input
+          className={classNames(className, cx.input, cx[theme], {
+            [cx.invalid]: invalid,
+          })}
+          {...props}
+        />
+      )}
 
       {errorMessage && (
         <Text

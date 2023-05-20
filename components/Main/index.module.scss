@@ -4,6 +4,11 @@
   @include container;
   display: flex;
   flex-direction: column;
+  @media screen and (min-width: 390px) and (max-width: 586px) {
+    h1 {
+      font-size: 32px !important;
+    }
+  }
   .text {
     background: var(--reup-green);
     > h1 {

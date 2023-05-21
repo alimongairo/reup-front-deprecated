@@ -1,6 +1,14 @@
 .wrapper {
   background: white;
   cursor: pointer;
+  @media screen and (min-width: 390px) and (max-width: 586px) {
+    width: inherit;
+    height: 227px;
+    img {
+      width: 100%;
+      height: 70%;
+    }
+  }
   .text {
     display: flex;
     flex-direction: column;

@@ -36,7 +36,7 @@ const ScrollSlider = ({ cardList, onClickMore }: IScrollSlider) => {
   };
 
   return (
-    <>
+    <div className={cx.wrapper_flex_scrollSlider}>
       <div className={cx.wrapper}>
         <div className={cx.btnWrapper}>
           <div onClick={scrollListToPrev} className={cx.prevBtn}>
@@ -53,7 +53,7 @@ const ScrollSlider = ({ cardList, onClickMore }: IScrollSlider) => {
         </div>
       </div>
       <MoreButton className={cx.moreBtn} />
-    </>
+    </div>
   );
 };
 

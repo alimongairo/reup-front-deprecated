@@ -42,6 +42,7 @@ const MainPageComponents = () => {
 
       <div className={classNames(cx.text, cx.left)}>
         <Heading>мне нравится</Heading>
+        <ProductsList productList={newProducts} />
       </div>
       <Marquee gradient={false} speed={60}>
         <span className={cx.marquee}>

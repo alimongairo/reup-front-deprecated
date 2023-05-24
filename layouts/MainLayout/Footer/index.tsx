@@ -1,17 +1,18 @@
 import Image from 'next/image';
 
-import Text from '@/components/common/Text';
-import Heading from '@/components/common/Heading';
 import Button from '@/components/common/Button';
+import Heading from '@/components/common/Heading';
+import Text from '@/components/common/Text';
 
-import vk from '@/static/icons/vk.svg';
-import tg from '@/static/icons/tg.svg';
-import instagram from '@/static/icons/instagram.svg';
 import facebook from '@/static/icons/facebook.svg';
+import instagram from '@/static/icons/instagram.svg';
+import tg from '@/static/icons/tg.svg';
+import vk from '@/static/icons/vk.svg';
 
 import cx from './index.module.scss';
 
 const Footer = () => {
+
   return (
     <div className={cx.wrapper}>
       <div className={cx.content}>

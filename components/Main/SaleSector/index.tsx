@@ -16,7 +16,7 @@ const SaleSector = () => {
           <Image src={model2} alt="model2" />
         </div>
         <div className={cx.info}>
-          <h1>большая распродажа зимней коллекции -40% на все товары</h1>
+          <h3>большая распродажа зимней коллекции -40% на все товары</h3>
           <MoreButton className={cx.moreBtn} />
         </div>
         <div className={cx.imgWrapper}>

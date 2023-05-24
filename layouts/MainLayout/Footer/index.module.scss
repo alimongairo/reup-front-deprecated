@@ -1,18 +1,55 @@
 .wrapper {
+  position: relative;
   padding: 30px;
+  @media screen and (min-width: 390px) and (max-width: 586px) {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
   .content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
+    @media screen and (min-width: 390px) and (max-width: 586px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: flex-start;
+      padding-top: 20px;
+      padding-bottom: 5rem;
+      h2 {
+        text-align: left;
+        padding-bottom: 10px;
+      }
+      button {
+        position: absolute;
+        top: 9rem;
+        right: 10px;
+        left: 10px;
+        align-items:center;
+      }
+    }
   }
   .text {
     display: flex;
     gap: 20px;
+    @media screen and (min-width: 390px) and (max-width: 586px) {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
   }
   .icons {
     display: flex;
     justify-content: center;
     gap: 32px;
+
+    @media screen and (min-width: 390px) and (max-width: 586px) {
+      align-self: flex-start;
+      padding-top: 20px;
+      gap: 15px;
+    }
   }
 }

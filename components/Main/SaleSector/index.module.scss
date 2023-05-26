@@ -111,3 +111,22 @@
 .blueWrapper {
   background: #0a8ec7;
 }
+
+@media screen and (min-width: 390px) and (max-width: 586px) {
+  .saleSectorMobile {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .upBlock {
+    width: 100%;
+    display: flex;
+    div {
+      width: 50%;
+    }
+  }
+
+  .moreBtn {
+    align-self: flex-start !important;
+  }
+}

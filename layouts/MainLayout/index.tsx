@@ -22,7 +22,7 @@ const MainLayout = ({ children }: IProps) => {
         [cx.margin]: router.asPath !== EPagesRoutes.Main,
       })}
     >
-      {/* <Header /> */}
+      <Header />
       {children}
       <Footer />
     </div>

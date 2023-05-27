@@ -21,34 +21,34 @@ const MainPageNavigation = () => {
   return (
     <div className={cx.navbar}>
       <Text
-        size="thin"
+        size="normal"
         className={cx.navbarItem}
         onClick={() => goToCategory('локальные бренды')}
       >
         локальные бренды
       </Text>
       <Text
-        size="thin"
+        size="normal"
         className={cx.navbarItem}
         onClick={() => goToCategory('vintage')}
       >
         vintage
       </Text>
       <Text
-        size="thin"
+        size="normal"
         className={cx.navbarItem}
         onClick={() => goToCategory('селективные секонд-хенды')}
       >
         селективные секонд-хенды
       </Text>
       <Text
-        size="thin"
+        size="normal"
         className={cx.navbarItem}
         onClick={() => goToCategory('upcycle')}
       >
         upcycle
       </Text>
-      <Text size="thin" className={cx.navbarItem} onClick={goToSale}>
+      <Text size="normal" className={cx.navbarItem} onClick={goToSale}>
         sale
       </Text>
     </div>

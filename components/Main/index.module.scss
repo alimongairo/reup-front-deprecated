@@ -32,16 +32,15 @@
     }
   }
   .marquee {
-    font-size: 64px;
-    font-family: 'Gilroy', sans-serif;
-    font-weight: bold;
-    line-height: 70px;
-    letter-spacing: 0.185em;
-    text-align: left;
-    overflow: hidden;
-    border-bottom: 2px solid black;
-    border-top: 2px solid black;
-    padding-right: 0.3em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    .el {
+      padding: 0 2.5rem;
+    }
   }
 }
 

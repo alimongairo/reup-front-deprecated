@@ -24,10 +24,12 @@ const ProductDetailHeader = () => {
         <Heading>{productDetail.title}</Heading>
         <div>
           <Heading tag="h2">{productDetail.brandTitle}</Heading>
-          <Text>{productDetail.brandCode}</Text>
+          <Text className={cx.brandCode}>{productDetail.brandCode}</Text>
         </div>
       </div>
-      <Image src={heart} alt="heart" />
+      <div className={cx.icon}>
+        <Image src={heart} alt="heart" />
+      </div>
     </div>
   );
 };

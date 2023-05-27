@@ -8,4 +8,10 @@
   > div {
     width: 50%;
   }
+
+  .mainContent {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+  }
 }

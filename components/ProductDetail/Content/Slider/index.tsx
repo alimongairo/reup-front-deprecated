@@ -26,11 +26,11 @@ const Slider = ({ images }: IProps) => {
   useEffect(() => {
     const interval = setInterval(() => {
       onNextSlide();
-    }, 3000);
+    }, 30000);
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  });
 
   return (
     <div className={cx.slider}>
@@ -47,6 +47,9 @@ const Slider = ({ images }: IProps) => {
       </div>
       <div className={cx.activeSlide}>
         <Image src={images[activeSlide]} alt={'activeSlide'} />
+      </div>
+      <div className={cx.sizeBtn}>
+        <button title="на модели размер">!</button>
       </div>
     </div>
   );

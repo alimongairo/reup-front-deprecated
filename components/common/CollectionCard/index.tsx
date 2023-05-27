@@ -22,7 +22,7 @@ const CollectionCard = ({ id, img, title, brand }: IProps) => {
 
   return (
     <div className={cx.wrapper} onClick={goToCollection}>
-      <Image src={img} alt="img" width={340} />
+      <Image src={img} alt="img" width={455} />
       <div className={cx.text}>
         <Text size="big">{title}</Text>
         <Text size="thin">{brand}</Text>

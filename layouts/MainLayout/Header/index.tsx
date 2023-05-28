@@ -56,7 +56,7 @@ const MainPageHeader = () => {
         [cx.hide]: hide,
       })}
     >
-      {windowSize.width <= 586 ? (
+      {windowSize?.width <= 586 ? (
         <div className={cx.head_mobile}>
           <Heading onClick={onClickLogo} className={cx.logo}>
             REUP

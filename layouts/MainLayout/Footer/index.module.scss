@@ -2,7 +2,6 @@
   position: relative;
   padding: 30px;
   @media screen and (min-width: 390px) and (max-width: 586px) {
-    width: 100%;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -58,14 +57,17 @@
     .btnBuy {
       @media screen and (min-width: 390px) and (max-width: 586px) {
         margin-top: 0;
+        margin-bottom: 97px;
       }
     }
 
     .iconsIphone {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
       display: flex;
       justify-content: space-around;
       align-items:center;
-      margin-top: 97px;
       img:hover {
         cursor: pointer;
       }

@@ -44,3 +44,17 @@
     cursor: pointer;
   }
 }
+
+.head_mobile {
+  position: fixed;
+  width: calc(100% - 60px);
+  border-bottom: 1px solid black;
+  padding: 15px 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  left: 0;
+  top: 0;
+  // padding: 12px;
+}

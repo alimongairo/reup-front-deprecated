@@ -3,6 +3,12 @@
   grid-template-columns: 33% auto;
   grid-template-rows: 1fr;
 
+  @media screen and (min-width: 390px) and (max-width: 586px) {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
   .rightSide {
     display: flex;
     flex-direction: column;
@@ -18,6 +24,12 @@
   .mainContent {
     display: flex;
     align-items: flex-end;
+    @media screen and (min-width: 390px) and (max-width: 586px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
   }
 
   .mainText {
@@ -28,6 +40,11 @@
 
   .text {
     padding: 40px;
+    @media screen and (min-width: 390px) and (max-width: 586px) {
+      h1 {
+        font-size: 32px;
+      }
+    }
   }
 
   img {

@@ -2,10 +2,11 @@ import classNames from 'classnames';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
+import { useWindowSize } from '@/hooks/useWindow';
 import Heading from '@/components/common/Heading';
 import Text from '@/components/common/Text';
 import MoreButton from '@/components/common/MoreButton';
-
+import bigImgHeaderMobile from '@/static/img/bigImgHeaderMobile.png';
 import { EPagesRoutes } from '@/constants/router';
 
 import cx from './index.module.scss';
@@ -27,6 +28,7 @@ const Slide = ({
   bigImg,
   smallImg,
 }: ISlide) => {
+  const windowSize = useWindowSize();
   const router = useRouter();
 
   const moreHandler = () => {
@@ -38,7 +40,12 @@ const Slide = ({
       className={classNames(cx.slide, cx.fade)}
       style={{ display: active ? 'grid' : 'none' }}
     >
-      <Image src={bigImg} alt="slide1" />
+      {windowSize?.width < 586 ? (
+        <Image src={bigImgHeaderMobile} alt="slide1" />
+      ) : (
+        <Image src={bigImg} alt="slide1" />
+      )}
+
       <div className={cx.rightSide}>
         <Image src={smallImg} alt="slide2" />
         <div className={cx.text}>

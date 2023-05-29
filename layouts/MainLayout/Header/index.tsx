@@ -14,8 +14,10 @@ import like from '@/static/icons/like.svg';
 import basket from '@/static/icons/basket.svg';
 
 import cx from './index.module.scss';
+import { useWindowSize } from '@/hooks/useWindow';
 
 const MainPageHeader = () => {
+  const windowSize = useWindowSize();
   const router = useRouter();
   const [hide, setHide] = useState(false);
   const [searchVisible, setSearchVisible] = useState(false);
@@ -54,18 +56,29 @@ const MainPageHeader = () => {
         [cx.hide]: hide,
       })}
     >
-      <div className={cx.leftSide}>
-        <Heading onClick={onClickLogo} className={cx.logo}>
-          REUP
-        </Heading>
-        <Navigation />
-        <Search visible={searchVisible} setVisible={setSearchVisible} />
-      </div>
-      <div className={cx.actions}>
-        <Image src={like} alt="like" width={18} onClick={goToLiked} />
-        <DropDownProfile />
-        <Image src={basket} alt="basket" width={18} onClick={goToBasket} />
-      </div>
+      {windowSize?.width <= 586 ? (
+        <div className={cx.head_mobile}>
+          <Heading onClick={onClickLogo} className={cx.logo}>
+            REUP
+          </Heading>
+          <Search visible={searchVisible} setVisible={setSearchVisible} />
+        </div>
+      ) : (
+        <>
+          <div className={cx.leftSide}>
+            <Heading onClick={onClickLogo} className={cx.logo}>
+              REUP
+            </Heading>
+            <Navigation />
+            <Search visible={searchVisible} setVisible={setSearchVisible} />
+          </div>
+          <div className={cx.actions}>
+            <Image src={like} alt="like" width={18} onClick={goToLiked} />
+            <DropDownProfile />
+            <Image src={basket} alt="basket" width={18} onClick={goToBasket} />
+          </div>
+        </>
+      )}
     </div>
   );
 };

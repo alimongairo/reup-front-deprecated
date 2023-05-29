@@ -8,6 +8,15 @@
   box-sizing: border-box;
   border: 1px solid black;
   border-top: 0px solid black;
+  @media screen and (min-width: 390px) and (max-width: 586px) {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 34px);
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-top: 0px solid black;
+  }
 
   > button {
     text-align: right;

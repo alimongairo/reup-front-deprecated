@@ -6,6 +6,14 @@
     rgba(54, 241, 229, 0) 20%,
     rgb(190, 218, 98) 20%
   );
+  @media screen and (min-width: 390px) and (max-width: 586px) {
+    background: linear-gradient(
+      0deg,
+      rgba(54, 241, 229, 0) 20%,
+      rgb(190, 218, 98) 20%
+    );
+  }
+
   .slide {
     background: var(--reup-green);
     padding: 2rem;
@@ -14,15 +22,36 @@
     transition: 0.3s;
     display: flex;
     gap: 2rem;
+    @media screen and (min-width: 390px) and (max-width: 586px) {
+      width: 100%;
+      min-width: 350px;
+      display: flex;
+      flex-direction: column;
+      margin-top: 0;
+      padding: 2rem;
+      padding-top: 0;
+    }
     &.active .text {
       opacity: 1;
     }
     .imgWrapper {
       margin-top: -105px;
+      width: 100%;
+      @media screen and (min-width: 390px) and (max-width: 586px) {
+        width: 100%;
+        align-self: center;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+      }
     }
     .imgWrapper img {
       width: 100%;
       height: auto;
+      @media screen and (min-width: 390px) and (max-width: 586px) {
+        padding: 0;
+        margin: 0;
+      }
     }
   }
 }
@@ -64,10 +93,16 @@
   gap: 1rem;
   padding: 2rem 0;
   opacity: 0.5;
+  @media screen and (min-width: 390px) and (max-width: 586px) {
+    width: 100%;
+  }
 }
 
 .moreBtn {
   margin-top: 2rem;
+  @media screen and (min-width: 390px) and (max-width: 586px) {
+    margin-top: 0;
+  }
 }
 
 .footer {

@@ -13,6 +13,18 @@
   scrollbar-width: none;
 }
 
+.wrapper_flex_scrollSlider {
+  display: flex;
+  flex-direction: column;
+  .moreBtn {
+    margin: 0 89%;
+    @media screen and (min-width: 390px) and (max-width: 586px) {
+      margin-left: 2.2rem !important;
+      align-self: flex-start;
+    }
+  }
+}
+
 .wrapper {
   position: relative;
   overflow: hidden;
@@ -43,10 +55,6 @@
     right: 10px;
     transform: rotate(180deg);
   }
-}
-
-.moreBtn {
-  margin: 0 89%;
 }
 
 .btnWrapper {

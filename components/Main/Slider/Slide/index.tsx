@@ -29,6 +29,11 @@ const Slide = ({
   smallImg,
 }: ISlide) => {
   const windowSize = useWindowSize();
+
+  if (windowSize.width == undefined) {
+    windowSize.width = 390;
+  }
+
   const router = useRouter();
 
   const moreHandler = () => {

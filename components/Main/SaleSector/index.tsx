@@ -15,6 +15,10 @@ import { useWindowSize } from '@/hooks/useWindow';
 const SaleSector = () => {
   const windowSize = useWindowSize();
 
+  if (windowSize.width == undefined) {
+    windowSize.width = 390;
+  }
+
   return (
     <div className={cx.wrapper}>
       {windowSize?.width <= 586 ? (

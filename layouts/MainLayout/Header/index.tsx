@@ -25,7 +25,7 @@ const MainPageHeader = () => {
   if (windowSize.width == undefined) {
     windowSize.width = 390;
   }
-
+  
   const goToBasket = () => {
     router.push(EPagesRoutes.Basket);
   };

@@ -34,9 +34,9 @@ const OrderLayout = ({ isLogined }: IProps) => {
   const user = useAppSelector(getUserDataSource);
 
   useEffect(() => {
-    dispatch(getProductListAction());
-    dispatch(getBasketAction());
-    isLogined && dispatch(getUserAction());
+    // dispatch(getProductListAction());
+    // dispatch(getBasketAction());
+    // isLogined && dispatch(getUserAction());
   }, []);
 
   if (loading) {

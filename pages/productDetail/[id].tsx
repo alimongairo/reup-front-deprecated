@@ -14,9 +14,9 @@ const ProductDetailPage = () => {
 
   useEffect(() => {
     if (id) {
-      dispatch(getProductDetailAction(id as string));
+      // dispatch(getProductDetailAction(id as string));
     }
-    dispatch(getProductListAction());
+    // dispatch(getProductListAction());
   }, [id]);
 
   return (

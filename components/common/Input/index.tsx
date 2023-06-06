@@ -1,4 +1,4 @@
-import React, { HTMLInputTypeAttribute } from 'react';
+import React, { HTMLInputTypeAttribute, TextareaHTMLAttributes } from 'react';
 import classNames from 'classnames';
 
 import Text from '@/components/common/Text';
@@ -42,7 +42,7 @@ const Input = ({
           className={classNames(className, cx.input, cx[theme], {
             [cx.invalid]: invalid,
           })}
-          {...props}
+          {...(props as TextareaHTMLAttributes<HTMLTextAreaElement>)}
         />
       ) : (
         <input

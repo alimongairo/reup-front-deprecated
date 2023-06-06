@@ -12,8 +12,8 @@ const BasketLayout = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(getProductListAction());
-    dispatch(getBasketAction());
+    // dispatch(getProductListAction());
+    // dispatch(getBasketAction());
   }, []);
 
   return (

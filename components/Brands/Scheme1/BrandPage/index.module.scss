@@ -1,22 +1,7 @@
 @import 'styles/mixins.scss';
 
-.linkWithArrow {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  :global(p) {
-    display: inline;
-  }
-}
-
 .banner {
   position: relative;
-  .bannerUploadBtn {
-    position: absolute;
-    top: 10px;
-    left: 20px;
-  }
   .bannerItem {
     display: none;
     &.active {

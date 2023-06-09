@@ -1,3 +1,6 @@
+import Image from 'next/image';
+import { useState } from 'react';
+import classNames from 'classnames';
 import { useRouter } from 'next/router';
 
 import BrandPage from '@/components/Brands/Scheme1/BrandPage';

@@ -15,7 +15,7 @@ const DefaultMenu = () => {
   const contextValue = useContext(MenuContext);
 
   const toChangeScheme = () => {
-    router.push(EPagesRoutes.CreateBrand);
+    // router.push(EPagesRoute);
   };
 
   return (

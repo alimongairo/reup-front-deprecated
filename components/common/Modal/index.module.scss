@@ -8,11 +8,21 @@
   max-height: 80%;
   overflow-y: scroll;
   padding-right: 30px;
+  @media screen and (min-width: 390px) and (max-width: 586px) {
+    padding: 0;
+  }
   .closeBtn {
     position: absolute;
     right: 10px;
     top: 10px;
     cursor: pointer;
+    @media screen and (min-width: 390px) and (max-width: 586px) {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      cursor: pointer;
+      z-index: 999;
+    }
   }
 }
 

@@ -18,12 +18,28 @@
       display: flex;
       flex-direction: column;
       margin-top: 0;
+      padding: 16px;
       padding-top: 0;
+      width: 90%;
     }
     .heading {
       display: flex;
       gap: 2rem;
       align-items: center;
+
+      h2 {
+        @media screen and (min-width: 390px) and (max-width: 586px) {
+          font-size: 20px;
+        }
+      }
+
+      img {
+        @media screen and (min-width: 390px) and (max-width: 586px) {
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+        }
+      }
     }
     width: 50%;
     .price {
@@ -34,6 +50,16 @@
     .sizes {
       display: flex;
       gap: 15px;
+      @media screen and (min-width: 390px) and (max-width: 586px) {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+      button {
+        @media screen and (min-width: 390px) and (max-width: 586px) {
+          padding: 11px 9px;
+        }
+      }
     }
     .code {
       color: #828282;

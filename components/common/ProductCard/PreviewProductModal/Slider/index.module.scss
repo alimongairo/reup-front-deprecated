@@ -1,11 +1,17 @@
 .slider {
   width: 50%;
   position: relative;
+  @media screen and (min-width: 390px) and (max-width: 586px) {
+    width: 100%;
+  }
   .slides {
     width: 100%;
     position: absolute;
     overflow: hidden;
     display: flex;
+    @media screen and (min-width: 390px) and (max-width: 586px) {
+      position: relative;
+    }
   }
   .slide {
     transition: 0.3s;

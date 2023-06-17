@@ -21,7 +21,7 @@ const MainPageComponents = () => {
   const newProducts = useAppSelector(getProductListDataSource);
 
   useEffect(() => {
-    // dispatch(getProductListAction());
+    dispatch(getProductListAction());
   }, []);
 
   return (

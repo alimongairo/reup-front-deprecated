@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import { useEffect, useState } from 'react';
 
+import { useWindowSize } from '@/hooks/useWindow';
 import Heading from '@/components/common/Heading';
 
 import DropDownProfile from '@/layouts/MainLayout/Header/DropDownProfile';
@@ -14,7 +15,6 @@ import like from '@/static/icons/like.svg';
 import basket from '@/static/icons/basket.svg';
 
 import cx from './index.module.scss';
-import { useWindowSize } from '@/hooks/useWindow';
 
 const MainPageHeader = () => {
   const windowSize = useWindowSize();

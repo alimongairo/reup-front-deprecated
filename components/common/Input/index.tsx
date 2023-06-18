@@ -5,6 +5,7 @@ import Text from '@/components/common/Text';
 import CodeInput from '@/components/common/Input/CodeInput';
 
 import cx from './index.module.scss';
+import { idText } from 'typescript';
 
 interface IProps
   extends React.DetailedHTMLProps<

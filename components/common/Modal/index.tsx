@@ -29,7 +29,7 @@ const Modal = ({ visible, onClose, children }: IProps) => {
       return;
     }
     document.body.style.overflow = 'auto';
-  }, [visible, windowSize.width]);
+  }, [visible]);
 
   return (
     <Portal visible={visible}>

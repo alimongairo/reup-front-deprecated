@@ -4,7 +4,9 @@
   display: flex;
   height: auto;
   position: relative;
-  margin-top: 3.5rem;
+  @media screen and (min-width: 390px) and (max-width: 586px) {
+    margin-top: 3.5rem;
+  }
   .slides {
     width: 100%;
   }

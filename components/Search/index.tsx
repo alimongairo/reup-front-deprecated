@@ -5,6 +5,7 @@ import Heading from '@/components/common/Heading';
 import FiltersForProducts from '@/components/common/FiltersForProducts';
 import ProductFeed from '@/components/ProductFeed';
 import { TFilterData } from '@/components/common/FiltersForProducts/context';
+import MobileFilters from '@/components/common/MobileFilters';
 
 import { EPagesRoutes } from '@/constants/router';
 
@@ -29,17 +30,26 @@ const SearchLayout = () => {
 
   return (
     <div className={cx.wrapper}>
-      <Input
-        className={cx.input}
-        value={router.query.search}
-        onChange={onChangeSearch}
-        placeholder="Search..."
-      />
+      {windowSize?.width >= 586 && (
+        <Input
+          className={cx.input}
+          value={router.query.search}
+          onChange={onChangeSearch}
+          placeholder="Search..."
+        />
+      )}
+
       <Heading tag="h2">
         По запросу{' '}
         {router.query.search?.length ? `“${router.query.search}”` : ''}найдено
         145 товаров
       </Heading>
+
+      {windowSize?.width <= 586 && (
+        <div className={cx.content}>
+          <MobileFilters />
+        </div>
+      )}
       <div className={cx.content}>
         {windowSize?.width >= 586 && (
           <FiltersForProducts onChange={onChangeFilters} />

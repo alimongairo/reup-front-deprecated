@@ -9,9 +9,15 @@ import { TFilterData } from '@/components/common/FiltersForProducts/context';
 import { EPagesRoutes } from '@/constants/router';
 
 import cx from './index.module.scss';
+import { useWindowSize } from '@/hooks/useWindow';
 
 const SearchLayout = () => {
+  const windowSize = useWindowSize();
   const router = useRouter();
+
+  if (windowSize.width == undefined) {
+    windowSize.width = 390;
+  }
 
   const onChangeSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     router.push(EPagesRoutes.SearchResult + '?search=' + e.target.value);
@@ -35,7 +41,9 @@ const SearchLayout = () => {
         145 товаров
       </Heading>
       <div className={cx.content}>
-        <FiltersForProducts onChange={onChangeFilters} />
+        {windowSize?.width >= 586 && (
+          <FiltersForProducts onChange={onChangeFilters} />
+        )}
         <ProductFeed />
       </div>
     </div>

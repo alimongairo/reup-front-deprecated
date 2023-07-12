@@ -25,4 +25,7 @@
   display: grid;
   gap: 30px;
   grid-template-columns: 280px auto;
+  @media screen and (min-width: 390px) and (max-width: 586px) {
+    // background-color: red !important;
+  }
 }

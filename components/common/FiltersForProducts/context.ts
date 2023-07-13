@@ -50,6 +50,7 @@ export interface IFilterContext {
   seasons?: ESeason[];
   colors?: EColor[];
   styles?: string[];
+  search?: string;
   setFilterData?: (
     data: Partial<Omit<IFilterContext, 'setFilterData'>>,
   ) => void;

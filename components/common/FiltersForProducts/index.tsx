@@ -12,6 +12,7 @@ import Patterns from '@/components/common/FiltersForProducts/Patterns';
 import Style from '@/components/common/FiltersForProducts/Style';
 import Colors from '@/components/common/FiltersForProducts/Colors';
 import Button from '@/components/common/Button';
+import Input from '@/components/common/Input';
 
 import {
   FilterContext,
@@ -97,6 +98,12 @@ const FiltersForProducts = ({
         <Divider direction={'horizontal'} />
         <Colors />
 
+        {isInModal && (
+          // значение этого инпута тоже отправлять в запрос ? , потому что будет отправляться все сразу - не при динамическом вводе
+          <>
+            <Divider direction={'horizontal'} />
+          </>
+        )}
         {isInModal && (
           <div>
             <Button className={cx.submitBtn} onClick={handleSubmit}>

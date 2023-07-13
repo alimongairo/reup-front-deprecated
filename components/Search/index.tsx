@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 
+import FullscreenModal from '@/components/common/FullscreenModal';
 import Input from '@/components/common/Input';
 import Heading from '@/components/common/Heading';
 import FiltersForProducts from '@/components/common/FiltersForProducts';
@@ -15,6 +17,8 @@ const SearchLayout = () => {
   const windowSize = useWindowSize();
   const router = useRouter();
 
+  const [visibleModal, setVisibleModal] = useState(false);
+
   if (windowSize.width == undefined) {
     windowSize.width = 390;
   }
@@ -25,6 +29,10 @@ const SearchLayout = () => {
 
   const onChangeFilters = (data: TFilterData) => {
     console.log(data);
+  };
+
+  const onCloseModal = () => {
+    setVisibleModal(false);
   };
 
   return (
@@ -41,8 +49,13 @@ const SearchLayout = () => {
         145 товаров
       </Heading>
       <div className={cx.content}>
-        {windowSize?.width >= 586 && (
+        {windowSize?.width >= 586 ? (
           <FiltersForProducts onChange={onChangeFilters} />
+        ) : (
+          // Button onClick={() => setVisibleModal(true)
+          <FullscreenModal visible={visibleModal} onClose={onCloseModal}>
+            vdvdv
+          </FullscreenModal>
         )}
         <ProductFeed />
       </div>

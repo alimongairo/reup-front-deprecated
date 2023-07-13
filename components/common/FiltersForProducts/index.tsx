@@ -11,6 +11,7 @@ import Seasons from '@/components/common/FiltersForProducts/Seasons';
 import Patterns from '@/components/common/FiltersForProducts/Patterns';
 import Style from '@/components/common/FiltersForProducts/Style';
 import Colors from '@/components/common/FiltersForProducts/Colors';
+import Button from '@/components/common/Button';
 
 import {
   FilterContext,
@@ -23,9 +24,15 @@ interface IProps {
   onChange?: (data: TFilterData) => void;
   isInModal?: boolean;
   onModalClose?: () => void;
+  className?: string;
 }
 
-const FiltersForProducts = ({ onChange, isInModal, onModalClose }: IProps) => {
+const FiltersForProducts = ({
+  onChange,
+  isInModal,
+  onModalClose,
+  className,
+}: IProps) => {
   const formRef = useRef<any>();
   const [formData, setFormData] = useState<TFilterData>({});
 
@@ -64,7 +71,7 @@ const FiltersForProducts = ({ onChange, isInModal, onModalClose }: IProps) => {
       <form
         onChange={onChangeForm}
         ref={formRef}
-        className={classNames(cx.form, isInModal && cx.isInModal)}
+        className={classNames(className, cx.form)}
       >
         {!isInModal && (
           <Heading className={cx.heading} tag="h3">
@@ -91,7 +98,11 @@ const FiltersForProducts = ({ onChange, isInModal, onModalClose }: IProps) => {
         <Colors />
 
         {isInModal && (
-          <input type="submit" value="Submit" onClick={handleSubmit} />
+          <div>
+            <Button className={cx.submitBtn} onClick={handleSubmit}>
+              применить
+            </Button>
+          </div>
         )}
       </form>
     </FilterContext.Provider>

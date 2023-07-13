@@ -37,6 +37,7 @@ const MobileFilters = ({ onChangeFilters }: IProps) => {
           isInModal={true}
           onChange={onChangeFilters}
           onModalClose={onClose}
+          className={cx.filters}
         />
       </FullscreenModal>
     </div>

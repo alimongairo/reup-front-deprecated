@@ -9,15 +9,10 @@
   overflow-y: scroll;
   scrollbar-width: none;
   scrollbar-gutter: unset;
+  display: flex;
   &::-webkit-scrollbar {
     display: none;
   }
-}
-
-.wrapper {
-}
-
-.closeBtn {
 }
 
 .head {
@@ -41,4 +36,20 @@
   font-weight: bold;
   padding-left: 32px;
   word-wrap: break-word;
+}
+
+.footer {
+  z-index: 101;
+}
+
+.wrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }

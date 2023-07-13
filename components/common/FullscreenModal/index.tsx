@@ -2,7 +2,7 @@ import { ReactNode, useEffect } from 'react';
 import Image from 'next/image';
 // import classNames from 'classnames';
 import Portal from '@/hoc/Portal';
-
+import Footer from '@/layouts/MainLayout/Footer';
 import back from '@/static/icons/back.svg';
 import Heading from '@/components/common/Heading';
 
@@ -25,8 +25,6 @@ const FullscreenModal = ({ visible, onClose, children, title }: IProps) => {
   }, [visible]);
 
   return (
-    // Portal отрисовывает попап в другой части доп дерева (div id="portal" />), чтобы сократить кол-во перерисовок
-    // когда открыта такая модалка, показываем внизу футер для мобилки (она есть)
     <Portal visible={visible}>
       <div className={cx.modal}>
         <div className={cx.wrapper}>
@@ -44,6 +42,7 @@ const FullscreenModal = ({ visible, onClose, children, title }: IProps) => {
           <div className={cx.content}>{children}</div>
         </div>
       </div>
+      <Footer className={cx.footer} />
     </Portal>
   );
 };

@@ -3,6 +3,11 @@
   box-sizing: border-box;
   height: fit-content;
   padding-right: 20px;
+  &.isInModal {
+    padding: 0;
+    border: none;
+    padding: 0 1rem;
+  }
 }
 .filterItem:not(:last-child) {
   margin-bottom: 20px;

@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 
+import classNames from 'classnames';
+
 import Heading from '@/components/common/Heading';
 import Price from '@/components/common/FiltersForProducts/Price';
 import Divider from '@/components/common/Divider';
@@ -19,9 +21,10 @@ import cx from './index.module.scss';
 
 interface IProps {
   onChange?: (data: TFilterData) => void;
+  isInModal?: boolean;
 }
 
-const FiltersForProducts = ({ onChange }: IProps) => {
+const FiltersForProducts = ({ onChange, isInModal }: IProps) => {
   const formRef = useRef<any>();
   const [formData, setFormData] = useState<TFilterData>({});
 
@@ -51,10 +54,17 @@ const FiltersForProducts = ({ onChange }: IProps) => {
 
   return (
     <FilterContext.Provider value={contextValue}>
-      <form onChange={onChangeForm} ref={formRef} className={cx.form}>
-        <Heading className={cx.heading} tag="h3">
-          фильтры
-        </Heading>
+      <form
+        onChange={onChangeForm}
+        ref={formRef}
+        className={classNames(cx.form, isInModal && cx.isInModal)}
+      >
+        {!isInModal && (
+          <Heading className={cx.heading} tag="h3">
+            фильтры
+          </Heading>
+        )}
+
         <Price />
         <Sizes />
 

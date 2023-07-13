@@ -2,16 +2,18 @@ import { ReactNode, useEffect } from 'react';
 // import classNames from 'classnames';
 import Portal from '@/hoc/Portal';
 
+import Heading from '@/components/common/Heading';
+
 import cx from './index.module.scss';
 
 interface IProps {
   visible: boolean;
   onClose: () => void;
   children: ReactNode;
+  title?: string;
 }
 
-const FullscreenModal = ({ visible, onClose, children }: IProps) => {
-  // onCLose как-будто бы не нужен, потому что он вешается на клик вне попапа
+const FullscreenModal = ({ visible, onClose, children, title }: IProps) => {
   useEffect(() => {
     if (visible) {
       document.body.style.overflow = 'hidden';
@@ -23,7 +25,20 @@ const FullscreenModal = ({ visible, onClose, children }: IProps) => {
   return (
     // Portal отрисовывает попап в другой части доп дерева (div id="portal" />), чтобы сократить кол-во перерисовок
     <Portal visible={visible}>
-      <div>{children}</div>
+      <div className={cx.modal}>
+        <div className={cx.wrapper}>
+          {/* TODO: стрелочка (поискать по сайту) */}
+          <div className={cx.head}>
+            <span className={cx.closeBtn} onClick={onClose}>
+              cross
+            </span>
+            <Heading className={cx.title} tag="h3">
+              фильтры
+            </Heading>
+          </div>
+          <div className={cx.content}>{children}</div>
+        </div>
+      </div>
       {/* <div className={cx.backModal}>
         <div className={classNames(cx.wrapper)}>
           <span className={cx.closeBtn} onClick={onClose}>

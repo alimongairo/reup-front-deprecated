@@ -1,0 +1,32 @@
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  height: 100%;
+  width: 100%;
+  background: white;
+}
+
+.wrapper {
+}
+.closeBtn {
+}
+
+.head {
+  position: relative;
+  padding: 8px;
+}
+
+.closeBtn {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  padding: inherit;
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
+}

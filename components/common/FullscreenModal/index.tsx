@@ -1,7 +1,9 @@
 import { ReactNode, useEffect } from 'react';
+import Image from 'next/image';
 // import classNames from 'classnames';
 import Portal from '@/hoc/Portal';
 
+import back from '@/static/icons/back.svg';
 import Heading from '@/components/common/Heading';
 
 import cx from './index.module.scss';
@@ -24,14 +26,17 @@ const FullscreenModal = ({ visible, onClose, children, title }: IProps) => {
 
   return (
     // Portal отрисовывает попап в другой части доп дерева (div id="portal" />), чтобы сократить кол-во перерисовок
+    // когда открыта такая модалка, показываем внизу футер для мобилки (она есть)
     <Portal visible={visible}>
       <div className={cx.modal}>
         <div className={cx.wrapper}>
-          {/* TODO: стрелочка (поискать по сайту) */}
           <div className={cx.head}>
-            <span className={cx.closeBtn} onClick={onClose}>
-              cross
-            </span>
+            <Image
+              src={back}
+              alt={'back'}
+              className={cx.closeBtn}
+              onClick={onClose}
+            />
             <Heading className={cx.title} tag="h3">
               фильтры
             </Heading>
@@ -39,15 +44,6 @@ const FullscreenModal = ({ visible, onClose, children, title }: IProps) => {
           <div className={cx.content}>{children}</div>
         </div>
       </div>
-      {/* <div className={cx.backModal}>
-        <div className={classNames(cx.wrapper)}>
-          <span className={cx.closeBtn} onClick={onClose}>
-            <Image src={close} alt={'close'} />
-          </span>
-          <div className={cx.content}>{children}</div>
-        </div>
-        <span className={cx.closeMask} onClick={onClose}></span>
-      </div> */}
     </Portal>
   );
 };

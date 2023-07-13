@@ -6,16 +6,23 @@
   height: 100%;
   width: 100%;
   background: white;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  scrollbar-gutter: unset;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .wrapper {
 }
+
 .closeBtn {
 }
 
 .head {
   position: relative;
-  padding: 8px;
+  padding: 8px 16px;
 }
 
 .closeBtn {
@@ -24,9 +31,14 @@
   top: 50%;
   transform: translate(0, -50%);
   padding: inherit;
+  @media (hover: hover) {
+    cursor: pointer;
+  }
 }
 
 .title {
   text-align: center;
   font-weight: bold;
+  padding-left: 32px;
+  word-wrap: break-word;
 }

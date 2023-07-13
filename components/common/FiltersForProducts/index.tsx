@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { FormEvent, useEffect, useMemo, useRef, useState } from 'react';
 
 import classNames from 'classnames';
 
@@ -22,9 +22,10 @@ import cx from './index.module.scss';
 interface IProps {
   onChange?: (data: TFilterData) => void;
   isInModal?: boolean;
+  onModalClose?: () => void;
 }
 
-const FiltersForProducts = ({ onChange, isInModal }: IProps) => {
+const FiltersForProducts = ({ onChange, isInModal, onModalClose }: IProps) => {
   const formRef = useRef<any>();
   const [formData, setFormData] = useState<TFilterData>({});
 
@@ -34,6 +35,12 @@ const FiltersForProducts = ({ onChange, isInModal }: IProps) => {
       setFormData((state) => ({ ...state, ...Object.fromEntries([...data]) }));
     }
   };
+
+  function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    console.log(formData);
+    onModalClose && onModalClose();
+  }
 
   const setFilterData = (data: TFilterData) => {
     setFormData((state) => ({ ...state, ...data }));
@@ -47,7 +54,7 @@ const FiltersForProducts = ({ onChange, isInModal }: IProps) => {
   }, [formData]);
 
   useEffect(() => {
-    if (onChange) {
+    if (onChange && !isInModal) {
       onChange(formData);
     }
   }, [formData]);
@@ -82,6 +89,10 @@ const FiltersForProducts = ({ onChange, isInModal }: IProps) => {
 
         <Divider direction={'horizontal'} />
         <Colors />
+
+        {isInModal && (
+          <input type="submit" value="Submit" onClick={handleSubmit} />
+        )}
       </form>
     </FilterContext.Provider>
   );

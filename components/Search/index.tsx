@@ -55,7 +55,7 @@ const SearchLayout = () => {
 
       {windowSize?.width <= 586 && (
         <div className={cx.content}>
-          <MobileFilters />
+          <MobileFilters onChangeFilters={onChangeFilters} />
         </div>
       )}
       <div className={cx.content}>

@@ -34,7 +34,7 @@ const FiltersForProducts = ({
   onModalClose,
   className,
 }: IProps) => {
-  const formRef = useRef<any>();
+  const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState<TFilterData>({});
 
   const onChangeForm = () => {

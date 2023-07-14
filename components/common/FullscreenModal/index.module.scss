@@ -26,6 +26,7 @@
   top: 50%;
   transform: translate(0, -50%);
   padding: inherit;
+  padding-left: 0;
   @media (hover: hover) {
     cursor: pointer;
   }
@@ -46,6 +47,7 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  padding: 0 1rem;
 }
 
 .content {

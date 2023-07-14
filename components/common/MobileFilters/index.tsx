@@ -12,33 +12,48 @@ interface IProps {
 }
 
 const MobileFilters = ({ onChangeFilters }: IProps) => {
-  // TODO: сделать универсальную штучку, что у нас открыто, фильтры или сортировка, и в завсимости от этого передавать контент в модалку
-  // TODO: добавить в FiltersForProducts (FiltersForProductsMobile (isInFullModal) поиск
   const [filtersVisible, setFiltersVisible] = useState<boolean>(false);
+  const [sortVisible, setSortVisible] = useState<boolean>(false);
 
-  const onClose = () => {
+  const onCloseFIlters = () => {
     setFiltersVisible(false);
   };
 
-  const onOpen = () => {
+  const onOpenFIlters = () => {
     setFiltersVisible(true);
+  };
+
+  const onCloseSort = () => {
+    setSortVisible(false);
+  };
+
+  const onOpenSort = () => {
+    setSortVisible(true);
   };
 
   return (
     <div className={cx.wrapper}>
-      <Button onClick={onOpen}>Сортировать</Button>
-      {/* <Button>Фильтры</Button> */}
+      <Button onClick={onOpenSort}>Сортировать</Button>
+      <Button onClick={onOpenFIlters}>Фильтры</Button>
       <FullscreenModal
-        onClose={onClose}
+        onClose={onCloseFIlters}
         visible={filtersVisible}
-        title="FullscreenModal"
+        title="фильтры"
       >
         <FiltersForProducts
           isInModal={true}
           onChange={onChangeFilters}
-          onModalClose={onClose}
+          onModalClose={onCloseFIlters}
           className={cx.filters}
         />
+      </FullscreenModal>
+
+      <FullscreenModal
+        onClose={onCloseSort}
+        visible={sortVisible}
+        title="сортировать"
+      >
+        <div>Сортировать (прикрутить после жобавления на десктопе)</div>
       </FullscreenModal>
     </div>
   );

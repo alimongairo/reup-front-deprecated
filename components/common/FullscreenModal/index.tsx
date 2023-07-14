@@ -1,6 +1,6 @@
 import { ReactNode, useEffect } from 'react';
 import Image from 'next/image';
-// import classNames from 'classnames';
+
 import Portal from '@/hoc/Portal';
 import Footer from '@/layouts/MainLayout/Footer';
 import back from '@/static/icons/back.svg';
@@ -36,7 +36,7 @@ const FullscreenModal = ({ visible, onClose, children, title }: IProps) => {
               onClick={onClose}
             />
             <Heading className={cx.title} tag="h3">
-              фильтры
+              {title}
             </Heading>
           </div>
           <div className={cx.content}>{children}</div>

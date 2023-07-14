@@ -99,12 +99,6 @@ const FiltersForProducts = ({
         <Colors />
 
         {isInModal && (
-          // значение этого инпута тоже отправлять в запрос ? , потому что будет отправляться все сразу - не при динамическом вводе
-          <>
-            <Divider direction={'horizontal'} />
-          </>
-        )}
-        {isInModal && (
           <div>
             <Button className={cx.submitBtn} onClick={handleSubmit}>
               применить

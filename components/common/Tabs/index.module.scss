@@ -18,8 +18,21 @@
   }
 }
 
+.btnsTitle {
+  padding-left: 2rem;
+
+  .btnTitle {
+    &:not(:last-child) {
+      margin-right: 24px;
+    }
+  }
+}
+
 .tabContent {
   padding: 2rem;
   transition: 0.3s;
-  border-top: 1px solid black;
+
+  &__bordered {
+    border-top: 1px solid black;
+  }
 }

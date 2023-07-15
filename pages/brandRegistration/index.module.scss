@@ -1,0 +1,30 @@
+@import 'styles/mixins.scss';
+
+.heading {
+  margin: 2rem 0;
+}
+
+.subheading {
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: baseline;
+  & > *:first-child {
+    white-space: nowrap;
+  }
+}
+
+.wrapper {
+  @include contentWidth(true, true, calc(100% - 4rem));
+}
+
+.tabs {
+  & > *:not(:first-child) {
+    padding-left: 0;
+    padding-right: 0;
+    padding: 0;
+  }
+}
+
+.subcontent {
+  padding-left: 2rem;
+}

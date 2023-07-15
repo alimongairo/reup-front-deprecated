@@ -20,7 +20,7 @@ const SubHeaderLK = () => {
         className={cx.right}
         onClick={() => goToPage(EPagesRoutes.Liked)}
       >
-        избранное
+        1 избранное
       </Button>
       <Button
         className={cx.left}
@@ -36,7 +36,13 @@ const SubHeaderLK = () => {
       >
         возвраты
       </Button>
-      <Button className={cx.center}>стать продавцом</Button>
+      <Button
+        className={cx.center}
+        active={router.asPath === EPagesRoutes.BrandRegistration}
+        onClick={() => goToPage(EPagesRoutes.BrandRegistration)}
+      >
+        стать продавцом
+      </Button>
       <Button
         className={cx.center}
         active={router.asPath === EPagesRoutes.PersonalAccount}

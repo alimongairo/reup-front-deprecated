@@ -3,18 +3,44 @@ import MainLayout from '@/layouts/MainLayout';
 import Tabs, { ETabsView } from '@/components/common/Tabs';
 import Heading from '@/components/common/Heading';
 import Button from '@/components/common/Button';
-import FreelanceForm from '@/components/BrandRegistrationForm/forms/FreelanceForm';
-import CorporateForm from '@/components/BrandRegistrationForm/forms/CorporateForm';
+import BrandRegistrationForm from '@/components/BrandRegistrationForm';
 import SubHeaderLK from '@/components/SubHeaderLK';
 
 import cx from './index.module.scss';
-
-const tabs = [
-  { id: 1, title: '1', content: <FreelanceForm className={cx.subcontent} /> },
-  { id: 2, title: '2', content: <CorporateForm className={cx.subcontent} /> },
-];
+import { useEffect, useMemo, useRef, useState } from 'react';
+import {
+  IFreelanceFormFields,
+  ICorporateFormfields,
+  corporateFormFields,
+  freelanceFormFields,
+} from './fields';
 
 const BrandRegistration = () => {
+  const formRef = useRef<HTMLFormElement>(null);
+  // TODO: types
+  const [formData, setFormData] = useState<
+    IFreelanceFormFields | ICorporateFormfields | {}
+  >({});
+
+  const onChangeForm = () => {
+    if (formRef.current) {
+      const data = new FormData(formRef.current);
+      setFormData((state: any) => ({
+        ...state,
+        ...Object.fromEntries([...data]),
+      }));
+    }
+  };
+
+  const setFilterData = (data: any) => {
+    setFormData((state: any) => ({ ...state, ...data }));
+  };
+
+  useEffect(() => {
+    console.log(formData);
+    setFormData({});
+  }, [formData]);
+
   return (
     <MainLayout>
       <SubHeaderLK />
@@ -26,7 +52,30 @@ const BrandRegistration = () => {
         </div>
 
         <Tabs
-          tabs={tabs}
+          tabs={[
+            {
+              id: 1,
+              title: '1',
+              content: (
+                <BrandRegistrationForm
+                  className={cx.subcontent}
+                  formRef={formRef}
+                  fields={freelanceFormFields}
+                />
+              ),
+            },
+            {
+              id: 2,
+              title: '2',
+              content: (
+                <BrandRegistrationForm
+                  className={cx.subcontent}
+                  formRef={formRef}
+                  fields={corporateFormFields}
+                />
+              ),
+            },
+          ]}
           view={ETabsView.BUTTONS}
           className={cx.tabs}
           tabHeader={
@@ -44,7 +93,9 @@ const BrandRegistration = () => {
         </div>
 
         <div className={cx.subcontent}>
-          <Button>отправить регистрацию и перейти к оформлению</Button>
+          <Button onClick={onChangeForm}>
+            отправить регистрацию и перейти к оформлению
+          </Button>
         </div>
       </div>
     </MainLayout>

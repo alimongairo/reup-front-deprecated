@@ -16,11 +16,13 @@ import { useWindowSize } from '@/hooks/useWindow';
 const SearchLayout = () => {
   const windowSize = useWindowSize();
   const router = useRouter();
+  const defaultWidth = 390;
+  const mobileWidth = 586;
 
   const [visibleModal, setVisibleModal] = useState(false);
 
   if (windowSize.width == undefined) {
-    windowSize.width = 390;
+    windowSize.width = defaultWidth;
   }
 
   const onChangeSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,7 +35,7 @@ const SearchLayout = () => {
 
   return (
     <div className={cx.wrapper}>
-      {windowSize?.width >= 586 && (
+      {windowSize?.width >= mobileWidth && (
         <Input
           className={cx.input}
           value={router.query.search}
@@ -48,13 +50,13 @@ const SearchLayout = () => {
         145 товаров
       </Heading>
 
-      {windowSize?.width <= 586 && (
+      {windowSize?.width <= mobileWidth && (
         <div className={cx.content}>
           <MobileFilters onChangeFilters={onChangeFilters} />
         </div>
       )}
       <div className={cx.content}>
-        {windowSize?.width >= 586 && (
+        {windowSize?.width >= mobileWidth && (
           <FiltersForProducts onChange={onChangeFilters} />
         )}
         <ProductFeed />

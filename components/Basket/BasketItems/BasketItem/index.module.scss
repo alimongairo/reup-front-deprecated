@@ -2,6 +2,12 @@
   display: flex;
   gap: 30px;
 
+  @media screen and (min-width: 390px) and (max-width: 586px) {
+    img {
+      width: 130px;
+      height: 160px;
+    }
+  }
   .content {
     width: 100%;
     display: flex;

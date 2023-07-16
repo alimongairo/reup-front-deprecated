@@ -8,6 +8,10 @@
     gap: 50px;
     justify-content: space-between;
     margin: 2rem 0;
+    @media screen and (min-width: 390px) and (max-width: 586px) {
+      flex-direction: column;
+      width: 100%;
+    }
   }
 
   .productList {
@@ -17,12 +21,9 @@
       align-items: center;
       justify-content: space-between;
       margin-bottom: 2rem;
+      @media screen and (min-width: 390px) and (max-width: 586px) {
+        width: 100%;
+      }
     }
   }
 }
-
-// @media screen and (min-width: 390px) and (max-width: 586px) {
-//   h1 {
-//     font-size: 32px !important;
-//   }
-// }

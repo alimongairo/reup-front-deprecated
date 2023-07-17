@@ -13,7 +13,7 @@ import {
   ICorporateFormfields,
   corporateFormFields,
   freelanceFormFields,
-} from './fields';
+} from '@/constants/brandingRegistration';
 
 const BrandRegistration = () => {
   const formRef = useRef<HTMLFormElement>(null);

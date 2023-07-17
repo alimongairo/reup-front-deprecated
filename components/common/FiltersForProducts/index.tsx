@@ -9,6 +9,7 @@ import Seasons from '@/components/common/FiltersForProducts/Seasons';
 import Patterns from '@/components/common/FiltersForProducts/Patterns';
 import Style from '@/components/common/FiltersForProducts/Style';
 import Colors from '@/components/common/FiltersForProducts/Colors';
+import Categories from '@/components/common/FiltersForProducts/Categories';
 
 import {
   FilterContext,
@@ -55,6 +56,10 @@ const FiltersForProducts = ({ onChange }: IProps) => {
         <Heading className={cx.heading} tag="h3">
           фильтры
         </Heading>
+
+        <Categories />
+        <Divider direction={'horizontal'} />
+
         <Price />
         <Sizes />
 

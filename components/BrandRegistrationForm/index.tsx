@@ -18,7 +18,12 @@ const BrandRegistrationForm = ({ className, formRef, fields }: IProps) => {
     <div className={classNames(className)}>
       <form ref={formRef}>
         {fields.map((item) => (
-          <Input key={item.name} label={item.label} name={item.name} />
+          <Input
+            key={item.name}
+            label={item.label}
+            name={item.name}
+            isWrapped
+          />
         ))}
       </form>
     </div>

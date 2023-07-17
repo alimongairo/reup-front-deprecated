@@ -29,16 +29,12 @@ const BrandRegistration = () => {
         ...state,
         ...Object.fromEntries([...data]),
       }));
+      // после отправки нужно будет чистить setFormData({})
     }
-  };
-
-  const setFilterData = (data: any) => {
-    setFormData((state: any) => ({ ...state, ...data }));
   };
 
   useEffect(() => {
     console.log(formData);
-    setFormData({});
   }, [formData]);
 
   return (

@@ -27,4 +27,8 @@
 
 .subcontent {
   padding-left: 2rem;
+  form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

@@ -18,6 +18,7 @@ interface IProps
   errorMessage?: string;
   theme?: 'light' | 'grey';
   isTextArea?: boolean;
+  isWrapped?: boolean;
 }
 
 const Input = ({
@@ -28,13 +29,14 @@ const Input = ({
   label,
   theme = 'light',
   isTextArea,
+  isWrapped = false,
   ...props
 }: IProps) => {
   if (codeInput) {
     return <CodeInput {...props} />;
   }
 
-  return (
+  const Input = (
     <>
       {label && <Text className={cx.label}>{label}</Text>}
       {isTextArea ? (
@@ -65,6 +67,12 @@ const Input = ({
       )}
     </>
   );
+
+  if (!isWrapped) {
+    return Input;
+  } else {
+    return <div>{Input}</div>;
+  }
 };
 
 export default Input;

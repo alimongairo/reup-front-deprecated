@@ -1,0 +1,57 @@
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  height: 100%;
+  width: 100%;
+  background: white;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  scrollbar-gutter: unset;
+  display: flex;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.head {
+  position: relative;
+  padding: 8px 16px;
+}
+
+.closeBtn {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  padding: inherit;
+  padding-left: 0;
+  @media (hover: hover) {
+    cursor: pointer;
+  }
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
+  padding-left: 32px;
+  word-wrap: break-word;
+}
+
+.footer {
+  z-index: 101;
+}
+
+.wrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+}
+
+.content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}

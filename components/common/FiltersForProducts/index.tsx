@@ -1,4 +1,6 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { FormEvent, useEffect, useMemo, useRef, useState } from 'react';
+
+import classNames from 'classnames';
 
 import Heading from '@/components/common/Heading';
 import Price from '@/components/common/FiltersForProducts/Price';
@@ -9,6 +11,8 @@ import Seasons from '@/components/common/FiltersForProducts/Seasons';
 import Patterns from '@/components/common/FiltersForProducts/Patterns';
 import Style from '@/components/common/FiltersForProducts/Style';
 import Colors from '@/components/common/FiltersForProducts/Colors';
+import Button from '@/components/common/Button';
+import Input from '@/components/common/Input';
 
 import {
   FilterContext,
@@ -19,10 +23,18 @@ import cx from './index.module.scss';
 
 interface IProps {
   onChange?: (data: TFilterData) => void;
+  isInModal?: boolean;
+  onModalClose?: () => void;
+  className?: string;
 }
 
-const FiltersForProducts = ({ onChange }: IProps) => {
-  const formRef = useRef<any>();
+const FiltersForProducts = ({
+  onChange,
+  isInModal,
+  onModalClose,
+  className,
+}: IProps) => {
+  const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState<TFilterData>({});
 
   const onChangeForm = () => {
@@ -31,6 +43,12 @@ const FiltersForProducts = ({ onChange }: IProps) => {
       setFormData((state) => ({ ...state, ...Object.fromEntries([...data]) }));
     }
   };
+
+  function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    console.log(formData);
+    onModalClose && onModalClose();
+  }
 
   const setFilterData = (data: TFilterData) => {
     setFormData((state) => ({ ...state, ...data }));
@@ -44,17 +62,24 @@ const FiltersForProducts = ({ onChange }: IProps) => {
   }, [formData]);
 
   useEffect(() => {
-    if (onChange) {
+    if (onChange && !isInModal) {
       onChange(formData);
     }
   }, [formData]);
 
   return (
     <FilterContext.Provider value={contextValue}>
-      <form onChange={onChangeForm} ref={formRef} className={cx.form}>
-        <Heading className={cx.heading} tag="h3">
-          фильтры
-        </Heading>
+      <form
+        onChange={onChangeForm}
+        ref={formRef}
+        className={classNames(className, cx.form)}
+      >
+        {!isInModal && (
+          <Heading className={cx.heading} tag="h3">
+            фильтры
+          </Heading>
+        )}
+
         <Price />
         <Sizes />
 
@@ -72,6 +97,14 @@ const FiltersForProducts = ({ onChange }: IProps) => {
 
         <Divider direction={'horizontal'} />
         <Colors />
+
+        {isInModal && (
+          <div>
+            <Button className={cx.submitBtn} onClick={handleSubmit}>
+              применить
+            </Button>
+          </div>
+        )}
       </form>
     </FilterContext.Provider>
   );

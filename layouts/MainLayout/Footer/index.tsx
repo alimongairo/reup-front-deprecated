@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { useWindowSize } from '@/hooks/useWindow';
-
+import classNames from 'classnames';
 import Button from '@/components/common/Button';
 import Heading from '@/components/common/Heading';
 import Text from '@/components/common/Text';
@@ -18,8 +18,10 @@ import personalAccount from '@/static/icons/personalAccount.svg';
 import cx from './index.module.scss';
 import { spawn } from 'child_process';
 
-
-const Footer = () => {
+interface IProps {
+  className?: string;
+}
+const Footer = ({className} : IProps) => {
 
   const windowSize = useWindowSize();
 
@@ -28,7 +30,7 @@ const Footer = () => {
   }
 
   return (
-    <div className={cx.wrapper}>
+    <div className={classNames(className, cx.wrapper)}>
       {windowSize.width <= 586 ? (
         <div className={cx.content_flex_media_screen_mobile}>
           <div className={cx.content_flex_media_screen}>

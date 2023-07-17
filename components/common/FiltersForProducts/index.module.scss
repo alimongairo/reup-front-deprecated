@@ -4,6 +4,7 @@
   height: fit-content;
   padding-right: 20px;
 }
+
 .filterItem:not(:last-child) {
   margin-bottom: 20px;
   .filterItemContent {
@@ -56,4 +57,8 @@
   &.green {
     background: var(--reup-green);
   }
+}
+
+.submitBtn {
+  width: 100%;
 }

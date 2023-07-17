@@ -1,0 +1,38 @@
+@media screen and (min-width: 390px) and (max-width: 586px) {
+  .wrapper {
+    width: 100%;
+    box-sizing: content-box;
+    display: flex;
+    margin-left: -2rem;
+    margin-right: -2rem;
+    width: calc(100vw - 1rem);
+    > button {
+      border: none;
+      box-sizing: content-box;
+      font-weight: 700;
+      border-right: 1px solid black;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+
+      width: 100%;
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+
+  .filters {
+    padding: 0;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    & > *:last-child {
+      flex-grow: 1;
+      align-items: flex-end;
+      display: flex;
+      padding-bottom: 68px;
+    }
+  }
+}

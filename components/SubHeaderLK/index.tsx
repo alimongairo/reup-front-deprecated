@@ -20,7 +20,7 @@ const SubHeaderLK = () => {
         className={cx.right}
         onClick={() => goToPage(EPagesRoutes.Liked)}
       >
-        1 избранное
+        избранное
       </Button>
       <Button
         className={cx.left}

@@ -17,7 +17,7 @@ import {
 
 const BrandRegistration = () => {
   const formRef = useRef<HTMLFormElement>(null);
-  // TODO: types
+
   const [formData, setFormData] = useState<
     IFreelanceFormFields | ICorporateFormfields | {}
   >({});

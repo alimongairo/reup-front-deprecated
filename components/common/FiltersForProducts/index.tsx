@@ -3,6 +3,7 @@ import { FormEvent, useEffect, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 
 import Heading from '@/components/common/Heading';
+import Categories from '@/components/common/FiltersForProducts/Categories';
 import Price from '@/components/common/FiltersForProducts/Price';
 import Divider from '@/components/common/Divider';
 import Sizes from '@/components/common/FiltersForProducts/Sizes';
@@ -78,6 +79,8 @@ const FiltersForProducts = ({
             фильтры
           </Heading>
         )}
+
+        <Categories />
 
         <Price />
         <Sizes />

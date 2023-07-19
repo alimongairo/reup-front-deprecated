@@ -3,6 +3,10 @@
   margin: 1rem 0;
 }
 
+.content:nth-child(3) {
+  margin-left: 1rem;
+  background-color: red;
+}
 // .content {
 //   overflow: hidden;
 //   transition: 0.3s;

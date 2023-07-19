@@ -21,33 +21,34 @@ import cx from '@/components/common/FiltersForProducts/index.module.scss';
 
 const categories: any[] = [
   {
-    label: 'smth point',
+    label: 'обувь',
     value: 'smth',
     id: 'smth',
     list: [
       {
-        label: 'выделить все',
+        label: 'label сапоги',
         value: 'all',
         id: 'all',
         list: [
           {
-            label: '1 smth point',
+            label: '1 сапоги',
             value: 'smth',
             id: 'smth',
+            list: [{ label: 'trtrtrt smth point', value: 'smth', id: 'smth' }],
           },
           {
-            label: '2 smth point',
+            label: '2 сапоги',
             value: 'smth',
             id: 'smth',
             list: [{ label: 'trtrtrt smth point', value: 'smth', id: 'smth' }],
           },
         ],
       },
-      {
-        label: 'smth subpoint',
-        value: 'smth',
-        id: 'smth',
-      },
+      // {
+      //   label: 'smth subpoint',
+      //   value: 'smth',
+      //   id: 'smth',
+      // },
     ],
   },
 ];

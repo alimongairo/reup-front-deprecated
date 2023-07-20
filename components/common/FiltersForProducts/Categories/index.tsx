@@ -21,7 +21,7 @@ import cx from '@/components/common/FiltersForProducts/index.module.scss';
 
 const categories: any[] = [
   {
-    label: 'обувь',
+    label: 'ttt обувь',
     value: 'smth',
     id: 'smth',
     list: [

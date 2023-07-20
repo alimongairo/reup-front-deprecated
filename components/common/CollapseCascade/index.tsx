@@ -9,55 +9,59 @@ import Image from 'next/image';
 import classNames from 'classnames';
 
 const Item = (props: any) => {
-  const { children, title2, props1, toggleOpen, isClose } = props;
+  const {
+    children,
+    title2,
+    toggleOpen,
+    isClose,
+    contentRefProp,
+    titleRefProp,
+  } = props;
 
-  console.log(props);
+  // TODO: в внешнему контейнеру добавлять высоту внутреннего, чтобы была сумма в итоге
+
   return (
     <div className={cx.wrapper}>
-      <div className={cx.collapseIcon} onClick={toggleOpen}>
-        <Image
-          src={leftArrow}
-          alt={'leftArrow'}
-          className={classNames(
-            cx.icon,
-            { [cx.rotate__180]: isClose },
-            { [cx.rotate]: !isClose },
-          )}
-        />
+      {/* TODO: для самого верзнего реф надо вешать тупа на заголовок */}
+      <div className={cx.titleWrapper} ref={titleRefProp} onClick={toggleOpen}>
+        <Heading tag="h4" className={cx.title}>
+          {title2}
+        </Heading>
+        <div className={cx.collapseIcon}>
+          <Image
+            src={leftArrow}
+            alt={'leftArrow'}
+            className={classNames(
+              cx.icon,
+              { [cx.rotate__180]: isClose },
+              { [cx.rotate]: !isClose },
+            )}
+          />
+        </div>
       </div>
-      <Heading tag="h4" className={cx.title} onClick={toggleOpen}>
-        {title2}
-      </Heading>
-      <div className={cx.content} ref={props1.contentRef}>
+
+      <div className={cx.content} ref={contentRefProp}>
         {children}
       </div>
     </div>
   );
 };
 
-const categories: any[] = [
-  {
-    label: 'выделить все',
-    value: 'all',
-    id: 'all',
-    labelPlacement: 'right',
-  },
-  {
-    label: 'Cинтетика',
-    value: 'synthetics',
-    id: 'synthetics',
-    labelPlacement: 'right',
-  },
-];
-
 const CollapseCascade = (props: any) => {
-  const contentRef = useRef<HTMLDivElement>(null);
-  const [isClose, setIsClose] = useState(true);
-  const [heightContent, setHeightContent] = useState(0);
+  const contentRefMain = useRef<HTMLDivElement>(null);
+  const contentRefInner = useRef<HTMLDivElement>(null);
+  const titleRefMain = useRef<HTMLDivElement>(null);
+  const titleRefInner = useRef<HTMLDivElement>(null);
 
-  const toggleOpen = () => {
-    console.log('toggleOpen');
-    setIsClose((state) => !state);
+  const [isCloseMain, setIsCloseMain] = useState(true);
+  const [isCloseInner, setIsCloseInner] = useState(true);
+
+  const toggleOpenMain = () => {
+    setIsCloseMain((state) => !state);
+  };
+
+  const toggleOpenInner = () => {
+    setIsCloseInner((state) => !state);
   };
 
   // const toggleOpen2 = () => {
@@ -66,43 +70,111 @@ const CollapseCascade = (props: any) => {
   // };
   // const [isClose2, setIsClose2] = useState(true);
 
+  const [heightContent, setHeightContent] = useState(0);
+
+  useEffect(() => {
+    if (contentRefMain.current && titleRefInner.current) {
+      console.log('CHANGE ');
+      if (isCloseMain) {
+        const minHeight = '0px';
+
+        if (isCloseMain) {
+          console.log(titleRefInner.current);
+
+          const mainHeight =
+            titleRefInner.current.getBoundingClientRect().height;
+
+          if (mainHeight !== 0) {
+            setHeightContent(mainHeight);
+          }
+
+          contentRefMain.current.style.height = minHeight;
+
+          //
+
+          // if(isCloseInner){
+          //   const innerHeight = contentRefInner.current.getBoundingClientRect().height;
+          //   if (innerHeight !== 0) {
+          //     setHeightContent(innerHeight + mainheight);
+          //   }
+          //   contentRefInner.current.style.height =minHeight;
+          //   return;
+
+          // }
+          return;
+        }
+
+        //
+      }
+
+      contentRefMain.current.style.height = `${heightContent}px`;
+    }
+  }, [isCloseMain]);
+
   // useEffect(() => {
-  //   if (contentRef.current) {
-  //     if (isClose) {
-  //       const height = contentRef.current.getBoundingClientRect().height;
-  //       const minHeight = '0px';
-  //       if (height !== 0) {
-  //         setHeightContent(height);
+  //   if (contentRefInner.current ) {
+
+  //     if (isCloseInner) {
+  //       const minHeight = "0px";
+
+  //       if (isCloseInner) {
+
+  //         const mainHeight =
+  //         contentRefInner.current.getBoundingClientRect().height;
+
+  //         if (mainHeight !== 0) {
+  //           setHeightContent(mainHeight);
+  //         }
+
+  //         contentRefInner.current.style.height = minHeight;
+
+  //         //
+
+  //         // if(isCloseInner){
+  //         //   const innerHeight = contentRefInner.current.getBoundingClientRect().height;
+  //         //   if (innerHeight !== 0) {
+  //         //     setHeightContent(innerHeight + mainheight);
+  //         //   }
+  //         //   contentRefInner.current.style.height =minHeight;
+  //         //   return;
+
+  //         // }
+  //         return;
   //       }
-  //       contentRef.current.style.height = minHeight;
-  //       return;
+
+  //       //
   //     }
-  //     contentRef.current.style.height = `${heightContent}px`;
+
+  //     contentRefInner.current.style.height = `${heightContent}px`;
   //   }
-  // }, [isClose]);
+  // }, [isCloseInner]);
 
   // TODO: сделать бесконечную вложенность
   return (
     <>
       {props.content.map((item1: any) => (
         <Item
-          key={item1.label}
+          key={`${item1.label}-main`}
           title2={item1.label}
           props1={props}
-          toggleOpen={toggleOpen}
-          isClose={isClose}
+          toggleOpen={toggleOpenMain}
+          isClose={isCloseMain}
+          contentRefProp={contentRefMain}
+          titleRefProp={titleRefMain}
         >
           {item1.list.map((item2: any) => (
             <Item
-              key={item1.label}
+              key={`${item1.label}-inner`}
               title2={item2.label}
               props1={props}
-              toggleOpen={toggleOpen}
-              isClose={isClose}
+              toggleOpen={toggleOpenInner}
+              isClose={isCloseInner}
+              contentRefProp={contentRefInner}
+              titleRefProp={titleRefInner}
             >
-              {item2.list.map((item3: any) => (
+              {item2.list.map((item3: any, index: number) => (
                 <CheckboxGroup
-                  key={item1.label}
+                  key={`${item1.label}-${index}`}
                   checkboxList={item3.list}
                   groupName={item3.label}
                   direction={'vertical'}

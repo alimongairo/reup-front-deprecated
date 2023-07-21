@@ -75,11 +75,12 @@ const CollapseCascade = (props: any) => {
   useEffect(() => {
     if (contentRefMain.current && titleRefInner.current) {
       console.log('CHANGE ');
+
       if (isCloseMain) {
         const minHeight = '0px';
 
         if (isCloseMain) {
-          console.log(titleRefInner.current);
+          console.log('main open');
 
           const mainHeight =
             titleRefInner.current.getBoundingClientRect().height;
@@ -92,10 +93,11 @@ const CollapseCascade = (props: any) => {
 
           //
 
-          // if(isCloseInner){
+          // if(isCloseInner && contentRefInner.current){
+          //   console.log('inner open')
           //   const innerHeight = contentRefInner.current.getBoundingClientRect().height;
           //   if (innerHeight !== 0) {
-          //     setHeightContent(innerHeight + mainheight);
+          //     setHeightContent(innerHeight + mainHeight);
           //   }
           //   contentRefInner.current.style.height =minHeight;
           //   return;
@@ -108,8 +110,17 @@ const CollapseCascade = (props: any) => {
       }
 
       contentRefMain.current.style.height = `${heightContent}px`;
+
+      if (!isCloseInner && contentRefInner.current) {
+        console.log('inner open');
+        const innerHeight =
+          contentRefInner.current.getBoundingClientRect().height;
+        const heightRes = heightContent + innerHeight;
+        contentRefMain.current.style.height = `${heightRes}px`;
+        //setHeightContent(heightRes);
+      }
     }
-  }, [isCloseMain]);
+  }, [isCloseMain, isCloseInner, heightContent]);
 
   // useEffect(() => {
   //   if (contentRefInner.current ) {

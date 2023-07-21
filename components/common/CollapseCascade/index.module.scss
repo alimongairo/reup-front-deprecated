@@ -1,14 +1,9 @@
-.title,
-.content {
-  // margin: 1rem 0;
-}
-
 .content:nth-child(2) {
   margin-left: 1rem;
   background-color: red;
 }
 .content {
-  overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: hidden;
   transition: 0.3s;
 }
@@ -18,15 +13,9 @@
   cursor: pointer;
 }
 
-.minus {
-  position: absolute;
-  //   transition: 0.3s;
-}
-
 .collapseIcon {
-  // cursor: pointer;
-  // position: absolute;
-  // right: 15px;
+  cursor: pointer;
+  width: 12px;
 }
 
 .rotate {
@@ -38,7 +27,6 @@
 
 .wrapper {
   position: relative;
-  //   transition: 0.3s;
 }
 
 .icon {
@@ -47,7 +35,6 @@
 }
 
 .titleWrapper {
-  // overflow: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;

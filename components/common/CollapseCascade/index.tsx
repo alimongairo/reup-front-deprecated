@@ -119,7 +119,8 @@ const CollapseCascade = (props: any) => {
               <CheckboxGroup
                 key={`${content.label}-${index}`}
                 checkboxList={item3.list}
-                groupName={item3.label}
+                groupName={content.value}
+                subGroupName={item3.value}
                 direction={'vertical'}
                 onChangeGroup={props.onChange}
               />

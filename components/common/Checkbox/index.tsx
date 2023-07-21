@@ -43,19 +43,40 @@ interface ICheckboxGroupProps
   > {
   checkboxList: ICheckboxProps[];
   groupName?: string;
+  subGroupName?: string;
   direction?: 'horizontal' | 'vertical';
-  onChangeGroup?: (newValue: Record<string, boolean>) => void;
+  // onChangeGroup?: (newValue: Record<string, boolean>, groupName?: string) => void;
+  onChangeGroup?: (
+    newValue: Record<string, any>,
+    groupName?: string,
+    subGroupName?: string,
+  ) => void;
 }
 
 export const CheckboxGroup = ({
   checkboxList,
   groupName,
+  subGroupName,
   direction = 'horizontal',
   onChangeGroup,
 }: ICheckboxGroupProps) => {
-  const onChange = (value: string, checked: boolean) => {
-    if (value && !Array.isArray(value) && onChangeGroup) {
-      onChangeGroup({ [value]: checked });
+  const onChange = (
+    value: string,
+    checked: boolean,
+    groupName?: string,
+    subGroupName?: string,
+  ) => {
+    if (groupName && subGroupName && onChangeGroup) {
+      // console.log(groupName)
+      onChangeGroup(
+        { [groupName]: { [subGroupName]: { [value]: checked } } },
+        groupName,
+        subGroupName,
+      );
+    } else {
+      if (value && !Array.isArray(value) && onChangeGroup) {
+        onChangeGroup({ [value]: checked });
+      }
     }
   };
 
@@ -67,8 +88,13 @@ export const CheckboxGroup = ({
           {...checkbox}
           name={groupName || checkbox.name}
           onChange={(e) => {
-            onChange(checkbox.value as string, e.target.checked);
-            console.log(checkbox.value);
+            onChange(
+              checkbox.value as string,
+              e.target.checked,
+              groupName,
+              subGroupName,
+            );
+            // console.log(checkbox.value);
           }}
         />
       ))}

@@ -61,37 +61,79 @@ const categories: any[] = [
   },
 ];
 
-const initialState: Record<any, boolean> = {
-  option1: false,
-  option2: false,
+const initialState: Record<any, any> = {
+  shoes: {
+    boots: {
+      option1: false,
+      option2: false,
+    },
+  },
+  accessories: {
+    earrings: {
+      option1: false,
+      option2: false,
+    },
+  },
 };
 
 const Categories = () => {
   const { setFilterData } = useContext(FilterContext);
 
+  const [groupNameVal, setGroupNameVal] = useState('');
+  const [subGroupNameVal, setSubGroupNameVal] = useState('');
+
   const [categoriesVal, setCategoriesVal] = useState(initialState);
 
-  const onChange = (changedValue: Record<any, boolean>) => {
+  const onChange = (
+    changedValue: Record<any, boolean>,
+    groupName: string,
+    subGroupName: string,
+  ) => {
+    const res0 = (changedValue[groupName] as any)[subGroupName];
+    const res = categoriesVal[groupName][subGroupName];
+    (changedValue[groupName] as any)[subGroupName] = Object.assign(res, res0);
+
+    // TODO: где-то тут багует
     setCategoriesVal((state) => {
       return {
         ...state,
         ...changedValue,
       };
     });
+
+    setGroupNameVal(groupName);
+    setSubGroupNameVal(subGroupName);
   };
 
   useEffect(() => {
-    if (setFilterData) {
-      const newValue: any[] = Object.entries(categoriesVal).flatMap((item) => {
-        if (item[1]) {
-          return item[0] as any;
-        }
-        return [];
-      });
+    // тут правильно приходит "shoes", "boots"
+    console.log('---------------');
+    console.log(groupNameVal);
+    console.log(subGroupNameVal);
+    console.log('---------------');
+  }, [groupNameVal, subGroupNameVal]);
 
-      setFilterData({ categories: newValue.length ? newValue : undefined });
+  useEffect(() => {
+    console.log(categoriesVal);
+    // вот тут сейчас правильно, только На втором круге обхект превращается в массив  option1 превращается в 0 пгочему-то
+    // Если убрать setGroupNameVal, setSubGroupNameVal - все работает обалденно
+
+    if (setFilterData) {
+      if (groupNameVal && subGroupNameVal) {
+        const newValue = Object.entries(
+          categoriesVal[groupNameVal][subGroupNameVal],
+        ).flatMap((item) => {
+          if (item[1]) {
+            return item[0] as any;
+          }
+          return [];
+        });
+
+        categoriesVal[groupNameVal][subGroupNameVal] = newValue;
+        setFilterData({ categories: categoriesVal });
+      }
     }
-  }, [categoriesVal]);
+  }, [categoriesVal, groupNameVal, subGroupNameVal]);
 
   return (
     <div className={cx.filterItem}>

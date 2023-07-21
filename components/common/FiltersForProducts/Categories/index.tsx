@@ -3,21 +3,8 @@ import CollapseCascade from '@/components/common/CollapseCascade';
 import { CheckboxGroup } from '@/components/common/Checkbox';
 
 import cx from '@/components/common/FiltersForProducts/index.module.scss';
-
-// const categories: any[] = [
-//   {
-//     label: 'выделить все',
-//     value: 'all',
-//     id: 'all',
-//     labelPlacement: 'right',
-//   },
-//   {
-//     label: 'Cинтетика',
-//     value: 'synthetics',
-//     id: 'synthetics',
-//     labelPlacement: 'right',
-//   },
-// ];
+import { useContext, useEffect, useState } from 'react';
+import { FilterContext } from '../context';
 
 const categories: any[] = [
   {
@@ -31,32 +18,54 @@ const categories: any[] = [
         id: 'all',
         list: [
           {
-            label: '1 сапоги',
-            value: 'smth',
+            label: 'trtrtrt smth point1',
+            value: 'option1',
             id: 'smth',
-            list: [{ label: 'trtrtrt smth point', value: 'smth', id: 'smth' }],
+            labelPlacement: 'right',
           },
           {
-            label: '2 сапоги',
-            value: 'smth',
+            label: 'trtrtrt smth point2',
+            value: 'option2',
             id: 'smth',
-            list: [{ label: 'trtrtrt smth point', value: 'smth', id: 'smth' }],
+            labelPlacement: 'right',
           },
         ],
       },
-      // {
-      //   label: 'smth subpoint',
-      //   value: 'smth',
-      //   id: 'smth',
-      // },
     ],
   },
 ];
 
+const initialState: Record<any, boolean> = {
+  option1: false,
+  option2: false,
+};
+
 const Categories = () => {
-  const onChange = () => {
-    console.log('onChange');
+  const { setFilterData } = useContext(FilterContext);
+
+  const [categoriesVal, setCategoriesVal] = useState(initialState);
+
+  const onChange = (changedValue: Record<any, boolean>) => {
+    setCategoriesVal((state) => {
+      return {
+        ...state,
+        ...changedValue,
+      };
+    });
   };
+
+  useEffect(() => {
+    if (setFilterData) {
+      const newValue: any[] = Object.entries(categoriesVal).flatMap((item) => {
+        if (item[1]) {
+          return item[0] as any;
+        }
+        return [];
+      });
+
+      setFilterData({ categories: newValue.length ? newValue : undefined });
+    }
+  }, [categoriesVal]);
 
   return (
     <div className={cx.filterItem}>
@@ -66,15 +75,8 @@ const Categories = () => {
             категории
           </Text>
         }
-        // content={
-        //   <CheckboxGroup
-        //     checkboxList={categories}
-        //     groupName={'compounds'}
-        //     direction={'vertical'}
-        //     onChangeGroup={onChange}
-        //   />
-        // }
         content={categories}
+        onChange={onChange}
       />
     </div>
   );

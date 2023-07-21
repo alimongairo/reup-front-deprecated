@@ -66,7 +66,10 @@ export const CheckboxGroup = ({
           key={index}
           {...checkbox}
           name={groupName || checkbox.name}
-          onChange={(e) => onChange(checkbox.value as string, e.target.checked)}
+          onChange={(e) => {
+            onChange(checkbox.value as string, e.target.checked);
+            console.log(checkbox.value);
+          }}
         />
       ))}
     </div>

@@ -16,10 +16,11 @@ const Item = (props: any) => {
     isClose,
     contentRefProp,
     titleRefProp,
+    onClick,
   } = props;
 
   return (
-    <div className={cx.wrapper}>
+    <div className={cx.wrapper} onClick={onClick}>
       <div className={cx.titleWrapper} ref={titleRefProp} onClick={toggleOpen}>
         <Heading tag="h4" className={cx.title}>
           {title2}
@@ -53,6 +54,8 @@ const CollapseCascade = (props: any) => {
   const [isCloseMain, setIsCloseMain] = useState(true);
   const [isCloseInner, setIsCloseInner] = useState(true);
 
+  const { content } = props;
+
   const toggleOpenMain = () => {
     setIsCloseMain((state) => !state);
   };
@@ -79,51 +82,51 @@ const CollapseCascade = (props: any) => {
       }
 
       contentRefMain.current.style.height = `${heightContent}px`;
-
-      if (!isCloseInner && contentRefInner.current) {
-        const innerHeight =
-          contentRefInner.current.getBoundingClientRect().height;
-        const heightRes = heightContent + innerHeight;
-        contentRefMain.current.style.height = `${heightRes}px`;
-      }
     }
-  }, [isCloseMain, isCloseInner, heightContent]);
+  }, [isCloseMain, heightContent]);
+
+  useEffect(() => {
+    if (contentRefMain.current && contentRefInner.current) {
+      const innerHeight =
+        contentRefInner.current.getBoundingClientRect().height;
+      const heightRes = heightContent + innerHeight;
+      contentRefMain.current.style.height = `${heightRes}px`;
+    }
+  }, [isCloseInner]);
 
   return (
     <>
-      {props.content.map((item1: any) => (
-        <Item
-          key={`${item1.label}-main`}
-          title2={item1.label}
-          props1={props}
-          toggleOpen={toggleOpenMain}
-          isClose={isCloseMain}
-          contentRefProp={contentRefMain}
-          titleRefProp={titleRefMain}
-        >
-          {item1.list.map((item2: any) => (
-            <Item
-              key={`${item1.label}-inner`}
-              title2={item2.label}
-              props1={props}
-              toggleOpen={toggleOpenInner}
-              isClose={isCloseInner}
-              contentRefProp={contentRefInner}
-              titleRefProp={titleRefInner}
-            >
-              {item1.list.map((item3: any, index: number) => (
-                <CheckboxGroup
-                  key={`${item1.label}-${index}`}
-                  checkboxList={item3.list}
-                  groupName={item3.label}
-                  direction={'vertical'}
-                  onChangeGroup={props.onChange}
-                />
-              ))}
-            </Item>
-          ))}
-        </Item>
-      ))}
+      <Item
+        key={`${content.label}-main`}
+        title2={content.label}
+        props1={props}
+        toggleOpen={toggleOpenMain}
+        isClose={isCloseMain}
+        contentRefProp={contentRefMain}
+        titleRefProp={titleRefMain}
+      >
+        {content.list.map((item2: any) => (
+          <Item
+            key={`${content.label}-inner`}
+            title2={item2.label}
+            props1={props}
+            toggleOpen={toggleOpenInner}
+            isClose={isCloseInner}
+            contentRefProp={contentRefInner}
+            titleRefProp={titleRefInner}
+          >
+            {content.list.map((item3: any, index: number) => (
+              <CheckboxGroup
+                key={`${content.label}-${index}`}
+                checkboxList={item3.list}
+                groupName={item3.label}
+                direction={'vertical'}
+                onChangeGroup={props.onChange}
+              />
+            ))}
+          </Item>
+        ))}
+      </Item>
     </>
   );
 };

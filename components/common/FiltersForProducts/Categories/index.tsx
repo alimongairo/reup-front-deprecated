@@ -8,25 +8,51 @@ import { FilterContext } from '../context';
 
 const categories: any[] = [
   {
-    label: 'ttt обувь',
-    value: 'smth',
-    id: 'smth',
+    label: 'обувь',
+    value: 'shoes',
+    id: 'shoes',
     list: [
       {
-        label: 'label сапоги',
-        value: 'all',
-        id: 'all',
+        label: 'сапоги',
+        value: 'boots',
+        id: 'boots',
         list: [
           {
-            label: 'trtrtrt smth point1',
+            label: 'option1',
             value: 'option1',
-            id: 'smth',
+            id: 'option1',
             labelPlacement: 'right',
           },
           {
-            label: 'trtrtrt smth point2',
+            label: 'option2',
             value: 'option2',
-            id: 'smth',
+            id: 'option2',
+            labelPlacement: 'right',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: 'аксессуары',
+    value: 'accessories',
+    id: 'accessories',
+    list: [
+      {
+        label: 'серьги',
+        value: 'earrings',
+        id: 'earrings',
+        list: [
+          {
+            label: 'option1',
+            value: 'option1',
+            id: 'option1',
+            labelPlacement: 'right',
+          },
+          {
+            label: 'option2',
+            value: 'option2',
+            id: 'option2',
             labelPlacement: 'right',
           },
         ],
@@ -69,15 +95,16 @@ const Categories = () => {
 
   return (
     <div className={cx.filterItem}>
-      <CollapseCascade
-        title={
-          <Text className={cx.subTitle} size="big">
-            категории
-          </Text>
-        }
-        content={categories}
-        onChange={onChange}
-      />
+      <Text className={cx.subTitle} size="big">
+        категории
+      </Text>
+      {categories.map((category: any) => (
+        <CollapseCascade
+          key={category.key}
+          content={category}
+          onChange={onChange}
+        />
+      ))}
     </div>
   );
 };

@@ -79,9 +79,6 @@ const initialState: Record<any, any> = {
 const Categories = () => {
   const { setFilterData } = useContext(FilterContext);
 
-  const [groupNameVal, setGroupNameVal] = useState('');
-  const [subGroupNameVal, setSubGroupNameVal] = useState('');
-
   const [categoriesVal, setCategoriesVal] = useState(initialState);
 
   const onChange = (
@@ -89,82 +86,53 @@ const Categories = () => {
     groupName: string,
     subGroupName: string,
   ) => {
-    const resTest = { [groupName]: changedValue };
+    const changedInGroup = { [groupName]: changedValue };
+    const categoriesValAcc = categoriesVal;
 
-    const r = categoriesVal;
-    const optionsRes1 = r[groupName][subGroupName];
-    const optionsRes2 = resTest[groupName][subGroupName];
+    const optionsRes1 = categoriesValAcc[groupName][subGroupName];
+    const optionsRes2 = changedInGroup[groupName][subGroupName];
+    const optionsResult = Object.assign(optionsRes1, optionsRes2);
 
-    const ttt = Object.assign(optionsRes1, optionsRes2);
+    categoriesValAcc[groupName][subGroupName] = optionsResult;
 
-    r[groupName][subGroupName] = ttt;
-
-    setCategoriesVal(JSON.parse(JSON.stringify(r)));
-
-    setGroupNameVal(groupName);
-    setSubGroupNameVal(subGroupName);
+    setCategoriesVal(JSON.parse(JSON.stringify(categoriesValAcc)));
   };
 
   useEffect(() => {
-    console.log('-------------------');
-    const catCopy = JSON.parse(JSON.stringify(categoriesVal));
-
-    // вот тут сейчас правильно, только На втором круге обхект превращается в массив  option1 превращается в 0 пгочему-то
-    // Если убрать setGroupNameVal, setSubGroupNameVal - все работает обалденно
-
-    const test = Object.entries(catCopy).map((el: any) => {
-      let key = '';
-
-      Object.keys(el[1]).map((el1: any) => {
-        key = el1;
-      });
-      const res2Obj = Object.entries(catCopy[el[0]]).map((item) => {
-        const valReturner = (obj: any) => {
-          let resMain = [] as any;
-          Object.entries(obj).map((res: any) => {
-            if (res[1]) {
-              resMain.push(res[0]);
-            }
-          });
-
-          return resMain;
-        };
-
-        item[1] = valReturner(item[1]);
-        return item;
-      });
-
-      Object.fromEntries(res2Obj);
-
-      el[1] = Object.fromEntries(res2Obj);
-
-      console.log(el);
-      console.log(el[1]); // вот тут правильно возвращается - как правильно вернуть, ТИПА {boots: Array(1)}
-
-      // console.log(JSON.stringify(catCopy))
-    });
-
-    console.log(test);
+    const categoriesValCopy = JSON.parse(JSON.stringify(categoriesVal));
 
     if (setFilterData) {
-      if (groupNameVal && subGroupNameVal) {
-        const activeArray = Object.entries(
-          catCopy[groupNameVal][subGroupNameVal],
-        ).map((item) => {
-          if (item[1]) {
-            return item[0] as any;
-          }
+      const test = Object.entries(categoriesValCopy).map((el: any) => {
+        let key = '';
 
-          return [];
+        Object.keys(el[1]).map((el1: any) => {
+          key = el1;
         });
 
-        // console.log(activeArray)
-        catCopy[groupNameVal][subGroupNameVal] = activeArray;
-        setFilterData({ categories: catCopy });
-      }
-    }
+        const res2Obj = Object.entries(categoriesValCopy[el[0]]).map((item) => {
+          const valReturner = (obj: any) => {
+            let resMain = [] as any;
+            Object.entries(obj).map((res: any) => {
+              if (res[1]) {
+                resMain.push(res[0]);
+              }
+            });
 
-    console.log('-------------------');
+            return resMain;
+          };
+
+          item[1] = valReturner(item[1]);
+
+          return item;
+        });
+
+        el[1] = Object.fromEntries(res2Obj);
+
+        return el;
+      });
+
+      setFilterData({ categories: Object.fromEntries(test) });
+    }
   }, [categoriesVal]);
 
   return (

@@ -18,6 +18,37 @@ const categories: any[] = [
         id: 'boots',
         list: [
           {
+            label: 'Выделить все',
+            value: 'all',
+            id: 'all',
+            labelPlacement: 'right',
+          },
+          {
+            label: 'option1',
+            value: 'option1',
+            id: 'option1',
+            labelPlacement: 'right',
+          },
+          {
+            label: 'option2',
+            value: 'option2',
+            id: 'option2',
+            labelPlacement: 'right',
+          },
+        ],
+      },
+      {
+        label: 'балетки',
+        value: 'ballet',
+        id: 'ballet',
+        list: [
+          {
+            label: 'Выделить все',
+            value: 'all',
+            id: 'all',
+            labelPlacement: 'right',
+          },
+          {
             label: 'option1',
             value: 'option1',
             id: 'option1',
@@ -44,6 +75,12 @@ const categories: any[] = [
         id: 'earrings',
         list: [
           {
+            label: 'Выделить все',
+            value: 'all',
+            id: 'all',
+            labelPlacement: 'right',
+          },
+          {
             label: 'option1',
             value: 'option1',
             id: 'option1',
@@ -67,6 +104,10 @@ const initialState: Record<any, any> = {
       option1: false,
       option2: false,
     },
+    ballet: {
+      option1: false,
+      option2: false,
+    },
   },
   accessories: {
     earrings: {
@@ -79,29 +120,63 @@ const initialState: Record<any, any> = {
 const Categories = () => {
   const { setFilterData } = useContext(FilterContext);
 
-  const [categoriesVal, setCategoriesVal] = useState(initialState);
+  const [categoriesVal, setCategoriesVal] = useState<any>(initialState);
 
   const onChange = (
     changedValue: Record<any, boolean>,
     groupName: string,
     subGroupName: string,
   ) => {
-    const changedInGroup = { [groupName]: changedValue };
-    const categoriesValAcc = categoriesVal;
+    // TODO: clean code
+    if (Array.isArray(changedValue)) {
+      changedValue.forEach((item: any) => {
+        const changedInGroup = { [groupName]: JSON.parse(item) };
+        const categoriesValAcc = categoriesVal;
 
-    const optionsRes1 = categoriesValAcc[groupName][subGroupName];
-    const optionsRes2 = changedInGroup[groupName][subGroupName];
-    const optionsResult = Object.assign(optionsRes1, optionsRes2);
+        const optionsRes1 = categoriesValAcc[groupName][subGroupName];
+        const optionsRes2 = changedInGroup[groupName][subGroupName];
+        const optionsResult = Object.assign(optionsRes1, optionsRes2);
 
-    categoriesValAcc[groupName][subGroupName] = optionsResult;
+        categoriesValAcc[groupName][subGroupName] = optionsResult;
 
-    setCategoriesVal(JSON.parse(JSON.stringify(categoriesValAcc)));
+        setCategoriesVal(JSON.parse(JSON.stringify(categoriesValAcc)));
+      });
+    } else {
+      const changedInGroup = { [groupName]: changedValue };
+      const categoriesValAcc = categoriesVal;
+
+      const optionsRes1 = categoriesValAcc[groupName][subGroupName];
+      const optionsRes2 = changedInGroup[groupName][subGroupName];
+      const optionsResult = Object.assign(optionsRes1, optionsRes2);
+
+      categoriesValAcc[groupName][subGroupName] = optionsResult;
+
+      setCategoriesVal(JSON.parse(JSON.stringify(categoriesValAcc)));
+    }
+  };
+
+  const onChangeAll = (e: any) => {
+    e.preventDefault();
+    categories.forEach((item: any) => {
+      item.list.forEach((item1: any) => {
+        item1.list.forEach((item2: any) => {
+          item2.checked = !item2.checked;
+        });
+      });
+    });
+
+    // если выбираем все, отдаем "all"
+    setCategoriesVal('all');
   };
 
   useEffect(() => {
-    const categoriesValCopy = JSON.parse(JSON.stringify(categoriesVal));
-
     if (setFilterData) {
+      if (categoriesVal === 'all') {
+        setFilterData({ categories: 'all' });
+        return;
+      }
+      const categoriesValCopy = JSON.parse(JSON.stringify(categoriesVal));
+
       const test = Object.entries(categoriesValCopy).map((el: any) => {
         let key = '';
 
@@ -140,6 +215,7 @@ const Categories = () => {
       <Text className={cx.subTitle} size="big">
         категории
       </Text>
+      <button onClick={onChangeAll}>выделить все</button>
       {categories.map((category: any) => (
         <CollapseCascade
           key={category.key}

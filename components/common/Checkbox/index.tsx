@@ -1,4 +1,4 @@
-import { DetailedHTMLProps, InputHTMLAttributes } from 'react';
+import { DetailedHTMLProps, InputHTMLAttributes, useRef } from 'react';
 import classNames from 'classnames';
 
 import Text from '@/components/common/Text';
@@ -45,7 +45,6 @@ interface ICheckboxGroupProps
   groupName?: string;
   subGroupName?: string;
   direction?: 'horizontal' | 'vertical';
-  // onChangeGroup?: (newValue: Record<string, boolean>, groupName?: string) => void;
   onChangeGroup?: (
     newValue: Record<string, any>,
     groupName?: string,
@@ -68,10 +67,30 @@ export const CheckboxGroup = ({
   ) => {
     if (onChangeGroup && value && !Array.isArray(value)) {
       if (groupName && subGroupName) {
-        const resultObjString = JSON.stringify({
-          [subGroupName]: { [value]: checked },
-        });
-        onChangeGroup(JSON.parse(resultObjString), groupName, subGroupName);
+        if (value === 'all') {
+          checkboxList.forEach((element) => {
+            element.checked = !element.checked;
+          });
+
+          let res = [] as any;
+          checkboxList.map((item: any) => {
+            if (item.value !== 'all') {
+              res.push(
+                JSON.stringify({
+                  [subGroupName]: { [item.value]: checked },
+                }),
+              );
+            }
+          });
+
+          onChangeGroup(res, groupName, subGroupName);
+        } else {
+          const resultObjString = JSON.stringify({
+            [subGroupName]: { [value]: checked },
+          });
+
+          onChangeGroup(JSON.parse(resultObjString), groupName, subGroupName);
+        }
       } else {
         onChangeGroup({ [value]: checked });
       }
@@ -82,6 +101,7 @@ export const CheckboxGroup = ({
     <div className={classNames(cx.checkboxGroup, cx[direction])}>
       {checkboxList.map((checkbox, index) => (
         <Checkbox
+          checked={checkbox.checked}
           key={index}
           {...checkbox}
           name={groupName || checkbox.name}
@@ -92,7 +112,6 @@ export const CheckboxGroup = ({
               groupName,
               subGroupName,
             );
-            // console.log(checkbox.value);
           }}
         />
       ))}

@@ -1,6 +1,5 @@
-import { ReactNode, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { CheckboxGroup } from '@/components/common/Checkbox';
-import Text from 'components/common/Text';
 import Heading from '@/components/common/Heading';
 
 import leftArrow from 'static/icons/leftArrow.svg';
@@ -105,28 +104,32 @@ const CollapseCascade = (props: any) => {
         contentRefProp={contentRefMain}
         titleRefProp={titleRefMain}
       >
-        {content.list.map((item2: any) => (
-          <Item
-            key={`${content.label}-inner`}
-            title2={item2.label}
-            props1={props}
-            toggleOpen={toggleOpenInner}
-            isClose={isCloseInner}
-            contentRefProp={contentRefInner}
-            titleRefProp={titleRefInner}
-          >
-            {content.list.map((item3: any, index: number) => (
-              <CheckboxGroup
-                key={`${content.label}-${index}`}
-                checkboxList={item3.list}
-                groupName={content.value}
-                subGroupName={item3.value}
-                direction={'vertical'}
-                onChangeGroup={props.onChange}
-              />
-            ))}
-          </Item>
-        ))}
+        {content.list &&
+          content.list.map((item2: any) => (
+            <Item
+              key={`${content.label}-inner`}
+              title2={item2.label}
+              props1={props}
+              toggleOpen={toggleOpenInner}
+              isClose={isCloseInner}
+              contentRefProp={contentRefInner}
+              titleRefProp={titleRefInner}
+            >
+              <>
+                {content.list &&
+                  content.list.map((item3: any, index: number) => (
+                    <CheckboxGroup
+                      key={`${content.label}-${index}`}
+                      checkboxList={item3.list}
+                      groupName={content.value}
+                      subGroupName={item3.value}
+                      direction={'vertical'}
+                      onChangeGroup={props.onChange}
+                    />
+                  ))}
+              </>
+            </Item>
+          ))}
       </Item>
     </>
   );

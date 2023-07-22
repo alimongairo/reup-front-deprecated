@@ -66,14 +66,33 @@ export const CheckboxGroup = ({
     groupName?: string,
     subGroupName?: string,
   ) => {
-    if (groupName && subGroupName && onChangeGroup) {
-      // console.log(groupName)
-      onChangeGroup(
-        { [groupName]: { [subGroupName]: { [value]: checked } } },
-        groupName,
-        subGroupName,
-      );
+    if (groupName && subGroupName) {
+      console.log('CHANGE ON CHECKBOX 1');
+      // вот на этом этапе ошибка
+      // если оба false, приходит boots: ['0', '1']
+      // const resT = Object.assign({ [value]: checked }, { [groupName]: { [subGroupName]: {}}})
+      // console.log({ [groupName]: { [subGroupName]: { [value]: checked } } })
+      // console.log({[value]: checked})
+      if (value && !Array.isArray(value) && onChangeGroup) {
+        const emptyObj = {};
+        const test = JSON.stringify({ [subGroupName]: { [value]: checked } });
+        // test[subGroupName] = { [value]: checked };
+
+        // Object.assign(test, resTest);
+
+        // resTest[groupName] = test;
+        //console.log(resTest);
+        //  console.log(resTest);
+
+        // console.log(r)
+
+        //const resObj = { [groupName]: { [subGroupName]: emptyObj } }; // ret [0, 1, 2, 3] - кол-во символов
+        //Object.assign({ option1: true }, resObj)
+        //console.log(test);
+        onChangeGroup(JSON.parse(test), groupName, subGroupName);
+      }
     } else {
+      console.log('CHANGE ON CHECKBOX 2');
       if (value && !Array.isArray(value) && onChangeGroup) {
         onChangeGroup({ [value]: checked });
       }

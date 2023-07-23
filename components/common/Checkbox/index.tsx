@@ -1,9 +1,4 @@
-import {
-  DetailedHTMLProps,
-  InputHTMLAttributes,
-  useRef,
-  useState,
-} from 'react';
+import { DetailedHTMLProps, InputHTMLAttributes, useRef } from 'react';
 import classNames from 'classnames';
 
 import Text from '@/components/common/Text';
@@ -64,9 +59,6 @@ export const CheckboxGroup = ({
   direction = 'horizontal',
   onChangeGroup,
 }: ICheckboxGroupProps) => {
-  // TODO: для перерисовки чекбоков - избавиться
-  const [refresh, setRefresh] = useState<boolean>(true);
-
   const onChange = (
     value: string,
     checked: boolean,
@@ -77,12 +69,12 @@ export const CheckboxGroup = ({
       if (groupName && subGroupName) {
         if (value === 'all') {
           console.log('HERE');
-          console.log(checkboxList);
           checkboxList.forEach((element) => {
             element.checked = !element.checked;
+            // TODO: тут должна быть перерисовка (+ не меняются значения обратно на false)
           });
 
-          // TODO: рефрешнуть (вынести наверх) - в чекбокс груп (или коллапсед каскад)
+          console.log(checkboxList);
 
           let res = [] as any;
           checkboxList.map((item: any) => {

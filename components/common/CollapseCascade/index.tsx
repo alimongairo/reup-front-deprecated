@@ -7,6 +7,8 @@ import cx from './index.module.scss';
 import Image from 'next/image';
 import classNames from 'classnames';
 
+// TODO: rewrite any
+
 const Item = (props: any) => {
   const {
     children,
@@ -51,6 +53,8 @@ const CollapseCascade = (props: any) => {
   const titleRefInner = useRef<HTMLDivElement>(null);
 
   const [isCloseMain, setIsCloseMain] = useState(true);
+
+  // TODO: вот такое сост-е нужно создать для каждого свое
   const [isCloseInner, setIsCloseInner] = useState(true);
 
   const { content } = props;
@@ -63,6 +67,8 @@ const CollapseCascade = (props: any) => {
     setIsCloseInner((state) => !state);
   };
 
+  // TODO: починить разворачивалку, когда несколько; сейчас разворачивается сразу все
+  // сделать для списка разворачивание по высоте заголовков, а для остального по контенту - отдельно для каждого
   const [heightContent, setHeightContent] = useState(0);
 
   useEffect(() => {
@@ -71,7 +77,7 @@ const CollapseCascade = (props: any) => {
         const minHeight = '0px';
         if (isCloseMain) {
           const mainHeight =
-            titleRefInner.current.getBoundingClientRect().height;
+            contentRefMain.current.getBoundingClientRect().height;
           if (mainHeight !== 0) {
             setHeightContent(mainHeight);
           }
@@ -84,14 +90,13 @@ const CollapseCascade = (props: any) => {
     }
   }, [isCloseMain, heightContent]);
 
-  useEffect(() => {
-    if (contentRefMain.current && contentRefInner.current) {
-      const innerHeight =
-        contentRefInner.current.getBoundingClientRect().height;
-      const heightRes = heightContent + innerHeight;
-      contentRefMain.current.style.height = `${heightRes}px`;
-    }
-  }, [isCloseInner]);
+  // useEffect(() => {
+  //   if (contentRefInner.current && contentRefMain.current && titleRefInner.current) {
+  //     const innerHeight =
+  //     const titleHeight = titleRefInner.current.getBoundingClientRect().height;
+  //     contentRefMain.current.style.height = `${heightContent + innerHeight - titleHeight}px`;
+  //   }
+  // }, [isCloseInner]);
 
   return (
     <>
@@ -108,26 +113,25 @@ const CollapseCascade = (props: any) => {
           content.list.map((item2: any) => (
             <Item
               key={`${content.label}-inner`}
-              title2={item2.label}
+              title2={`sub: ${item2.label}`}
               props1={props}
               toggleOpen={toggleOpenInner}
               isClose={isCloseInner}
               contentRefProp={contentRefInner}
               titleRefProp={titleRefInner}
             >
-              <>
-                {content.list &&
-                  content.list.map((item3: any, index: number) => (
-                    <CheckboxGroup
-                      key={`${content.label}-${index}`}
-                      checkboxList={item3.list}
-                      groupName={content.value}
-                      subGroupName={item3.value}
-                      direction={'vertical'}
-                      onChangeGroup={props.onChange}
-                    />
-                  ))}
-              </>
+              {
+                // !isCloseInner && (
+                <CheckboxGroup
+                  key={`${content.label}`}
+                  checkboxList={JSON.parse(JSON.stringify(item2.list))}
+                  groupName={content.value}
+                  subGroupName={item2.value}
+                  direction={'vertical'}
+                  onChangeGroup={props.onChange}
+                />
+                // )
+              }
             </Item>
           ))}
       </Item>

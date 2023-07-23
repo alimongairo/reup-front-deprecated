@@ -1,10 +1,12 @@
 import Text from '@/components/common/Text';
 import CollapseCascade from '@/components/common/CollapseCascade';
-import { CheckboxGroup } from '@/components/common/Checkbox';
-
+import Image from 'next/image';
+import minuse from 'static/icons/minuse.svg';
 import cx from '@/components/common/FiltersForProducts/index.module.scss';
 import { useContext, useEffect, useState } from 'react';
 import { FilterContext } from '../context';
+import cxM from '@/components/common/Collapse/index.module.scss';
+import classNames from 'classnames';
 
 const categories: any[] = [
   {
@@ -39,6 +41,32 @@ const categories: any[] = [
       },
       {
         label: 'балетки',
+        value: 'ballet',
+        id: 'ballet',
+        list: [
+          {
+            label: 'Выделить все',
+            value: 'all',
+            id: 'all',
+            labelPlacement: 'right',
+          },
+          {
+            label: 'option1',
+            value: 'option1',
+            id: 'option1',
+            labelPlacement: 'right',
+          },
+          {
+            label: 'option2',
+            value: 'option2',
+            id: 'option2',
+            labelPlacement: 'right',
+          },
+        ],
+      },
+
+      {
+        label: '2 балетки',
         value: 'ballet',
         id: 'ballet',
         list: [
@@ -117,6 +145,7 @@ const initialState: Record<any, any> = {
   },
 };
 
+// TODO: rewrite any
 const Categories = () => {
   const { setFilterData } = useContext(FilterContext);
 
@@ -127,6 +156,8 @@ const Categories = () => {
     groupName: string,
     subGroupName: string,
   ) => {
+    // TODO: багует "выделить все" и там, и там
+
     // TODO: clean code
     if (Array.isArray(changedValue)) {
       changedValue.forEach((item: any) => {
@@ -155,17 +186,21 @@ const Categories = () => {
     }
   };
 
-  const onChangeAll = (e: any) => {
-    e.preventDefault();
+  // TODO: для перерисовки чекбоков - избавиться
+  const [refresh, setRefresh] = useState<boolean>(true);
+
+  const onChangeAll = () => {
     categories.forEach((item: any) => {
       item.list.forEach((item1: any) => {
         item1.list.forEach((item2: any) => {
+          // TODO: обновляется только при скрытии и заново открытии списков
+          console.log(item2.checked);
           item2.checked = !item2.checked;
         });
       });
     });
 
-    // если выбираем все, отдаем "all"
+    setRefresh((prev) => !prev);
     setCategoriesVal('all');
   };
 
@@ -215,12 +250,23 @@ const Categories = () => {
       <Text className={cx.subTitle} size="big">
         категории
       </Text>
-      <button onClick={onChangeAll}>выделить все</button>
+      <div onClick={onChangeAll} className={cx.allBtn}>
+        <div className={cx.icon}>
+          <Image src={minuse} alt={'minuse'} className={cxM.minus} />
+          <Image
+            src={minuse}
+            alt={'minuse'}
+            className={classNames(cxM.minus, cxM.rotate)}
+          />
+        </div>
+        <div>искать все</div>
+      </div>
       {categories.map((category: any) => (
         <CollapseCascade
           key={category.key}
           content={category}
           onChange={onChange}
+          refresh={refresh}
         />
       ))}
     </div>

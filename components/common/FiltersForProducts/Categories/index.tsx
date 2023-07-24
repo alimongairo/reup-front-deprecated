@@ -64,32 +64,6 @@ const categories: any[] = [
           },
         ],
       },
-
-      {
-        label: '2 балетки',
-        value: 'ballet',
-        id: 'ballet',
-        list: [
-          {
-            label: 'Выделить все',
-            value: 'all',
-            id: 'all',
-            labelPlacement: 'right',
-          },
-          {
-            label: 'option1',
-            value: 'option1',
-            id: 'option1',
-            labelPlacement: 'right',
-          },
-          {
-            label: 'option2',
-            value: 'option2',
-            id: 'option2',
-            labelPlacement: 'right',
-          },
-        ],
-      },
     ],
   },
   {
@@ -156,13 +130,27 @@ const Categories = () => {
     groupName: string,
     subGroupName: string,
   ) => {
-    // TODO: багует "выделить все" и там, и там
+    console.log('----------------------');
 
-    // TODO: clean code
     if (Array.isArray(changedValue)) {
       changedValue.forEach((item: any) => {
         const changedInGroup = { [groupName]: JSON.parse(item) };
         const categoriesValAcc = categoriesVal;
+
+        if (Object.keys(JSON.parse(item)[subGroupName])) {
+          categories.forEach((item: any) => {
+            item.list.forEach((item1: any) => {
+              if (item1.value === subGroupName) {
+                item1.list.forEach((item2: any) => {
+                  item2.checked = !item2.checked;
+                });
+                setRefresh((prev) => !prev);
+              }
+            });
+          });
+          // TODO: setCategoriesVal
+          return;
+        }
 
         const optionsRes1 = categoriesValAcc[groupName][subGroupName];
         const optionsRes2 = changedInGroup[groupName][subGroupName];
@@ -172,6 +160,7 @@ const Categories = () => {
 
         setCategoriesVal(JSON.parse(JSON.stringify(categoriesValAcc)));
       });
+      console.log('----------------------');
     } else {
       const changedInGroup = { [groupName]: changedValue };
       const categoriesValAcc = categoriesVal;

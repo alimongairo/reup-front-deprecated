@@ -68,23 +68,13 @@ export const CheckboxGroup = ({
     if (onChangeGroup && value && !Array.isArray(value)) {
       if (groupName && subGroupName) {
         if (value === 'all') {
-          console.log('HERE');
-          checkboxList.forEach((element) => {
-            element.checked = !element.checked;
-            // TODO: тут должна быть перерисовка (+ не меняются значения обратно на false)
-          });
-
-          console.log(checkboxList);
-
           let res = [] as any;
           checkboxList.map((item: any) => {
-            if (item.value !== 'all') {
-              res.push(
-                JSON.stringify({
-                  [subGroupName]: { [item.value]: checked },
-                }),
-              );
-            }
+            res.push(
+              JSON.stringify({
+                [subGroupName]: { [item.value]: checked },
+              }),
+            );
           });
 
           onChangeGroup(res, groupName, subGroupName);

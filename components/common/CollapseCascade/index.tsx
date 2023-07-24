@@ -1,4 +1,4 @@
-import { createRef, useEffect, useRef, useState } from 'react';
+import { ReactNode, createRef, useEffect, useState } from 'react';
 import { CheckboxGroup } from '@/components/common/Checkbox';
 import Heading from '@/components/common/Heading';
 
@@ -7,35 +7,35 @@ import cx from './index.module.scss';
 import Image from 'next/image';
 import classNames from 'classnames';
 
-// TODO: rewrite any
+interface IItemProps {
+  children: ReactNode;
+  title: string;
+  myRef?: any;
+  onClick?: (e: any) => void;
+  isCloseMain?: boolean;
+  setMainHeightContent?: (prev: any) => void;
+}
 const Item = ({
   children,
-  title2,
+  title,
   myRef,
   onClick,
   isCloseMain,
   setMainHeightContent,
-}: any) => {
+}: IItemProps) => {
   const [heightContent, setHeightContent] = useState(0);
   const [isClose, setIsClose] = useState(true);
 
   const toggleOpen = (e: any) => {
-    // console.log("toggleOpen");
-    // console.log(myRef)
     if (myRef && myRef.current) {
       e.stopPropagation();
-      console.log('TOGGLE OPEN');
       setIsClose((state) => !state);
     }
   };
 
   useEffect(() => {
-    console.log(isCloseMain);
-
     if (myRef && myRef.current) {
-      console.log(myRef.current);
       if (isClose) {
-        // console.log(myRef.current.getBoundingClientRect().height);
         const height =
           myRef.current.children[0]?.getBoundingClientRect().height;
         const minHeight = '0px';
@@ -46,23 +46,24 @@ const Item = ({
         return;
       }
       myRef.current.style.height = `${heightContent}px`;
-      console.log('SET MAIN');
-      setMainHeightContent((prev: number) => prev + heightContent);
+      if (setMainHeightContent) {
+        setMainHeightContent((prev: number) => prev + heightContent);
+      }
     }
   }, [isClose, myRef, isCloseMain, heightContent, setMainHeightContent]);
 
   const fn = (e: any) => {
     if (onClick !== undefined) {
-      onClick();
+      onClick(e);
     } else {
       toggleOpen(e);
     }
   };
   return (
-    <div className={cx.wrapper} onClick={fn}>
-      <div className={cx.titleWrapper}>
+    <div className={cx.wrapper}>
+      <div className={cx.titleWrapper} onClick={fn}>
         <Heading tag="h4" className={cx.title}>
-          {title2}
+          {title}
         </Heading>
         <div className={cx.collapseIcon}>
           <Image
@@ -103,12 +104,10 @@ const CollapseCascade = (props: any) => {
   const [mainHeightContent, setMainHeightContent] = useState(0);
 
   const toggleOpen = () => {
-    console.log('ON CLICK');
     setIsCloseMain((state) => !state);
   };
 
   useEffect(() => {
-    console.log('----- MAIN REF -------');
     if (contentRef.current) {
       if (isCloseMain) {
         const height = contentRef.current.getBoundingClientRect().height;
@@ -126,44 +125,30 @@ const CollapseCascade = (props: any) => {
   return (
     <Item
       key={`${content.label}-main`}
-      title2={content.label}
+      title={content.label}
       onClick={toggleOpen}
-      // ref={contentRef}
-      // onClick={toggleOpen}
-      // myRef={contentRef}
     >
       <div ref={contentRef} className={cx.contentMain}>
-        {/* <div>dsdsdsdsd</div> */}
-        {/* <div ref={contentRef}> */}
-        {
-          // !content.isClose &&
-
-          content.list.map((item2: any, i: number) => (
-            <Item
-              key={`${content.label}-inner`}
-              title2={`sub: ${item2.label}`}
-              myRef={elRefs[i]}
-              isCloseMain={isCloseMain}
-              setMainHeightContent={setMainHeightContent}
-            >
-              {/* {
-              !item2.isClose && ( */}
-              {!isCloseMain && (
-                <CheckboxGroup
-                  key={`${content.label}`}
-                  checkboxList={JSON.parse(JSON.stringify(item2.list))}
-                  groupName={content.value}
-                  subGroupName={item2.value}
-                  direction={'vertical'}
-                  onChangeGroup={props.onChange}
-                />
-              )}
-              {/* )
-            } */}
-            </Item>
-          ))
-        }{' '}
-        {/* </div> */}
+        {content.list.map((item2: any, i: number) => (
+          <Item
+            key={`${content.label}-inner`}
+            title={`sub: ${item2.label}`}
+            myRef={elRefs[i]}
+            isCloseMain={isCloseMain}
+            setMainHeightContent={setMainHeightContent}
+          >
+            {!isCloseMain && (
+              <CheckboxGroup
+                key={`${content.label}`}
+                checkboxList={JSON.parse(JSON.stringify(item2.list))}
+                groupName={content.value}
+                subGroupName={item2.value}
+                direction={'vertical'}
+                onChangeGroup={props.onChange}
+              />
+            )}
+          </Item>
+        ))}
       </div>
     </Item>
   );

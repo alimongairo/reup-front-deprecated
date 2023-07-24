@@ -1,4 +1,4 @@
-import { DetailedHTMLProps, InputHTMLAttributes, useRef } from 'react';
+import { DetailedHTMLProps, InputHTMLAttributes } from 'react';
 import classNames from 'classnames';
 
 import Text from '@/components/common/Text';

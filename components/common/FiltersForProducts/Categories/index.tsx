@@ -99,8 +99,7 @@ const categories: any[] = [
     ],
   },
 ];
-
-const initialState: Record<any, any> = {
+const initialState = {
   shoes: {
     boots: {
       option1: false,
@@ -119,7 +118,6 @@ const initialState: Record<any, any> = {
   },
 };
 
-// TODO: rewrite any
 const Categories = () => {
   const { setFilterData } = useContext(FilterContext);
 
@@ -171,7 +169,6 @@ const Categories = () => {
     }
   };
 
-  // TODO: для перерисовки чекбоков - избавиться
   const [refresh, setRefresh] = useState<boolean>(true);
   const [isAll, setIsAll] = useState<boolean>(false);
 
@@ -231,34 +228,6 @@ const Categories = () => {
       setFilterData({ categories: Object.fromEntries(test) });
     }
   }, [categoriesVal]);
-
-  // TODO: надо идти дальше и там тоде сделать isClise
-  // const categoriesCopy = categories.map((item: any) => (
-  //   {
-  //     ...item, isClose: true, list: item.list.map((item1: any) => (
-  //       { ...item1, isClose: true }
-  //     ))
-  //   }
-  // ));
-
-  // const [state, setState] = useState(categoriesCopy);
-
-  // useEffect(() => { console.log(state); }, [state]);
-
-  // TODO: потом ко всей этой красоте еще добавить анимацию
-  // const onClickMain = (value: string) => {
-  //   setState(prevState =>
-  //     prevState.map(item =>
-  //       value === item.value
-  //         ? { ...item, isClose: !item.isClose }
-  //         : item
-  //     )
-  //   )
-  // };
-
-  // const onCLickInner = (value: string) => {
-
-  // }
 
   return (
     <div className={cx.filterItem}>

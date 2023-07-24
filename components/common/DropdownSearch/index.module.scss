@@ -1,0 +1,14 @@
+.searchWrapper {
+  position: relative;
+  .input {
+    width: 100%;
+    padding-right: 40px;
+  }
+
+  .searchIcon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}

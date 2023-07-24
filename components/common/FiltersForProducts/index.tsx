@@ -7,6 +7,7 @@ import Categories from '@/components/common/FiltersForProducts/Categories';
 import Price from '@/components/common/FiltersForProducts/Price';
 import Divider from '@/components/common/Divider';
 import Sizes from '@/components/common/FiltersForProducts/Sizes';
+import Brands from '@/components/common/FiltersForProducts/Brands';
 import Compounds from '@/components/common/FiltersForProducts/Compounds';
 import Seasons from '@/components/common/FiltersForProducts/Seasons';
 import Patterns from '@/components/common/FiltersForProducts/Patterns';
@@ -84,6 +85,7 @@ const FiltersForProducts = ({
 
         <Price />
         <Sizes />
+        <Brands />
 
         <Divider direction={'horizontal'} />
         <Compounds />

@@ -232,6 +232,34 @@ const Categories = () => {
     }
   }, [categoriesVal]);
 
+  // TODO: надо идти дальше и там тоде сделать isClise
+  // const categoriesCopy = categories.map((item: any) => (
+  //   {
+  //     ...item, isClose: true, list: item.list.map((item1: any) => (
+  //       { ...item1, isClose: true }
+  //     ))
+  //   }
+  // ));
+
+  // const [state, setState] = useState(categoriesCopy);
+
+  // useEffect(() => { console.log(state); }, [state]);
+
+  // TODO: потом ко всей этой красоте еще добавить анимацию
+  // const onClickMain = (value: string) => {
+  //   setState(prevState =>
+  //     prevState.map(item =>
+  //       value === item.value
+  //         ? { ...item, isClose: !item.isClose }
+  //         : item
+  //     )
+  //   )
+  // };
+
+  // const onCLickInner = (value: string) => {
+
+  // }
+
   return (
     <div className={cx.filterItem}>
       <Text className={cx.subTitle} size="big">

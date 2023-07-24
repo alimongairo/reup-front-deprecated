@@ -46,7 +46,7 @@ interface ICheckboxGroupProps
   subGroupName?: string;
   direction?: 'horizontal' | 'vertical';
   onChangeGroup?: (
-    newValue: Record<string, any>,
+    newValue: Record<string, boolean>,
     groupName?: string,
     subGroupName?: string,
   ) => void;

@@ -1,4 +1,10 @@
-import { ReactNode, createRef, useEffect, useState } from 'react';
+import {
+  PropsWithoutRef,
+  ReactNode,
+  createRef,
+  useEffect,
+  useState,
+} from 'react';
 import { CheckboxGroup } from '@/components/common/Checkbox';
 import Heading from '@/components/common/Heading';
 
@@ -84,7 +90,7 @@ const Item = ({
   );
 };
 
-const CollapseCascade = (props: any) => {
+const CollapseCascade = (props: PropsWithoutRef<any>) => {
   const { content } = props;
 
   const [elRefs, setElRefs] = useState([]);

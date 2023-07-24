@@ -130,14 +130,12 @@ const Categories = () => {
     groupName: string,
     subGroupName: string,
   ) => {
-    console.log('----------------------');
-
     if (Array.isArray(changedValue)) {
       changedValue.forEach((item: any) => {
         const changedInGroup = { [groupName]: JSON.parse(item) };
         const categoriesValAcc = categoriesVal;
 
-        if (Object.keys(JSON.parse(item)[subGroupName])) {
+        if (Object.keys(JSON.parse(item)[subGroupName]).includes('all')) {
           categories.forEach((item: any) => {
             item.list.forEach((item1: any) => {
               if (item1.value === subGroupName) {
@@ -148,19 +146,17 @@ const Categories = () => {
               }
             });
           });
-          // TODO: setCategoriesVal
-          return;
         }
+        if (categoriesValAcc !== 'all') {
+          const optionsRes1 = categoriesValAcc[groupName][subGroupName];
+          const optionsRes2 = changedInGroup[groupName][subGroupName];
+          const optionsResult = Object.assign(optionsRes1, optionsRes2);
 
-        const optionsRes1 = categoriesValAcc[groupName][subGroupName];
-        const optionsRes2 = changedInGroup[groupName][subGroupName];
-        const optionsResult = Object.assign(optionsRes1, optionsRes2);
+          categoriesValAcc[groupName][subGroupName] = optionsResult;
 
-        categoriesValAcc[groupName][subGroupName] = optionsResult;
-
-        setCategoriesVal(JSON.parse(JSON.stringify(categoriesValAcc)));
+          setCategoriesVal(JSON.parse(JSON.stringify(categoriesValAcc)));
+        }
       });
-      console.log('----------------------');
     } else {
       const changedInGroup = { [groupName]: changedValue };
       const categoriesValAcc = categoriesVal;
@@ -177,21 +173,23 @@ const Categories = () => {
 
   // TODO: для перерисовки чекбоков - избавиться
   const [refresh, setRefresh] = useState<boolean>(true);
+  const [isAll, setIsAll] = useState<boolean>(false);
 
   const onChangeAll = () => {
+    setIsAll((prev) => !prev);
+    setCategoriesVal('all');
+  };
+
+  useEffect(() => {
     categories.forEach((item: any) => {
       item.list.forEach((item1: any) => {
         item1.list.forEach((item2: any) => {
-          // TODO: обновляется только при скрытии и заново открытии списков
-          console.log(item2.checked);
-          item2.checked = !item2.checked;
+          item2.checked = isAll;
+          setRefresh((prev) => !prev);
         });
       });
     });
-
-    setRefresh((prev) => !prev);
-    setCategoriesVal('all');
-  };
+  }, [isAll]);
 
   useEffect(() => {
     if (setFilterData) {

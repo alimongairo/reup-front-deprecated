@@ -247,7 +247,7 @@ const Categories = () => {
       </div>
       {categories.map((category: any) => (
         <CollapseCascade
-          key={category.key}
+          key={category.id}
           content={category}
           onChange={onChange}
           refresh={refresh}

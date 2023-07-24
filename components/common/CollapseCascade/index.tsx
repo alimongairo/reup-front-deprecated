@@ -137,7 +137,7 @@ const CollapseCascade = (props: PropsWithoutRef<any>) => {
       <div ref={contentRef} className={cx.contentMain}>
         {content.list.map((item2: any, i: number) => (
           <Item
-            key={`${content.label}-inner`}
+            key={`${content.label}-${i}-inner`}
             title={`sub: ${item2.label}`}
             myRef={elRefs[i]}
             isCloseMain={isCloseMain}

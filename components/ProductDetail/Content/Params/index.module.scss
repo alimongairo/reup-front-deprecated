@@ -2,7 +2,7 @@
   font-family: 'Gilroy', sans-serif;
   font-style: normal;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 110%;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -16,35 +16,50 @@
   h1 {
     @include h1;
   }
-  p {
-    font-family: 'Gilroy', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 110%;
-    letter-spacing: 0.07em;
-    color: #000000;
-  }
 }
 
 .headRow {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   margin: 0;
   align-items: baseline;
   width: fit-content;
   gap: 3rem;
+  border-bottom: 1px #000000 outset;
+  padding-bottom: 2rem;
 }
 
-.footer {
+.description {
+  border-bottom: 1px #000000 outset;
+  padding-bottom: 2rem;
+
+  .short {
+    overflow: hidden;
+    max-height: 2rem;
+  }
+
+  .full {
+    overflow: visible;
+    max-height: fit-content;
+  }
+}
+
+.price {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: baseline;
   gap: 1rem;
+  border-bottom: 1px #000000 outset;
+  padding: 2rem 0;
+
   .priceWrapper {
     display: flex;
+    flex-direction: row;
     gap: 0.5rem;
     align-items: baseline;
+
     .oldPrice {
       text-decoration: line-through;
       font-family: 'Gilroy', sans-serif;
@@ -55,6 +70,7 @@
       letter-spacing: 0.07em;
       color: rgba(0, 0, 0, 0.5);
     }
+
     .price {
       font-family: 'Dela Gothic One', sans-serif;
       font-style: normal;
@@ -63,6 +79,28 @@
       line-height: 110%;
       letter-spacing: 0.04em;
       color: #000000;
+      border: none;
+    }
+  }
+
+  .sizeButtons {
+    display: flex;
+    flex-direction: column;
+    div {
+      padding: 20px 0;
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+    }
+  }
+
+  .productButtons {
+    display: flex;
+    gap: 20px;
+
+    .buyButton {
+      color: #000000;
+      text-decoration: none;
     }
   }
 }

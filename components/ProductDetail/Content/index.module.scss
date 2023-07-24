@@ -3,9 +3,14 @@
   gap: 2rem;
   padding: 0 2rem;
   padding-bottom: 2rem;
-  border-bottom: 3px solid black;
   margin-bottom: 2rem;
   > div {
     width: 50%;
+  }
+
+  .mainContent {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
   }
 }

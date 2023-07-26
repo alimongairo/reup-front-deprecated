@@ -19,12 +19,12 @@ const categories: any[] = [
         value: 'boots',
         id: 'boots',
         list: [
-          {
-            label: 'Выделить все',
-            value: 'all',
-            id: 'all',
-            labelPlacement: 'right',
-          },
+          // {
+          //   label: 'Выделить все',
+          //   value: 'all',
+          //   id: 'all',
+          //   labelPlacement: 'right',
+          // },
           {
             label: 'option1',
             value: 'option1',
@@ -44,12 +44,12 @@ const categories: any[] = [
         value: 'ballet',
         id: 'ballet',
         list: [
-          {
-            label: 'Выделить все',
-            value: 'all',
-            id: 'all',
-            labelPlacement: 'right',
-          },
+          // {
+          //   label: 'Выделить все',
+          //   value: 'all',
+          //   id: 'all',
+          //   labelPlacement: 'right',
+          // },
           {
             label: 'option1',
             value: 'option1',
@@ -76,12 +76,12 @@ const categories: any[] = [
         value: 'earrings',
         id: 'earrings',
         list: [
-          {
-            label: 'Выделить все',
-            value: 'all',
-            id: 'all',
-            labelPlacement: 'right',
-          },
+          // {
+          //   label: 'Выделить все',
+          //   value: 'all',
+          //   id: 'all',
+          //   labelPlacement: 'right',
+          // },
           {
             label: 'option1',
             value: 'option1',
@@ -128,75 +128,77 @@ const Categories = () => {
     groupName: string,
     subGroupName: string,
   ) => {
-    if (Array.isArray(changedValue)) {
-      changedValue.forEach((item: any) => {
-        const changedInGroup = { [groupName]: JSON.parse(item) };
-        const categoriesValAcc = categoriesVal;
+    // if (Array.isArray(changedValue)) {
+    //   changedValue.forEach((item: any) => {
+    //     const changedInGroup = { [groupName]: JSON.parse(item) };
+    //     const categoriesValAcc = categoriesVal;
 
-        if (Object.keys(JSON.parse(item)[subGroupName]).includes('all')) {
-          categories.forEach((item: any) => {
-            item.list.forEach((item1: any) => {
-              if (item1.value === subGroupName) {
-                item1.list.forEach((item2: any) => {
-                  item2.checked = !item2.checked;
-                });
-                setRefresh((prev) => !prev);
-              }
-            });
-          });
-        }
-        if (categoriesValAcc !== 'all') {
-          const optionsRes1 = categoriesValAcc[groupName][subGroupName];
-          const optionsRes2 = changedInGroup[groupName][subGroupName];
-          const optionsResult = Object.assign(optionsRes1, optionsRes2);
+    //     // if (Object.keys(JSON.parse(item)[subGroupName]).includes('all')) {
+    //     //   categories.forEach((item: any) => {
+    //     //     item.list.forEach((item1: any) => {
+    //     //       if (item1.value === subGroupName) {
+    //     //         item1.list.forEach((item2: any) => {
+    //     //            item2.checked = !item2.checked;
+    //     //         });
+    //     //         setRefresh((prev) => !prev);
+    //     //       }
+    //     //     });
+    //     //   });
+    //     // }
+    //     if (categoriesValAcc !== 'all') {
+    //       const optionsRes1 = categoriesValAcc[groupName][subGroupName];
+    //       const optionsRes2 = changedInGroup[groupName][subGroupName];
+    //       const optionsResult = Object.assign(optionsRes1, optionsRes2);
 
-          categoriesValAcc[groupName][subGroupName] = optionsResult;
+    //       categoriesValAcc[groupName][subGroupName] = optionsResult;
 
-          setCategoriesVal(JSON.parse(JSON.stringify(categoriesValAcc)));
-        }
-      });
-    } else {
-      const changedInGroup = { [groupName]: changedValue };
-      const categoriesValAcc = categoriesVal;
+    //       setCategoriesVal(JSON.parse(JSON.stringify(categoriesValAcc)));
+    //     }
+    //   });
+    // } else {
 
-      const optionsRes1 = categoriesValAcc[groupName][subGroupName];
-      const optionsRes2 = changedInGroup[groupName][subGroupName];
-      const optionsResult = Object.assign(optionsRes1, optionsRes2);
+    const changedInGroup = { [groupName]: changedValue };
+    const categoriesValAcc = categoriesVal;
 
-      categoriesValAcc[groupName][subGroupName] = optionsResult;
+    const optionsRes1 = categoriesValAcc[groupName][subGroupName];
+    const optionsRes2 = changedInGroup[groupName][subGroupName];
+    const optionsResult = Object.assign(optionsRes1, optionsRes2);
 
-      setCategoriesVal(JSON.parse(JSON.stringify(categoriesValAcc)));
-    }
+    categoriesValAcc[groupName][subGroupName] = optionsResult;
+
+    setCategoriesVal(JSON.parse(JSON.stringify(categoriesValAcc)));
+
+    // }
   };
 
-  const [refresh, setRefresh] = useState<boolean>(true);
-  const [isAll, setIsAll] = useState<boolean>(false);
+  // const [refresh, setRefresh] = useState<boolean>(true);
+  // const [isAll, setIsAll] = useState<boolean>(false);
 
-  const onChangeAll = () => {
-    setIsAll((prev) => !prev);
-    setCategoriesVal('all');
-  };
+  // const onChangeAll = () => {
+  //   setIsAll((prev) => !prev);
+  //   setCategoriesVal('all');
+  // };
 
-  useEffect(() => {
-    categories.forEach((item: any) => {
-      item.list.forEach((item1: any) => {
-        item1.list.forEach((item2: any) => {
-          item2.checked = isAll;
-          setRefresh((prev) => !prev);
-        });
-      });
-    });
-  }, [isAll]);
+  // useEffect(() => {
+  //   categories.forEach((item: any) => {
+  //     item.list.forEach((item1: any) => {
+  //       item1.list.forEach((item2: any) => {
+  //         item2.checked = isAll;
+
+  //       });
+  //     });
+  //   });
+  // }, [isAll]);
 
   useEffect(() => {
     if (setFilterData) {
-      if (categoriesVal === 'all') {
-        setFilterData({ categories: 'all' });
-        return;
-      }
+      // if (categoriesVal === 'all') {
+      //   setFilterData({ categories: 'all' });
+      //   return;
+      // }
       const categoriesValCopy = JSON.parse(JSON.stringify(categoriesVal));
 
-      const test = Object.entries(categoriesValCopy).map((el: any) => {
+      const resMain = Object.entries(categoriesValCopy).map((el: any) => {
         let key = '';
 
         Object.keys(el[1]).map((el1: any) => {
@@ -225,7 +227,7 @@ const Categories = () => {
         return el;
       });
 
-      setFilterData({ categories: Object.fromEntries(test) });
+      setFilterData({ categories: Object.fromEntries(resMain) });
     }
   }, [categoriesVal]);
 
@@ -234,7 +236,7 @@ const Categories = () => {
       <Text className={cx.subTitle} size="big">
         категории
       </Text>
-      <div onClick={onChangeAll} className={cx.allBtn}>
+      {/* <div onClick={onChangeAll} className={cx.allBtn}>
         <div className={cx.icon}>
           <Image src={minuse} alt={'minuse'} className={cxM.minus} />
           <Image
@@ -244,13 +246,13 @@ const Categories = () => {
           />
         </div>
         <div>искать все</div>
-      </div>
+      </div> */}
       {categories.map((category: any) => (
         <CollapseCascade
           key={category.id}
           content={category}
           onChange={onChange}
-          refresh={refresh}
+          // refresh={refresh}
         />
       ))}
     </div>

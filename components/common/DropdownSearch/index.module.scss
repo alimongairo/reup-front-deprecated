@@ -1,3 +1,11 @@
+.dropdownWrapper {
+  overflow: hidden;
+  transition: 0.3s;
+  max-height: 350px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 .searchWrapper {
   position: relative;
   .input {

@@ -64,20 +64,18 @@ const OrderForm = ({ user, basket }: IProps) => {
       onFinishFailed={onFinishFailed}
     >
       <div className={cx.wrapper}>
-        <div className={cx.firstRow}>Оформление заказа</div>
-
         {!user && <ContactInfoForm selectedDelivery={selectedDelivery} />}
 
-        <DeliveryForm
+        {/* <DeliveryForm
           selectedDelivery={selectedDelivery}
           user={user}
           deliverySwither={switchDeliveryType}
-        />
+        /> */}
 
-        <PaymentForm
+        {/* <PaymentForm
           selectedPayment={selectedPayment}
           paymentSwither={setSelectedPaymentHandler}
-        />
+        /> */}
 
         <button
           className={classNames(

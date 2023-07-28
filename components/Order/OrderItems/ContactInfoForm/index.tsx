@@ -156,7 +156,7 @@ const ContactInfoForm = ({ selectedDelivery }: IProps) => {
           checkboxList={checkboxList}
           groupName={'pattern'}
           direction={'vertical'}
-          onChangeGroup={onChange}
+          // onChangeGroup={onChange}
         />
       </FormCard>
     </>

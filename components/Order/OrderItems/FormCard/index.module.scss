@@ -1,9 +1,12 @@
 .formCard {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
   padding: 0 2rem;
   margin-bottom: 6rem;
+
+  div {
+    margin: 0;
+  }
 
   .header {
     font-family: Dela Gothic One;
@@ -16,11 +19,6 @@
   }
 
   input {
-    border: none;
-    border-bottom: 1px solid #8a8a8a;
-    font-size: 18px;
-    line-height: 22px;
-    text-transform: lowercase;
-    max-width: 28rem;
+    width: 100%;
   }
 }

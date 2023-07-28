@@ -59,7 +59,7 @@ const OrderForm = ({ user, basket }: IProps) => {
     <Form
       form={form}
       name="orderForm"
-      initialValues={{ phone: '+ 7 (___) ___-__-__' }}
+      // initialValues={{ phone: '+ 7 (___) ___-__-__' }}
       onFinish={submitForm}
       onFinishFailed={onFinishFailed}
     >

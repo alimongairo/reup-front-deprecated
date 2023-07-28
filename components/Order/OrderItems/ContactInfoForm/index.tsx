@@ -1,4 +1,6 @@
-import { Form, Input } from 'antd';
+import { Form } from 'antd';
+import Input from '@/components/common/Input';
+import { CheckboxGroup, ICheckboxProps } from '@/components/common/Checkbox';
 import FormCard from '@/components/Order/OrderItems/FormCard';
 import Text from '@/components/common/Text';
 import { EDeliveryType } from '@/store/user/type';
@@ -22,6 +24,22 @@ const ContactInfoForm = ({ selectedDelivery }: IProps) => {
     setDropDownTitle(text);
   };
 
+  const checkboxList: ICheckboxProps[] = [
+    // TODO: подчеркивания, ссылка и чтобы записывалось в формочку (+не отправлять, если они не тру)
+    {
+      label:
+        'я ознакомился и согласен с политикой обработки персональных данных и пользовательским соглашением',
+      value: 'agreement1',
+      id: 'agreement1',
+      labelPlacement: 'right',
+    },
+    {
+      label: 'я согласен получать новости об акциях и специальных предложениях',
+      value: 'agreement2',
+      id: 'agreement2',
+      labelPlacement: 'right',
+    },
+  ];
   const overlay: IDropDownItem[] = useMemo(() => {
     return [
       {
@@ -65,9 +83,8 @@ const ContactInfoForm = ({ selectedDelivery }: IProps) => {
       <FormCard header="1. Адрес и доставка">
         <Form.Item
           name="surname"
-          rules={[{ required: true, message: 'Укажите фамилию' }]}
+          rules={[{ required: true, message: 'Укажите адрес доставки' }]}
         >
-          {/* <Input placeholder="фамилия" size="large" /> */}
           <DropDownChoice
             visible={visible}
             setVisible={onClick}
@@ -81,48 +98,26 @@ const ContactInfoForm = ({ selectedDelivery }: IProps) => {
           name="surname"
           rules={[{ required: true, message: 'Укажите фамилию' }]}
         >
-          <Input placeholder="фамилия" size="large" />
+          <Input placeholder="фамилия*" label="как вас зовут?" />
         </Form.Item>
 
         <Form.Item
           name="name"
           rules={[{ required: true, message: 'Укажите имя' }]}
         >
-          <Input placeholder="имя" size="large" />
+          <Input placeholder="имя*" />
         </Form.Item>
 
         <Form.Item
           name="patronymic"
           rules={
-            selectedDelivery === EDeliveryType.Post
-              ? [{ required: true, message: 'Укажите отчество' }]
-              : []
-          }
-          extra={
-            <div className={cx.subPlaceholder}>
-              *обязательно при доставке почтой
-            </div>
+            // selectedDelivery === EDeliveryType.Post
+            //   ? [{ required: true, message: 'Укажите отчество' }]
+            //   : []
+            [{ required: true, message: 'Укажите отчество' }]
           }
         >
-          <Input placeholder="отчество*" size="large" />
-        </Form.Item>
-
-        <Form.Item
-          name="phone"
-          valuePropName="value"
-          rules={[
-            {
-              required: true,
-              message: 'Укажите номер телефона',
-            },
-          ]}
-        >
-          <Input
-            type="text"
-            placeholder="номер телефона"
-            size="large"
-            maxLength={19}
-          />
+          <Input placeholder="отчество" className={cx.withMargin} />
         </Form.Item>
 
         <Form.Item
@@ -133,14 +128,36 @@ const ContactInfoForm = ({ selectedDelivery }: IProps) => {
               message: 'Укажите корректный e-mail',
             },
           ]}
-          extra={
-            <div className={cx.subPlaceholder}>
-              *необходим для отправки чека
-            </div>
-          }
         >
-          <Input placeholder="e-mail*" size="large" />
+          <Input placeholder="электронная почта*" label="контактные данные" />
         </Form.Item>
+
+        <Form.Item
+          name="phone"
+          // valuePropName="value"
+          rules={[
+            {
+              required: true,
+              message: 'Укажите номер телефона',
+            },
+          ]}
+        >
+          <Input
+            // type="text"
+            placeholder="номер телефона*"
+            maxLength={19}
+            className={cx.withMargin}
+          />
+        </Form.Item>
+
+        <div className={cx.withMargin}>*-поля обязательные для заполнения</div>
+
+        <CheckboxGroup
+          checkboxList={checkboxList}
+          groupName={'pattern'}
+          direction={'vertical'}
+          onChangeGroup={onChange}
+        />
       </FormCard>
     </>
   );

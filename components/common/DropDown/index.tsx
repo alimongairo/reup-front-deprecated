@@ -15,12 +15,7 @@ interface IProps {
   title: ReactNode;
 }
 
-const DropDownChoice = ({
-  visible = false,
-  overlay,
-  title,
-  setVisible,
-}: IProps) => {
+const DropDown = ({ visible = false, overlay, title, setVisible }: IProps) => {
   return (
     <>
       <div onClick={setVisible} className={cx.wrapper}>
@@ -38,4 +33,4 @@ const DropDownChoice = ({
   );
 };
 
-export default DropDownChoice;
+export default DropDown;

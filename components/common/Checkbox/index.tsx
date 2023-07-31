@@ -1,4 +1,4 @@
-import { DetailedHTMLProps, InputHTMLAttributes } from 'react';
+import { DetailedHTMLProps, InputHTMLAttributes, ReactNode } from 'react';
 import classNames from 'classnames';
 
 import Text from '@/components/common/Text';
@@ -10,7 +10,7 @@ export interface ICheckboxProps
     InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
   > {
-  label?: string;
+  label?: string | ReactNode;
   labelPlacement?: 'left' | 'right' | 'top';
   htmlFor?: string;
 }

@@ -1,5 +1,6 @@
 import { Form } from 'antd';
 import Input from '@/components/common/Input';
+import A from '@/components/common/A';
 import { CheckboxGroup, ICheckboxProps } from '@/components/common/Checkbox';
 import FormCard from '@/components/Order/OrderItems/FormCard';
 import Text from '@/components/common/Text';
@@ -12,9 +13,10 @@ import { useMemo, useState } from 'react';
 
 interface IProps {
   selectedDelivery: EDeliveryType;
+  onChangeCheckbox: (changedValue: any) => void;
 }
 
-const ContactInfoForm = ({ selectedDelivery }: IProps) => {
+const ContactInfoForm = ({ selectedDelivery, onChangeCheckbox }: IProps) => {
   const [visible, setVisible] = useState(false);
   const [dropDownTitle, setDropDownTitle] = useState('пункт выдачи');
   const onClick = () => {
@@ -25,10 +27,16 @@ const ContactInfoForm = ({ selectedDelivery }: IProps) => {
   };
 
   const checkboxList: ICheckboxProps[] = [
-    // TODO: подчеркивания, ссылка и чтобы записывалось в формочку (+не отправлять, если они не тру)
     {
-      label:
-        'я ознакомился и согласен с политикой обработки персональных данных и пользовательским соглашением',
+      label: (
+        <>
+          я ознакомился и согласен{' '}
+          <A href="#" className={cx.link}>
+            с политикой обработки персональных данных
+          </A>{' '}
+          и пользовательским соглашением
+        </>
+      ),
       value: 'agreement1',
       id: 'agreement1',
       labelPlacement: 'right',
@@ -117,7 +125,7 @@ const ContactInfoForm = ({ selectedDelivery }: IProps) => {
             [{ required: true, message: 'Укажите отчество' }]
           }
         >
-          <Input placeholder="отчество" className={cx.withMargin} />
+          <Input placeholder="отчество" className={cx.withOffset} />
         </Form.Item>
 
         <Form.Item
@@ -143,21 +151,24 @@ const ContactInfoForm = ({ selectedDelivery }: IProps) => {
           ]}
         >
           <Input
-            // type="text"
+            type="number"
             placeholder="номер телефона*"
             maxLength={19}
-            className={cx.withMargin}
+            className={cx.withOffset}
           />
         </Form.Item>
 
-        <div className={cx.withMargin}>*-поля обязательные для заполнения</div>
+        <div className={cx.withOffset}>*-поля обязательные для заполнения</div>
 
-        <CheckboxGroup
-          checkboxList={checkboxList}
-          groupName={'pattern'}
-          direction={'vertical'}
-          // onChangeGroup={onChange}
-        />
+        <Form.Item>
+          <CheckboxGroup
+            // TODO:дизеблит ькнопку, если не выбраны - отдельный стейт
+            checkboxList={checkboxList}
+            groupName={'pattern'}
+            direction={'vertical'}
+            onChangeGroup={onChangeCheckbox}
+          />
+        </Form.Item>
       </FormCard>
     </>
   );

@@ -12,6 +12,7 @@ interface IProps
   size?: 'small' | 'normal';
   active?: boolean;
   transparent?: boolean;
+  [x: string]: any;
 }
 
 const Button = ({

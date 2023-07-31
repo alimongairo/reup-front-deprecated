@@ -4,6 +4,14 @@
   line-height: 19px;
 }
 
-input.withMargin {
+.withOffset:not(input) {
+  padding-bottom: 32px;
+}
+
+input.withOffset {
   margin-bottom: 32px;
+}
+
+.link {
+  font-size: inherit;
 }

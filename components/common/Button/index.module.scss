@@ -13,6 +13,11 @@
   letter-spacing: 0.07em;
   color: #000000;
 
+  &:disabled {
+    opacity: 0.2;
+    pointer-events: none;
+  }
+
   &.active {
     color: white;
     background: var(--reup-primary-active);

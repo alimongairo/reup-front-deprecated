@@ -20,7 +20,7 @@ const OrderPreview = ({ products, basket }: IProps) => {
       <div className={cx.wrapper}>
         <FirstRow />
         <div className={cx.content}>
-          <ProductImages basket={basket || []} products={products} />
+          {/* <ProductImages basket={basket || []} products={products} /> */}
           <PriceInfo basket={basket || []} products={products} />
         </div>
       </div>

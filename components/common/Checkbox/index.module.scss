@@ -59,6 +59,7 @@
     border: 1px solid black;
     position: relative;
     overflow: hidden;
+    flex-shrink: 0;
   }
 
   .uiInput {

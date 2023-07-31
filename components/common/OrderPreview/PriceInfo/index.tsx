@@ -13,23 +13,24 @@ const PriceInfo = ({ products, basket }: IProps) => {
   return (
     <div className={cx.wrapper}>
       <div className={cx.infoRow}>
-        <div className={cx.title}>сумма&nbsp;заказа</div>
-        <div className={cx.dashed}></div>
+        <div className={cx.title}>товары 10 шт:</div>
+        {/* <div className={cx.dashed}></div> */}
         <div className={cx.price}>
           {getBasketTotalPrice(basket, products)}&nbsp;₽
         </div>
       </div>
 
       <div className={cx.infoRow}>
-        <div className={cx.title}>скидка</div>
-        <div className={cx.dashed}></div>
-        <div className={cx.price}>0&nbsp;₽</div>
+        <div className={cx.title}>скидка:</div>
+        {/* <div className={cx.dashed}></div> */}
+        <div className={cx.price}>-2000 ₽</div>
       </div>
 
-      <div className={cx.totalPrice}>
-        <div className={cx.title}>итого</div>
+      <div className={cx.infoRow}>
+        <div className={cx.title}>доставка:</div>
         <div className={cx.price}>
-          {getBasketTotalPrice(basket, products)}&nbsp;₽
+          {/* {getBasketTotalPrice(basket, products)}&nbsp;₽ */}
+          бесплатно
         </div>
       </div>
     </div>

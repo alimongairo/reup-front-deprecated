@@ -27,6 +27,7 @@ export const getUserAction = createAsyncThunk<
   try {
     const data = await mockFetch(mockData);
     return data;
+    // return rejectWithValue(null);
   } catch (error) {
     notification.error({ message: String(error) });
     return rejectWithValue(error as Error);

@@ -3,3 +3,15 @@
   font-size: 16px;
   line-height: 19px;
 }
+
+.withOffset:not(input) {
+  padding-bottom: 32px;
+}
+
+input.withOffset {
+  margin-bottom: 32px;
+}
+
+.link {
+  font-size: inherit;
+}

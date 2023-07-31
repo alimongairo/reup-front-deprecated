@@ -1,25 +1,24 @@
 .formCard {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
   padding: 0 2rem;
   margin-bottom: 6rem;
 
+  div {
+    margin: 0;
+  }
+
   .header {
+    font-family: Dela Gothic One;
     font-weight: 700;
-    font-size: 40px;
-    line-height: 49px;
+    font-size: 32px;
+    line-height: 36px;
     margin-bottom: 1.5rem;
     text-transform: lowercase;
-    transform: translateX(-2rem);
+    transform: translateX(-3rem);
   }
 
   input {
-    border: none;
-    border-bottom: 1px solid #8a8a8a;
-    font-size: 18px;
-    line-height: 22px;
-    text-transform: lowercase;
-    max-width: 28rem;
+    width: 100%;
   }
 }

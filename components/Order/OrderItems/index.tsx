@@ -1,7 +1,7 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { Form, notification } from 'antd';
-
+import Button from '@/components/common/Button';
 import ContactInfoForm from '@/components/Order/OrderItems/ContactInfoForm';
 import DeliveryForm from '@/components/Order/OrderItems/DelivetyForm';
 import PaymentForm from '@/components/Order/OrderItems/PaymentForm';
@@ -55,40 +55,76 @@ const OrderForm = ({ user, basket }: IProps) => {
     form.scrollToField('surname');
   };
 
+  enum EAgreement {
+    agreement1 = 'agreement1',
+    agreement2 = 'agreement2',
+  }
+  const [agreementsValue, setAgreements] = useState<
+    Record<EAgreement, boolean>
+  >({
+    agreement1: false,
+    agreement2: false,
+  });
+
+  const [isAllAgreements, setIsAllAgreements] = useState<boolean>(false);
+
+  const onChangeCheckbox = (changedValue: Record<EAgreement, boolean>) => {
+    setAgreements((state) => {
+      return {
+        ...state,
+        ...changedValue,
+      };
+    });
+  };
+
+  useEffect(() => {
+    const trueAgreements = Object.values(agreementsValue).filter(
+      (item: boolean) => item === true,
+    );
+    setIsAllAgreements(trueAgreements.length === 2);
+  }, [agreementsValue]);
+
+  useEffect(() => {
+    console.log(isAllAgreements);
+  }, [isAllAgreements]);
+
   return (
     <Form
       form={form}
       name="orderForm"
-      initialValues={{ phone: '+ 7 (___) ___-__-__' }}
+      // initialValues={{ phone: '+ 7 (___) ___-__-__' }}
       onFinish={submitForm}
       onFinishFailed={onFinishFailed}
     >
       <div className={cx.wrapper}>
-        <div className={cx.firstRow}>Оформление заказа</div>
+        {!user && (
+          <ContactInfoForm
+            selectedDelivery={selectedDelivery}
+            onChangeCheckbox={onChangeCheckbox}
+          />
+        )}
 
-        {!user && <ContactInfoForm selectedDelivery={selectedDelivery} />}
-
-        <DeliveryForm
+        {/* <DeliveryForm
           selectedDelivery={selectedDelivery}
           user={user}
           deliverySwither={switchDeliveryType}
-        />
+        /> */}
 
-        <PaymentForm
+        {/* <PaymentForm
           selectedPayment={selectedPayment}
           paymentSwither={setSelectedPaymentHandler}
-        />
+        /> */}
 
-        <button
+        <Button
           className={classNames(
             cx.submitButton,
             basket && basket.length && cx.active,
           )}
           type="submit"
-          disabled={!basket || !basket.length}
+          disabled={basket && !isAllAgreements && (basket as any)?.length > 0}
         >
           оформить заказ
-        </button>
+        </Button>
       </div>
     </Form>
   );

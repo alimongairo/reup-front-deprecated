@@ -1,5 +1,5 @@
 .wrapper {
-  display: flex;
-  justify-content: space-between;
   padding: 5rem 7.5rem 5rem 9.5rem;
+  display: grid;
+  grid-template-columns: 1fr 30rem;
 }

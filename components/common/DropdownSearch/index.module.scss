@@ -1,0 +1,22 @@
+.dropdownWrapper {
+  overflow: hidden;
+  transition: 0.3s;
+  max-height: 350px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.searchWrapper {
+  position: relative;
+  .input {
+    width: 100%;
+    padding-right: 40px;
+  }
+
+  .searchIcon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}

@@ -3,16 +3,17 @@ import { FormEvent, useEffect, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 
 import Heading from '@/components/common/Heading';
+import Categories from '@/components/common/FiltersForProducts/Categories';
 import Price from '@/components/common/FiltersForProducts/Price';
 import Divider from '@/components/common/Divider';
 import Sizes from '@/components/common/FiltersForProducts/Sizes';
+import Brands from '@/components/common/FiltersForProducts/Brands';
 import Compounds from '@/components/common/FiltersForProducts/Compounds';
 import Seasons from '@/components/common/FiltersForProducts/Seasons';
 import Patterns from '@/components/common/FiltersForProducts/Patterns';
 import Style from '@/components/common/FiltersForProducts/Style';
 import Colors from '@/components/common/FiltersForProducts/Colors';
 import Button from '@/components/common/Button';
-import Input from '@/components/common/Input';
 
 import {
   FilterContext,
@@ -80,8 +81,11 @@ const FiltersForProducts = ({
           </Heading>
         )}
 
+        <Categories />
+
         <Price />
         <Sizes />
+        <Brands />
 
         <Divider direction={'horizontal'} />
         <Compounds />

@@ -1,27 +1,22 @@
-.title,
-.content {
-  margin: 1rem 0;
+.content .wrapper {
+  margin-left: 1rem;
 }
 
-.content {
-  overflow: hidden;
+.content,
+.contentMain {
+  overflow-x: hidden;
+  overflow-y: hidden;
   transition: 0.3s;
 }
 
 .moreText,
-.title {
+.titleWrapper {
   cursor: pointer;
-}
-
-.minus {
-  position: absolute;
-  transition: 0.3s;
 }
 
 .collapseIcon {
   cursor: pointer;
-  position: absolute;
-  right: 15px;
+  width: 12px;
 }
 
 .rotate {
@@ -33,10 +28,16 @@
 
 .wrapper {
   position: relative;
-  transition: 0.3s;
 }
 
 .icon {
   width: 6px;
   height: auto;
+}
+
+.titleWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
 }

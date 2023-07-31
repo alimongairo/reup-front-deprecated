@@ -62,3 +62,16 @@
 .submitBtn {
   width: 100%;
 }
+
+.allBtn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem 0;
+  cursor: pointer;
+  .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+  }
+}

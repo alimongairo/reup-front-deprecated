@@ -26,8 +26,8 @@ export const getUserAction = createAsyncThunk<
 >(`${USER_ALIAS}/fetch`, async (_, { rejectWithValue }) => {
   try {
     const data = await mockFetch(mockData);
-    // TODO: return data;
-    return rejectWithValue(null);
+    return data;
+    // return rejectWithValue(null);
   } catch (error) {
     notification.error({ message: String(error) });
     return rejectWithValue(error as Error);

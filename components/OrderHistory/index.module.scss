@@ -1,6 +1,0 @@
-@import 'styles/mixins.scss';
-
-.heading {
-  @include contentWidth(true, true, calc(100% - 4rem));
-  margin: 2rem 0;
-}

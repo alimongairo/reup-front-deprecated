@@ -1,0 +1,23 @@
+.basketProductCard {
+  display: flex;
+  align-items: center;
+
+  img {
+    object-fit: cover;
+  }
+
+  .priceAndAmount {
+    display: flex;
+    justify-content: space-between;
+
+    .amount {
+      width: 25%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .deleteButton {
+    margin-left: 1rem;
+  }
+}

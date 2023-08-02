@@ -1,0 +1,145 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 85px;
+
+    .headerActions {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    button {
+      height: 50px;
+    }
+  }
+
+  table {
+    border-collapse: collapse;
+
+    tr {
+      border-bottom: 1px solid #828282;
+
+      &.noBorder {
+        border-bottom: 0px;
+      }
+    }
+
+    .tableHeader {
+      height: 35px;
+      color: #828282;
+
+      td {
+        padding: 0px;
+        padding-bottom: 4px;
+
+        &.fst {
+          width: 100px;
+        }
+        &.snd {
+          width: 1100px;
+        }
+        &.trd {
+          width: 170px;
+        }
+        &.fth {
+          width: 180px;
+        }
+        &.fith {
+          width: 270px;
+        }
+      }
+    }
+
+    .itemRow {
+      min-height: 100px;
+      padding: 0px;
+      padding-top: 24px;
+
+      td {
+        padding: 0px;
+        padding-top: 24px;
+      }
+
+      .name {
+        display: flex;
+        align-items: center;
+        font-weight: 700;
+
+        .detailsIcon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 36px;
+          height: 36px;
+          margin-left: 20px;
+          cursor: pointer;
+        }
+
+        img {
+          width: 12px;
+          height: 6px;
+        }
+      }
+
+      .amountBox {
+        border: 1px solid;
+        padding: 6px 12px;
+        width: fit-content;
+      }
+
+      .actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        button {
+          width: 170px;
+          height: 50px;
+          padding-inline: 0px;
+        }
+
+        img {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .detailsRow {
+      min-height: 100px;
+      padding: 0px;
+      padding-top: 24px;
+
+      .detailedAmount {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding-bottom: 8px;
+        width: fit-content;
+
+        .amountItem {
+          padding-left: 10px;
+          padding-top: 8px;
+          color: #828282;
+        }
+      }
+
+      .sizes {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 8px;
+        color: #828282;
+
+        .sizeItem {
+          padding-top: 8px;
+          color: #828282;
+        }
+      }
+    }
+  }
+}

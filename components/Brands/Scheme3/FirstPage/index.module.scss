@@ -1,5 +1,24 @@
 .wrapper {
   display: flex;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    top: 40%;
+    background-color: #000000;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    right: 33%;
+    width: 1px;
+    top: 0;
+    bottom: 0;
+    background-color: #000000;
+  }
   .leftSide {
     width: 30%;
     background: #e2e2e0;

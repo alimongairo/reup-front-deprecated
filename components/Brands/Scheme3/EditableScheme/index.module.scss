@@ -1,0 +1,29 @@
+@import '../../../../styles/mixins';
+
+.gallery {
+  display: flex;
+  gap: 10px;
+  position: relative;
+  @include contentWidth(true, true, calc(100% - 4rem));
+  padding-bottom: 2rem;
+  border-bottom: 1px solid black;
+  .galleryTitle {
+    position: absolute;
+    bottom: 6%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+  }
+
+  .galleryItem:not(:last-child) {
+    min-height: 200px;
+    background: var(--reup-gray);
+    padding: 2rem;
+  }
+}

@@ -3,9 +3,9 @@ import { Button, Image, Card, Tooltip } from 'antd';
 import { DeleteOutlined, PlusOutlined, MinusOutlined } from '@ant-design/icons';
 
 import { TProductItem } from '@/store/productList/type';
-import { basketProductCard } from '@/constants/componentsSizes';
+// import { basketProductCard } from '@/constants/componentsSizes';
 import { EPagesRoutes } from '@/constants/router';
-import { multiplyRem } from '@/helpers/multiplyRem';
+// import { multiplyRem } from '@/helpers/multiplyRem';
 
 import cx from './index.module.scss';
 
@@ -17,7 +17,7 @@ interface IProps {
 const BasketProductCard = ({ product, amount }: IProps) => {
   return (
     <div className={cx.basketProductCard}>
-      <Link href={`${EPagesRoutes.ProductDetail}/${product.id}`}>
+      {/* <Link href={`${EPagesRoutes.ProductDetail}/${product.id}`}>
         <Image
           width={basketProductCard.height}
           height={basketProductCard.height}
@@ -54,7 +54,7 @@ const BasketProductCard = ({ product, amount }: IProps) => {
             <Button type="text" size="small" icon={<PlusOutlined />} />
           </div>
         </div>
-      </Card>
+      </Card> */}
 
       <div className={cx.deleteButton}>
         <Tooltip title="delete">

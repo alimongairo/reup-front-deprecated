@@ -14,13 +14,14 @@ import img4 from './Rectangle 932 (1).png';
 import img5 from './Rectangle 932.png';
 
 import cx from './index.module.scss';
+import cxM from '@/components/Brands/Scheme3/index.module.scss';
 
 const BrandPage = () => {
   return (
     <div>
       <FirstPage />
-      <div className={cx.createRow}>
-        <Heading tag="h2" className={cx.title}>
+      <div className={cxM.createRow}>
+        <Heading tag="h2" className={cxM.title}>
           создай свой уникальный образ вместе с Balenciaga
         </Heading>
         <MoreButton />

@@ -1,15 +1,5 @@
 @import 'styles/mixins.scss';
 
-.createRow {
-  @include contentWidth(true, true, calc(100% - 4rem));
-  background: #7991f5;
-  padding-top: 2rem !important;
-  padding-bottom: 2rem !important;
-  .title {
-    margin-bottom: 1rem;
-  }
-}
-
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

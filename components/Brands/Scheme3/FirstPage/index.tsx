@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import Image from 'next/image';
 
 import Text from '@/components/common/Text';
@@ -8,31 +10,32 @@ import cx from './index.module.scss';
 import img from './img.png';
 import { ReactNode } from 'react';
 
-const FirstPage = ({ rightContent }: { rightContent?: ReactNode }) => {
+interface IFirstPage {
+  rightContent?: ReactNode;
+  className?: string;
+}
+
+const FirstPage = ({ rightContent, className }: IFirstPage) => {
   return (
-    <div className={cx.wrapper}>
+    <div className={classNames(cx.wrapper, className)}>
       <div className={cx.leftSide}>
         <Heading>Balenciaga</Heading>
         <Text className={cx.aboutText}>Текст описание от бренда</Text>
       </div>
       <div className={cx.rightSide}>
-        {rightContent ? (
-          rightContent
-        ) : (
-          <>
-            <Image src={img} alt={'promo'} />
-            <div className={cx.nav}>
-              <div className={cx.navItems}>
-                <Text>текст</Text>
-                <Text>текст</Text>
-                <Text>текст</Text>
-                <Text>текст</Text>
-                <Text>текст</Text>
-              </div>
-              <MoreButton />
-            </div>
-          </>
-        )}
+        <div className={cx.mainRight}>
+          {rightContent ? rightContent : <Image src={img} alt={'promo'} />}
+        </div>
+        <div className={cx.nav}>
+          <div className={cx.navItems}>
+            <Text>текст</Text>
+            <Text>текст</Text>
+            <Text>текст</Text>
+            <Text>текст</Text>
+            <Text>текст</Text>
+          </div>
+          <MoreButton />
+        </div>
       </div>
     </div>
   );

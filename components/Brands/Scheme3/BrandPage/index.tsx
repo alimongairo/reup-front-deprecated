@@ -26,21 +26,21 @@ const BrandPage = () => {
         </Heading>
         <MoreButton />
       </div>
-      <div className={cx.cards}>
-        <div className={cx.card}>
+      <div className={cxM.cards}>
+        <div className={cxM.card}>
           <Image src={img1} alt={'img'} />
         </div>
-        <div className={cx.card}>
+        <div className={cxM.card}>
           <Image src={img3} alt={'img'} />
         </div>
-        <div className={cx.card}>
+        <div className={cxM.card}>
           <Image src={img2} alt={'img'} />
         </div>
 
-        <div className={cx.card}>
+        <div className={cxM.card}>
           <Image src={img4} alt={'img'} />
         </div>
-        <div className={classNames(cx.card, cx.text)}>
+        <div className={classNames(cxM.card, cxM.text)}>
           <Heading tag="h2">чикипум</Heading>
           <Text>
             Lorem ipsum dolor sit amet consectetur. Purus a luctus ultricies at
@@ -48,7 +48,7 @@ const BrandPage = () => {
             Nunc at turpis consequat cras. Varius aenean sem natoque metus.
           </Text>
         </div>
-        <div className={cx.card}>
+        <div className={cxM.card}>
           <Image src={img5} alt={'img'} />
         </div>
       </div>

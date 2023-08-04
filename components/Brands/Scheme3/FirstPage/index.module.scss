@@ -9,15 +9,21 @@
     height: 1px;
     top: 40%;
     background-color: #000000;
+    z-index: 2;
   }
-  &::after {
-    content: '';
-    position: absolute;
-    right: 33%;
-    width: 1px;
-    top: 0;
-    bottom: 0;
-    background-color: #000000;
+  .mainRight {
+    display: flex;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      width: 1px;
+      top: 0;
+      bottom: 0;
+      background-color: #000000;
+      z-index: 2;
+    }
   }
   .leftSide {
     width: 30%;

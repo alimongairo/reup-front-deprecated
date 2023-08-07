@@ -11,7 +11,7 @@ import { getProductsRequest } from '@/network/rest/product';
 
 const imgs = [product1];
 
-for (let i = 0; i < 4; i++) {
+for (let i = 0; i < 12; i++) {
   mockData.push({
     title: 'Блузка женская “Лэйди”',
     id: i,

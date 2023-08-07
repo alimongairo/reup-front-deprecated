@@ -27,7 +27,6 @@ export const getProductListAction = createAsyncThunk(
   async () => {
     try {
       const data = await getProductsRequest();
-      console.log(data);
       return data;
     } catch (error) {
       notification.error({ message: 'error' });

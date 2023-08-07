@@ -20,7 +20,7 @@ const productListSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(getProductListAction.fulfilled, (state, { payload }) => {
-      state.dataSource = payload || [];
+      state.dataSource = (payload as any) || [];
       state.loading = false;
     });
     builder.addCase(getProductListAction.rejected, (state, { payload }) => {

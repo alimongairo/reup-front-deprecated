@@ -145,7 +145,7 @@ const DropdownSearch = () => {
     const brandListCopy = [...brandList];
     const newList = brandListCopy.filter((brand: ICheckboxProps) => {
       if (brand.label) {
-        return brand.label.toLowerCase().includes(searchValue);
+        return brand.label.toString().toLowerCase().includes(searchValue);
       }
     });
 

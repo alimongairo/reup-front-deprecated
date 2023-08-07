@@ -20,6 +20,7 @@ interface IItemProps {
   onClick?: (e: any) => void;
   isCloseMain?: boolean;
   setMainHeightContent?: (prev: any) => void;
+  heightCallback?: any;
 }
 const Item = ({
   children,
@@ -28,6 +29,7 @@ const Item = ({
   onClick,
   isCloseMain,
   setMainHeightContent,
+  heightCallback,
 }: IItemProps) => {
   const [heightContent, setHeightContent] = useState(0);
   const [isClose, setIsClose] = useState(true);
@@ -40,10 +42,9 @@ const Item = ({
   };
 
   useEffect(() => {
-    if (myRef && myRef.current) {
-      if (isClose) {
-        const height =
-          myRef.current.children[0]?.getBoundingClientRect().height;
+    if (myRef?.current && setMainHeightContent) {
+      if (isClose && !isCloseMain) {
+        const height = myRef.current.getBoundingClientRect().height;
         const minHeight = '0px';
         if (height !== 0) {
           setHeightContent(height);
@@ -52,11 +53,14 @@ const Item = ({
         return;
       }
       myRef.current.style.height = `${heightContent}px`;
-      if (setMainHeightContent) {
-        setMainHeightContent((prev: number) => prev + heightContent);
-      }
     }
-  }, [isClose, myRef, isCloseMain, heightContent, setMainHeightContent]);
+  }, [isClose, isCloseMain]);
+
+  useEffect(() => {
+    if (myRef?.current && setMainHeightContent) {
+      heightCallback(heightContent, isClose);
+    }
+  }, [isClose, heightContent, myRef]);
 
   const fn = (e: any) => {
     if (onClick !== undefined) {
@@ -113,6 +117,15 @@ const CollapseCascade = (props: PropsWithoutRef<any>) => {
     setIsCloseMain((state) => !state);
   };
 
+  const [innerHeight, setInnerHeight] = useState(0);
+  const heightCallback = (value: number, isClose: boolean) => {
+    if (!isClose) {
+      setInnerHeight((prev: number) => Math.abs(prev) + value);
+    } else {
+      setInnerHeight((prev: number) => Math.abs(prev) - value);
+    }
+  };
+
   useEffect(() => {
     if (contentRef.current) {
       if (isCloseMain) {
@@ -124,9 +137,9 @@ const CollapseCascade = (props: PropsWithoutRef<any>) => {
         contentRef.current.style.height = minHeight;
         return;
       }
-      contentRef.current.style.height = `${mainHeightContent}px`;
+      contentRef.current.style.height = `${mainHeightContent + innerHeight}px`;
     }
-  }, [isCloseMain, mainHeightContent]);
+  }, [isCloseMain, innerHeight]);
 
   return (
     <Item
@@ -142,6 +155,7 @@ const CollapseCascade = (props: PropsWithoutRef<any>) => {
             myRef={elRefs[i]}
             isCloseMain={isCloseMain}
             setMainHeightContent={setMainHeightContent}
+            heightCallback={heightCallback}
           >
             {!isCloseMain && (
               <CheckboxGroup

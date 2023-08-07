@@ -29,4 +29,6 @@ type Store = ReturnType<typeof makeStore>;
 export type AppDispatch = Store['dispatch'];
 export type RootState = ReturnType<Store['getState']>;
 
-export const wrapper = createWrapper(makeStore, { debug: true }); // TODO add env config vars
+const wrapper = createWrapper(makeStore, { debug: true }); // TODO add env config vars
+
+export default wrapper

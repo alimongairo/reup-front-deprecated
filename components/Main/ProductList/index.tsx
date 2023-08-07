@@ -22,7 +22,7 @@ const ProductsList = ({ productList }: IProps) => {
     return <div>Пустo...</div>;
   }
 
-  const cardList = [...productList, ...productList].map((product) => {
+  const cardList = productList.map((product) => {
     return (
       <ProductCard
         key={product.id}

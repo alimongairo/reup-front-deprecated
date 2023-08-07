@@ -11,7 +11,7 @@ import { getProductsRequest } from '@/network/rest/product';
 
 const imgs = [product1];
 
-for (let i = 0; i < 4; i++) {
+for (let i = 0; i < 12; i++) {
   mockData.push({
     title: 'Блузка женская “Лэйди”',
     id: i,
@@ -26,9 +26,8 @@ export const getProductListAction = createAsyncThunk(
   `${PRODUCT_LIST_ALIAS}/fetch`,
   async () => {
     try {
-      // const data = await getProductsRequest();
-      // console.log(data);
-      return mockData;
+      const data = await getProductsRequest();
+      return data;
     } catch (error) {
       notification.error({ message: 'error' });
     }

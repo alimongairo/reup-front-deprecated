@@ -2,7 +2,7 @@ import Axios, { AxiosError, AxiosPromise, AxiosRequestConfig } from 'axios';
 
 // TODO credentials
 const instance = Axios.create({
-  baseURL: 'http://127.0.0.1:8000', // TODO replace at env
+  baseURL: process.env.NEXT_PUBLIC_DB_PATH, // TODO replace at env
   withCredentials: false,
 });
 

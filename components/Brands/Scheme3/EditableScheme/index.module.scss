@@ -1,0 +1,12 @@
+.banner {
+  height: 30vh;
+}
+
+.firstPage {
+  background: var(--reup-gray);
+  .banner {
+    border: none;
+
+    height: 35vh;
+  }
+}

@@ -4,7 +4,7 @@ import HeaderForEdit from '@/components/Brands/HeaderForEdit';
 import Button from '@/components/common/Button';
 import Heading from '@/components/common/Heading';
 import Text from '@/components/common/Text';
-
+import cxM from '@/components/Brands/Scheme3/index.module.scss';
 import cx from './index.module.scss';
 import MoreButton from '@/components/common/MoreButton';
 
@@ -12,8 +12,8 @@ const Scheme2Editable = () => {
   return (
     <>
       <HeaderForEdit />
-      <div className={cx.banner}>
-        <Button transparent className={cx.uploadBtn}>
+      <div className={cxM.banner}>
+        <Button transparent className={cxM.uploadBtn}>
           добавить фото / видео
         </Button>
       </div>

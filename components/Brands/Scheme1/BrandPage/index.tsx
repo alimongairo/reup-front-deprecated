@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import Image from 'next/image';
 
 import Button from '@/components/common/Button';
-import AnchorLink from '@/components/common/AnchorLink';
+import AnchorLink from '@/components/common/anchor/AnchorLink';
 import Heading from '@/components/common/Heading';
 import LinkWithArrow from '@/components/common/LinkWithArrow';
 import Text from '@/components/common/Text';
@@ -75,20 +75,17 @@ const BrandPage = () => {
           </div>
         </div>
         <div className={cx.right}>
-          <div className={cx.row}>
-            {/* https://reacthustle.com/blog/nextjs-scroll-to-element */}
-            <AnchorLink href="#productsList">
-              <Heading tag="h2">1 категории товаров</Heading>
-            </AnchorLink>
+          <AnchorLink href="#productsList" className={cx.row}>
+            <Heading tag="h2">1 категории товаров</Heading>
             <LinkWithArrow color={'black'} text={<Text>больше</Text>} />
-          </div>
+          </AnchorLink>
           <div className={cx.row}>
             <Heading tag="h2">категории товаров</Heading>
             <LinkWithArrow color={'black'} text={<Text>больше</Text>} />
           </div>
         </div>
       </div>
-      <div className={cx.gallery} id="productsList">
+      <div className={cx.gallery}>
         <Heading tag="h2" className={cx.galleryTitle}>
           todayismyanotherday
         </Heading>

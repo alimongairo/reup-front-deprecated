@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 
 import NextLink, { LinkProps } from 'next/link';
-import { FC, HTMLProps, ReactNode, useCallback } from 'react';
+import { FC, ReactNode, useCallback } from 'react';
 import cxM from '@/components/common/A/index.module.scss';
 
 interface FLinkProps extends LinkProps {

@@ -1,8 +1,9 @@
+import classNames from 'classnames';
 import ProductCard from '@/components/common/ProductCard';
 import FiltersForProducts from '@/components/common/FiltersForProducts';
-
+import AnchorComponent from '@/components/common/anchor/AnchorComponent';
 import cx from './index.module.scss';
-
+import cxA from '@/components/common/anchor/AnchorComponent/index.module.scss';
 import img from '@/static/img/product1.png';
 
 const mockData = {
@@ -16,7 +17,8 @@ const mockData = {
 
 const BrandProductList = () => {
   return (
-    <div className={cx.container}>
+    <div className={classNames(cx.container, cxA.component)}>
+      <AnchorComponent id="productsList" />
       <FiltersForProducts />
       <div className={cx.wrapper}>
         {new Array(30).fill(0).map((_, index) => (

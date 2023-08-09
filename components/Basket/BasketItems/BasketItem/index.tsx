@@ -5,6 +5,7 @@ import Heading from '@/components/common/Heading';
 import Text from '@/components/common/Text';
 import Counter from '@/components/common/Counter';
 import Checkbox from '@/components/common/Checkbox';
+import deleteSvg from '@/static/icons/delete.svg';
 
 import cx from './index.module.scss';
 
@@ -15,6 +16,11 @@ const BasketItem = () => {
 
   const onChangeCount = (value: number) => {
     setCount(value);
+  };
+
+  const onDeleteitem = () => {
+    // remove from items with ssr
+    console.log('onDeleteitem');
   };
 
   return (
@@ -35,7 +41,15 @@ const BasketItem = () => {
         </div>
         <Counter value={count} onChange={onChangeCount} />
       </div>
-      <Checkbox />
+      <div className={cx.right}>
+        <Checkbox />
+        <Image
+          src={deleteSvg}
+          alt="delete"
+          className={cx.deleteSvg}
+          onClick={onDeleteitem}
+        />
+      </div>
     </div>
   );
 };

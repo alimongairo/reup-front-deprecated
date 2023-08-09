@@ -1,10 +1,13 @@
+import classNames from 'classnames';
+
 import NextLink, { LinkProps } from 'next/link';
-import { FC, HTMLProps, ReactNode, useCallback } from 'react';
-import cx from '@/components/common/A/index.module.scss';
+import { FC, ReactNode, useCallback } from 'react';
+import cxM from '@/components/common/A/index.module.scss';
 
 interface FLinkProps extends LinkProps {
   children: ReactNode;
   target?: string;
+  className?: string;
 }
 
 const AnchorLink: FC<FLinkProps> = ({
@@ -18,6 +21,7 @@ const AnchorLink: FC<FLinkProps> = ({
   prefetch,
   locale,
   target,
+  className,
   ...anchorProps
 }) => {
   const handleClick = useCallback(
@@ -44,7 +48,7 @@ const AnchorLink: FC<FLinkProps> = ({
       passHref={passHref}
       prefetch={prefetch}
       locale={locale}
-      className={cx.a}
+      className={classNames(className, cxM.a)}
       tabIndex={0}
       target={target}
       onClick={handleClick}

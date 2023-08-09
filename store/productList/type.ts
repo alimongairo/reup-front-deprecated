@@ -7,8 +7,8 @@ export type TProductListStore = {
 };
 
 export type TProductItem = {
-  title: string;
-  id: number;
+  name: string;
+  vendor_id: number;
   brand: string;
   price: number;
   imgSource: any; // TODO replace to url

@@ -25,11 +25,11 @@ const ProductsList = ({ productList }: IProps) => {
   const cardList = productList.map((product) => {
     return (
       <ProductCard
-        key={product.id}
+        key={product.vendor_id}
         onLike={onLikeHandler}
         onAddToBasket={onAddToBasketHandler}
-        title={product.title}
-        id={product.id}
+        name={product.name}
+        vendor_id={product.vendor_id}
         brand={product.brand}
         price={product.price}
         imgSource={product.imgSource}

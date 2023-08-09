@@ -23,8 +23,8 @@ type IProps = {
 } & TProductItem;
 
 const ProductCard = ({
-  id,
-  title,
+  vendor_id,
+  name,
   like,
   imgSource,
   brand,
@@ -36,7 +36,7 @@ const ProductCard = ({
   const router = useRouter();
 
   const goToProductDetail = () => {
-    router.push(`${EPagesRoutes.ProductDetail}/${id}`);
+    router.push(`${EPagesRoutes.ProductDetail}/${vendor_id}`);
   };
 
   const onCloseModal = () => {
@@ -55,24 +55,24 @@ const ProductCard = ({
       <PreviewProductModal visible={visibleModal} onClose={onCloseModal} />
       <span
         className={classNames(cx.likeIcon, 'iconBnt')}
-        onClick={() => onLike && onLike(id)}
+        onClick={() => onLike && onLike(vendor_id)}
       >
         <Image src={Like} alt="like" width={20} />
       </span>
       <Image
         src={imgSource}
-        alt={title}
+        alt={name}
         className={cx.productImg}
         onClick={goToProductDetail}
       />
       <div className={cx.text}>
-        <Heading tag="h3">{title}</Heading>
+        <Heading tag="h3">{name}</Heading>
         <Text size="thin">{brand}</Text>
       </div>
       <div className={cx.actions}>
         <Button
           className={cx.toBasket}
-          onClick={() => onAddToBasket && onAddToBasket(id)}
+          onClick={() => onAddToBasket && onAddToBasket(vendor_id)}
         >
           в корзину
         </Button>

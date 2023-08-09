@@ -5,8 +5,8 @@ import img from '@/static/img/product1.png';
 import cx from './index.module.scss';
 
 const mockProduct = {
-  id: 1,
-  title: 'Блузка женская “Лэйди”',
+  vendor_id: 1,
+  name: 'Блузка женская “Лэйди”',
   like: false,
   imgSource: img,
   brand: 'Befree',

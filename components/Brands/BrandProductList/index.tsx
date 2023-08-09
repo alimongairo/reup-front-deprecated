@@ -6,8 +6,8 @@ import cx from './index.module.scss';
 import img from '@/static/img/product1.png';
 
 const mockData = {
-  id: 1,
-  title: 'title 1',
+  vendor_id: 1,
+  name: 'title 1',
   like: false,
   imgSource: img,
   brand: 'brand',

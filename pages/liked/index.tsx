@@ -9,8 +9,8 @@ const dataSource: TProductItem[] = [];
 
 for (let i = 0; i <= 15; i += 1) {
   dataSource.push({
-    title: 'Блузка женская “Лэйди”',
-    id: i,
+    name: 'Блузка женская “Лэйди”',
+    vendor_id: i,
     brand: 'Befree',
     price: 7500,
     imgSource: product, // TODO replace to url

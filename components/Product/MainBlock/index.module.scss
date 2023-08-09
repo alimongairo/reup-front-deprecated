@@ -1,0 +1,23 @@
+.container {
+  padding: 50px;
+
+  .content {
+    display: flex;
+    padding-top: 32px;
+
+    .selectBlock {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      width: 400px;
+    }
+
+    .inputBlock {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      margin-left: 32px;
+      width: 100%;
+    }
+  }
+}

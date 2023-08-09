@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import searchLogo from '@/static/icons/serch.svg';
+import searchLogo from '@/static/icons/search.svg';
 
 import Image from 'next/image';
 import Input from '../Input';

@@ -1,9 +1,6 @@
-import { useEffect, useMemo, useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { EPagesRoutes } from '@/constants/router';
 
-import Select from '@/components/common/Select';
 import Heading from '@/components/common/Heading';
 import Text from '@/components/common/Text';
 import Button from '@/components/common/Button';

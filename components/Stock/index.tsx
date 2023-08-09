@@ -7,6 +7,8 @@ import cx from './index.module.scss';
 import TableRow, { StockItem } from './TableRow';
 import DropdownSearch from '../common/DropdownSearch';
 import SearchInput from '../common/SearchInput';
+import { useRouter } from 'next/router';
+import { EPagesRoutes } from '../../constants/router';
 
 const data: StockItem[] = [
   {
@@ -36,6 +38,7 @@ const data: StockItem[] = [
 ];
 
 const StockLayout = () => {
+  const router = useRouter();
   const [search, setSearch] = useState('');
 
   const items = data.filter((el) =>
@@ -60,7 +63,12 @@ const StockLayout = () => {
         <Heading>склад</Heading>
         <div className={cx.headerActions}>
           <SearchInput value={search} onChange={setSearch} />
-          <Button size="small">+ добавить товар</Button>
+          <Button
+            size="small"
+            onClick={() => router.push(EPagesRoutes.Product)}
+          >
+            + добавить товар
+          </Button>
         </div>
       </div>
       <table>

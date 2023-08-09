@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import Input from '@/components/common/Input';
-import searchLogo from '@/static/icons/serch.svg';
+import searchLogo from '@/static/icons/search.svg';
 import Image from 'next/image';
 import cx from './index.module.scss';
 import { CheckboxGroup, ICheckboxProps } from '../Checkbox';

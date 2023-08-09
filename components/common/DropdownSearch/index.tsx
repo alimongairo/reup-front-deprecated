@@ -6,7 +6,14 @@ import cx from './index.module.scss';
 import { CheckboxGroup, ICheckboxProps } from '../Checkbox';
 import { FilterContext } from '@/components/common/FiltersForProducts/context';
 
-const brandsInitial: ICheckboxProps[] = [
+interface Brand {
+  label: string;
+  value: string;
+  id: string;
+  labelPlacement: 'left' | 'right' | 'top';
+}
+
+const brandsInitial: Brand[] = [
   // {
   //   label: 'Выделить все',
   //   value: 'all',
@@ -99,9 +106,9 @@ const DropdownSearch = () => {
     brand10: false,
     brand11: false,
   });
-  const [brandList, setBrandList] = useState<ICheckboxProps[]>(brandsInitial);
+  const [brandList, setBrandList] = useState<Brand[]>(brandsInitial);
   const [searchBrandList, setSearchBrandList] =
-    useState<ICheckboxProps[]>(brandsInitial);
+    useState<Brand[]>(brandsInitial);
 
   const onChange = (changedValue: Record<any, boolean>) => {
     setBrandValue(changedValue);
@@ -132,7 +139,7 @@ const DropdownSearch = () => {
 
       setFilterData({ brands: newValue.length ? newValue : undefined });
     }
-  }, [brandValue]);
+  }, [brandValue, setFilterData]);
 
   useEffect(() => {
     if (searchValue) {
@@ -143,14 +150,14 @@ const DropdownSearch = () => {
     }
 
     const brandListCopy = [...brandList];
-    const newList = brandListCopy.filter((brand: ICheckboxProps) => {
+    const newList = brandListCopy.filter((brand: Brand) => {
       if (brand.label) {
         return brand.label.toString().toLowerCase().includes(searchValue);
       }
     });
 
     setSearchBrandList(newList);
-  }, [searchValue]);
+  }, [brandList, searchValue]);
 
   const [heightContent, setHeightContent] = useState(0);
 
@@ -170,7 +177,7 @@ const DropdownSearch = () => {
       }
       contentRef.current.style.height = `${heightContent}px`;
     }
-  }, [isDropdown]);
+  }, [heightContent, isDropdown]);
 
   return (
     <div className={cx.mainWrapper}>

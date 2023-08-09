@@ -1,0 +1,78 @@
+.wrapper {
+  z-index: 100;
+  background: white;
+  position: relative;
+  max-width: 540px;
+  height: fit-content;
+  max-height: 80%;
+  overflow-y: scroll;
+  padding: 84px 50px 50px 50px;
+  border: 1px solid black;
+
+  .closeBtn {
+    position: absolute;
+    right: 50px;
+    top: 32px;
+    cursor: pointer;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    div {
+      text-align: center;
+      font-weight: 700;
+      font-size: 24px;
+    }
+
+    .btns {
+      display: flex;
+      gap: 24px;
+      padding-top: 32px;
+    }
+  }
+}
+
+.backModal {
+  z-index: 100;
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  padding: 5% 0;
+  animation: fadeIn 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+.closeMask {
+  animation: fadeIn 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

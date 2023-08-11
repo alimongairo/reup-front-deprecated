@@ -19,8 +19,9 @@ import cx from './index.module.scss';
 // TODO replace imgSource to url
 
 type IProps = {
-  onLike?: (id: number) => void;
+  onLike?: (pid: number, idx: number, uid?: number) => void;
   onAddToBasket?: (id: number) => void;
+  idx: number;
 } & TProductItem;
 
 const ProductCard = ({
@@ -32,9 +33,11 @@ const ProductCard = ({
   price,
   onLike,
   onAddToBasket,
+  idx,
 }: IProps) => {
   const [visibleModal, setVisibleModal] = useState(false);
   const router = useRouter();
+  const [isLike, setIsLike] = useState(like);
 
   const goToProductDetail = () => {
     router.push(`${EPagesRoutes.ProductDetail}/${vendor_id}`);
@@ -44,6 +47,10 @@ const ProductCard = ({
     setVisibleModal(false);
   };
 
+  const onChangeLike = () => {
+    onLike && onLike(vendor_id, idx);
+    setIsLike((prev) => !prev);
+  };
   return (
     <div className={cx.wrapper}>
       <Button
@@ -56,9 +63,9 @@ const ProductCard = ({
       <PreviewProductModal visible={visibleModal} onClose={onCloseModal} />
       <span
         className={classNames(cx.likeIcon, 'iconBnt')}
-        onClick={() => onLike && onLike(vendor_id)}
+        onClick={onChangeLike}
       >
-        <LikeSvg isActive={like} />
+        <LikeSvg isActive={isLike} />
       </span>
       <Image
         src={main_image}

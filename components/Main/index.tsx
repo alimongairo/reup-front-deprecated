@@ -13,7 +13,6 @@ import ReupChoosen from '@/components/Main/ReupChoosen';
 import { useAppDispatch, useAppSelector } from '@/hooks/store';
 import { getProductListDataSource } from '@/store/productList/selectors';
 import { getProductListAction } from '@/store/productList/thunk';
-
 import cx from './index.module.scss';
 
 const MainPageComponents = () => {
@@ -21,8 +20,15 @@ const MainPageComponents = () => {
   const newProducts = useAppSelector(getProductListDataSource);
 
   useEffect(() => {
+    console.log('EFFECT');
     dispatch(getProductListAction());
   }, []);
+
+  // после лайка приходит пустой массив
+  useEffect(() => {
+    console.log('EFFECT 2');
+    console.log(newProducts);
+  }, [newProducts]);
 
   return (
     <div className={cx.main}>
@@ -40,16 +46,19 @@ const MainPageComponents = () => {
       </div>
       <Collections />
 
+      {/* TODO: здесь понравившиеся */}
       <div className={classNames(cx.text, cx.left)}>
         <Heading>мне нравится</Heading>
-        <ProductsList productList={newProducts} />
+        {/* <ProductsList productList={newProducts} /> */}
       </div>
       <Marquee gradient={false} speed={60}>
         <span className={cx.marquee}>
           акции скидки акции скидки акции скидки акции скидки
         </span>
       </Marquee>
-      <ProductsList productList={newProducts} />
+
+      {/* TODO: здесь скилдки */}
+      {/* <ProductsList productList={newProducts} /> */}
       <SaleSector />
     </div>
   );

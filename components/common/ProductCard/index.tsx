@@ -12,6 +12,7 @@ import { TProductItem } from '@/store/productList/type';
 import { EPagesRoutes } from '@/constants/router';
 
 import Like from '@/static/icons/like.svg';
+import LikeSvg from '@/static/icons/LikeSvg';
 
 import cx from './index.module.scss';
 
@@ -26,7 +27,7 @@ const ProductCard = ({
   vendor_id,
   name,
   like,
-  imgSource,
+  main_image,
   brand,
   price,
   onLike,
@@ -57,10 +58,12 @@ const ProductCard = ({
         className={classNames(cx.likeIcon, 'iconBnt')}
         onClick={() => onLike && onLike(vendor_id)}
       >
-        <Image src={Like} alt="like" width={20} />
+        <LikeSvg isActive={like} />
       </span>
       <Image
-        src={imgSource}
+        src={main_image}
+        width={317}
+        height={380}
         alt={name}
         className={cx.productImg}
         onClick={goToProductDetail}

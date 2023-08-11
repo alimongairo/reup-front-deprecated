@@ -11,6 +11,6 @@ export type TProductItem = {
   vendor_id: number;
   brand: string;
   price: number;
-  imgSource: any; // TODO replace to url
+  main_image: any; // TODO replace to url
   like?: boolean;
 };

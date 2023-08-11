@@ -5,6 +5,8 @@ import ScrollSlider from '@/components/common/ScrollSlider';
 
 import { TProductItem } from '@/store/productList/type';
 
+import cx from './index.module.scss';
+
 interface IProps {
   productList: TProductItem[];
 }
@@ -19,7 +21,7 @@ const ProductsList = ({ productList }: IProps) => {
   }, []);
 
   if (!productList.length) {
-    return <div>Пустo...</div>;
+    return <div className={cx.container}>Пустo...</div>;
   }
 
   const cardList = productList.map((product) => {
@@ -32,7 +34,7 @@ const ProductsList = ({ productList }: IProps) => {
         vendor_id={product.vendor_id}
         brand={product.brand}
         price={product.price}
-        imgSource={product.imgSource}
+        main_image={product.main_image}
         like={product.like}
       />
     );

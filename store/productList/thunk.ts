@@ -17,7 +17,7 @@ for (let i = 0; i < 12; i++) {
     vendor_id: i,
     brand: 'Befree',
     price: randomInteger(499, 10000),
-    imgSource: imgs[randomInteger(0, imgs.length - 1)],
+    main_image: imgs[randomInteger(0, imgs.length - 1)],
     like: i % 3 === 0,
   });
 }
@@ -26,8 +26,8 @@ export const getProductListAction = createAsyncThunk(
   `${PRODUCT_LIST_ALIAS}/fetch`,
   async () => {
     try {
-      const data = await getProductsRequest();
-      return data;
+      const response = await getProductsRequest();
+      return response.data;
     } catch (error) {
       notification.error({ message: 'error' });
     }

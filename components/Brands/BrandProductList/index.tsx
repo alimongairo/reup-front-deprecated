@@ -8,8 +8,8 @@ import img from '@/static/img/product1.png';
 const mockData = {
   vendor_id: 1,
   name: 'title 1',
-  like: false,
-  imgSource: img,
+  like: !Math.round(Math.random()),
+  main_image: img,
   brand: 'brand',
   price: 123,
 };

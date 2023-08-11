@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import cx from './index.module.scss';
 
-import leftArrow from '@/static/icons/leftArrow.svg';
 import slide1 from '@/static/img/slide1.png';
 import slide2 from '@/static/img/firstDisplayImg.png';
 

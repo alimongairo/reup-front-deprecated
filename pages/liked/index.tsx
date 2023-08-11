@@ -13,7 +13,7 @@ for (let i = 0; i <= 15; i += 1) {
     vendor_id: i,
     brand: 'Befree',
     price: 7500,
-    imgSource: product, // TODO replace to url
+    main_image: product, // TODO replace to url
     like: true,
   });
 }

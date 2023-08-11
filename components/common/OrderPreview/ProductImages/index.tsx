@@ -17,7 +17,7 @@ const ProductImages = ({ products, basket }: IProps) => {
     <div className={cx.wrapper}>
       <Link href={`${EPagesRoutes.Basket}/`} rel={EPagesRoutes.Basket}>
         <Image
-          src={products[basket[0].productId].imgSource}
+          src={products[basket[0].productId].main_image}
           alt="product image"
         />
       </Link>
@@ -26,7 +26,7 @@ const ProductImages = ({ products, basket }: IProps) => {
           <div className={cx.ohterImages}>
             <div className={basket.length > 2 ? cx.blur : undefined}>
               <Image
-                src={products[basket[1].productId].imgSource}
+                src={products[basket[1].productId].main_image}
                 alt="product image"
               />
             </div>

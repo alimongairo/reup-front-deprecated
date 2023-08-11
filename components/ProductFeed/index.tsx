@@ -8,7 +8,7 @@ const mockProduct = {
   vendor_id: 1,
   name: 'Блузка женская “Лэйди”',
   like: false,
-  imgSource: img,
+  main_image: img,
   brand: 'Befree',
   price: 7500,
 };

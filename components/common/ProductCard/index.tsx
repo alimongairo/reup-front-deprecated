@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -51,6 +51,16 @@ const ProductCard = ({
     onLike && onLike(vendor_id, idx);
     setIsLike((prev) => !prev);
   };
+
+  // useEffect(() => {
+  //   if(window?.localStorage){
+  //     const product = JSON.parse(localStorage.getItem("productList") as string).find((product: any) => product.vendor_id === vendor_id) ;
+  //     // product.like = true;
+  //     // localStorage.setItem("productList",JSON.stringify(product))
+  //     console.log(product)
+  //   }
+  // }, [isLike])
+
   return (
     <div className={cx.wrapper}>
       <Button

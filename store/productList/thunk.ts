@@ -28,8 +28,11 @@ export const getProductListAction = createAsyncThunk(
   async () => {
     try {
       const response = await getProductsRequest();
-      // const r = useLocalStorage('productList', JSON.stringify(response.data))
-      // localStorage.setItem("productList",JSON.stringify(response.data))
+
+      try {
+        localStorage.setItem("productList",JSON.stringify(response.data))
+      } catch (error) {}
+    
       return response.data;
     } catch (error) {
       notification.error({ message: 'error' });
@@ -42,8 +45,8 @@ export const likeProductAction = createAsyncThunk(
   // TODO: add ts
   async (data: any) => {
     try {
+      //console.log(data.productId)
       const response = await likeRequest(data);
-      localStorage.setItem("products",JSON.stringify(response.data))
       return response.data;
     } catch (error) {
       notification.error({ message: 'error' });

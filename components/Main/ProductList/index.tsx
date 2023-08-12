@@ -18,21 +18,32 @@ const ProductsList = ({ productList }: IProps) => {
   const dispatch = useAppDispatch();
   const user = useAppSelector(getUserDataSource); // uid
 
+  console.log(productList);
   const onLikeHandler = useCallback(
     (pid: number, idx: number, uid?: number) => {
-      /*
-    кликнули
-    отправили в локальное хранилище
-    если авторизован, отправили на урл 
-    перекрасили
-    дальше при перезагрзке страницы отображаем цвет уже в зависимости от like !like
-    метод для лайка написан (likeRequest)
-    */
       const data = {
         product_id: pid,
         customer_id: user?.uid || 1,
       };
+
       dispatch(likeProductAction(data));
+
+      if (window?.localStorage) {
+        const product = JSON.parse(
+          localStorage.getItem('productList') as string,
+        ).find((product: any) => product.vendor_id === pid);
+
+        let likedProducts = JSON.parse(
+          localStorage.getItem('likedProducts') as string,
+        );
+        if (!likedProducts || likedProducts.length < 1) {
+          likedProducts = [];
+        }
+        localStorage.setItem(
+          'likedProducts',
+          JSON.stringify([...likedProducts, product]),
+        );
+      }
     },
     [],
   );

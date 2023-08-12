@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Marquee from 'react-fast-marquee';
 import classNames from 'classnames';
 
@@ -14,20 +14,66 @@ import { useAppDispatch, useAppSelector } from '@/hooks/store';
 import { getProductListDataSource } from '@/store/productList/selectors';
 import { getProductListAction } from '@/store/productList/thunk';
 import cx from './index.module.scss';
+import Item from 'antd/es/list/Item';
 
 const MainPageComponents = () => {
   const dispatch = useAppDispatch();
-  const newProducts = useAppSelector(getProductListDataSource);
+  const storeProducts = useAppSelector(getProductListDataSource);
 
+  const [newProducts, setNewProducts] = useState([]);
+
+  // TODO: по этоу логике сначала записывается в стэйт старое локлаьное хранилище, а оптом уже проводятся манипуляции => переместить
   useEffect(() => {
-    console.log('EFFECT');
-    dispatch(getProductListAction());
+    if (window?.localStorage) {
+      const productList = JSON.parse(
+        localStorage.getItem('productList') as string,
+      );
+
+      if (productList && productList.length > 0) {
+        console.log('SET OLD');
+        setNewProducts(productList);
+        // console.log("SET NEW !!!!!!")
+      } else {
+        console.log('DISPATCH NEW !!!!!!');
+        dispatch(getProductListAction());
+      }
+    } else {
+      dispatch(getProductListAction());
+    }
   }, []);
 
-  // после лайка приходит пустой массив
   useEffect(() => {
-    console.log('EFFECT 2');
-    console.log(newProducts);
+    if (!localStorage.getItem('productList')) {
+      console.log('GET PRODUCTS NEW 2');
+      /// setNewProducts(storeProducts as any)
+    } else {
+      setNewProducts(JSON.parse(localStorage.getItem('productList') as string));
+    }
+  }, [storeProducts]);
+
+  useEffect(() => {
+    if (newProducts.length === 0) return;
+    // TODO: отрабатывает только после двойной перезагрузки
+    if (window?.localStorage) {
+      const likedProducts = JSON.parse(
+        localStorage.getItem('likedProducts') as string,
+      );
+
+      if (!likedProducts || likedProducts.length < 1) return;
+
+      const accNewProducts = newProducts;
+      accNewProducts.map((item: any) => {
+        if (
+          likedProducts.find(
+            (itemLiked: any) => itemLiked.product_id == item.product_id,
+          )
+        ) {
+          item.like = true;
+        }
+      });
+
+      localStorage.setItem('productList', JSON.stringify(accNewProducts));
+    }
   }, [newProducts]);
 
   return (

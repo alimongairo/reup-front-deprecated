@@ -5,7 +5,6 @@ import Button from '../common/Button';
 
 import cx from './index.module.scss';
 import TableRow, { StockItem } from './TableRow';
-import DropdownSearch from '../common/DropdownSearch';
 import SearchInput from '../common/SearchInput';
 import { useRouter } from 'next/router';
 import { EPagesRoutes } from '../../constants/router';

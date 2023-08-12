@@ -5,18 +5,13 @@
     display: flex;
     padding-top: 32px;
 
-    .selectBlock {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
+    .switcherBox {
+      width: 500px;
+      height: 102px;
     }
 
-    .inputBlock {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-      margin-left: 32px;
-      width: 100%;
+    .sizesBox {
+      margin-left: 80px;
     }
   }
 }

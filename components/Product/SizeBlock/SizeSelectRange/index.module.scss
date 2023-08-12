@@ -1,0 +1,45 @@
+.container {
+  width: 100%;
+
+  .sizeBlock {
+    display: flex;
+
+    .iconBox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 50px;
+
+      .icon {
+        width: 20px;
+        height: 20px;
+
+        &.hide {
+          display: none;
+        }
+      }
+
+      &.divider {
+        font-size: 20px;
+        font-weight: 500;
+      }
+    }
+
+    .select {
+      width: 200px;
+    }
+  }
+
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 28px;
+    border-color: #828282;
+    background-color: #9baefd;
+    width: 50px;
+    height: 50px;
+  }
+}

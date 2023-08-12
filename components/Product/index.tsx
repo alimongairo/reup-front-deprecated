@@ -1,15 +1,20 @@
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import { EPagesRoutes } from '../../constants/router';
 import cx from './index.module.scss';
 
-import Divider from '../common/Divider';
-import Heading from '../common/Heading';
 import MainBlock from './MainBlock';
 import MediaBlock from './MediaBlock';
 import DetailsBlock from './DetailsBlock';
 import CharacteristicsBlock from './CharacteristicsBlock';
-import SizeBlock from './SizeBlock';
 import DeliveryBlock from './DeliveryBlock';
 import PriceBlock from './PriceBlock';
-import { useState } from 'react';
+
+import Divider from '../common/Divider';
+import Heading from '../common/Heading';
+import SizeBlock from './SizeBlock';
+import CancelButton from '../common/CancelButton';
+import Button from '../common/Button';
 
 export interface Product {
   category: string;
@@ -17,7 +22,10 @@ export interface Product {
   subsubcategory: string;
   name: string;
   description: string;
-  // media: any[];
+  media: {
+    main: any;
+    other: any[];
+  };
   fabric: string[];
   color: string;
   pattern: string;
@@ -28,11 +36,19 @@ export interface Product {
     text: string;
     // images: any[];
   };
-  // sizes: string[];
+  sizeCountry: string;
+  sizeType: SizeType;
+  sizes: string[][] | string[];
   poi: string;
   weight: string;
   price: string;
   discount: string;
+}
+
+export enum SizeType {
+  none = '',
+  single = 'single',
+  range = 'range',
 }
 
 const initState = {
@@ -41,6 +57,10 @@ const initState = {
   subsubcategory: '',
   name: '',
   description: '',
+  media: {
+    main: null,
+    other: [null, null, null, null, null, null, null, null],
+  },
   fabric: [],
   color: '',
   pattern: '',
@@ -50,6 +70,9 @@ const initState = {
   characterictics: {
     text: '',
   },
+  sizeCountry: '',
+  sizeType: SizeType.none,
+  sizes: [],
   poi: '',
   weight: '',
   price: '',
@@ -57,10 +80,12 @@ const initState = {
 };
 
 const ProductLayout = () => {
+  const router = useRouter();
   const [state, setState] = useState<Product>(initState);
 
   return (
     <div className={cx.wrapper}>
+      <CancelButton onClick={() => router.push(EPagesRoutes.Stock)} />
       <Heading>добавить товар</Heading>
       <div className={cx.formWrapper}>
         <Divider direction="horizontal" />
@@ -83,6 +108,11 @@ const ProductLayout = () => {
 
         <Divider direction="horizontal" />
         <PriceBlock state={state} setState={setState} />
+
+        <Divider direction="horizontal" />
+        <div className={cx.confirm}>
+          <Button onClick={() => {}}>добавить товар на склад</Button>
+        </div>
       </div>
     </div>
   );

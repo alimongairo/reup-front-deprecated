@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  border: 1px solid black;
+
+  .switch {
+    display: flex;
+    align-items: center;
+    width: 250px;
+    height: 50px;
+
+    &.leftSwitch {
+      justify-content: right;
+      border-right: 1px solid black;
+      padding-right: 50px;
+    }
+
+    &.rightSwitch {
+      justify-content: left;
+      padding-left: 50px;
+    }
+
+    &:hover {
+      background-color: #e8e8e8;
+    }
+
+    &.active {
+      background-color: #7991f5;
+      color: white;
+    }
+  }
+}

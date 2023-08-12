@@ -1,0 +1,73 @@
+.common {
+  width: 174px;
+  height: 236px;
+  background-color: #e8e8e8;
+  border: 0px;
+  padding: 50px 24px 118px 24px;
+
+  .titleBox {
+    display: flex;
+    align-items: center;
+    padding: 16px 24px;
+    color: #7991f5;
+    border: 1px solid #7991f5;
+
+    .title {
+      margin-left: 12px;
+      text-align: left;
+    }
+  }
+}
+
+.main {
+  width: 325px;
+  height: 496px;
+  background-color: #e8e8e8;
+  border: 0px;
+  padding: 50px 24px 318px 24px;
+
+  .titleBox {
+    display: flex;
+    align-items: center;
+    padding: 16px 24px;
+    color: #7991f5;
+    border: 1px solid #7991f5;
+
+    .title {
+      margin-left: 12px;
+      text-align: left;
+    }
+  }
+}
+
+.previewWrap {
+  position: relative;
+  transition: 1s;
+
+  .preview {
+    width: 174px;
+    height: 236px;
+  }
+
+  .previewMain {
+    width: 325px;
+    height: 496px;
+  }
+
+  .iconBox {
+    z-index: 1000;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+}

@@ -9,58 +9,60 @@ import Collapse from '@/components/common/Collapse';
 import ProductInfo from '@/components/common/ProductCard/PreviewProductModal/ProductInfo';
 import Slider from '@/components/common/ProductCard/PreviewProductModal/Slider';
 
+import { TProductItem } from '@/store/productList/type';
 import cx from './index.module.scss';
 import ledy from 'static/img/ledy.png';
-import like from 'static/icons/like.svg';
+import LikeSvg from '@/static/icons/LikeSvg';
 
-interface IProps {
+type IProps = {
   visible: boolean;
   onClose: () => void;
-}
+} & TProductItem;
 
-const slides: Array<{ id: number; img: any }> = [
-  {
-    id: 0,
-    img: ledy,
-  },
-  {
-    id: 1,
-    img: ledy,
-  },
-  {
-    id: 2,
-    img: ledy,
-  },
-  {
-    id: 3,
-    img: ledy,
-  },
-];
+const PreviewProductModal = ({
+  visible,
+  onClose,
+  price,
+  sale,
+  name,
+  main_image,
+  onChangeLike,
+  isLike,
+  description,
+}: any) => {
+  const slides = [
+    {
+      id: 0,
+      img: main_image,
+    },
+    // TODO: отправляем запрос за всеми картинками и дописываем в массив
+  ];
 
-const mockText =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, ';
-
-const PreviewProductModal = ({ visible, onClose }: IProps) => {
   return (
     <Modal visible={visible} onClose={onClose}>
       <div className={cx.contentWrapper}>
         <Slider slides={slides} />
         <div className={cx.info}>
           <div className={cx.heading}>
-            <Heading tag="h2">Блузка женская “Лэйди”</Heading>
-            <Image src={like} alt={'like'} />
+            <Heading tag="h2">{name}</Heading>
+            <span
+              className={classNames(cx.likeIcon, 'iconBnt')}
+              onClick={onChangeLike}
+            >
+              <LikeSvg isActive={isLike} />
+            </span>
           </div>
           <Text size="big" className={cx.space}>
-            Befree
+            ___
           </Text>
           <Text size="thin" className={classNames(cx.code, cx.space)}>
-            03289
+            ___
           </Text>
           <div className={classNames(cx.price, cx.space)}>
             <Text decoration="line" className={cx.oldPrice}>
-              3990
+              {price}
             </Text>
-            <Heading tag="h2">1990</Heading>
+            <Heading tag="h2">{price - sale}</Heading>
           </div>
           <Text size="thin" className={cx.space}>
             выберите размер
@@ -82,7 +84,7 @@ const PreviewProductModal = ({ visible, onClose }: IProps) => {
           <div className={classNames(cx.line, cx.space)}></div>
           <Collapse
             title={'описание'}
-            content={<Text size="thin">{mockText}</Text>}
+            content={<Text size="thin">{description}</Text>}
             moreText={'показать больше'}
             lessText={'показать меньше'}
             hideCollapseIcon

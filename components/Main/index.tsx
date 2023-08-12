@@ -14,28 +14,36 @@ import { useAppDispatch, useAppSelector } from '@/hooks/store';
 import { getProductListDataSource } from '@/store/productList/selectors';
 import { getProductListAction } from '@/store/productList/thunk';
 import cx from './index.module.scss';
-import Item from 'antd/es/list/Item';
 
 const MainPageComponents = () => {
   const dispatch = useAppDispatch();
   const storeProducts = useAppSelector(getProductListDataSource);
 
   const [newProducts, setNewProducts] = useState([]);
+  const [likedProductsArr, setLikedProducts] = useState([]);
 
-  // TODO: по этоу логике сначала записывается в стэйт старое локлаьное хранилище, а оптом уже проводятся манипуляции => переместить
   useEffect(() => {
     if (window?.localStorage) {
+      const likedProducts = JSON.parse(
+        localStorage.getItem('likedProducts') as string,
+      );
+
       const productList = JSON.parse(
         localStorage.getItem('productList') as string,
       );
 
       if (productList && productList.length > 0) {
-        console.log('SET OLD');
         setNewProducts(productList);
-        // console.log("SET NEW !!!!!!")
       } else {
-        console.log('DISPATCH NEW !!!!!!');
         dispatch(getProductListAction());
+      }
+
+      if (likedProducts) {
+        setLikedProducts(likedProducts);
+      } else {
+        // TODO: то, что получаем из эндпоинта
+        setLikedProducts([]);
+        // dispatch
       }
     } else {
       dispatch(getProductListAction());
@@ -43,17 +51,14 @@ const MainPageComponents = () => {
   }, []);
 
   useEffect(() => {
-    if (!localStorage.getItem('productList')) {
-      console.log('GET PRODUCTS NEW 2');
-      /// setNewProducts(storeProducts as any)
-    } else {
+    if (window?.localStorage && localStorage.getItem('productList')) {
+      // в локальное мы записали в экшене
       setNewProducts(JSON.parse(localStorage.getItem('productList') as string));
     }
   }, [storeProducts]);
 
   useEffect(() => {
     if (newProducts.length === 0) return;
-    // TODO: отрабатывает только после двойной перезагрузки
     if (window?.localStorage) {
       const likedProducts = JSON.parse(
         localStorage.getItem('likedProducts') as string,
@@ -95,7 +100,7 @@ const MainPageComponents = () => {
       {/* TODO: здесь понравившиеся */}
       <div className={classNames(cx.text, cx.left)}>
         <Heading>мне нравится</Heading>
-        {/* <ProductsList productList={newProducts} /> */}
+        <ProductsList productList={likedProductsArr} />
       </div>
       <Marquee gradient={false} speed={60}>
         <span className={cx.marquee}>
@@ -103,8 +108,7 @@ const MainPageComponents = () => {
         </span>
       </Marquee>
 
-      {/* TODO: здесь скилдки */}
-      {/* <ProductsList productList={newProducts} /> */}
+      <ProductsList productList={newProducts} />
       <SaleSector />
     </div>
   );

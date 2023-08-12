@@ -7,7 +7,7 @@ const mockData: TProductItem[] = [];
 
 // TODO remove
 import product1 from '@/static/img/product1.png';
-import { getProductsRequest } from '@/network/rest/product';
+import { getLikedProductsRequest, getProductsRequest } from '@/network/rest/product';
 import { likeRequest } from "@/network/rest/like";
 
 const imgs = [product1];
@@ -40,12 +40,27 @@ export const getProductListAction = createAsyncThunk(
   },
 );
 
+export const getLikedProductListAction = createAsyncThunk(
+  `${PRODUCT_LIST_ALIAS}/fetch`,
+  async () => {
+    try {
+      const response = await getLikedProductsRequest();
+
+      try {
+        localStorage.setItem("likedProducts",JSON.stringify(response.data))
+      } catch (error) {}
+    
+      return response.data;
+    } catch (error) {
+      notification.error({ message: 'error' });
+    }
+  },
+);
+
 export const likeProductAction = createAsyncThunk(
   PRODUCT_LIST_ALIAS,
-  // TODO: add ts
   async (data: any) => {
     try {
-      //console.log(data.productId)
       const response = await likeRequest(data);
       return response.data;
     } catch (error) {

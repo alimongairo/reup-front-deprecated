@@ -11,7 +11,6 @@ import PreviewProductModal from '@/components/common/ProductCard/PreviewProductM
 import { TProductItem } from '@/store/productList/type';
 import { EPagesRoutes } from '@/constants/router';
 
-import Like from '@/static/icons/like.svg';
 import LikeSvg from '@/static/icons/LikeSvg';
 
 import cx from './index.module.scss';
@@ -19,9 +18,8 @@ import cx from './index.module.scss';
 // TODO replace imgSource to url
 
 type IProps = {
-  onLike?: (pid: number, idx: number, uid?: number) => void;
+  onLike?: (pid: number) => void;
   onAddToBasket?: (id: number) => void;
-  idx: number;
 } & TProductItem;
 
 const ProductCard = ({
@@ -31,9 +29,10 @@ const ProductCard = ({
   main_image,
   brand,
   price,
+  sale,
+  description,
   onLike,
   onAddToBasket,
-  idx,
 }: IProps) => {
   const [visibleModal, setVisibleModal] = useState(false);
   const router = useRouter();
@@ -48,18 +47,9 @@ const ProductCard = ({
   };
 
   const onChangeLike = () => {
-    onLike && onLike(vendor_id, idx);
+    onLike && onLike(vendor_id);
     setIsLike((prev) => !prev);
   };
-
-  // useEffect(() => {
-  //   if(window?.localStorage){
-  //     const product = JSON.parse(localStorage.getItem("productList") as string).find((product: any) => product.vendor_id === vendor_id) ;
-  //     // product.like = true;
-  //     // localStorage.setItem("productList",JSON.stringify(product))
-  //     console.log(product)
-  //   }
-  // }, [isLike])
 
   return (
     <div className={cx.wrapper}>
@@ -70,7 +60,17 @@ const ProductCard = ({
       >
         <Text size="thin">быстрый просмотр</Text>
       </Button>
-      <PreviewProductModal visible={visibleModal} onClose={onCloseModal} />
+      <PreviewProductModal
+        visible={visibleModal}
+        onClose={onCloseModal}
+        price={price}
+        sale={sale}
+        name={name}
+        main_image={main_image}
+        onChangeLike={onChangeLike}
+        isLike={isLike}
+        description={description}
+      />
       <span
         className={classNames(cx.likeIcon, 'iconBnt')}
         onClick={onChangeLike}
@@ -96,7 +96,7 @@ const ProductCard = ({
         >
           в корзину
         </Button>
-        <Heading tag="h3">{price} ₽</Heading>
+        <Heading tag="h3">{price - sale} ₽</Heading>
       </div>
     </div>
   );

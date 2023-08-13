@@ -12,16 +12,16 @@ import { likeRequest } from "@/network/rest/like";
 
 const imgs = [product1];
 
-for (let i = 0; i < 12; i++) {
-  mockData.push({
-    name: 'Блузка женская “Лэйди”',
-    vendor_id: i,
-    brand: 'Befree',
-    price: randomInteger(499, 10000),
-    main_image: imgs[randomInteger(0, imgs.length - 1)],
-    like: i % 3 === 0,
-  });
-}
+// for (let i = 0; i < 12; i++) {
+//   mockData.push({
+//     name: 'Блузка женская “Лэйди”',
+//     vendor_id: i,
+//     brand: 'Befree',
+//     price: randomInteger(499, 10000),
+//     main_image: imgs[randomInteger(0, imgs.length - 1)],
+//     like: i % 3 === 0,
+//   });
+// }
 
 export const getProductListAction = createAsyncThunk(
   `${PRODUCT_LIST_ALIAS}/fetch`,
@@ -47,6 +47,7 @@ export const getLikedProductListAction = createAsyncThunk(
       const response = await getLikedProductsRequest();
 
       try {
+        // TODO: здесь должны приходить нормальные товары, а не костыльные id, тогда будет корректно работать
         localStorage.setItem("likedProducts",JSON.stringify(response.data))
       } catch (error) {}
     

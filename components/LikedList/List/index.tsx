@@ -15,6 +15,7 @@ const List = ({ dataSource }: IProps) => {
           <ProductCard
             key={product.vendor_id}
             {...product}
+            like={true}
             onLike={(vendor_id) => console.log(`on like ${vendor_id}`)}
             onAddToBasket={(vendor_id) =>
               console.log('on add basket', vendor_id)

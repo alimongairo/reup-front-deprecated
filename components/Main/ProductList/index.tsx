@@ -12,9 +12,10 @@ import { getUserDataSource } from '@/store/user/selectors';
 
 interface IProps {
   productList: TProductItem[];
+  isLikedList?: boolean;
 }
 
-const ProductsList = ({ productList }: IProps) => {
+const ProductsList = ({ productList, isLikedList }: IProps) => {
   const dispatch = useAppDispatch();
   const user = useAppSelector(getUserDataSource); // uid
 
@@ -65,7 +66,7 @@ const ProductsList = ({ productList }: IProps) => {
         price={product.price}
         sale={product.sale}
         main_image={product.main_image}
-        like={product.like}
+        like={isLikedList ? true : product.like}
         description={product.description}
       />
     );

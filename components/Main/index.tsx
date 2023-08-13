@@ -12,7 +12,10 @@ import ReupChoosen from '@/components/Main/ReupChoosen';
 
 import { useAppDispatch, useAppSelector } from '@/hooks/store';
 import { getProductListDataSource } from '@/store/productList/selectors';
-import { getProductListAction } from '@/store/productList/thunk';
+import {
+  getLikedProductListAction,
+  getProductListAction,
+} from '@/store/productList/thunk';
 import cx from './index.module.scss';
 
 const MainPageComponents = () => {
@@ -41,12 +44,11 @@ const MainPageComponents = () => {
       if (likedProducts) {
         setLikedProducts(likedProducts);
       } else {
-        // TODO: то, что получаем из эндпоинта
-        setLikedProducts([]);
-        // dispatch
+        dispatch(getLikedProductListAction());
       }
     } else {
       dispatch(getProductListAction());
+      dispatch(getLikedProductListAction());
     }
   }, []);
 
@@ -100,7 +102,7 @@ const MainPageComponents = () => {
       {/* TODO: здесь понравившиеся */}
       <div className={classNames(cx.text, cx.left)}>
         <Heading>мне нравится</Heading>
-        <ProductsList productList={likedProductsArr} />
+        <ProductsList productList={likedProductsArr} isLikedList={true} />
       </div>
       <Marquee gradient={false} speed={60}>
         <span className={cx.marquee}>

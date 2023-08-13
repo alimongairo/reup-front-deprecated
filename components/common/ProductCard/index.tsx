@@ -96,7 +96,7 @@ const ProductCard = ({
         >
           в корзину
         </Button>
-        <Heading tag="h3">{price - sale} ₽</Heading>
+        <Heading tag="h3">{sale ? price - sale : price} ₽</Heading>
       </div>
     </div>
   );

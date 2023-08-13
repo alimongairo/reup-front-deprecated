@@ -1,56 +1,55 @@
 import { useState, memo } from 'react';
 import classNames from 'classnames';
-
 import cx from './index.module.scss';
 
+import Image from 'next/image';
+
+import downArrow from '@/static/icons/downArrowSmall.svg';
+import upArrow from '@/static/icons/upArrowSmall.svg';
+
 export interface ISelectOption {
-  id: number;
   label: string;
-  value: number;
+  value: string;
 }
 
 export interface ISelect {
-  title: string;
+  label?: string;
   options: ISelectOption[];
-  onSelect?: (value: ISelectOption['value'] | undefined) => void;
-  initValue?: ISelectOption['value'];
+  onChange: any;
+  value: string | number;
 }
 
-const Select = ({ title, initValue, options, onSelect }: ISelect) => {
-  const [value, setValue] = useState(initValue);
-  const [ddVisible, setDdVisible] = useState(false);
+const Select = ({ label, options, onChange, value }: ISelect) => {
+  const [open, setOpen] = useState(false);
 
-  const onMouseEnter = () => {
-    setDdVisible(true);
-  };
-
-  const onSelectValue = (selectedValue: ISelectOption['value']) => {
-    const newValue =
-      value && selectedValue === value ? undefined : selectedValue;
-
-    if (onSelect) {
-      onSelect(newValue);
-    }
-    setValue(newValue);
+  const onSelect = (newValue: ISelectOption) => {
+    onChange(newValue.value);
   };
 
   return (
     <div
       className={cx.wrapper}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={() => setDdVisible(false)}
+      onClick={() => setOpen(!open)}
+      onMouseLeave={() => setOpen(false)}
     >
-      <div className={cx.title}>{value ? value : title}</div>
-      <div className={classNames(cx.dd, ddVisible && cx.ddVisible)}>
-        {options.map((option) => {
+      <div className={cx.content}>
+        {value ? (
+          <div>{options.find((el) => el.value === value)?.label}</div>
+        ) : (
+          <div className={cx.label}>{label}</div>
+        )}
+        <Image src={open ? downArrow : upArrow} alt="arrow" />
+      </div>
+      <div className={classNames(cx.dropdown, open && cx.visible)}>
+        {options.map((option, i) => {
           return (
             <div
               className={classNames(
                 cx.option,
                 value === option.value && cx.selected,
               )}
-              key={option.id}
-              onClick={() => onSelectValue(option.value)}
+              key={i}
+              onClick={() => onSelect(option)}
             >
               {option.label}
             </div>
@@ -61,4 +60,4 @@ const Select = ({ title, initValue, options, onSelect }: ISelect) => {
   );
 };
 
-export default memo(Select);
+export default Select;

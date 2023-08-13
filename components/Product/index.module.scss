@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+
+  .formWrapper {
+    padding: 72px 154px;
+
+    .confirm {
+      display: flex;
+      justify-content: right;
+      padding-top: 16px;
+    }
+  }
+}

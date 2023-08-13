@@ -9,7 +9,7 @@ import SearchHistory from '@/layouts/MainLayout/Header/Search/SearchHistory';
 import Products from '@/layouts/MainLayout/Header/Search/Products';
 
 import { EPagesRoutes } from '@/constants/router';
-import searchLogo from '@/static/icons/serch.svg';
+import searchLogo from '@/static/icons/search.svg';
 import close from '@/static/icons/close.svg';
 
 import cx from './index.module.scss';

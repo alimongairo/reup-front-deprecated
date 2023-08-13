@@ -1,0 +1,19 @@
+.container {
+  padding: 50px;
+
+  .content {
+    display: flex;
+    padding-top: 32px;
+
+    .mainImage {
+      min-width: 325px;
+    }
+
+    .images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding-left: 24px;
+    }
+  }
+}

@@ -1,9 +1,11 @@
 .common {
-  width: 174px;
-  height: 236px;
-  background-color: #e8e8e8;
-  border: 0px;
-  padding: 50px 24px 118px 24px;
+  button {
+    width: 174px;
+    height: 236px;
+    background-color: #e8e8e8;
+    border: 0px;
+    padding: 50px 24px 118px 24px;
+  }
 
   .titleBox {
     display: flex;
@@ -20,11 +22,13 @@
 }
 
 .main {
-  width: 325px;
-  height: 496px;
-  background-color: #e8e8e8;
-  border: 0px;
-  padding: 50px 24px 318px 24px;
+  button {
+    width: 325px;
+    height: 496px;
+    background-color: #e8e8e8;
+    border: 0px;
+    padding: 50px 24px 318px 24px;
+  }
 
   .titleBox {
     display: flex;

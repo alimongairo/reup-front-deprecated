@@ -83,6 +83,8 @@ const ProductLayout = () => {
   const router = useRouter();
   const [state, setState] = useState<Product>(initState);
 
+  // TODO сделать обработку sizes в зависимости от sizeType данных с сервера
+
   return (
     <div className={cx.wrapper}>
       <CancelButton onClick={() => router.push(EPagesRoutes.Stock)} />

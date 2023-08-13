@@ -42,15 +42,17 @@ const ImageUpload = ({ main, value, onChange }: Props) => {
         </div>
       </div>
     ) : (
-      <Button className={cx.main} onClick={handleClick}>
-        <div className={cx.titleBox}>
-          <div>+</div>
-          <div className={cx.title}>добавить фото обложки</div>
-        </div>
-        <div className={cx.titleBox} style={{ marginTop: '10px' }}>
-          <div>обложкой может быть только фотография</div>
-        </div>
-      </Button>
+      <div className={cx.main}>
+        <Button onClick={handleClick}>
+          <div className={cx.titleBox}>
+            <div>+</div>
+            <div className={cx.title}>добавить фото обложки</div>
+          </div>
+          <div className={cx.titleBox} style={{ marginTop: '10px' }}>
+            <div>обложкой может быть только фотография</div>
+          </div>
+        </Button>
+      </div>
     );
   }
 
@@ -67,16 +69,18 @@ const ImageUpload = ({ main, value, onChange }: Props) => {
       </div>
     </div>
   ) : (
-    <Button className={cx.common} onClick={handleClick}>
-      <div className={cx.titleBox}>
-        <div>+</div>
-        <div className={cx.title}>
-          фото
-          <br />
-          видео
+    <div className={cx.common}>
+      <Button onClick={handleClick}>
+        <div className={cx.titleBox}>
+          <div>+</div>
+          <div className={cx.title}>
+            фото
+            <br />
+            видео
+          </div>
         </div>
-      </div>
-    </Button>
+      </Button>
+    </div>
   );
 };
 

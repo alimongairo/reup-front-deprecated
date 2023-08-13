@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import classNames from 'classnames';
-import leftArrow from 'static/icons/leftArrow.svg';
+import leftArrow from '@/static/icons/leftArrow.svg';
 import cx from './index.module.scss';
 import Image from 'next/image';
 

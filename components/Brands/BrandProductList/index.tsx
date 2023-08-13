@@ -6,10 +6,10 @@ import cx from './index.module.scss';
 import img from '@/static/img/product1.png';
 
 const mockData = {
-  id: 1,
-  title: 'title 1',
-  like: false,
-  imgSource: img,
+  vendor_id: 1,
+  name: 'title 1',
+  like: !Math.round(Math.random()),
+  main_image: img,
   brand: 'brand',
   price: 123,
 };

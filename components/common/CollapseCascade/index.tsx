@@ -8,7 +8,7 @@ import {
 import { CheckboxGroup } from '@/components/common/Checkbox';
 import Heading from '@/components/common/Heading';
 
-import leftArrow from 'static/icons/leftArrow.svg';
+import leftArrow from '@/static/icons/leftArrow.svg';
 import cx from './index.module.scss';
 import Image from 'next/image';
 import classNames from 'classnames';

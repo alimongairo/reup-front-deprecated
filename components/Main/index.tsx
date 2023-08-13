@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Marquee from 'react-fast-marquee';
 import classNames from 'classnames';
 
@@ -12,17 +12,76 @@ import ReupChoosen from '@/components/Main/ReupChoosen';
 
 import { useAppDispatch, useAppSelector } from '@/hooks/store';
 import { getProductListDataSource } from '@/store/productList/selectors';
-import { getProductListAction } from '@/store/productList/thunk';
-
+import {
+  getLikedProductListAction,
+  getProductListAction,
+} from '@/store/productList/thunk';
 import cx from './index.module.scss';
 
 const MainPageComponents = () => {
   const dispatch = useAppDispatch();
-  const newProducts = useAppSelector(getProductListDataSource);
+  const storeProducts = useAppSelector(getProductListDataSource);
+
+  const [newProducts, setNewProducts] = useState([]);
+  const [likedProductsArr, setLikedProducts] = useState([]);
 
   useEffect(() => {
-    dispatch(getProductListAction());
+    if (window?.localStorage) {
+      const likedProducts = JSON.parse(
+        localStorage.getItem('likedProducts') as string,
+      );
+
+      const productList = JSON.parse(
+        localStorage.getItem('productList') as string,
+      );
+
+      if (productList && productList.length > 0) {
+        setNewProducts(productList);
+      } else {
+        dispatch(getProductListAction());
+      }
+
+      if (likedProducts) {
+        setLikedProducts(likedProducts);
+      } else {
+        dispatch(getLikedProductListAction());
+      }
+    } else {
+      dispatch(getProductListAction());
+      dispatch(getLikedProductListAction());
+    }
   }, []);
+
+  useEffect(() => {
+    if (window?.localStorage && localStorage.getItem('productList')) {
+      // в локальное мы записали в экшене
+      setNewProducts(JSON.parse(localStorage.getItem('productList') as string));
+    }
+  }, [storeProducts]);
+
+  useEffect(() => {
+    if (newProducts.length === 0) return;
+    if (window?.localStorage) {
+      const likedProducts = JSON.parse(
+        localStorage.getItem('likedProducts') as string,
+      );
+
+      if (!likedProducts || likedProducts.length < 1) return;
+
+      const accNewProducts = newProducts;
+      accNewProducts.map((item: any) => {
+        if (
+          likedProducts.find(
+            (itemLiked: any) => itemLiked.product_id == item.product_id,
+          )
+        ) {
+          item.like = true;
+        }
+      });
+
+      localStorage.setItem('productList', JSON.stringify(accNewProducts));
+    }
+  }, [newProducts]);
 
   return (
     <div className={cx.main}>
@@ -40,15 +99,17 @@ const MainPageComponents = () => {
       </div>
       <Collections />
 
+      {/* TODO: здесь понравившиеся */}
       <div className={classNames(cx.text, cx.left)}>
         <Heading>мне нравится</Heading>
-        <ProductsList productList={newProducts} />
+        <ProductsList productList={likedProductsArr} isLikedList={true} />
       </div>
       <Marquee gradient={false} speed={60}>
         <span className={cx.marquee}>
           акции скидки акции скидки акции скидки акции скидки
         </span>
       </Marquee>
+
       <ProductsList productList={newProducts} />
       <SaleSector />
     </div>

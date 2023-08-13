@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -11,36 +11,44 @@ import PreviewProductModal from '@/components/common/ProductCard/PreviewProductM
 import { TProductItem } from '@/store/productList/type';
 import { EPagesRoutes } from '@/constants/router';
 
-import Like from '@/static/icons/like.svg';
+import LikeSvg from '@/static/icons/LikeSvg';
 
 import cx from './index.module.scss';
 
 // TODO replace imgSource to url
 
 type IProps = {
-  onLike?: (id: number) => void;
+  onLike?: (pid: number) => void;
   onAddToBasket?: (id: number) => void;
 } & TProductItem;
 
 const ProductCard = ({
-  id,
-  title,
+  vendor_id,
+  name,
   like,
-  imgSource,
+  main_image,
   brand,
   price,
+  sale,
+  description,
   onLike,
   onAddToBasket,
 }: IProps) => {
   const [visibleModal, setVisibleModal] = useState(false);
   const router = useRouter();
+  const [isLike, setIsLike] = useState(like);
 
   const goToProductDetail = () => {
-    router.push(`${EPagesRoutes.ProductDetail}/${id}`);
+    router.push(`${EPagesRoutes.ProductDetail}/${vendor_id}`);
   };
 
   const onCloseModal = () => {
     setVisibleModal(false);
+  };
+
+  const onChangeLike = () => {
+    onLike && onLike(vendor_id);
+    setIsLike((prev) => !prev);
   };
 
   return (
@@ -52,31 +60,43 @@ const ProductCard = ({
       >
         <Text size="thin">быстрый просмотр</Text>
       </Button>
-      <PreviewProductModal visible={visibleModal} onClose={onCloseModal} />
+      <PreviewProductModal
+        visible={visibleModal}
+        onClose={onCloseModal}
+        price={price}
+        sale={sale}
+        name={name}
+        main_image={main_image}
+        onChangeLike={onChangeLike}
+        isLike={isLike}
+        description={description}
+      />
       <span
         className={classNames(cx.likeIcon, 'iconBnt')}
-        onClick={() => onLike && onLike(id)}
+        onClick={onChangeLike}
       >
-        <Image src={Like} alt="like" width={20} />
+        <LikeSvg isActive={isLike} />
       </span>
       <Image
-        src={imgSource}
-        alt={title}
+        src={main_image}
+        width={317}
+        height={380}
+        alt={name}
         className={cx.productImg}
         onClick={goToProductDetail}
       />
       <div className={cx.text}>
-        <Heading tag="h3">{title}</Heading>
+        <Heading tag="h3">{name}</Heading>
         <Text size="thin">{brand}</Text>
       </div>
       <div className={cx.actions}>
         <Button
           className={cx.toBasket}
-          onClick={() => onAddToBasket && onAddToBasket(id)}
+          onClick={() => onAddToBasket && onAddToBasket(vendor_id)}
         >
           в корзину
         </Button>
-        <Heading tag="h3">{price} ₽</Heading>
+        <Heading tag="h3">{sale ? price - sale : price} ₽</Heading>
       </div>
     </div>
   );

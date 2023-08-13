@@ -23,6 +23,7 @@ const Slider = ({ slides }: IProps) => {
               className={cx.slide}
               key={slide.id}
               style={{ transform: `translateX(-${activeSlide * 100}%)` }}
+              fill
             />
           );
         })}

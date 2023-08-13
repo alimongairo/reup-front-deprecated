@@ -13,7 +13,9 @@ import brandSettingReducer from '@/store/brandSetting/slice';
 
 export const makeStore = () =>
   configureStore({
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+      serializableCheck: false,
+    }),
     reducer: {
       productList: productListReducer,
       basket: basketReducer,

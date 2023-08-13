@@ -13,10 +13,13 @@ const List = ({ dataSource }: IProps) => {
       {dataSource.map((product) => {
         return (
           <ProductCard
-            key={product.id}
+            key={product.vendor_id}
             {...product}
-            onLike={(id) => console.log(`on like ${id}`)}
-            onAddToBasket={(id) => console.log('on add basket', id)}
+            like={true}
+            onLike={(vendor_id) => console.log(`on like ${vendor_id}`)}
+            onAddToBasket={(vendor_id) =>
+              console.log('on add basket', vendor_id)
+            }
           />
         );
       })}

@@ -7,10 +7,13 @@ export type TProductListStore = {
 };
 
 export type TProductItem = {
-  title: string;
-  id: number;
+  name: string;
+  vendor_id: number;
+  product_id?: number;
   brand: string;
   price: number;
-  imgSource: any; // TODO replace to url
+  sale?: number;
+  description?: string;
+  main_image: any; // TODO replace to url
   like?: boolean;
 };

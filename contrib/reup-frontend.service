@@ -1,0 +1,21 @@
+[Unit]
+Description=Uvicorn systemd service.
+After=network.target
+
+[Service]
+StartLimitInterval=0
+Type=simple
+ExecStart=/bin/npm run dev --prefix /usr/local/reup-frontend/
+User=reup
+Group=reup
+WorkingDirectory=/var/run/reup-frontend
+ExecReload=/bin/kill -s HUP $MAINPID
+KillMode=mixed
+TimeoutStopSec=5
+PrivateTmp=true
+RestartSec=1
+Restart=always
+
+
+[Install]
+WantedBy=multi-user.target
